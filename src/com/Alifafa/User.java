@@ -1,4 +1,4 @@
-package main;
+package com.Alifafa;
 
 public class User {
 }
