@@ -13,9 +13,9 @@ public class Message {
     //The content of this message.
     private final String CONTENT;
     //The sender of this message.
-    private final MessageManageable SENDER;
+    private final MessageStorable SENDER;
     //The receiver of this message.
-    private final MessageManageable RECEIVER;
+    private final MessageStorable  RECEIVER;
 
 
     /**
@@ -25,7 +25,7 @@ public class Message {
      * @param content the content of this message.
      *
      */
-    public Message(MessageManageable sender, MessageManageable receiver, String content){
+    public Message(MessageStorable  sender, MessageStorable  receiver, String content){
         this.SENDER = sender;
         this.RECEIVER = receiver;
         this.CONTENT = content;
@@ -58,7 +58,7 @@ public class Message {
      *
      * @return the sender of this message.
      */
-    public MessageManageable getSender(){
+    public MessageStorable  getSender(){
         return SENDER;
     }
 
@@ -68,7 +68,11 @@ public class Message {
      *
      * @return the receiver of this message.
      */
-    public MessageManageable getReceiver(){
+    public MessageStorable  getReceiver(){
         return RECEIVER;
+    }
+
+    public String toString (){
+        return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
     }
 }

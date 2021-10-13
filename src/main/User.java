@@ -3,9 +3,9 @@ package main;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class User implements MessageManageable{
+public class User implements MessageStorable{
 
-    private HashMap<User, ArrayList<Message>> PtoPMessageHistory;
+    private final HashMap<User, ArrayList<Message>> PtoPMessageHistory;
 
     public User(){
         this.PtoPMessageHistory = new HashMap<>();
