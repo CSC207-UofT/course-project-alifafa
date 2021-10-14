@@ -91,10 +91,14 @@ public class User {
 
     public void removeFriend (User friend){
         //Remove friend from the list friends
-        for (int i = 0; i < this.friends.length; i++){
+        int k = this.friends.size() + 1;
+        for (int i = 0; this.friends.size() > i; i++){
             if (this.friends.get(i).equals(friend)){
-
+                k = i;
             }
+        }
+        if (k < this.friends.size()) {
+            this.friends.remove(k);
         }
     }
 }

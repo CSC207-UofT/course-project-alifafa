@@ -13,9 +13,7 @@ Return user with given ID
 Change Username
 Change Password
 Add Friend, Remove Friend
-Join Group, Quit Group
 Return user’s request list.
-Return if the userA has a friend called userB.
  */
 public class UserManager{
 
@@ -112,6 +110,14 @@ public class UserManager{
         user.addFriend(friend);
     }
 
+    public void removeFriend (User user, User friend) {
+        //Remove friend from the list friends
+        user.removeFriend(friend);
+    }
 
+    public ArrayList<String> getAddFriendRequests(User user) {
+        //Return user’s request list.
+        return user.getAddFriendRequests();
+    }
 }
 
