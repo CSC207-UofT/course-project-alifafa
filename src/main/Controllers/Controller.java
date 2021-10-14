@@ -1,5 +1,10 @@
 package main.Controllers;
 
+import main.UseCases.UseCase;
+import main.inputBoundaries.InputBoundary;
+
+import java.util.ArrayList;
+
 /**
  * This is the parent class for all the controllers related to the user manager.
  *
@@ -8,5 +13,15 @@ package main.Controllers;
  */
 
 public abstract class Controller{
+    protected ArrayList<String> userPrompt;
+    protected UseCase useCase;
+
+    public ArrayList<String> getUserPrompt() {
+        return userPrompt;
+    }
+
+    public int numOfPrompt(){
+        return userPrompt.size();
+    }
 }
 

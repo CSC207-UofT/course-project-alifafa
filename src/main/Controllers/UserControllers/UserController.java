@@ -1,6 +1,7 @@
 package main.Controllers.UserControllers;
 
 import main.Controllers.Controller;
+import main.UseCases.UseCase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,15 +9,18 @@ import java.util.Arrays;
 /** This abstract class is the parent class for all UserController.
  *
  */
-public abstract class UserController extends Controller {
+public class UserController extends Controller {
 
-    protected ArrayList<String> userPrompt;
+    public UserController(UseCase useCase){
 
-    public UserController(){
-        userPrompt = new ArrayList<String>();
+        userPrompt = new ArrayList<>();
+        this.useCase = useCase;
     }
 
     public ArrayList<String> getUserPrompt() {
         return userPrompt;
     }
+
+
+
 }

@@ -1,5 +1,6 @@
 package main.Controllers.UserControllers;
 
+import main.UseCases.UseCase;
 import main.UserManager;
 
 import java.util.ArrayList;
@@ -12,26 +13,27 @@ import java.util.List;
  */
 public class LogInController extends UserController{
 
-    public LogInController(){
-        super();
+    public LogInController(UserManager userManager){
+        super(userManager);
         this.userPrompt.add("Username");
         this.userPrompt.add("Password");
     }
 
     /**
      *
-     * @param manager UserManager that is responsible for getting the user's password.
-     * @param input The input from the user, which is an array that contains userID and input password.
+     * @param parameters The input from the user, which is an array that contains userID and input password.
      * @return return a boolean indicating whether the user can log in.
      */
-    public boolean checkMatch(UserManager manager, String[] input){
-        String password = manager.logIn(input[0]);
+    public boolean checkMatch(String[] parameters) {
+        UserManager manager = (UserManager)this.useCase;
+        String password = manager.findPassword(parameters[0]);
         if (password != null) {
-            if (password.equals(input[1])) {
-                manager.changeLogInStatus(input[0]);
+            if (password.equals(parameters[1])) {
+                manager.changeLogInStatus(parameters[0]);
                 return true;
             }
         }
         return false;
     }
+
 }
