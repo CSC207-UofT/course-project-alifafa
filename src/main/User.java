@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class User {
     //TODO: avatar, chat, mypost
-    private int iD;
+    private final int iD;
     private String userName;
     private String password;
     private ArrayList<User> friends;
@@ -64,6 +64,38 @@ public class User {
 
     public boolean getLoggedIn() {
         return this.loggedIn;
+    }
+
+    public void changeLoggedInStatus() {
+        //Change LogIn status of the user with given id.
+        if (this.loggedIn){
+            this.loggedIn = false;
+        }
+        this.loggedIn = true;
+    }
+
+    public void changeUserName (String userName){
+        //Change the userName to new userName
+        this.userName = userName;
+    }
+
+    public void changePassword (String password){
+        //Change the password to new password
+        this.password = password;
+    }
+
+    public void addFriend (User friend){
+        //Add friend to the list friends
+        this.friends.add(friend);
+    }
+
+    public void removeFriend (User friend){
+        //Remove friend from the list friends
+        for (int i = 0; i < this.friends.length; i++){
+            if (this.friends.get(i).equals(friend)){
+
+            }
+        }
     }
 }
 
