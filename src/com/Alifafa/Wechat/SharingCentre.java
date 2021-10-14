@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SharingCentre {
-    private List<Post> allPosts;
+    private List<ParagraphPost> allPosts;
     private List<Notification> notificationList;
     private boolean newPostNotification;
 
     public SharingCentre() {
-        this.allPosts = new ArrayList<Post>();
+        this.allPosts = new ArrayList<ParagraphPost>();
         this.notificationList = new ArrayList<Notification>();
         this.newPostNotification = false;
     }
 
-    public List<Post> getAllPosts() {
+    public List<ParagraphPost> getAllPosts() {
         return allPosts;
     }
 
-    public void setAllPosts(List<Post> allPosts) {
+    public void setAllPosts(List<ParagraphPost> allPosts) {
         this.allPosts = allPosts;
     }
 
