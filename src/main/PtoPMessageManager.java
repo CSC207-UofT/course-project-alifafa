@@ -21,12 +21,15 @@ public class PtoPMessageManager {
 
 
     /**
-     * Returns an Arraylist containing all messages between receiver and sender.
+     * Prints all messages between receiver and sender.
      * @param receiver the user who wants to receive all messages between receiver and sender.
      * @param sender the user who sends messages to the receiver.
      */
-    public ArrayList<Message> receiveMessageHistory(User receiver, User sender){
-        return receiver.getMessage(sender);
+    public void receiveMessageHistory(User receiver, User sender){
+        ArrayList<Message> history = receiver.getMessage(sender);
+        for (Message m: history){
+            System.out.println(m);
+        }
     }
 
 
