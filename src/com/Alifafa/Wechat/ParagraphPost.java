@@ -6,7 +6,11 @@ import java.util.List;
 
 public class ParagraphPost {
     private final Date POSTTIME;
-    private List editHistory;
+    private List editHistory;   // TODO: Didn't understand why we need this and what's it for
+    /** TODO: Is <visibleTo> a string or a boolean value or some obj? In Wechat,
+     *   we can choose who can see the post and how many days the post can be seen
+     *    by others.
+     */
     private String visibleTo;
     private List comments;
     private List draftList;
