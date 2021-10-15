@@ -5,31 +5,26 @@ import java.util.Date;
 import java.util.List;
 
 public class ParagraphPost {
-    private final Date POSTTIME;
-    private List editHistory;   // TODO: Didn't understand why we need this and what's it for
-    /** TODO: Is <visibleTo> a string or a boolean value or some obj? In Wechat,
-     *   we can choose who can see the post and how many days the post can be seen
-     *    by others.
-     */
+    private final Date POSTTIME; // 这玩意儿可以这么写吗, 为啥红了
     private String visibleTo;
     private List comments;
-    private List draftList;
-    private String content;
+    private ParagraphPost draft;
+    private String description;
 
-    public ParagraphPost(Date POSTTIME, String visibleTo, String LOCATION, String content) {
+    public ParagraphPost(Date POSTTIME, String visibleTo, String LOCATION, String description) {
         this.POSTTIME = POSTTIME;
         this.visibleTo = visibleTo;
         this.LOCATION = LOCATION;
-        this.content = content;
-        this.editHistory = new ArrayList<>();
+        this.description = description;
         this.comments = new ArrayList<String>();
         likes = 0;
-        this.draftList = new ArrayList<ParagraphPost>();
+        this.draft = new ParagraphPost();
     }
 
-    public void setEditHistory(List editHistory) {
-        this.editHistory = editHistory;
+    public ParagraphPost(){
+
     }
+
 
     public void setVisibleTo(String visibleTo) {
         this.visibleTo = visibleTo;
@@ -43,12 +38,12 @@ public class ParagraphPost {
         this.comments = comments;
     }
 
-    public void setDraftList(List draftList) {
-        this.draftList = draftList;
+    public void setDraft(ParagraphPost draft) {
+        this.draft = draft;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     private final String LOCATION;
@@ -56,10 +51,6 @@ public class ParagraphPost {
 
     public Date getPOSTTIME() {
         return POSTTIME;
-    }
-
-    public List getEditHistory() {
-        return editHistory;
     }
 
     public String getVisibleTo() {
@@ -78,12 +69,12 @@ public class ParagraphPost {
         return comments;
     }
 
-    public List getDraftList() {
-        return draftList;
+    public ParagraphPost getDraftList() {
+        return draft;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
 }
