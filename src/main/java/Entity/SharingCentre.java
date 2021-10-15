@@ -1,4 +1,4 @@
-package entities;
+package Entity;
 
 import javax.management.Notification;
 import java.util.ArrayList;
