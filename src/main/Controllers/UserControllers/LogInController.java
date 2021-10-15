@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class LogInController extends UserController{
 
-    public LogInController(UserManager userManager){
-        super(userManager);
+    public LogInController(){
+        super(new UserManager());
         this.userPrompt.add("Username");
         this.userPrompt.add("Password");
     }

@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class MessageFriendController extends UserController {
 
-    public MessageFriendController(UserManager userManager) {
-        super(userManager);
+    public MessageFriendController() {
+        super(new UserManager());
         this.userPrompt.add("Friend's username");
     }
 

@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class AccountRegistrationController extends UserController{
 
-    public AccountRegistrationController(UserManager userManager){
-        super(userManager);
+    public AccountRegistrationController(){
+        super(new UserManager());
         this.userPrompt.add("ID");
         this.userPrompt.add("Username");
         this.userPrompt.add("Password");
