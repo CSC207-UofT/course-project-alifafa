@@ -1,4 +1,4 @@
-package com.Alifafa.Wechat;
+package com.Alifafa.Wechat.main;
 
 import javax.management.Notification;
 import java.util.ArrayList;

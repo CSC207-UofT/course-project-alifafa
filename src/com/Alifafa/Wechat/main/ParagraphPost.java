@@ -1,4 +1,4 @@
-package com.Alifafa.Wechat;
+package com.Alifafa.Wechat.main;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +15,8 @@ public class ParagraphPost {
     private List comments;
     private List draftList;
     private String content;
+    private final String LOCATION;
+    private static int likes;
 
     public ParagraphPost(Date POSTTIME, String visibleTo, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
@@ -50,9 +52,6 @@ public class ParagraphPost {
     public void setContent(String content) {
         this.content = content;
     }
-
-    private final String LOCATION;
-    private static int likes;
 
     public Date getPOSTTIME() {
         return POSTTIME;
