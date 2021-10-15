@@ -1,4 +1,4 @@
-package com.Alifafa.Wechat;
+package entities;
 
 import java.util.Date;
 
