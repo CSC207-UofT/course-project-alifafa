@@ -14,7 +14,7 @@ public class PtoPMessageManager {
      * @param receiver the user who wants to receive a message.
      * @param message the message sent from sender to receiver
      */
-    public  void sendMessage(User sender, User receiver, Message message){
+    public  void sendMessage(User sender, User receiver, PtoPMessage message){
         sender.addMessage(receiver, message);
         receiver.addMessage(sender, message);
     }
@@ -26,8 +26,8 @@ public class PtoPMessageManager {
      * @param sender the user who sends messages to the receiver.
      */
     public void receiveMessageHistory(User receiver, User sender){
-        ArrayList<Message> history = receiver.getMessage(sender);
-        for (Message m: history){
+        ArrayList<PtoPMessage> history = receiver.getMessage(sender);
+        for (PtoPMessage m: history){
             System.out.println(m);
         }
     }
@@ -39,7 +39,7 @@ public class PtoPMessageManager {
      * @param receiver the receiver of the message.
      * @param message the message sent from sender to receiver.
      */
-    public void deleteMessage(User sender, User receiver, Message message){
+    public void deleteMessage(User sender, User receiver, PtoPMessage message){
         sender.deleteMessage(receiver, message);
         receiver.deleteMessage(sender, message);
     }
@@ -50,7 +50,7 @@ public class PtoPMessageManager {
      * @param text the text sent from sender to receiver
      * @return a message containing text sent from sender to receiver.
      */
-    public Message createMessage(User sender, User receiver, String text){
-        return new Message(sender, receiver, text);
+    public PtoPMessage createMessage(User sender, User receiver, String text){
+        return new PtoPMessage(sender, receiver, text);
     }
 }

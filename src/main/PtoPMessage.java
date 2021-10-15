@@ -2,7 +2,7 @@ package main;
 
 import java.time.LocalDateTime;
 
-public class Message {
+public class PtoPMessage {
     /**
      * A message.
      */
@@ -13,9 +13,9 @@ public class Message {
     //The content of this message.
     private final String CONTENT;
     //The sender of this message.
-    private final MessageStorable SENDER;
+    private final User SENDER;
     //The receiver of this message.
-    private final MessageStorable  RECEIVER;
+    private final User  RECEIVER;
 
 
     /**
@@ -25,7 +25,7 @@ public class Message {
      * @param content the content of this message.
      *
      */
-    public Message(MessageStorable  sender, MessageStorable  receiver, String content){
+    public PtoPMessage(User  sender, User  receiver, String content){
         this.SENDER = sender;
         this.RECEIVER = receiver;
         this.CONTENT = content;
@@ -58,7 +58,7 @@ public class Message {
      *
      * @return the sender of this message.
      */
-    public MessageStorable  getSender(){
+    public User  getSender(){
         return SENDER;
     }
 
@@ -68,7 +68,7 @@ public class Message {
      *
      * @return the receiver of this message.
      */
-    public MessageStorable  getReceiver(){
+    public User  getReceiver(){
         return RECEIVER;
     }
 

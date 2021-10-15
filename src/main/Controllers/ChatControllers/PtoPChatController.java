@@ -1,8 +1,10 @@
 package main.Controllers.ChatControllers;
 
-import main.Message;
+import main.PtoPMessage;
+import main.PtoPMessage;
 import main.PtoPMessageManager;
 import main.User;
+import main.UserManager;
 
 import java.util.ArrayList;
 
@@ -12,13 +14,13 @@ public class PtoPChatController extends ChatController{
      */
 
     private final PtoPMessageManager ptopMessageManager = new PtoPMessageManager();
-    private final UserManager userManager = new UserManger();
+    private final UserManager userManager = new UserManager();
 
     public void runChat(String senderUserID, String receiverUserID, String content){
 
         User sender = userManager.getUser(senderUserID);
         User receiver = userManager.getUser(receiverUserID);
-        Message message = ptopMessageManager.createMessage(sender, receiver, content);
+        PtoPMessage message = ptopMessageManager.createMessage(sender, receiver, content);
 
         //print old message history between sender and receiver.
        ptopMessageManager.receiveMessageHistory(sender, receiver);
