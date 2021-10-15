@@ -1,10 +1,10 @@
-package main;
+package Entity;
 
 import java.time.LocalDateTime;
 
 public class PtoPMessage {
     /**
-     * A message.
+     * A person-to-person message.
      */
 
     // === Instance Variables ===

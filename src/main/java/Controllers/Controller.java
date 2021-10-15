@@ -1,5 +1,5 @@
 
-package main.Controllers;
+package Controllers;
 
 import java.util.ArrayList;
 

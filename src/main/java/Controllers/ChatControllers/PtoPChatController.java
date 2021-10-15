@@ -1,14 +1,11 @@
-package main.Controllers.ChatControllers;
+package Controllers.ChatControllers;
 
-import main.PtoPMessage;
-import main.PtoPMessage;
-import main.PtoPMessageManager;
-import main.User;
-import main.UserManager;
+import Entity.PtoPMessage;
+import UseCase.PtoPMessageManager;
+import Entity.User;
+import UseCase.UserManager;
 
-import java.util.ArrayList;
-
-public class PtoPChatController extends ChatController{
+public class PtoPChatController extends ChatController {
     /**
      * This class is responsible for controlling messages between two users
      */

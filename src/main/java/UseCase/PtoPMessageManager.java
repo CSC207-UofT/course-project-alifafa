@@ -1,4 +1,7 @@
-package main;
+package UseCase;
+
+import Entity.PtoPMessage;
+import Entity.User;
 
 import java.util.ArrayList;
 

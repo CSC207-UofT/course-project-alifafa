@@ -1,4 +1,4 @@
-package main;
+package Entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ public class User {
     private boolean loggedIn;
     private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
-    public User (String id, String username, String password){
+    public User(String id, String username, String password){
         this.iD = id;
         this.userName = username;
         this.password = password;

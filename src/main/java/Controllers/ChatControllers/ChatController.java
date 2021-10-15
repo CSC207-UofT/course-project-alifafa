@@ -1,6 +1,7 @@
-package main.Controllers.ChatControllers;
+package Controllers.ChatControllers;
 
-import main.Controllers.Controller;
+
+import Controllers.Controller;
 
 public abstract class ChatController extends Controller {
     /**
