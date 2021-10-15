@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class User {
     //TODO: avatar, chat, mypost
-    private final int iD;
+    private final String iD;
     private String userName;
     private String password;
     private ArrayList<User> friends;
@@ -23,7 +23,7 @@ public class User {
     private ArrayList<String> addFriendRequests;
     private boolean loggedIn;
 
-    public User (int id, String username, String password){
+    public User (String id, String username, String password){
         this.iD = id;
         this.userName = username;
         this.password = password;
@@ -34,7 +34,7 @@ public class User {
         this.loggedIn = false;
     }
 
-    public int getID (){
+    public String getID (){
         return this.iD;
     }
 

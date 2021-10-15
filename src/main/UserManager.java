@@ -17,12 +17,12 @@ Return user’s request list.
  */
 public class UserManager{
 
-    public boolean checkID (int id){
+    public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not
         StoreUser store = new StoreUser();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID() == id) {
+            if (user.getID().equals(id)) {
                 return false;
             }
         }
@@ -42,7 +42,7 @@ public class UserManager{
         return true;
     }
 
-    public User createUser (int id, String userName, String password){
+    public User createUser (String id, String userName, String password){
         //Create a user
         StoreUser store = new StoreUser();
         ArrayList<User> stored = store.getAllUsers();
@@ -64,31 +64,31 @@ public class UserManager{
         return null;
     }
 
-    public String findPassword (int id){
+    public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         StoreUser store = new StoreUser();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID() == id) {
+            if (user.getID().equals(id)) {
                 return user.getPassword();
             }
         }
         return null;
     }
 
-    public void changeLogInStatus(int id){
+    public void changeLogInStatus(String id){
         //Change LogIn status of the user with given id.
         User user = this.getUser(id);
         user.changeLoggedInStatus();
     }
 
-    public User getUser (int id){
+    public User getUser (String id){
         //Return user with given ID
         StoreUser store = new StoreUser();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID() == id) {
+            if (user.getID().equals(id)) {
                 return user;
             }
         }
