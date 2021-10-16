@@ -3,6 +3,7 @@ package UseCase;
 
 import Entity.StoreUser;
 import Entity.User;
+import UseCases.UseCase;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ Change Password
 Add Friend, Remove Friend
 Return user’s request list.
  */
-public class UserManager {
+public class UserManager extends UseCase {
 
     public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not

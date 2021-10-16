@@ -1,5 +1,7 @@
-
 package Controllers;
+
+import UseCases.UseCase;
+import inputBoundaries.InputBoundary;
 
 import java.util.ArrayList;
 
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 public abstract class Controller{
     protected ArrayList<String> userPrompt;
+    protected UseCase useCase;
 
     public ArrayList<String> getUserPrompt() {
         return userPrompt;
@@ -21,3 +24,4 @@ public abstract class Controller{
         return userPrompt.size();
     }
 }
+

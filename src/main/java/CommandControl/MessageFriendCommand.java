@@ -1,6 +1,6 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.UserControllers.MessageFriendController;
+import Controllers.UserControllers.MessageFriendController;
 
 public class MessageFriendCommand extends Command{
     MessageFriendController controller = new MessageFriendController();

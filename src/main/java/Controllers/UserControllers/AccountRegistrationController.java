@@ -1,8 +1,10 @@
-package main.Controllers.UserControllers;
+package Controllers.UserControllers;
 
-import main.UseCases.UseCase;
-import main.User;
-import main.UserManager;
+import Entity.User;
+import UseCase.UserManager;
+import UseCases.UseCase;
+import Entity.User;
+import UseCase.UserManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,6 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.UserControllers.AccountRegistrationController;
+import Controllers.UserControllers.AccountRegistrationController;
 
 public class AccountRegistrationCommand extends Command{
 
@@ -11,7 +11,7 @@ public class AccountRegistrationCommand extends Command{
 
 
     /**
-     * This method is reponsible for create an account.
+     * This method is responsible for create an account.
      * @param userInput Ths user's input from keyboard, it has ID, username, password.
      */
     @Override

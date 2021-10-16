@@ -2,10 +2,11 @@ package UseCase;
 
 import Entity.PtoPMessage;
 import Entity.User;
+import UseCases.UseCase;
 
 import java.util.ArrayList;
 
-public class PtoPMessageManager {
+public class PtoPMessageManager extends UseCase {
     /**
      * A manager that can manage messages between two users.
      */

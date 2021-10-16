@@ -1,6 +1,6 @@
-package main.UseCases;
+package UseCases;
 
-import main.inputBoundaries.InputBoundary;
+import inputBoundaries.InputBoundary;
 
 public abstract class UseCase implements InputBoundary {
     /**
