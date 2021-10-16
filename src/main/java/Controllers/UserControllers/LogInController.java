@@ -15,7 +15,7 @@ public class LogInController extends UserController{
 
     public LogInController(){
         super(new UserManager());
-        this.userPrompt.add("Username");
+        this.userPrompt.add("ID");
         this.userPrompt.add("Password");
     }
 

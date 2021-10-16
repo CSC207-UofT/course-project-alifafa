@@ -58,11 +58,12 @@ public class UserManager extends UseCase {
 
 
 
-    public User findFriend (User user, String userName){
+    public User findFriend (String id, String friendID){
         //Find friend for a given user with given friend's userName.
+        User user = this.getUser(id);
         ArrayList<User> friends = user.getFriends();
         for (User i: friends){
-            if (i.getUserName().equals(userName)){
+            if (i.getID().equals(friendID)){
                 return i;
             }
         }
@@ -110,9 +111,10 @@ public class UserManager extends UseCase {
         user.changePassword(password);
     }
 
-    public void addFriend (User user, User friend){
+    public void addFriend (String id, String friendID){
         //Add friend to the list friends
-        user.addFriend(friend);
+        User user = this.getUser(id);
+        user.addFriend(this.getUser(friendID));
     }
 
     public void removeFriend (User user, User friend) {
