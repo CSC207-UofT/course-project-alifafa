@@ -13,6 +13,13 @@ public class PtoPChatController extends ChatController {
     private final PtoPMessageManager ptopMessageManager = new PtoPMessageManager();
     private final UserManager userManager = new UserManager();
 
+    public PtoPChatController(){
+        super();
+        this.userPrompt.add("My UserID");
+        this.userPrompt.add("Friend's UserID");
+        this.userPrompt.add("Message");
+    }
+
 
     /**
      * Shows previous chat history, sends message from one user to another user, then shows updated chat history
