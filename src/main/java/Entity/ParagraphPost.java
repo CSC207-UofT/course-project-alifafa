@@ -17,11 +17,11 @@ import java.util.List;
  */
 
 public class ParagraphPost {
-    private final Date POSTTIME;
+    protected Date POSTTIME;
     private String visibleTo;
     private List<String> comments;
     private String description;
-    private final String LOCATION;
+    protected String LOCATION;
     private static int likes;
     private final int POSTID;
 
