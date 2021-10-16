@@ -1,24 +1,30 @@
 package Entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ParagraphPost {
-    private final Date POSTTIME;
+    private final LocalDateTime POSTTIME;
     private String visibleTo;
     private List<String> comments;
     private String content;
     private final String LOCATION;
     private static int likes;
+    protected static int id = 0;
+    private final int postid;
 
-    public ParagraphPost(Date POSTTIME, String visibleTo, String LOCATION, String content) {
+    public ParagraphPost(LocalDateTime POSTTIME, String visibleTo, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
         this.visibleTo = visibleTo;
         this.LOCATION = LOCATION;
         this.content = content;
         this.comments = new ArrayList<String>();
+        this.postid = id;
         likes = 0;
+        id += 1;
     }
 
     public void setVisibleTo(String visibleTo) {
@@ -37,7 +43,7 @@ public class ParagraphPost {
         this.content = content;
     }
 
-    public Date getPOSTTIME() {
+    public LocalDateTime getPOSTTIME() {
         return POSTTIME;
     }
 
@@ -59,6 +65,14 @@ public class ParagraphPost {
 
     public String getContent() {
         return content;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public int getPostid() {
+        return postid;
     }
 
 }
