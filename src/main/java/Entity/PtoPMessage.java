@@ -15,7 +15,7 @@ public class PtoPMessage {
     //The sender of this message.
     private final User SENDER;
     //The receiver of this message.
-    private final User  RECEIVER;
+    private final User RECEIVER;
 
 
     /**
