@@ -1,7 +1,7 @@
-package main.Controllers.UserControllers;
+package Controllers.UserControllers;
 
-import main.Controllers.Controller;
-import main.UseCases.UseCase;
+import Controllers.Controller;
+import UseCases.UseCase;
 
 import java.util.ArrayList;
 import java.util.Arrays;

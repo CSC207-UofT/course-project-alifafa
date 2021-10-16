@@ -1,6 +1,6 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.UserControllers.AccountRegistrationController;
+import Controllers.UserControllers.AccountRegistrationController;
 
 public class AccountRegistrationCommand extends Command{
 

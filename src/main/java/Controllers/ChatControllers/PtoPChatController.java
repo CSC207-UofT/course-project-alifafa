@@ -13,6 +13,13 @@ public class PtoPChatController extends ChatController {
     private final PtoPMessageManager ptopMessageManager = new PtoPMessageManager();
     private final UserManager userManager = new UserManager();
 
+
+    /**
+     * Shows previous chat history, sends message from one user to another user, then shows updated chat history
+     * @param senderUserID sender's userID
+     * @param receiverUserID receiver's userID
+     * @param content the content of a message
+     */
     public void runChat(String senderUserID, String receiverUserID, String content){
 
         User sender = userManager.getUser(senderUserID);

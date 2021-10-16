@@ -1,6 +1,6 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.Controller;
+import Controllers.Controller;
 
 import java.util.Scanner;
 

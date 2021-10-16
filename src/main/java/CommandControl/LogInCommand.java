@@ -1,7 +1,7 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.Controller;
-import main.Controllers.UserControllers.LogInController;
+import Controllers.Controller;
+import Controllers.UserControllers.LogInController;
 
 public class LogInCommand extends Command{
 

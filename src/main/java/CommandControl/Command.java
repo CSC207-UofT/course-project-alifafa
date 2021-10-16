@@ -1,6 +1,6 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.Controller;
+import Controllers.Controller;
 
 /**
  * This is an abstract class, which is the parent to all valid commands.

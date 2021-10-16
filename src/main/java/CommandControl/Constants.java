@@ -1,8 +1,8 @@
-package main.CommandControl;
+package CommandControl;
 
-import main.Controllers.Controller;
-import main.Controllers.UserControllers.AccountRegistrationController;
-import main.Controllers.UserControllers.LogInController;
+import Controllers.Controller;
+import Controllers.UserControllers.AccountRegistrationController;
+import Controllers.UserControllers.LogInController;
 
 import java.util.HashMap;
 import java.util.Map;
