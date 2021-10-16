@@ -16,6 +16,7 @@ public class MessageFriendCommand extends Command{
     public void run(String[] userInput) {
         if(controller.checkFriend(userInput)){
             System.out.println("Please wait while we find your friend");
+            System.out.println("We have found your friend");
         } else {
             System.out.println("It seems like you don't have this contact. " +
                     "Please re-enter the information.");

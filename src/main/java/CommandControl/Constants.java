@@ -3,6 +3,7 @@ package CommandControl;
 import Controllers.Controller;
 import Controllers.UserControllers.AccountRegistrationController;
 import Controllers.UserControllers.LogInController;
+import Controllers.UserControllers.MessageFriendController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +23,13 @@ public class Constants {
 
         validCommands.put("log in", new LogInController());
         validCommands.put("create an account", new AccountRegistrationController());
+        validCommands.put("message", new MessageFriendController());
+        validCommands.put("add friend", new MessageFriendController());
 
         commandHashMap.put("log in", new LogInCommand());
         commandHashMap.put("create an account", new AccountRegistrationCommand());
+        commandHashMap.put("message", new MessageFriendCommand());
+        commandHashMap.put("add friend", new AddFriendCommand());
     }
 
 
