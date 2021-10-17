@@ -23,7 +23,7 @@ public class CommandUI {
         String command = null;
         while (!valid) {
             System.out.println("Hello! Please type a valid command to begin (eg. type 'log in', 'message', " +
-                    "'create an account', 'add friend')");
+                    "'create an account', 'add friend', 'chat')");
             Scanner scanner = new Scanner(System.in);
             command = scanner.nextLine();
             valid = commandExecutor.isValid(command, validCommands);
@@ -44,15 +44,12 @@ public class CommandUI {
         Scanner scanner = new Scanner(System.in);
         Controller controller = constants.getController(task);
         int numParametersNeeded = controller.numOfPrompt();
-        String[] userInput = new String[numParametersNeeded + 1];
+        String[] userInput = new String[numParametersNeeded];
         System.out.println("You need to enter " + numParametersNeeded + " pieces of information");
         for(int i = 0; i < numParametersNeeded; i++) {
             System.out.println("Enter your " + controller.getUserPrompt().get(i));
             userInput[i] = scanner.nextLine();
         }
-        System.out.println("please enter your ID");
-        userInput[numParametersNeeded] = scanner.nextLine();
-        System.out.println("Thank you! Please wait while we process your information.");
         return userInput;
     }
 

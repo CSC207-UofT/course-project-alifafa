@@ -15,6 +15,7 @@ public class MessageFriendController extends UserController {
 
     public MessageFriendController() {
         super(new UserManager());
+        this.userPrompt.add("Your ID");
         this.userPrompt.add("Friend's ID");
     }
 
