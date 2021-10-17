@@ -21,7 +21,7 @@ All the Users are stored in an entity class called StoreUser. All the commands a
 ## Group Working and Planning:
 **Lucas Lei**: Have worked on finishing the specification of our application, the CRC card formatting and some entity and usecase classes, and the coding part of the `SharingCentre`, `ParagraphPost`, and `Notifications` classes. I’m planning to work on `PostManager` use case class, `SharingCentre` controllers, add few more test cases to our code, elaborate the current code, and find resources to help us create a GUI for our application.
 
-**Stephanie Chen**:
+**Stephanie Chen**: Worked on the following classes: PicturePost, ParagraphPost, and PostManager. Plan to continue working on features related to Posts and sharing centre for Alichat and finish implementing methods in the above classes. 
 
 **Zhiqi Zhao**: Current working: PtoPMessage class, PtoPMessageManager class, ChatController class, PtoPChatController class.These classes all help to realize the person-to-person chat function. In the future, I plan to develop forming group functions and group chat functions.
 
