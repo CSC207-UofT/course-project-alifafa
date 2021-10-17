@@ -29,7 +29,7 @@ All the Users are stored in an entity class called StoreUser. All the commands a
 
 **Grace Yu**: Command class, UserController class, interface. I have worked on developing UserController class, which includes tasks such as log in, create an account, add friend, find the friend to message. In the future, I plan to continue to develop our interface so that it can handle invalid input and throw exceptions. I will also assist in working with running tasks associated with User such as making posts and using group chat, all of which require coordination between the Command classes and UserController classes.
  
-**Elizabeth Yu**:
+**Elizabeth Yu**: Complete the part of User and UserManager that is related with log in, create an account, add friend, and find the friend. I plan to complete the part that is related to the post and sharing centre in the future. I will also coordinate with Grace if UserController needs additional methods from User and UserManager.
 
 
 ## What has worked well so far?:
