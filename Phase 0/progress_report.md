@@ -19,21 +19,21 @@ All the Users are stored in an entity class called StoreUser. All the commands a
 
 
 ## Group Working and Planning:
-Lucas Lei: Have worked on finishing the specification of our application, the CRC card formatting and some entity and usecase classes, and the coding part of the `SharingCentre`, `ParagraphPost`, and `Notifications` classes. I’m planning to work on `PostManager` use case class, `SharingCentre` controllers, add few more test cases to our code, elaborate the current code, and find resources to help us create a GUI for our application.
+**Lucas Lei**: Have worked on finishing the specification of our application, the CRC card formatting and some entity and usecase classes, and the coding part of the `SharingCentre`, `ParagraphPost`, and `Notifications` classes. I’m planning to work on `PostManager` use case class, `SharingCentre` controllers, add few more test cases to our code, elaborate the current code, and find resources to help us create a GUI for our application.
 
-Stephanie Chen:
+**Stephanie Chen**:
 
-Zhiqi Zhao: Current working: PtoPMessage class, PtoPMessageManager class, ChatController class, PtoPChatController class.These classes all help to realize the person-to-person chat function. In the future, I plan to develop forming group functions and group chat functions.
+**Zhiqi Zhao**: Current working: PtoPMessage class, PtoPMessageManager class, ChatController class, PtoPChatController class.These classes all help to realize the person-to-person chat function. In the future, I plan to develop forming group functions and group chat functions.
 
-Houyi Chen: Worked with Zhiqi Zhao and implemented the PtoPMessage class. I plan to continue to write the codes together with him; and further develop classes about messages and chat functions, such as group chat.
+**Houyi Chen**: Worked with Zhiqi Zhao and implemented the PtoPMessage class. I plan to continue to write the codes together with him; and further develop classes about messages and chat functions, such as group chat.
 
-Grace Yu: Command class, UserController class, interface. I have worked on developing UserController class, which includes tasks such as log in, create an account, add friend, find the friend to message. In the future, I plan to continue to develop our interface so that it can handle invalid input and throw exceptions. I will also assist in working with running tasks associated with User such as making posts and using group chat, all of which require coordination between the Command classes and UserController classes.
+**Grace Yu**: Command class, UserController class, interface. I have worked on developing UserController class, which includes tasks such as log in, create an account, add friend, find the friend to message. In the future, I plan to continue to develop our interface so that it can handle invalid input and throw exceptions. I will also assist in working with running tasks associated with User such as making posts and using group chat, all of which require coordination between the Command classes and UserController classes.
  
-Elizabeth Yu:
+**Elizabeth Yu**:
 
 
 ## What has worked well so far?:
-Right now, our codes have successfully followed clean architecture and solid principles. We have allocated different tasks to group members, and everyone was doing their task well. We also had many virtual meetings by using discord screen share to discuss our works, ideas and combine our thoughts.
+Right now, our codes have successfully followed *Clean Architecture and SOLID principles*. We have allocated different tasks to group members, and everyone was doing their task well. We also had many virtual meetings by using discord screen share to discuss our works, ideas and combine our thoughts.
 
 ## Our questions:
 * How do we implement the chat box (chat windows) for users to use?
