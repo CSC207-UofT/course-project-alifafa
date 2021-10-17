@@ -120,7 +120,12 @@ public class User {
 
 
     public ArrayList<PtoPMessage> getMessage(User user){
-        return PtoPMessageHistory.getOrDefault(user, null);
+        if (! PtoPMessageHistory.containsKey(user)){
+            return new ArrayList<>();
+        }
+        else {
+            return PtoPMessageHistory.get(user);
+        }
     }
 
 
