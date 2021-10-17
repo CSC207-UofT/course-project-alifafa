@@ -1,6 +1,6 @@
 # AliChat
 
-Thank you for choosing **Alichat**. **Alichat** is an instant messaging and social media application. The app allows users to send messages to friends or in groupchats. The app also provides a platform for users to share moments in life with friends. 
+Thank you for choosing **Alichat** by team Alifafa. **Alichat** is an instant messaging and social media application. The app allows users to send messages to friends or in groupchats. The app also provides a platform for users to share moments in life with friends. 
 
 ## Basic Functions
 
