@@ -26,6 +26,6 @@ public class MessageFriendController extends UserController {
     public boolean checkFriend(String[] parameters) {
         UserManager manager = (UserManager) this.useCase;
 
-        return (manager.findFriend(parameters[1], parameters[0]) != null);
+        return (manager.findFriend(parameters[0], parameters[1]) != null);
     }
 }

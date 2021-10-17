@@ -115,6 +115,9 @@ public class UserManager extends UseCase {
         //Add friend to the list friends
         User user = this.getUser(id);
         user.addFriend(this.getUser(friendID));
+        User friend = this.getUser(friendID);
+        friend.addFriend(this.getUser(id));
+
     }
 
     public void removeFriend (User user, User friend) {
