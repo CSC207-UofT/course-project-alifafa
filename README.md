@@ -18,7 +18,7 @@ Thank you for choosing **Alichat**. **Alichat** is an instant messaging and soci
 1. Clone repository 
 2. Open text editor, ItelliJ recommended
 3. Set up SDK, version 11 recommended
-4. Find 'src/main/java/MainProgram.java' and run the file
+4. Find '''src/main/java/MainProgram.java''' and run the file
 
 ## Phase 1
-Please navigate to the 'Phase 0' folder at the top.
+Please navigate to the ''Phase 0'' folder at the top.
