@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -7,11 +8,11 @@ import java.util.List;
 public class PicturePost extends ParagraphPost{
     private String visibleTo;
     private List<String> comments;
-    private String description;
-    private List pictures;
+    private String content;
+    private List<File> pictures;
     private static int likes;
 
-    public PicturePost(LocalDateTime posttime, String visibleTo, String location, String description, List pictures){
+    public PicturePost(LocalDateTime posttime, String visibleTo, String location, String description, List<File> pictures){
         super(posttime, visibleTo, location, description);
         this.pictures = pictures;
     }
@@ -24,15 +25,15 @@ public class PicturePost extends ParagraphPost{
         PicturePost.likes = likes;
     }
 
-    public void setComments(List comments) {
+    public void setComments(List<String> comments) {
         this.comments = comments;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public void setPictures(List pictures) {this.pictures = pictures;}
+    public void setPictures(List<File> pictures) {this.pictures = pictures;}
 
 
     public LocalDateTime getPOSTTIME() {
@@ -52,14 +53,14 @@ public class PicturePost extends ParagraphPost{
         return likes;
     }
 
-    public List getComments() {
+    public List<String> getComments() {
         return comments;
     }
 
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
 
-    public List getPictures(){return pictures;}
+    public List<File> getPictures(){return pictures;}
 
 }

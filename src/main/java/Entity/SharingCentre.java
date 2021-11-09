@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SharingCentre {
-    private List<ParagraphPost> allPosts;
-    private List<Notification> notificationList;
+    private final List<ParagraphPost> allPosts;
+    private final List<Notification> notificationList;
     private boolean newPostNotification;
 
     public SharingCentre() {
@@ -19,16 +19,8 @@ public class SharingCentre {
         return allPosts;
     }
 
-    public void setAllPosts(List<ParagraphPost> allPosts) {
-        this.allPosts = allPosts;
-    }
-
     public List<Notification> getNotificationList() {
         return notificationList;
-    }
-
-    public void setNotificationList(List<Notification> notificationList) {
-        this.notificationList = notificationList;
     }
 
     public boolean isNewPostNotification() {

@@ -35,7 +35,7 @@ public class ParagraphPost {
         ParagraphPost.likes = likes;
     }
 
-    public void setComments(List comments) {
+    public void setComments(List<String> comments) {
         this.comments = comments;
     }
 
