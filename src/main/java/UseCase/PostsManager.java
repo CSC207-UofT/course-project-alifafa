@@ -23,6 +23,6 @@ public class PostsManager {
 
     public void postAPost(User user, String content, String visibleTo, String location, List<File> pictures){
         ParagraphPost post = createPost(content, visibleTo, location, pictures);
-
+        user.
     }
 }

@@ -23,6 +23,7 @@ public class User {
     private ArrayList myPosts;
     private ArrayList<User> blockedUser;
     private ArrayList<String> addFriendRequests;
+    private SharingCentre sharingCentre;
     private boolean loggedIn;
     private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
@@ -36,6 +37,7 @@ public class User {
         this.addFriendRequests = new ArrayList<String>();
         this.loggedIn = false;
         this.PtoPMessageHistory = new HashMap<>();
+        this.sharingCentre = new SharingCentre();
     }
 
     public String getID (){
