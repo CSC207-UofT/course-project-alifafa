@@ -14,27 +14,20 @@ public class PostsManager {
      * post.
      */
 
-    private ParagraphPost createPost(String content, String visibleTo, String location, List<File> pictures){
+    private ParagraphPost createPost(String content, String location, List<File> pictures){
         if (!pictures.isEmpty()) {
-            return new PicturePost(LocalDateTime.now(), visibleTo, location, content, pictures);
+            return new PicturePost(LocalDateTime.now(), location, content, pictures);
         }
-        return new ParagraphPost(LocalDateTime.now(), visibleTo, location, content);
+        return new ParagraphPost(LocalDateTime.now(), location, content);
     }
 
-    private List<User> sharePostTo(User user, String visibleTo){
-        List<User> users = new ArrayList<>();
-        if (visibleTo.equals("FRIEND")) {
-            return user.getFriends();
-        }
-        return users;
-    }
 
-    public void postAPost(User user, String content, String visibleTo, String location, List<File> pictures){
-        ParagraphPost post = createPost(content, visibleTo, location, pictures);
+    public void postAPost(User user, String content, String location, List<File> pictures){
+        ParagraphPost post = createPost(content, location, pictures);
         user.getSharingCentre().getAllPosts().add(post);
         user.getMyPosts().add(post);
         // Add post to this which the user wants to share with
-        for (User friend: sharePostTo(user, visibleTo)) {
+        for (User friend: user.getFriends()) {
             friend.getSharingCentre().getAllPosts().add(post);
             friend.getSharingCentre().setNewPostNotification(true);
         }
@@ -43,7 +36,7 @@ public class PostsManager {
     public void deletePost(User user, ParagraphPost post){
         user.getSharingCentre().getAllPosts().remove(post);
         user.getMyPosts().remove(post);
-        for (User friend : sharePostTo(user, post.getVisibleTo())) {
+        for (User friend : user.getFriends()) {
             friend.getSharingCentre().getAllPosts().remove(post);
         }
     }
@@ -84,5 +77,6 @@ public class PostsManager {
         Notifications notification = new Notifications(user, LocalDateTime.now(), post, false);
         addNotification(user, post, notification);
     }
+
 
 }
