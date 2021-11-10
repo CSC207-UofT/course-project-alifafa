@@ -19,11 +19,11 @@ import java.util.List;
 public class PostsManagerTest { 
 
 @Before
-public void before() throws Exception { 
+public void before() {
 } 
 
 @After
-public void after() throws Exception { 
+public void after() {
 } 
 
 /** 
