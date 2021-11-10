@@ -1,18 +1,18 @@
 package Entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 
 public class ParagraphPost {
     private final LocalDateTime POSTTIME;
-    private String visibleTo;       // Assume this is one of {"FRIEND", "PRIVATE"}
-    private final HashMap<User, List<String>> comments;
-    private final List<User> usersWhoLiked;
+    private String visibleTo;
+    private List<String> comments;
     private String content;
     private final String LOCATION;
-    private int likes;
+    private static int likes;
     protected static int id = 0;
     private final int postid;
 
@@ -21,8 +21,7 @@ public class ParagraphPost {
         this.visibleTo = visibleTo;
         this.LOCATION = LOCATION;
         this.content = content;
-        this.comments = new HashMap<>();
-        this.usersWhoLiked = new ArrayList<>();
+        this.comments = new ArrayList<String>();
         this.postid = id;
         likes = 0;
         id += 1;
@@ -32,8 +31,12 @@ public class ParagraphPost {
         this.visibleTo = visibleTo;
     }
 
-    public  void setLikes(int likes) {
-        this.likes = likes;
+    public static void setLikes(int likes) {
+        ParagraphPost.likes = likes;
+    }
+
+    public void setComments(List comments) {
+        this.comments = comments;
     }
 
     public void setContent(String content) {
@@ -52,11 +55,11 @@ public class ParagraphPost {
         return LOCATION;
     }
 
-    public  int getLikes() {
+    public static int getLikes() {
         return likes;
     }
 
-    public HashMap<User, List<String>> getComments() {
+    public List getComments() {
         return comments;
     }
 
@@ -70,10 +73,6 @@ public class ParagraphPost {
 
     public int getPostid() {
         return postid;
-    }
-
-    public List<User> getUsersWhoLiked() {
-        return usersWhoLiked;
     }
 
 }

@@ -19,11 +19,10 @@ public class User {
     private final String iD;
     private String userName;
     private String password;
-    private final ArrayList<User> friends;
-    private final ArrayList<ParagraphPost> myPosts;
-    private final ArrayList<User> blockedUser;
-    private final ArrayList<String> addFriendRequests;
-    private final SharingCentre sharingCentre;
+    private ArrayList<User> friends;
+    private ArrayList myPosts;
+    private ArrayList<User> blockedUser;
+    private ArrayList<String> addFriendRequests;
     private boolean loggedIn;
     private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
@@ -31,13 +30,12 @@ public class User {
         this.iD = id;
         this.userName = username;
         this.password = password;
-        this.friends = new ArrayList<>();
-        this.myPosts = new ArrayList<>();
-        this.blockedUser = new ArrayList<>();
-        this.addFriendRequests = new ArrayList<>();
+        this.friends = new ArrayList<User>();
+        this.myPosts = new ArrayList();
+        this.blockedUser = new ArrayList<User>();
+        this.addFriendRequests = new ArrayList<String>();
         this.loggedIn = false;
         this.PtoPMessageHistory = new HashMap<>();
-        this.sharingCentre = new SharingCentre();
     }
 
     public String getID (){
@@ -56,7 +54,7 @@ public class User {
         return this.friends;
     }
 
-    public ArrayList<ParagraphPost> getMyPosts() {
+    public ArrayList getMyPosts() {
         return this.myPosts;
     }
 
@@ -70,10 +68,6 @@ public class User {
 
     public boolean getLoggedIn() {
         return this.loggedIn;
-    }
-
-    public SharingCentre getSharingCentre() {
-        return sharingCentre;
     }
 
     public void changeLoggedInStatus() {
@@ -124,6 +118,7 @@ public class User {
         }
     }
 
+
     public ArrayList<PtoPMessage> getMessage(User user){
         if (! PtoPMessageHistory.containsKey(user)){
             return new ArrayList<>();
@@ -132,6 +127,7 @@ public class User {
             return PtoPMessageHistory.get(user);
         }
     }
+
 
     public void deleteMessage(User user, PtoPMessage message){
         ArrayList<PtoPMessage> lst = PtoPMessageHistory.get(user);

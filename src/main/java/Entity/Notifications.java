@@ -1,17 +1,16 @@
 package Entity;
 
-import java.time.LocalDateTime;
-
+import java.util.Date;
 
 public class Notifications {
     private final User USER;
-    private final LocalDateTime TIME;
+    private final Date TIME;
     private final ParagraphPost POST;
     private boolean likeNotification;   // true if it's a notification that someone liked your post
                                         // false if it's a notification that someone commented
 
 
-    public Notifications(User user, LocalDateTime time, ParagraphPost post, boolean like) {
+    public Notifications(User user, Date time, ParagraphPost post, boolean like) {
         this.USER = user;
         this.TIME = time;
         this.POST = post;
@@ -22,7 +21,7 @@ public class Notifications {
         return USER;
     }
 
-    public LocalDateTime getTIME() {
+    public Date getTIME() {
         return TIME;
     }
 

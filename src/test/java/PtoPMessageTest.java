@@ -1,5 +1,3 @@
-package Entity;
-
 import Entity.PtoPMessage;
 import Entity.User;
 import org.junit.Before;
