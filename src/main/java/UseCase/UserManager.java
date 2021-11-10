@@ -1,7 +1,7 @@
 package UseCase;
 
 
-import DataAccess.UserDataAccess;
+import DataAccess.DataAccessGateway;
 import Entity.StoreUser;
 import Entity.User;
 import UseCases.UseCase;
@@ -25,8 +25,8 @@ Return user’s request list.
 public class UserManager extends UseCase {
 
     public void loadData () throws IOException, ClassNotFoundException {
-        UserDataAccess userDataAccess = new UserDataAccess();
-        StoreUser store = (StoreUser) userDataAccess.readFromFile("User_State.csv");
+        DataAccessGateway dataAccessGateway = new DataAccessGateway();
+        StoreUser store = (StoreUser) dataAccessGateway.readFromFile("User_State.csv");
     }
 
     public boolean checkID (String id){

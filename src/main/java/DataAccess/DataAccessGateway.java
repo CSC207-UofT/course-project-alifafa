@@ -1,10 +1,9 @@
 package DataAccess;
 
-import Entity.StoreUser;
-
 import java.io.*;
 
-public class UserDataAccess implements DataAccess{
+public class DataAccessGateway implements DataAccess{
+
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {
         FileOutputStream file = new FileOutputStream("User_State.csv");
@@ -17,10 +16,10 @@ public class UserDataAccess implements DataAccess{
     @SuppressWarnings("unchecked")
     @Override
     public <T> T readFromFile(String filepath) throws IOException, ClassNotFoundException {
-        FileInputStream file = new FileInputStream("User_State.csv");
-        ObjectInputStream output = new ObjectInputStream(file);
-        StoreUser store = (StoreUser) output.readObject();
-        output.close();
-        return (T) store;
+        FileInputStream file = new FileInputStream(filepath);
+        ObjectInputStream input = new ObjectInputStream(file);
+        T read = (T) input.readObject();
+        input.close();
+        return read;
     }
 }
