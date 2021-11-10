@@ -12,7 +12,6 @@ import java.util.Arrays;
 public class UserController extends Controller {
 
     public UserController(UseCase useCase){
-
         userPrompt = new ArrayList<>();
         this.useCase = useCase;
     }
@@ -20,7 +19,5 @@ public class UserController extends Controller {
     public ArrayList<String> getUserPrompt() {
         return userPrompt;
     }
-
-
 
 }
