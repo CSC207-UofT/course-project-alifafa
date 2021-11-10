@@ -5,6 +5,7 @@ import UseCase.PtoPMessageManager;
 import Entity.User;
 import UseCase.UserManager;
 import inputBoundaries.PtoPMessageInputBoundary;
+import outputBoundaries.PtoPMessageOutputBoundary;
 
 public class SendPtoPMessageController extends ChatController {
     /**
@@ -12,7 +13,6 @@ public class SendPtoPMessageController extends ChatController {
      */
 
     private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
-
 
     public SendPtoPMessageController(){
         super();
@@ -23,7 +23,7 @@ public class SendPtoPMessageController extends ChatController {
 
 
     /**
-     * Shows previous chat history, sends message from one user to another user, then shows updated chat history
+     * Sends message from one user to another user
      * @param senderUserID sender's userID
      * @param receiverUserID receiver's userID
      * @param content the content of a message
@@ -32,8 +32,14 @@ public class SendPtoPMessageController extends ChatController {
 
         User sender = userManager.getUser(senderUserID);
         User receiver = userManager.getUser(receiverUserID);
-        PtoPMessage message = ptoPMessageInputBoundary.createMessage(sender, receiver, content);
 
-        ptoPMessageInputBoundary.sendMessage(sender, receiver, message);
+        ptoPMessageInputBoundary.sendMessage(sender, receiver, ptoPMessageInputBoundary.createMessage(sender, receiver, content));
     }
+
+    public void receiveMessageHistory(String senderUserID, String receiverUserID,
+                                      PtoPMessageOutputBoundary outputBoundary){
+        ptoPMessageInputBoundary.receiveMessageHistory(sender, receiver, outputBoundary);
+    }
+
+
 }

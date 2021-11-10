@@ -2,10 +2,12 @@ package inputBoundaries;
 
 import Entity.PtoPMessage;
 import Entity.User;
+import outputBoundaries.PtoPMessageOutputBoundary;
 
 public interface PtoPMessageInputBoundary {
 
     /**
+     * Creates a message
      * @param sender the sender of a text.
      * @param receiver the receiver of a text.
      * @param text the text sent from sender to receiver
@@ -22,4 +24,11 @@ public interface PtoPMessageInputBoundary {
      */
 
     void sendMessage(User sender, User receiver, PtoPMessage message);
+
+    /**
+     * Stores all messages between receiver and sender.
+     * @param receiver the user who wants to receive all messages between receiver and sender.
+     * @param sender the user who sends messages to the receiver.
+     */
+    void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary);
 }

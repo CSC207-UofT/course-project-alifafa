@@ -6,6 +6,7 @@ import Entity.User;
 import Gateway.PtoPMessageDataAccess;
 import UseCases.UseCase;
 import inputBoundaries.PtoPMessageInputBoundary;
+import outputBoundaries.PtoPMessageOutputBoundary;
 
 import java.util.ArrayList;
 
@@ -23,15 +24,14 @@ public class PtoPMessageManager extends UseCase implements PtoPMessageInputBound
         ptoPMessageDataAccessInterface.updatePtoPMessageHistory(sender, receiver);
     }
 
-
-    /**
-     * Returns all messages between receiver and sender.
-     * @param receiver the user who wants to receive all messages between receiver and sender.
-     * @param sender the user who sends messages to the receiver.
-     * @return all messages between receiver and sender.
-     */
-    public ArrayList<PtoPMessage> receiveMessageHistory(User receiver, User sender){
-        return ptoPMessageDataAccessInterface.returnPtoPHistory(sender, receiver);
+    @Override
+    public void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary){
+        ArrayList<PtoPMessage> history = ptoPMessageDataAccessInterface.returnPtoPHistory(sender, receiver);
+        StringBuilder formattedHistory = new StringBuilder();
+        for (PtoPMessage message: history){
+            formattedHistory.append(message.toString()).append("\n");
+        }
+        outputBoundary.store(formattedHistory.toString());
     }
 
 
