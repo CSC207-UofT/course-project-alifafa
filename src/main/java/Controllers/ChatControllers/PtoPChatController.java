@@ -34,12 +34,14 @@ public class PtoPChatController extends ChatController {
         PtoPMessage message = ptopMessageManager.createMessage(sender, receiver, content);
 
         //print old message history between sender and receiver.
+        System.out.println("Previous chat history:");
        ptopMessageManager.receiveMessageHistory(sender, receiver);
 
         //send the message from the sender to the receiver
         ptopMessageManager.sendMessage(sender, receiver, message);
 
         //print updated message history between sender and receiver.
+        System.out.println("Updated chat history:");
         ptopMessageManager.receiveMessageHistory(sender, receiver);
     }
 }
