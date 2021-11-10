@@ -20,6 +20,7 @@ public class PtoPChatController extends ChatController {
         this.userPrompt.add("Message");
     }
 
+
     /**
      * Shows previous chat history, sends message from one user to another user, then shows updated chat history
      * @param senderUserID sender's userID
@@ -34,7 +35,7 @@ public class PtoPChatController extends ChatController {
 
         //print old message history between sender and receiver.
         System.out.println("Previous chat history:");
-        ptopMessageManager.receiveMessageHistory(sender, receiver);
+       ptopMessageManager.receiveMessageHistory(sender, receiver);
 
         //send the message from the sender to the receiver
         ptopMessageManager.sendMessage(sender, receiver, message);
