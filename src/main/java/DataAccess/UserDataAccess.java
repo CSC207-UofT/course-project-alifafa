@@ -19,8 +19,8 @@ public class UserDataAccess implements DataAccess{
     public <T> T readFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream("User_State.csv");
         ObjectInputStream output = new ObjectInputStream(file);
-        StoreUser stored = (StoreUser) output.readObject();
+        StoreUser store = (StoreUser) output.readObject();
         output.close();
-        return (T) stored;
+        return (T) store;
     }
 }

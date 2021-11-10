@@ -1,10 +1,12 @@
 package UseCase;
 
 
+import DataAccess.UserDataAccess;
 import Entity.StoreUser;
 import Entity.User;
 import UseCases.UseCase;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /*
@@ -21,6 +23,11 @@ Add Friend, Remove Friend
 Return user’s request list.
  */
 public class UserManager extends UseCase {
+
+    public void loadData () throws IOException, ClassNotFoundException {
+        UserDataAccess userDataAccess = new UserDataAccess();
+        StoreUser store = (StoreUser) userDataAccess.readFromFile("User_State.csv");
+    }
 
     public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not
