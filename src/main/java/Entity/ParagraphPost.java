@@ -6,6 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ParagraphPost {
+    /**
+     * A parent class. A post contains content, location, assigned id, time
+     * when it's posted, list of comments, and list of users who like the post,
+     */
+
     private final LocalDateTime POSTTIME;
     private final HashMap<User, List<String>> comments;
     private final List<User> usersWhoLiked;
@@ -15,6 +20,12 @@ public class ParagraphPost {
     protected static int id = 0;
     private final int postid;
 
+    /**
+     * Creates a post.
+     * @param POSTTIME When the post is posted
+     * @param LOCATION The location
+     * @param content The user's post description
+     */
     public ParagraphPost(LocalDateTime POSTTIME, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
         this.LOCATION = LOCATION;
