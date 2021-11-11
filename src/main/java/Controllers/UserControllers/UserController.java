@@ -1,10 +1,8 @@
 package Controllers.UserControllers;
 
-import Controllers.Controller;
 import UseCases.UseCase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /** This abstract class is the parent class for all UserController.
  *

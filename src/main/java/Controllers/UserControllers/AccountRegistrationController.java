@@ -1,51 +1,34 @@
 package Controllers.UserControllers;
 
-import Entity.User;
+import InputBoundary.UserInputBoundary;
+import Presenters.AccountRegistrationPresenter;
+import Presenters.LogInPresenter;
 import UseCase.UserManager;
-import UseCases.UseCase;
-import Entity.User;
-import UseCase.UserManager;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * This class is responsible for managing the user input and calling associated UserManager when the user
  * wants to create an account.
  */
-public class AccountRegistrationController extends UserController{
-
-    public AccountRegistrationController(){
-        super(new UserManager());
-        this.userPrompt.add("ID");
-        this.userPrompt.add("Username");
-        this.userPrompt.add("Password");
-    }
-
+public class AccountRegistrationController{
+    /**
+     * The input boundary for the AccountRegistration use case.
+     */
+    private final UserInputBoundary AccountRegistrationInputBoundary;
 
     /**
-     * Check if this ID already exists.
-     * @param inputID The input from the user, which is a string contains userID.
-     * @return return a boolean indicating whether the ID can be used.
+     * A new AccountRegistrationController for the use case defined by the AccountRegistrationInputBoundary.
+     * @param AccountRegistrationInputBoundary the input boundary for the login use case
      */
-    public boolean checkID(String inputID) {
-        UserManager manager = (UserManager)this.useCase;
-        return manager.checkID(inputID);
+    public AccountRegistrationController(UserInputBoundary AccountRegistrationInputBoundary) {
+        this.AccountRegistrationInputBoundary = AccountRegistrationInputBoundary;
     }
-
 
     /**
      *
-     * @param parameters The input from the user, which is an array containing userID, username and password.
+     * @param parameters The input from the user, which is an array that contains userID and input password.
      */
-    public void createAnAccount(String[] parameters){
-        UserManager userManager = (UserManager)this.useCase;
-        User newUser = userManager.createUser(parameters[0], parameters[1], parameters[2]);
+    public void createAnAccount(String[] parameters, AccountRegistrationPresenter presenter) {
+        AccountRegistrationInputBoundary.runAccountRegistration(parameters, presenter);
     }
-
-
-
-
 }
 

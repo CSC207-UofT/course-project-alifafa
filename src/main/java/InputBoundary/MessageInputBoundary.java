@@ -1,9 +1,7 @@
-package InputOutputBoundary;
+package InputBoundary;
 
 import Entity.PtoPMessage;
 import Entity.User;
-
-import java.util.ArrayList;
 
 public interface MessageInputBoundary {
     /**

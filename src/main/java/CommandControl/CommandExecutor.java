@@ -1,9 +1,5 @@
 package CommandControl;
 
-import Controllers.Controller;
-
-import java.util.HashMap;
-
 /**
  * This class will decide which controller to call based on the command.
  */

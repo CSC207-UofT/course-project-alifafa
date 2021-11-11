@@ -1,7 +1,5 @@
 package CommandControl;
 
-import Controllers.Controller;
-
 import java.util.Scanner;
 
 /** This is the interface and read user's command.

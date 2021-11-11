@@ -1,7 +1,6 @@
 package Controllers.ChatControllers;
 
 
-import Controllers.Controller;
 import UseCases.UseCase;
 
 import java.util.ArrayList;

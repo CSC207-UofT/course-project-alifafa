@@ -1,13 +1,11 @@
 package CommandControl;
 
 import Controllers.ChatControllers.PtoPChatController;
-import Controllers.Controller;
 import Controllers.UserControllers.AccountRegistrationController;
 import Controllers.UserControllers.LogInController;
 import Controllers.UserControllers.MessageFriendController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /** This class contain all the valid commands.
  *
