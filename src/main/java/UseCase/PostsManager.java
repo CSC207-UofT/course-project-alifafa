@@ -21,12 +21,11 @@ public class PostsManager {
         return new ParagraphPost(LocalDateTime.now(), location, content);
     }
 
-
     public void postAPost(User user, String content, String location, List<File> pictures){
         ParagraphPost post = createPost(content, location, pictures);
         user.getSharingCentre().getAllPosts().add(post);
         user.getMyPosts().add(post);
-        // Add post to this which the user wants to share with
+        // Add post to which the user wants to share with
         for (User friend: user.getFriends()) {
             friend.getSharingCentre().getAllPosts().add(post);
             friend.getSharingCentre().setNewPostNotification(true);
@@ -78,5 +77,15 @@ public class PostsManager {
         addNotification(user, post, notification);
     }
 
+    public List<ParagraphPost> retrieveUsersAllPosts(User user) {
+        return user.getMyPosts();
+    }
 
+    public List<ParagraphPost> retrieveSharingCentre(User user) {
+        return user.getSharingCentre().getAllPosts();
+    }
+
+    public List<Notifications> retrieveNotifications(User user) {
+        return user.getSharingCentre().getNotificationList();
+    }
 }
