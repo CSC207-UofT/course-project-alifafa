@@ -1,19 +1,29 @@
 package Controllers.UserControllers;
 
+import InputBoundary.UserInputBoundary;
+import Presenters.AccountRegistrationPresenter;
+import Presenters.AddFriendPresenter;
 import UseCase.UserManager;
 
-public class AddFriendController extends UserController{
+public class AddFriendController{
 
-        public AddFriendController() {
-            super(new UserManager());
-            this.userPrompt.add("Your ID");
-            this.userPrompt.add("Your friend's ID");
-        }
+    /**
+     * The input boundary for the AccountRegistration use case.
+     */
+    private final UserInputBoundary AddFriendInputBoundary;
 
-        public void addFriend(String[] userInput){
-            UserManager manager = (UserManager)this.useCase;
-            manager.addFriend(userInput[0], userInput[1]);
-        }
+    /**
+     * A new AccountRegistrationController for the use case defined by the InputBoundary.
+     */
+    public AddFriendController(UserInputBoundary InputBoundary) {
+        this.AddFriendInputBoundary = InputBoundary;
+    }
+
+
+
+    public void addFriend(String[] parameters, AddFriendPresenter presenter){
+        AddFriendInputBoundary.runAddFriend(parameters, presenter);
+    }
 
 
 }

@@ -2,11 +2,13 @@ package Controllers.ChatControllers;
 
 import Entity.User;
 import InputBoundary.PtoPMessageInputBoundary;
+import InputBoundary.UserInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
+import Presenters.PtoPMessageHistoryPresenter;
 
 import java.io.IOException;
 
-public class PtoPMessageController extends ChatController {
+public class PtoPMessageController{
     /**
      * This class is responsible for controlling messages between two users
      */
@@ -15,9 +17,11 @@ public class PtoPMessageController extends ChatController {
     // constructed outside this class, then injected into this class's constructor.
     //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
     private final PtoPMessageInputBoundary ptoPMessageInputBoundary;
+    private final UserInputBoundary userInputBoundary;
 
-    public PtoPMessageController(PtoPMessageInputBoundary ptoPMessageInputBoundary){
+    public PtoPMessageController(PtoPMessageInputBoundary ptoPMessageInputBoundary, UserInputBoundary userInputBoundary){
         this.ptoPMessageInputBoundary = ptoPMessageInputBoundary;
+        this.userInputBoundary = userInputBoundary;
     }
 
 
@@ -29,15 +33,24 @@ public class PtoPMessageController extends ChatController {
      */
     public void sendMessage(String senderUserID, String receiverUserID, String content) throws IOException {
 
-        User sender = userManager.getUser(senderUserID);
-        User receiver = userManager.getUser(receiverUserID);
-
-        ptoPMessageInputBoundary.sendMessage(sender, receiver, ptoPMessageInputBoundary.createMessage(sender, receiver, content));
+        ptoPMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
+                userInputBoundary.getUser(receiverUserID) ,
+                ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
+                        userInputBoundary.getUser(receiverUserID) , content));
     }
 
+
+    /**
+     * Stores all messages between receiver and sender.
+     *
+     * @param senderUserID sender's id
+     * @param receiverUserID receiver's id
+     * @param presenter PtoPMessageHistoryPresenter
+     */
     public void receiveMessageHistory(String senderUserID, String receiverUserID,
-                                      PtoPMessageOutputBoundary outputBoundary){
-        ptoPMessageInputBoundary.receiveMessageHistory(sender, receiver, outputBoundary);
+                                      PtoPMessageHistoryPresenter presenter){
+        ptoPMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUserID),
+                userInputBoundary.getUser(receiverUserID), presenter);
     }
 
 

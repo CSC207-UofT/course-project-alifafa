@@ -3,7 +3,6 @@ package UseCase;
 import DataAccessInterface.PtoPMessageDataAccessInterface;
 import Entity.PtoPMessage;
 import Entity.User;
-import UseCases.UseCase;
 import InputBoundary.PtoPMessageInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PtoPMessageManager extends UseCase implements PtoPMessageInputBoundary {
+public class PtoPMessageManager implements PtoPMessageInputBoundary {
     /**
      * A manager that can manage messages between two users.
      */

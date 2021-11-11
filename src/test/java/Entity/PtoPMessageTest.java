@@ -1,20 +1,28 @@
-import Entity.PtoPMessage;
-import Entity.User;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+package Entity;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.After;
 
 
 //This is a test for PtoPMessage.
 public class PtoPMessageTest {
+
+    @Before
+    public void before() {
+    }
+
+    @After
+    public void after() {
+    }
 
     @Test
     public void getContent() {
         User a = new User("1", "a", "123");
         User b = new User("2", "b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
-        assertEquals("hi", message.getContent());
+        Assert.assertEquals("hi", message.getContent());
     }
 
     @Test
@@ -22,7 +30,7 @@ public class PtoPMessageTest {
         User a = new User("1", "a", "123");
         User b = new User("2", "b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
-        assertEquals(a, message.getSender());
+        Assert.assertEquals(a, message.getSender());
     }
 
     @Test
@@ -30,7 +38,7 @@ public class PtoPMessageTest {
         User a = new User("1", "a", "123");
         User b = new User("2", "b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
-        assertEquals(b, message.getReceiver());
+        Assert.assertEquals(b, message.getReceiver());
     }
 
 }
