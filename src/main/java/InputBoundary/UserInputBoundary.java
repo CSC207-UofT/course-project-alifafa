@@ -21,4 +21,6 @@ public interface UserInputBoundary {
     public void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary);
 
     public void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
+
+    public User getUser (String id);
 }
