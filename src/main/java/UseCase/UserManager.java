@@ -4,7 +4,13 @@ package UseCase;
 import DataAccess.DataAccessGateway;
 import Entity.StoreUser;
 import Entity.User;
-import UseCases.UseCase;
+import InputBoundary.UserInputBoundary;
+import OutputBoundary.AccountRegistrationOutputBoundary;
+import OutputBoundary.AddFriendOutputBoundary;
+import OutputBoundary.LogInOutputBoundary;
+import Presenters.AccountRegistrationPresenter;
+import Presenters.AddFriendPresenter;
+import Presenters.LogInPresenter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +28,7 @@ Change Password
 Add Friend, Remove Friend
 Return user’s request list.
  */
-public class UserManager extends UseCase {
+public class UserManager implements UserInputBoundary {
 
     public void loadData () throws IOException, ClassNotFoundException {
         DataAccessGateway dataAccessGateway = new DataAccessGateway();
@@ -135,5 +141,34 @@ public class UserManager extends UseCase {
     public ArrayList<String> getAddFriendRequests(User user) {
         //Return user’s request list.
         return user.getAddFriendRequests();
+    }
+
+    @Override
+    public void runLogIn(String[] parameters, LogInOutputBoundary outputBoundary) {
+        String password = this.findPassword(parameters[0]);
+        if (password != null) {
+            if (password.equals(parameters[1])) {
+                this.changeLogInStatus(parameters[0]);
+                outputBoundary.setLogInStatus(true);
+            }
+        }
+        outputBoundary.setLogInStatus(false);
+
+    }
+
+    @Override
+    public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) {
+        if (this.checkID(parameters[0])){
+            this.createUser(parameters[0], parameters[1], parameters[2]);
+            outputBoundary.setRegistrationStatus(true);
+        } else{
+            outputBoundary.setRegistrationStatus(false);
+        }
+    }
+
+    @Override
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
+        addFriend(userInput[0], userInput[1]);
+        outputBoundary.setAddFriendStatus(userInput[1]);
     }
 }
