@@ -14,8 +14,16 @@ public class PicturePost extends ParagraphPost{
 
     private List<File> pictures;
 
-    public PicturePost(LocalDateTime posttime, String location, String description, List<File> pictures){
-        super(posttime, location, description);
+    /**
+     * Creates PicturePost that contains pictures
+     * @param POSTTIME When it is posted
+     * @param location Location
+     * @param description Description of the Post
+     * @param pictures List of pictures
+     */
+
+    public PicturePost(LocalDateTime POSTTIME, String location, String description, List<File> pictures){
+        super(POSTTIME, location, description);
         this.pictures = pictures;
     }
 
