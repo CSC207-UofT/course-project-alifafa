@@ -4,21 +4,22 @@ import Entity.PtoPMessage;
 import UseCase.PtoPMessageManager;
 import Entity.User;
 import UseCase.UserManager;
+import inputBoundaries.InputBoundary;
 import inputBoundaries.PtoPMessageInputBoundary;
 import outputBoundaries.PtoPMessageOutputBoundary;
 
-public class SendPtoPMessageController extends ChatController {
+public class PtoPMessageController extends ChatController {
     /**
      * This class is responsible for controlling messages between two users
      */
 
-    private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
+    //The input boundary of this class, which is implemented by PtoPMessageManager. It should be
+    // constructed outside this class, then injected into this class's constructor.
+    //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
+    private final PtoPMessageInputBoundary ptoPMessageInputBoundary;
 
-    public SendPtoPMessageController(){
-        super();
-        this.userPrompt.add("My UserID");
-        this.userPrompt.add("Friend's UserID");
-        this.userPrompt.add("Message");
+    public PtoPMessageController(PtoPMessageInputBoundary ptoPMessageInputBoundary){
+        this.ptoPMessageInputBoundary = ptoPMessageInputBoundary;
     }
 
 

@@ -1,6 +1,6 @@
 package CommandControl;
 
-import Controllers.ChatControllers.SendPtoPMessageController;
+import Controllers.ChatControllers.PtoPMessageController;
 import Controllers.Controller;
 import Controllers.UserControllers.AccountRegistrationController;
 import Controllers.UserControllers.LogInController;
@@ -25,7 +25,7 @@ public class Constants {
         validCommands.put("create an account", new AccountRegistrationController());
         validCommands.put("message", new MessageFriendController());
         validCommands.put("add friend", new MessageFriendController());
-        validCommands.put("chat", new SendPtoPMessageController());
+        validCommands.put("chat", new PtoPMessageController());
 
         commandHashMap.put("log in", new LogInCommand());
         commandHashMap.put("create an account", new AccountRegistrationCommand());

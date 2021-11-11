@@ -1,10 +1,10 @@
 package CommandControl;
 
-import Controllers.ChatControllers.SendPtoPMessageController;
+import Controllers.ChatControllers.PtoPMessageController;
 
 public class PtoPChatCommand extends Command{
 
-    SendPtoPMessageController controller = new SendPtoPMessageController();
+    PtoPMessageController controller = new PtoPMessageController();
     //PtoPChatController has a runChat method which can show previous chat history,
     //send message from one user to another user, then show updated chat history when
     //the two users' id and message content are provided.

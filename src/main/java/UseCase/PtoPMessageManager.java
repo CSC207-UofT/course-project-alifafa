@@ -15,12 +15,19 @@ public class PtoPMessageManager extends UseCase implements PtoPMessageInputBound
      * A manager that can manage messages between two users.
      */
 
-    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface = new PtoPMessageDataAccess();
+    // ptoPMessageDataAccessInterface of this class, which is implemented by PtoPMessageDataAccess.It should be
+    // constructed outside this class, then injected into this class's constructor.
+    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
+
+    public PtoPMessageManager(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
+        this.ptoPMessageDataAccessInterface = ptoPMessageDataAccessInterface;
+    }
 
     @Override
     public  void sendMessage(User sender, User receiver, PtoPMessage message){
         sender.addMessage(receiver, message);
         receiver.addMessage(sender, message);
+
         ptoPMessageDataAccessInterface.updatePtoPMessageHistory(sender, receiver);
     }
 
