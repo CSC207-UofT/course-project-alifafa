@@ -1,4 +1,4 @@
-package outputBoundaries;
+package OutputBoundary;
 
 public interface PtoPMessageOutputBoundary {
 

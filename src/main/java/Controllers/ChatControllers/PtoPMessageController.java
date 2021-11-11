@@ -1,12 +1,8 @@
 package Controllers.ChatControllers;
 
-import Entity.PtoPMessage;
-import UseCase.PtoPMessageManager;
 import Entity.User;
-import UseCase.UserManager;
-import inputBoundaries.InputBoundary;
-import inputBoundaries.PtoPMessageInputBoundary;
-import outputBoundaries.PtoPMessageOutputBoundary;
+import InputBoundary.PtoPMessageInputBoundary;
+import OutputBoundary.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
 

@@ -1,8 +1,8 @@
-package inputBoundaries;
+package InputBoundary;
 
 import Entity.PtoPMessage;
 import Entity.User;
-import outputBoundaries.PtoPMessageOutputBoundary;
+import OutputBoundary.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
 

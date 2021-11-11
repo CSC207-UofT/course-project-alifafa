@@ -3,10 +3,9 @@ package UseCase;
 import DataAccessInterface.PtoPMessageDataAccessInterface;
 import Entity.PtoPMessage;
 import Entity.User;
-import Gateway.PtoPMessageDataAccess;
 import UseCases.UseCase;
-import inputBoundaries.PtoPMessageInputBoundary;
-import outputBoundaries.PtoPMessageOutputBoundary;
+import InputBoundary.PtoPMessageInputBoundary;
+import OutputBoundary.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
 import java.util.ArrayList;

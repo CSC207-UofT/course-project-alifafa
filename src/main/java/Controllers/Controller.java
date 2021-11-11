@@ -1,7 +1,6 @@
 package Controllers;
 
 import UseCases.UseCase;
-import inputBoundaries.InputBoundary;
 
 import java.util.ArrayList;
 
