@@ -40,15 +40,15 @@ public class PostsManagerTest {
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
         List<File> pictures = new ArrayList<>();
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
         Assert.assertEquals(a.getMyPosts(), b.getSharingCentre().getAllPosts());
         Assert.assertEquals(1, a.getMyPosts().size());
         Assert.assertEquals(1, b.getSharingCentre().getAllPosts().size());
         Assert.assertTrue(b.getSharingCentre().isNewPostNotification());
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
         Assert.assertEquals(a.getMyPosts(), b.getSharingCentre().getAllPosts());
-        postsManager.postAPost(b, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(b, "Haha", "", pictures);
         Assert.assertTrue(a.getMyPosts().size() < b.getSharingCentre().getAllPosts().size());
     }
 
@@ -65,7 +65,7 @@ public class PostsManagerTest {
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
         List<File> pictures = new ArrayList<>();
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
         Assert.assertEquals(a.getMyPosts(), b.getSharingCentre().getAllPosts());
         Assert.assertEquals(1, a.getMyPosts().size());
         Assert.assertEquals(1, b.getSharingCentre().getAllPosts().size());
@@ -88,7 +88,7 @@ public class PostsManagerTest {
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
         List<File> pictures = new ArrayList<>();
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
         postsManager.likePost(b, a.getMyPosts().get(0));
         Assert.assertEquals(1, a.getMyPosts().get(0).getLikes());
         Assert.assertEquals(1, a.getSharingCentre().getNotificationList().size());
@@ -110,7 +110,7 @@ public class PostsManagerTest {
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
         List<File> pictures = new ArrayList<>();
-        postsManager.postAPost(a, "Haha", "FRIEND", "", pictures);
+        postsManager.postAPost(a, "Haha", "", pictures);
         postsManager.commentPost(b, a.getMyPosts().get(0), "WoW");
         Assert.assertEquals(b, a.getSharingCentre().getNotificationList().get(0).getUSER());
         Assert.assertEquals(1, a.getMyPosts().get(0).getComments().get(b).size());

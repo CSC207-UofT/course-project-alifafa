@@ -6,8 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ParagraphPost {
+    /**
+     * A parent class. A post contains content, location, assigned id, time
+     * when it's posted, list of comments, and list of users who like the post,
+     */
+
     private final LocalDateTime POSTTIME;
-    private String visibleTo;       // Assume this is one of {"FRIEND", "PRIVATE"}
     private final HashMap<User, List<String>> comments;
     private final List<User> usersWhoLiked;
     private String content;
@@ -16,9 +20,14 @@ public class ParagraphPost {
     protected static int id = 0;
     private final int postid;
 
-    public ParagraphPost(LocalDateTime POSTTIME, String visibleTo, String LOCATION, String content) {
+    /**
+     * Creates a post.
+     * @param POSTTIME When the post is posted
+     * @param LOCATION The location
+     * @param content The user's post description
+     */
+    public ParagraphPost(LocalDateTime POSTTIME, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
-        this.visibleTo = visibleTo;
         this.LOCATION = LOCATION;
         this.content = content;
         this.comments = new HashMap<>();
@@ -26,10 +35,6 @@ public class ParagraphPost {
         this.postid = id;
         likes = 0;
         id += 1;
-    }
-
-    public void setVisibleTo(String visibleTo) {
-        this.visibleTo = visibleTo;
     }
 
     public  void setLikes(int likes) {
@@ -42,10 +47,6 @@ public class ParagraphPost {
 
     public LocalDateTime getPOSTTIME() {
         return POSTTIME;
-    }
-
-    public String getVisibleTo() {
-        return visibleTo;
     }
 
     public String getLOCATION() {
