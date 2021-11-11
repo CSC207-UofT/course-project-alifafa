@@ -1,7 +1,5 @@
 package CommandControl;
 
-import Controllers.ChatControllers.PtoPChatController;
-
 public class PtoPChatCommand extends Command{
 
     PtoPChatController controller = new PtoPChatController();

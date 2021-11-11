@@ -1,6 +1,5 @@
 package CommandControl;
 
-import Controllers.ChatControllers.PtoPChatController;
 import Controllers.UserControllers.AccountRegistrationController;
 import Controllers.UserControllers.LogInController;
 import Controllers.UserControllers.MessageFriendController;
