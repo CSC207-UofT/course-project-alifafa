@@ -8,6 +8,8 @@ import inputBoundaries.InputBoundary;
 import inputBoundaries.PtoPMessageInputBoundary;
 import outputBoundaries.PtoPMessageOutputBoundary;
 
+import java.io.IOException;
+
 public class PtoPMessageController extends ChatController {
     /**
      * This class is responsible for controlling messages between two users
@@ -29,7 +31,7 @@ public class PtoPMessageController extends ChatController {
      * @param receiverUserID receiver's userID
      * @param content the content of a message
      */
-    public void sendMessage(String senderUserID, String receiverUserID, String content){
+    public void sendMessage(String senderUserID, String receiverUserID, String content) throws IOException {
 
         User sender = userManager.getUser(senderUserID);
         User receiver = userManager.getUser(receiverUserID);

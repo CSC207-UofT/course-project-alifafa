@@ -1,8 +1,9 @@
 package Entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class PtoPMessage {
+public class PtoPMessage implements Serializable {
     /**
      * A person-to-person message.
      */

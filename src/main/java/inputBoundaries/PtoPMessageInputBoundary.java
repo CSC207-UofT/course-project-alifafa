@@ -4,6 +4,8 @@ import Entity.PtoPMessage;
 import Entity.User;
 import outputBoundaries.PtoPMessageOutputBoundary;
 
+import java.io.IOException;
+
 public interface PtoPMessageInputBoundary {
 
     /**
@@ -23,7 +25,7 @@ public interface PtoPMessageInputBoundary {
      * @param message the message sent from sender to receiver
      */
 
-    void sendMessage(User sender, User receiver, PtoPMessage message);
+    void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException;
 
     /**
      * Stores all messages between receiver and sender.

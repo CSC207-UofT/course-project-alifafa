@@ -2,10 +2,12 @@ package Gateway;
 
 import DataAccessInterface.PtoPMessageDataAccessInterface;
 import Entity.PtoPMessage;
+import Entity.User;
 
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface {
 
@@ -20,10 +22,10 @@ public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface {
 
     @SuppressWarnings("unchecked")
     @Override
-    public  ArrayList<PtoPMessage> readFromFile(String filepath) throws IOException, ClassNotFoundException {
+    public HashMap<User, ArrayList<PtoPMessage>> readFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
-        ArrayList<PtoPMessage> read = (ArrayList<PtoPMessage>)input.readObject();
+        HashMap<User, ArrayList<PtoPMessage>> read = (HashMap<User, ArrayList<PtoPMessage>>)input.readObject();
         input.close();
         return read;
     }
