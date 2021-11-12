@@ -13,7 +13,8 @@ public interface PtoPMessageDataAccessInterface {
     void saveToFile(String filepath, Object o) throws IOException;
 
     // convert data in filepath to a user's chat history data.
-    public HashMap<User, ArrayList<PtoPMessage>> readFromFile(String filepath) throws IOException, ClassNotFoundException;
+    //key is the userID, value is the user's chat history
+    public HashMap<String, String> readFromFile(String filepath) throws IOException, ClassNotFoundException;
 
 
 }

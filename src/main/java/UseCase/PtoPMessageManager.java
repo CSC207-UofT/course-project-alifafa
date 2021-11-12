@@ -30,27 +30,37 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
         sender.addMessage(receiver, message);
         receiver.addMessage(sender, message);
 
+
+
         String senderChatFile = sender.getUserName() + "PtoPChatHistory.txt";
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";
 
-        saveChatHistory(sender, receiver, senderChatFile);
+        saveChatHistory(sender, receiver, senderChatFile, message);
 
-        saveChatHistory(receiver, sender, receiverChatFile);
+        saveChatHistory(receiver, sender, receiverChatFile, message);
     }
 
     //Helps to save ChatHistory of sender and receiver separately.
-    private void saveChatHistory(User sender, User receiver, String senderChatFile) throws IOException {
+    private void saveChatHistory(User sender, User receiver, String senderChatFile, PtoPMessage message) throws IOException {
+
+        String senderID = sender.getID();
+        String receiverID = receiver.getID();
+
         try {
             //get the previous chat history of sender.
-            HashMap<User, ArrayList<PtoPMessage>> senderChatHistory
+            HashMap<String, String> senderChatHistory
                     = ptoPMessageDataAccessInterface.readFromFile(senderChatFile);
+
             //update chat history of  sender.
-            senderChatHistory.put(receiver, sender.getMessage(receiver));
+            String history = senderChatHistory.get(receiverID);
+            String newHistory = history + "\n" + message.toString();
+            senderChatHistory.put(receiverID, newHistory);
+
             //save new chat history of sender.
             ptoPMessageDataAccessInterface.saveToFile(senderChatFile, senderChatHistory);
         } catch (IOException | ClassNotFoundException e) {
-            HashMap<User, ArrayList<PtoPMessage>> senderChatHistory = new HashMap<>();
-            senderChatHistory.put(receiver, sender.getMessage(receiver));
+            HashMap<String, String> senderChatHistory = new HashMap<>();
+            senderChatHistory.put(receiverID, message.toString());
             //save new chat history of sender.
             ptoPMessageDataAccessInterface.saveToFile(senderChatFile, senderChatHistory);
         }
@@ -58,25 +68,33 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
 
     @Override
     public void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary){
+
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";
+        ArrayList<PtoPMessage> currentHistory = receiver.getMessage(sender);
+
         try {
             //get the chat history of receiver.
-            HashMap<User, ArrayList<PtoPMessage>> receiverChatHistory
+            HashMap<String, String> receiverChatHistory
                     = ptoPMessageDataAccessInterface.readFromFile(receiverChatFile);
             //store the chat history between receiver and sender
-            if (receiverChatHistory.containsKey(sender)){
-                ArrayList<PtoPMessage> history= receiverChatHistory.get(sender);
-                StringBuilder formattedHistory = new StringBuilder();
-                for (PtoPMessage message: history){
-                    formattedHistory.append(message.toString()).append("\n");
-                }
-                outputBoundary.store(formattedHistory.toString());
+            if (receiverChatHistory.containsKey(sender.getID())){
+                String history= receiverChatHistory.get(sender.getID());
+                outputBoundary.store(history.toString());
             }else{
                 outputBoundary.store("");
             }
         } catch (IOException | ClassNotFoundException e) {
-            outputBoundary.store("");
-        }}
+//            if (currentHistory.isEmpty()){
+                outputBoundary.store("");
+//            }else{
+//                StringBuilder formattedHistory = new StringBuilder();
+//                for (PtoPMessage message: currentHistory){
+//                    formattedHistory.append(message.toString()).append("\n");
+//                }
+////                outputBoundary.store(formattedHistory.toString());
+//                outputBoundary.store("b");
+            }
+        }
 
     @Override
     public PtoPMessage createMessage(User sender, User receiver, String text){
