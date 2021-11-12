@@ -1,6 +1,7 @@
 import CommandControl.CommandHelper;
 import CommandControl.Constants;
 import Controllers.UserControllers.ReadAndWriteController;
+import Entity.UserList;
 
 import java.io.IOException;
 import java.util.Scanner;
