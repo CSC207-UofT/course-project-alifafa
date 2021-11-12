@@ -9,9 +9,7 @@ import OutputBoundary.AccountRegistrationOutputBoundary;
 import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.LogInOutputBoundary;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,25 +31,22 @@ public class UserManager implements UserInputBoundary {
 
     public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
         boolean readable = false;
-        try {
-            File myObj = new File("User_State.csv");
-            Scanner myReader = new Scanner(myObj);
-            if (myReader.hasNextLine()){
-               readable = true;
+        try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
+            String line = br.readLine();
+            if (line != null) {
+                readable = true;
             }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
         }
         if (readable) {
-            UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
+            UserList store = new UserList();
+            ArrayList<User> lst = dataAccess.readFromFile("User_State.csv");
+            store.addUsers(lst);
         }
     }
 
     public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
         UserList store = new UserList();
-        dataAccess.saveToFile("User_State.csv", store);
+        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
     }
 
     public boolean checkID (String id){
@@ -168,9 +163,12 @@ public class UserManager implements UserInputBoundary {
             if (password.equals(parameters[1])) {
                 this.changeLogInStatus(parameters[0]);
                 outputBoundary.setLogInStatus(true);
+            } else {
+                outputBoundary.setLogInStatus(false);
             }
+        } else {
+            outputBoundary.setLogInStatus(false);
         }
-        outputBoundary.setLogInStatus(false);
 
     }
 
