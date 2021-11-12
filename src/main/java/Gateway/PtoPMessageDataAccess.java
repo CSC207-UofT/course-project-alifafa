@@ -22,10 +22,10 @@ public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
 
     @SuppressWarnings("unchecked")
     @Override
-    public HashMap<User, ArrayList<PtoPMessage>> readFromFile(String filepath) throws IOException, ClassNotFoundException {
+    public HashMap<String, String> readFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
-        HashMap<User, ArrayList<PtoPMessage>> read = (HashMap<User, ArrayList<PtoPMessage>>)input.readObject();
+        HashMap<String, String> read = (HashMap<String, String>)input.readObject();
         input.close();
         return read;
     }
