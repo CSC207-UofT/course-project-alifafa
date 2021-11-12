@@ -7,7 +7,6 @@ import InputBoundary.PtoPMessageInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PtoPMessageManager implements PtoPMessageInputBoundary {
@@ -35,15 +34,14 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
         String senderChatFile = sender.getUserName() + "PtoPChatHistory.txt";
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";
 
-        saveChatHistory(sender, receiver, senderChatFile, message);
+        saveChatHistory(receiver, senderChatFile, message);
 
-        saveChatHistory(receiver, sender, receiverChatFile, message);
+        saveChatHistory(sender, receiverChatFile, message);
     }
 
     //Helps to save ChatHistory of sender and receiver separately.
-    private void saveChatHistory(User sender, User receiver, String senderChatFile, PtoPMessage message) throws IOException {
+    private void saveChatHistory(User receiver, String senderChatFile, PtoPMessage message) throws IOException {
 
-        String senderID = sender.getID();
         String receiverID = receiver.getID();
 
         try {
@@ -70,7 +68,6 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     public void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary){
 
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";
-        ArrayList<PtoPMessage> currentHistory = receiver.getMessage(sender);
 
         try {
             //get the chat history of receiver.
@@ -79,7 +76,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
             //store the chat history between receiver and sender
             if (receiverChatHistory.containsKey(sender.getID())){
                 String history= receiverChatHistory.get(sender.getID());
-                outputBoundary.store(history.toString());
+                outputBoundary.store(history);
             }else{
                 outputBoundary.store("");
             }
@@ -100,18 +97,6 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     public PtoPMessage createMessage(User sender, User receiver, String text){
         return new PtoPMessage(sender, receiver, text);
     }
-
-
-//    /**
-//     * Deletes a message in both sender and receiver's person-to-person message history.
-//     * @param sender the sender who has right to delete the message.
-//     * @param receiver the receiver of the message.
-//     * @param message the message sent from sender to receiver.
-//     */
-//    public void deleteMessage(User sender, User receiver, PtoPMessage message){
-//        sender.deleteMessage(receiver, message);
-//        receiver.deleteMessage(sender, message);
-//    }
 
 
 }

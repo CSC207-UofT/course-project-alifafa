@@ -1,11 +1,9 @@
 package Controllers.ChatControllers;
 
 import DataAccessInterface.PtoPMessageDataAccessInterface;
-import Entity.User;
 import Gateway.PtoPMessageDataAccess;
 import InputBoundary.PtoPMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
-import OutputBoundary.PtoPMessageOutputBoundary;
 import Presenters.PtoPMessageHistoryPresenter;
 import UseCase.PtoPMessageManager;
 import UseCase.UserManager;
