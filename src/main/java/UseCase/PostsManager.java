@@ -2,6 +2,9 @@ package UseCase;
 
 import Entity.*;
 import InputBoundary.SharingCentreInputBoundary;
+import OutputBoundary.CommentPostOutputBoundary;
+import OutputBoundary.DeletePostOutputBoundary;
+import OutputBoundary.PostAPostOutputBoundary;
 import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.io.File;
@@ -128,7 +131,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param user The user who to retrieve posts from
      * @return All the post user has created (excluding deleted posts)
      */
-    public List<ParagraphPost> retrieveUsersAllPosts(User user) {
+    public List<ParagraphPost> getUsersAllPosts(User user) {
         return user.getMyPosts();
     }
 
@@ -137,7 +140,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param user The user who to retrieve posts from
      * @return All the post from a particular user's sharing centre
      */
-    public List<ParagraphPost> retrieveSharingCentre(User user) {
+    public List<ParagraphPost> getSharingCentre(User user) {
         return user.getSharingCentre().getAllPosts();
     }
 
@@ -146,12 +149,12 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param user The user who to retrieve notifications from
      * @return All notifications from this user's sharing centre
      */
-    public List<Notifications> retrieveNotifications(User user) {
+    public List<Notifications> getNotifications(User user) {
         return user.getSharingCentre().getNotificationList();
     }
 
     @Override
-    public void runPostAPost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void runPostAPost(String[] parameters, PostAPostOutputBoundary outputBoundary) {
         if (parameters[1] == null && parameters[3] == null) {
             outputBoundary.setPostStatus(false);
         }
@@ -171,32 +174,41 @@ public class PostsManager implements SharingCentreInputBoundary {
     }
 
     @Override
-    public void runDeletePost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void runDeletePost(String[] parameters, DeletePostOutputBoundary outputBoundary) {
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters[0]);
+        for (ParagraphPost post: user.getMyPosts()) {
+            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+                outputBoundary.setDeleteStatus(true);
+                deletePost(user, post);
+            }
+        }
+    }
+
+    @Override
+    public void runCommentPost(String[] parameters, CommentPostOutputBoundary outputBoundary) {
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters[0]);
+        for (ParagraphPost post: getUsersAllPosts(user)) {
+            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+                outputBoundary.setCommented(true);
+                commentPost(user, post, parameters[2]);
+            }
+        }
+    }
+
+    @Override
+    public void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary) {
 
     }
 
     @Override
-    public void runLikePost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void retrieveSharingCentre(String parameters, SharingCentreOutputBoundary outputBoundary) {
 
     }
 
     @Override
-    public void runCommentPost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
-
-    }
-
-    @Override
-    public void retrieveUsersAllPosts(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
-
-    }
-
-    @Override
-    public void retrieveSharingCentre(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
-
-    }
-
-    @Override
-    public void retrieveNotifications(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void retrieveNotifications(String parameters, SharingCentreOutputBoundary outputBoundary) {
 
     }
 }

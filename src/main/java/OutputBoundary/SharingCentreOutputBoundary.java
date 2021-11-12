@@ -1,13 +1,12 @@
 package OutputBoundary;
 
+import Entity.ParagraphPost;
+
+import java.util.List;
+
 public interface SharingCentreOutputBoundary {
-    boolean posted = false;
-    boolean deleted = false;
-    boolean commented = false;
 
-    void setPostStatus(boolean posted);
+    void setIsPost(boolean isPost);
 
-    void setDeleteStatus(boolean deleted);
-
-    void setCommentedStatus(boolean commented);
+    String presentOutput();
 }
