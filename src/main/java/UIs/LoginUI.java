@@ -20,7 +20,7 @@ public class LoginUI extends ParentUI{
         LogInPresenter presenter = new LogInPresenter();
         String[] parameters = new String[2];
 
-        System.out.println("Username: ");
+        System.out.println("ID: ");
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
         System.out.println("Password: ");
