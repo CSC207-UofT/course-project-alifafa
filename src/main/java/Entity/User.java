@@ -16,18 +16,39 @@ import java.util.HashMap;
 
 
 public class User implements Serializable {
-    //TODO: avatar, chat, mypost
+    /**
+     * A User's information.
+     */
+
+    // === Instance Variables ===
+    //The ID of User.
     private final String iD;
+    //The username of the User.
     private String userName;
+    //The password of the User.
     private String password;
+    //All friends of the User.
     private final ArrayList<User> friends;
+    //All posts of the User.
     private final ArrayList<ParagraphPost> myPosts;
+    //All blocked user of the User.
     private final ArrayList<User> blockedUser;
+    //All add friend request received by the User.
     private final ArrayList<String> addFriendRequests;
+    //The sharing centre of the User.
     private final SharingCentre sharingCentre;
+    //The log in status of the User.
     private boolean loggedIn;
+    //The message history of the User.
     private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
+    /**
+     * Creates a user.
+     * @param id the ID of the user.
+     * @param username the username of the user.
+     * @param password the password of the user.
+     *
+     */
     public User(String id, String username, String password){
         this.iD = id;
         this.userName = username;
