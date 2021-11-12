@@ -1,6 +1,7 @@
 package UseCase;
 
 
+import DataAccess.DataAccess;
 import DataAccess.DataAccessGateway;
 import Entity.UserList;
 import Entity.User;
@@ -28,9 +29,13 @@ Return user’s request list.
 
 public class UserManager implements UserInputBoundary {
 
-    public void loadData () throws IOException, ClassNotFoundException {
-        DataAccessGateway dataAccessGateway = new DataAccessGateway();
-        UserList store = (UserList) dataAccessGateway.readFromFile("User_State.csv");
+    public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
+        UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
+    }
+
+    public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
+        UserList store = new UserList();
+        dataAccess.saveToFile("User_State.csv", store);
     }
 
     public boolean checkID (String id){

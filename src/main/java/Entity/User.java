@@ -4,16 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* Responsibility
-        Each user has an unique ID, a userName, an associated password, an avatar
-        Create a user ID when Creating a new user account.
-        It has a list of friends, each friend is a User object.
-        It has a list of posts that was posted by the user.
-        It has a list blocked user, each blocked user is an User object. The blocked user cannot add this user as friend.
-        It has a request list attribute which stores a string of adding friend request.
-       It has a string attribute called loggedIn, which indicate whether the user is logged in or not.
-*/
-
 
 public class User implements Serializable {
     /**
