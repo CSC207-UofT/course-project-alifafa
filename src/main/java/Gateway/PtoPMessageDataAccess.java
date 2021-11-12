@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface {
+public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
 
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {
