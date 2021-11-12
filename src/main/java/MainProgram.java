@@ -1,8 +1,6 @@
 import CommandControl.CommandHelper;
 import CommandControl.Constants;
 import Controllers.UserControllers.ReadAndWriteController;
-import Entity.UserList;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -14,9 +12,6 @@ public class MainProgram {
 
         CommandHelper commandUI = new CommandHelper();
         Constants commands = new Constants();
-
-        UserList lst = new UserList();
-        System.out.println(lst.getAllUsers());
 
         Scanner in = new Scanner(System.in);
         String quit = "no";

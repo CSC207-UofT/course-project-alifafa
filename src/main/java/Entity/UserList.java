@@ -8,6 +8,9 @@ public class UserList implements Serializable {
     public void addUser (User user){
         allUsers.add(user);
     }
+    public void addUsers (ArrayList<User> users){
+        allUsers.addAll(users);
+    }
     public ArrayList<User> getAllUsers(){
         return allUsers;
     }
