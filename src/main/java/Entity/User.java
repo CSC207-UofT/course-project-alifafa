@@ -136,18 +136,6 @@ public class User implements Serializable {
         }
     }
 
-    public ArrayList<PtoPMessage> getMessage(User user){
-        if (! PtoPMessageHistory.containsKey(user)){
-            return new ArrayList<>();
-        }
-        else {
-            return PtoPMessageHistory.get(user);
-        }
-    }
 
-    public void deleteMessage(User user, PtoPMessage message){
-        ArrayList<PtoPMessage> lst = PtoPMessageHistory.get(user);
-        lst.remove(message);
-    }
 }
 

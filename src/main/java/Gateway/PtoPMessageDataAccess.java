@@ -1,12 +1,8 @@
 package Gateway;
 
 import DataAccessInterface.PtoPMessageDataAccessInterface;
-import Entity.PtoPMessage;
-import Entity.User;
-
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
