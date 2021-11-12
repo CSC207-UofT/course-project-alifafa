@@ -9,11 +9,8 @@ import OutputBoundary.AccountRegistrationOutputBoundary;
 import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.LogInOutputBoundary;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /*
 Responsibilities
@@ -32,21 +29,7 @@ Return user’s request list.
 public class UserManager implements UserInputBoundary {
 
     public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
-        boolean readable = false;
-        try {
-            File myObj = new File("User_State.csv");
-            Scanner myReader = new Scanner(myObj);
-            if (myReader.hasNextLine()){
-               readable = true;
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        if (readable) {
-            UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
-        }
+        UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
     }
 
     public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
@@ -79,7 +62,7 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    public void createUser (String id, String userName, String password){
+    public User createUser (String id, String userName, String password){
         //Create a user
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
@@ -168,9 +151,12 @@ public class UserManager implements UserInputBoundary {
             if (password.equals(parameters[1])) {
                 this.changeLogInStatus(parameters[0]);
                 outputBoundary.setLogInStatus(true);
+            } else {
+                outputBoundary.setLogInStatus(false);
             }
+        } else {
+            outputBoundary.setLogInStatus(false);
         }
-        outputBoundary.setLogInStatus(false);
 
     }
 
