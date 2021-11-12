@@ -2,7 +2,6 @@ package UseCase;
 
 
 import DataAccess.DataAccess;
-import DataAccess.DataAccessGateway;
 import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;
@@ -63,13 +62,12 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    public User createUser (String id, String userName, String password){
+    public void createUser (String id, String userName, String password){
         //Create a user
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         User user = new User(id, userName, password);
         store.addUser(user);
-        return user;
     }
 
 
