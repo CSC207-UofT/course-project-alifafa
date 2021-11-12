@@ -1,10 +1,14 @@
 package Controllers.ChatControllers;
 
+import DataAccessInterface.PtoPMessageDataAccessInterface;
 import Entity.User;
+import Gateway.PtoPMessageDataAccess;
 import InputBoundary.PtoPMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
 import Presenters.PtoPMessageHistoryPresenter;
+import UseCase.PtoPMessageManager;
+import UseCase.UserManager;
 
 import java.io.IOException;
 
@@ -16,13 +20,14 @@ public class PtoPMessageController{
     //The input boundary of this class, which is implemented by PtoPMessageManager. It should be
     // constructed outside this class, then injected into this class's constructor.
     //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
-    private final PtoPMessageInputBoundary ptoPMessageInputBoundary;
-    private final UserInputBoundary userInputBoundary;
+    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface = new PtoPMessageDataAccess();
+    private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager(ptoPMessageDataAccessInterface);
+    private final UserInputBoundary userInputBoundary = new UserManager();
 
-    public PtoPMessageController(PtoPMessageInputBoundary ptoPMessageInputBoundary, UserInputBoundary userInputBoundary){
-        this.ptoPMessageInputBoundary = ptoPMessageInputBoundary;
-        this.userInputBoundary = userInputBoundary;
-    }
+//    TODO: public PtoPMessageController(PtoPMessageInputBoundary ptoPMessageInputBoundary, UserInputBoundary userInputBoundary){
+//        this.ptoPMessageInputBoundary = ptoPMessageInputBoundary;
+//        this.userInputBoundary = userInputBoundary;
+//    }
 
 
     /**

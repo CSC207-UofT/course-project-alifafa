@@ -13,15 +13,15 @@ public class AccountRegistrationController{
     /**
      * The input boundary for the AccountRegistration use case.
      */
-    private final UserInputBoundary AccountRegistrationInputBoundary;
+    private final UserInputBoundary AccountRegistrationInputBoundary = new UserManager();
 
     /**
      * A new AccountRegistrationController for the use case defined by the AccountRegistrationInputBoundary.
      * @param AccountRegistrationInputBoundary the input boundary for the login use case
      */
-    public AccountRegistrationController(UserInputBoundary AccountRegistrationInputBoundary) {
-        this.AccountRegistrationInputBoundary = AccountRegistrationInputBoundary;
-    }
+//    public AccountRegistrationController(UserInputBoundary AccountRegistrationInputBoundary) {
+//        this.AccountRegistrationInputBoundary = AccountRegistrationInputBoundary;
+//    }
 
     /**
      *

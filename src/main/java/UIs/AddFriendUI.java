@@ -6,7 +6,7 @@ import Presenters.AddFriendPresenter;
 
 import java.util.Scanner;
 
-public class AddFriendUI {
+public class AddFriendUI extends ParentUI {
     /**
      * A user interface for adding friend, will receive feedback from AddFriendPresenter.
      */
@@ -14,7 +14,10 @@ public class AddFriendUI {
     /*
      * This method is responsible for adding a friend task.
      */
-    public void run (AddFriendController controller, AddFriendPresenter presenter) {
+    public void run () {
+        AddFriendController controller = new AddFriendController();
+        AddFriendPresenter presenter = new AddFriendPresenter();
+
         String[] parameters = new String[2];
 
         System.out.println("Your ID ");
