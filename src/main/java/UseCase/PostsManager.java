@@ -1,6 +1,8 @@
 package UseCase;
 
 import Entity.*;
+import InputBoundary.SharingCentreInputBoundary;
+import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -8,11 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class PostsManager {
-    /**
-     * This use-case can 'post', 'delete', 'comment', and 'like' a
-     * post.
-     */
+/**
+ * This use-case can 'post', 'delete', 'comment', and 'like' a
+ * post.
+ */
+public class PostsManager implements SharingCentreInputBoundary {
 
     /**
      * Creates a post.
@@ -146,5 +148,55 @@ public class PostsManager {
      */
     public List<Notifications> retrieveNotifications(User user) {
         return user.getSharingCentre().getNotificationList();
+    }
+
+    @Override
+    public void runPostAPost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+        if (parameters[1] == null && parameters[3] == null) {
+            outputBoundary.setPostStatus(false);
+        }
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters[0]);
+        List<File> files = new ArrayList<>();
+        if (!parameters[3].isEmpty()) {   // Convert input String to File
+            int i = 3;
+            // Cannot have more than 9 files
+            while (!parameters[i].isEmpty() && i < 11) {
+                files.add(new File(parameters[i]));
+                i++;
+            }
+        }
+        postAPost(user, parameters[1], parameters[2], files);
+        outputBoundary.setPostStatus(true);
+    }
+
+    @Override
+    public void runDeletePost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
+    }
+
+    @Override
+    public void runLikePost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
+    }
+
+    @Override
+    public void runCommentPost(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
+    }
+
+    @Override
+    public void retrieveUsersAllPosts(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
+    }
+
+    @Override
+    public void retrieveSharingCentre(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
+    }
+
+    @Override
+    public void retrieveNotifications(String[] parameters, SharingCentreOutputBoundary outputBoundary) {
+
     }
 }
