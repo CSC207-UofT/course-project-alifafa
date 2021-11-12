@@ -1,11 +1,12 @@
 package Entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ParagraphPost {
+public class ParagraphPost implements Serializable {
     /**
      * A parent class. A post contains content, location, assigned id, time
      * when it's posted, list of comments, and list of users who like the post,
