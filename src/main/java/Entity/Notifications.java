@@ -1,9 +1,10 @@
 package Entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
-public class Notifications {
+public class Notifications implements Serializable {
     /**
      * An entity that contains the user who and when liked or commented a
      * post.

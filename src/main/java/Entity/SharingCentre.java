@@ -1,9 +1,10 @@
 package Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SharingCentre {
+public class SharingCentre implements Serializable {
     /**
      * A place that contains the posts posted by the user and user's friends,
      * and all notifications the owner of the sharing centre received.

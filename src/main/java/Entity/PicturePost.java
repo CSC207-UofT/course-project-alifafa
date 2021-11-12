@@ -1,11 +1,12 @@
 package Entity;
 
 import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 
-public class PicturePost extends ParagraphPost{
+public class PicturePost extends ParagraphPost implements Serializable {
 
     /**
      * A child class of ParagraphPost. Has everything ParagraphPost has.
