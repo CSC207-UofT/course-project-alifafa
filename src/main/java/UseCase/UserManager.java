@@ -9,8 +9,11 @@ import OutputBoundary.AccountRegistrationOutputBoundary;
 import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.LogInOutputBoundary;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
 Responsibilities
@@ -29,7 +32,21 @@ Return user’s request list.
 public class UserManager implements UserInputBoundary {
 
     public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
-        UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
+        boolean readable = false;
+        try {
+            File myObj = new File("User_State.csv");
+            Scanner myReader = new Scanner(myObj);
+            if (myReader.hasNextLine()){
+               readable = true;
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        if (readable) {
+            UserList store = (UserList) dataAccess.readFromFile("User_State.csv");
+        }
     }
 
     public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
