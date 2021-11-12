@@ -163,9 +163,12 @@ public class UserManager implements UserInputBoundary {
             if (password.equals(parameters[1])) {
                 this.changeLogInStatus(parameters[0]);
                 outputBoundary.setLogInStatus(true);
+            } else {
+                outputBoundary.setLogInStatus(false);
             }
+        } else {
+            outputBoundary.setLogInStatus(false);
         }
-        outputBoundary.setLogInStatus(false);
 
     }
 
