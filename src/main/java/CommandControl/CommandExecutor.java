@@ -26,7 +26,7 @@ public class CommandExecutor {
      * @param userInput The use's input info.
      * @param validCommands The constant we have that maps name of task to the command object.
      */
-    public void runCommand(String taskName, String[] userInput, Constants validCommands){
-        validCommands.getCommand(taskName).run(userInput);
-    }
+//    public void runCommand(String taskName, String[] userInput, Constants validCommands){
+//        validCommands.getUI(taskName).run(userInput);
+//    }
 }

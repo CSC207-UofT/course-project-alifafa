@@ -1,5 +1,6 @@
 import CommandControl.CommandExecutor;
 import CommandControl.CommandUI;
+import CommandControl.Constants;
 import Controllers.UserControllers.ReadAndWriteController;
 
 import java.io.IOException;
@@ -20,8 +21,7 @@ public class MainProgram {
         while (quit.equals("no")){
             // keep reading the command and executing it until user exits the program
             String task = commandUI.readCommand(commandExecutor, commands);
-            String[] parameters = commandUI.getParameters(task,commands);
-            commandExecutor.runCommand(task,parameters,commands);
+            commands.getUI(task).run();
             System.out.println("Do you want to exit (Type 'yes' or 'no')");
             quit = in.nextLine();
         }

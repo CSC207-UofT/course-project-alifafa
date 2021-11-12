@@ -6,14 +6,16 @@ import Presenters.PtoPMessageHistoryPresenter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class PtoPChatUI {
+public class PtoPChatUI extends ParentUI{
 
     /**
      * an user interface for sending and receiving ptop message.
      */
 
     // Use this method to realize person to person chat function.
-    public void run (PtoPMessageController controller, PtoPMessageHistoryPresenter presenter) throws IOException {
+    public void run () throws IOException {
+        PtoPMessageController controller = new PtoPMessageController();
+        PtoPMessageHistoryPresenter presenter = new PtoPMessageHistoryPresenter();
         String[] parameters = new String[3];
 
         System.out.println("My UserID: ");

@@ -28,30 +28,6 @@ public class CommandUI {
         }
         return command;
     }
-
-
-    /**
-     * This method will prompt the user to enter information based on the task they want to fulfil.
-     * For example, if the user wants to chat with someone, the task would be "message".
-     * This method will ask the user to enter the information (their friend's name in this case).
-     * @param task the task that the user want to do.
-     * @param constants The hashmap contains list of valid commands and their controllers.
-     * @return return an array of user's input
-     */
-    public String[] getParameters(String task, Constants constants){
-        Scanner scanner = new Scanner(System.in);
-        Controller controller = constants.getController(task);
-        int numParametersNeeded = controller.numOfPrompt();
-        String[] userInput = new String[numParametersNeeded];
-        System.out.println("You need to enter " + numParametersNeeded + " pieces of information");
-        for(int i = 0; i < numParametersNeeded; i++) {
-            System.out.println("Enter your " + controller.getUserPrompt().get(i));
-            userInput[i] = scanner.nextLine();
-        }
-        return userInput;
-    }
-
-
 }
 
 
