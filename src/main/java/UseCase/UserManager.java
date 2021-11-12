@@ -2,15 +2,12 @@ package UseCase;
 
 
 import DataAccess.DataAccessGateway;
-import Entity.StoreUser;
+import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;
 import OutputBoundary.AccountRegistrationOutputBoundary;
 import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.LogInOutputBoundary;
-import Presenters.AccountRegistrationPresenter;
-import Presenters.AddFriendPresenter;
-import Presenters.LogInPresenter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,16 +25,17 @@ Change Password
 Add Friend, Remove Friend
 Return user’s request list.
  */
+
 public class UserManager implements UserInputBoundary {
 
     public void loadData () throws IOException, ClassNotFoundException {
         DataAccessGateway dataAccessGateway = new DataAccessGateway();
-        StoreUser store = (StoreUser) dataAccessGateway.readFromFile("User_State.csv");
+        UserList store = (UserList) dataAccessGateway.readFromFile("User_State.csv");
     }
 
     public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
@@ -50,7 +48,7 @@ public class UserManager implements UserInputBoundary {
 
     public boolean checkUserName (String userName) {
         //Check whether the username existed in StoreUser or not
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user : stored) {
             if (user.getUserName().equals(userName)) {
@@ -62,7 +60,7 @@ public class UserManager implements UserInputBoundary {
 
     public User createUser (String id, String userName, String password){
         //Create a user
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         User user = new User(id, userName, password);
         store.addUser(user);
@@ -86,7 +84,7 @@ public class UserManager implements UserInputBoundary {
     public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
@@ -104,7 +102,7 @@ public class UserManager implements UserInputBoundary {
 
     public User getUser (String id){
         //Return user with given ID
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
