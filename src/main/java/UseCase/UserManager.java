@@ -82,8 +82,6 @@ public class UserManager implements UserInputBoundary {
         store.addUser(user);
     }
 
-
-
     public User findFriend (String id, String friendID){
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(id);

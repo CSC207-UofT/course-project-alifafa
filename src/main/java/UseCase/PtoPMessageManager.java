@@ -24,7 +24,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     }
 
     @Override
-    public  void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {
+    public void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {
 
         sender.addMessage(receiver, message);
         receiver.addMessage(sender, message);
