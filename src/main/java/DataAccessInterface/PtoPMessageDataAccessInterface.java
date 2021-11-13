@@ -1,10 +1,6 @@
 package DataAccessInterface;
 
-import Entity.PtoPMessage;
-import Entity.User;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface PtoPMessageDataAccessInterface {
@@ -13,7 +9,8 @@ public interface PtoPMessageDataAccessInterface {
     void saveToFile(String filepath, Object o) throws IOException;
 
     // convert data in filepath to a user's chat history data.
-    public HashMap<User, ArrayList<PtoPMessage>> readFromFile(String filepath) throws IOException, ClassNotFoundException;
+    //key is the userID, value is the user's chat history
+    HashMap<String, String> readFromFile(String filepath) throws IOException, ClassNotFoundException;
 
 
 }

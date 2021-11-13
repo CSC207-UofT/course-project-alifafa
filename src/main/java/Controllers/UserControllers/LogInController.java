@@ -2,6 +2,7 @@ package Controllers.UserControllers;
 
 import InputBoundary.UserInputBoundary;
 import Presenters.LogInPresenter;
+import UseCase.UserManager;
 
 
 /**
@@ -13,13 +14,13 @@ public class LogInController{
     /**
      * The input boundary for the login use case.
      */
-    private final UserInputBoundary loginInputBoundary;
+    private UserInputBoundary loginInputBoundary = new UserManager();
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      * @param loginInputBoundary the input boundary for the login use case
      */
-    public LogInController(UserInputBoundary loginInputBoundary) {
+    public void setLoginInputBoundary(UserInputBoundary loginInputBoundary) {
         this.loginInputBoundary = loginInputBoundary;
     }
 

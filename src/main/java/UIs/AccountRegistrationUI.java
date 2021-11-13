@@ -7,14 +7,16 @@ import Presenters.LogInPresenter;
 
 import java.util.Scanner;
 
-public class AccountRegistrationUI {
+public class AccountRegistrationUI extends ParentUI{
     /**
      * A user interface for account registration, will receive feedback from AccountRegistrationPresenter.
      */
 
 
 
-    public void run(AccountRegistrationController controller, AccountRegistrationPresenter presenter) {
+    public void run() {
+        AccountRegistrationController controller = new AccountRegistrationController();
+        AccountRegistrationPresenter presenter = new AccountRegistrationPresenter();
         String[] parameters = new String[3];
         Scanner scanner = new Scanner(System.in);
         System.out.println("ID: ");

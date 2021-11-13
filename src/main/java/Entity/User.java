@@ -4,30 +4,41 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* Responsibility
-        Each user has an unique ID, a userName, an associated password, an avatar
-        Create a user ID when Creating a new user account.
-        It has a list of friends, each friend is a User object.
-        It has a list of posts that was posted by the user.
-        It has a list blocked user, each blocked user is an User object. The blocked user cannot add this user as friend.
-        It has a request list attribute which stores a string of adding friend request.
-       It has a string attribute called loggedIn, which indicate whether the user is logged in or not.
-*/
-
 
 public class User implements Serializable {
-    //TODO: avatar, chat, mypost
+    /**
+     * A User's information.
+     */
+
+    // === Instance Variables ===
+    //The ID of User.
     private final String iD;
+    //The username of the User.
     private String userName;
+    //The password of the User.
     private String password;
+    //All friends of the User.
     private final ArrayList<User> friends;
+    //All posts of the User.
     private final ArrayList<ParagraphPost> myPosts;
+    //All blocked user of the User.
     private final ArrayList<User> blockedUser;
+    //All add friend request received by the User.
     private final ArrayList<String> addFriendRequests;
+    //The sharing centre of the User.
     private final SharingCentre sharingCentre;
+    //The log in status of the User.
     private boolean loggedIn;
+    //The message history of the User.
     private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
+    /**
+     * Creates a user.
+     * @param id the ID of the user.
+     * @param username the username of the user.
+     * @param password the password of the user.
+     *
+     */
     public User(String id, String username, String password){
         this.iD = id;
         this.userName = username;
@@ -125,18 +136,6 @@ public class User implements Serializable {
         }
     }
 
-    public ArrayList<PtoPMessage> getMessage(User user){
-        if (! PtoPMessageHistory.containsKey(user)){
-            return new ArrayList<>();
-        }
-        else {
-            return PtoPMessageHistory.get(user);
-        }
-    }
 
-    public void deleteMessage(User user, PtoPMessage message){
-        ArrayList<PtoPMessage> lst = PtoPMessageHistory.get(user);
-        lst.remove(message);
-    }
 }
 

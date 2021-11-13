@@ -1,19 +1,17 @@
 package UseCase;
 
 
-import DataAccess.DataAccessGateway;
-import Entity.StoreUser;
+import DataAccess.DataAccess;
+import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;
 import OutputBoundary.AccountRegistrationOutputBoundary;
 import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.LogInOutputBoundary;
-import Presenters.AccountRegistrationPresenter;
-import Presenters.AddFriendPresenter;
-import Presenters.LogInPresenter;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
 Responsibilities
@@ -28,16 +26,32 @@ Change Password
 Add Friend, Remove Friend
 Return user’s request list.
  */
+
 public class UserManager implements UserInputBoundary {
 
-    public void loadData () throws IOException, ClassNotFoundException {
-        DataAccessGateway dataAccessGateway = new DataAccessGateway();
-        StoreUser store = (StoreUser) dataAccessGateway.readFromFile("User_State.csv");
+    public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
+        boolean readable = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
+            String line = br.readLine();
+            if (line != null) {
+                readable = true;
+            }
+        }
+        if (readable) {
+            UserList store = new UserList();
+            ArrayList<User> lst = dataAccess.readFromFile("User_State.csv");
+            store.addUsers(lst);
+        }
+    }
+
+    public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
+        UserList store = new UserList();
+        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
     }
 
     public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
@@ -50,7 +64,7 @@ public class UserManager implements UserInputBoundary {
 
     public boolean checkUserName (String userName) {
         //Check whether the username existed in StoreUser or not
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user : stored) {
             if (user.getUserName().equals(userName)) {
@@ -60,13 +74,12 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    public User createUser (String id, String userName, String password){
+    public void createUser (String id, String userName, String password){
         //Create a user
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         User user = new User(id, userName, password);
         store.addUser(user);
-        return user;
     }
 
 
@@ -86,7 +99,7 @@ public class UserManager implements UserInputBoundary {
     public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
@@ -104,7 +117,7 @@ public class UserManager implements UserInputBoundary {
 
     public User getUser (String id){
         //Return user with given ID
-        StoreUser store = new StoreUser();
+        UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getID().equals(id)) {
@@ -150,9 +163,12 @@ public class UserManager implements UserInputBoundary {
             if (password.equals(parameters[1])) {
                 this.changeLogInStatus(parameters[0]);
                 outputBoundary.setLogInStatus(true);
+            } else {
+                outputBoundary.setLogInStatus(false);
             }
+        } else {
+            outputBoundary.setLogInStatus(false);
         }
-        outputBoundary.setLogInStatus(false);
 
     }
 

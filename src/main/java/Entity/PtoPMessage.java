@@ -34,46 +34,7 @@ public class PtoPMessage implements Serializable {
     }
 
 
-    /**
-     * Gets the time when this message is created.
-     *
-     * @return the time when this message is created.
-     */
-    public LocalDateTime getTime(){
-        return TIME;
-    }
-
-
-    /**
-     * Gets the content of this message.
-     *
-     * @return the content of this message.
-     */
-    public String getContent(){
-        return CONTENT;
-    }
-
-
-    /**
-     * Gets the sender of this message.
-     *
-     * @return the sender of this message.
-     */
-    public User  getSender(){
-        return SENDER;
-    }
-
-
-    /**
-     * Gets the receiver of this message.
-     *
-     * @return the receiver of this message.
-     */
-    public User  getReceiver(){
-        return RECEIVER;
-    }
-
     public String toString (){
-        return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
+        return SENDER.getUserName() + " -> " + RECEIVER.getUserName() +": " + CONTENT + "   (" + TIME + ")";
     }
 }

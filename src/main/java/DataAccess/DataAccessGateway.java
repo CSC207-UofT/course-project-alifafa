@@ -18,6 +18,7 @@ public class DataAccessGateway implements DataAccess{
     public <T> T readFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
+
         T read = (T) input.readObject();
         input.close();
         return read;
