@@ -2,10 +2,7 @@ package UseCase;
 
 import Entity.*;
 import InputBoundary.SharingCentreInputBoundary;
-import OutputBoundary.CommentPostOutputBoundary;
-import OutputBoundary.DeletePostOutputBoundary;
-import OutputBoundary.PostAPostOutputBoundary;
-import OutputBoundary.SharingCentreOutputBoundary;
+import OutputBoundary.*;
 
 import java.io.File;
 import java.time.LocalDateTime;
@@ -177,7 +174,7 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void runDeletePost(String[] parameters, DeletePostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(parameters[0]);
-        for (ParagraphPost post: user.getMyPosts()) {
+        for (ParagraphPost post: getUsersAllPosts(user)) {
             if (post.getPostid() == Integer.parseInt(parameters[1])) {
                 outputBoundary.setDeleteStatus(true);
                 deletePost(user, post);
@@ -189,7 +186,7 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void runCommentPost(String[] parameters, CommentPostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(parameters[0]);
-        for (ParagraphPost post: getUsersAllPosts(user)) {
+        for (ParagraphPost post: getSharingCentre(user)) {
             if (post.getPostid() == Integer.parseInt(parameters[1])) {
                 outputBoundary.setCommented(true);
                 commentPost(user, post, parameters[2]);
@@ -198,17 +195,34 @@ public class PostsManager implements SharingCentreInputBoundary {
     }
 
     @Override
-    public void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void likeAPost(String[] parameters) {
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters[0]);
+        for (ParagraphPost post: getSharingCentre(user)) {
+            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+                likePost(user, post);
+            }
+        }
+    }
 
+    @Override
+    public void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary) {
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters);
+        outputBoundary.setContent(getUsersAllPosts(user));
     }
 
     @Override
     public void retrieveSharingCentre(String parameters, SharingCentreOutputBoundary outputBoundary) {
-
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters);
+        outputBoundary.setContent(getSharingCentre(user));
     }
 
     @Override
-    public void retrieveNotifications(String parameters, SharingCentreOutputBoundary outputBoundary) {
-
+    public void retrieveNotifications(String parameters, NotificationOutputBoundary outputBoundary) {
+        UserManager userManager = new UserManager();
+        User user = userManager.getUser(parameters);
+        outputBoundary.setContent(getNotifications(user));
     }
 }

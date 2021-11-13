@@ -1,17 +1,16 @@
 package Presenters;
 
-import Entity.Notifications;
 import Entity.ParagraphPost;
 import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.util.List;
 
-public class SharingCentrePresenter<T> implements SharingCentreOutputBoundary {
+public class NotificationPresenter implements SharingCentreOutputBoundary {
     List<ParagraphPost> content;
 
     @Override
     public void setContent(List<ParagraphPost> content) {
-
+        this.content = content;
     }
 
     @Override

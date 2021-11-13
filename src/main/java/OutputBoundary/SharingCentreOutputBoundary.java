@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SharingCentreOutputBoundary {
 
-    void setIsPost(boolean isPost);
+    void setContent(List<ParagraphPost> content);
 
     String presentOutput();
 }

@@ -1,9 +1,6 @@
 package InputBoundary;
 
-import OutputBoundary.CommentPostOutputBoundary;
-import OutputBoundary.DeletePostOutputBoundary;
-import OutputBoundary.PostAPostOutputBoundary;
-import OutputBoundary.SharingCentreOutputBoundary;
+import OutputBoundary.*;
 
 public interface SharingCentreInputBoundary {
     /**
@@ -16,9 +13,11 @@ public interface SharingCentreInputBoundary {
 
     void runCommentPost(String[] parameters, CommentPostOutputBoundary outputBoundary);
 
+    void likeAPost(String[] parameters);
+
     void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary);
 
     void retrieveSharingCentre(String parameters, SharingCentreOutputBoundary outputBoundary);
 
-    void retrieveNotifications(String parameters, SharingCentreOutputBoundary outputBoundary);
+    void retrieveNotifications(String parameters, NotificationOutputBoundary outputBoundary);
 }
