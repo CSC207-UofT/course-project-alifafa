@@ -2,17 +2,17 @@ package OutputBoundary;
 
 public interface PtoGMessageOutputBoundary {
 
-    //the  ptop message history
-    String ptoPMessageHistory = "";
+    //the message history for PtoG chat
+    String ptoGMessageHistory = "";
 
     /**
-     * Store the ptop message history to presenter's attribute.
-     * @param s the ptop message history.
+     * Store the PtoG message history to presenter's attribute.
+     * @param s the PtoG message history.
      */
     void store(String s);
 
     /**
-     * Present the  ptop message.
+     * Present the PtoG message.
      */
     void present();
 

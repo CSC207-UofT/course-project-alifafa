@@ -1,20 +1,20 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoGMessageController;
-import Controllers.ChatControllers.PtoPMessageController;
+import Entity.Group;
+import Entity.PtoGMessage;
 import Presenters.PtoGMessageHistoryPresenter;
-import Presenters.PtoPMessageHistoryPresenter;
+import UseCase.GroupManager;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class PtoGChatUI extends ParentUI{
 
     /**
-     * a Group interface for sending and receiving ptog message.
+     * a Group interface for sending and receiving PtoG message.
      */
 
-
+    private final GroupManager groupManager = new GroupManager();
     public void run (){
         PtoGMessageController controller = new PtoGMessageController();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
@@ -25,8 +25,14 @@ public class PtoGChatUI extends ParentUI{
         parameters[0] = scanner.nextLine();
         System.out.println("GroupID: ");
         parameters[1] = scanner.nextLine();
+
+        //print the GroupName
+        Group group = groupManager.getGroup(parameters[1]);
+        String g = "Current Group:" + group.getGroupName();
+        System.out.println(g);
+
         //print previous chat history from the group
-        System.out.println("Previous chat history: ");
+        System.out.println("Previous group chat history: ");
         controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();
 
@@ -35,8 +41,8 @@ public class PtoGChatUI extends ParentUI{
         parameters[2] = scanner.nextLine();
         controller.sendMessage(parameters[0], parameters[1], parameters[2]);
 
-        //print latest chat history between my friend and me.
-        System.out.println("Current chat history: ");
+        //print latest chat history from this group.
+        System.out.println("Current group chat history: ");
         controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();
     }

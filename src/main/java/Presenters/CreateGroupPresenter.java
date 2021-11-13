@@ -2,7 +2,6 @@ package Presenters;
 
 import OutputBoundary.CreateGroupOutputBoundary;
 
-import java.util.ArrayList;
 
 public class CreateGroupPresenter implements CreateGroupOutputBoundary {
     boolean CreateStatus;
@@ -16,7 +15,7 @@ public class CreateGroupPresenter implements CreateGroupOutputBoundary {
     @Override
     public String presentOutput() {
         if(! CreateStatus){
-            return ("This Group already exists. Please use another one.");
+            return ("This Group already exists. Please try another one.");
         } else {
             return ("Your group is successfully created!");
         }
