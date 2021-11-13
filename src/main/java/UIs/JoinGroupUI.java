@@ -3,17 +3,16 @@ package UIs;
 
 import Controllers.UserControllers.JoinGroupController;
 import Presenters.JoinGroupPresenter;
-
-
 import java.util.Scanner;
+
 
 public class JoinGroupUI extends ParentUI {
     /**
-     * A user interface for adding friend, will receive feedback from AddFriendPresenter.
+     * A group interface for joining a group, will receive feedback from JoinGroupPresenter.
      */
 
     /*
-     * This method is responsible for adding a friend task.
+     * This method is responsible for users to join a group.
      */
     public void run () {
         JoinGroupController controller = new JoinGroupController();

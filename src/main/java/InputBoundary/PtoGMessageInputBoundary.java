@@ -5,7 +5,6 @@ import Entity.User;
 import Entity.Group;
 import OutputBoundary.PtoGMessageOutputBoundary;
 
-import java.io.IOException;
 
 public interface PtoGMessageInputBoundary {
 

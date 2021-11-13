@@ -2,9 +2,6 @@ package UseCase;
 import Entity.*;
 import Entity.Group;
 import InputBoundary.GroupInputBoundary;
-import InputBoundary.UserInputBoundary;
-import OutputBoundary.AccountRegistrationOutputBoundary;
-import OutputBoundary.AddFriendOutputBoundary;
 import OutputBoundary.CreateGroupOutputBoundary;
 import OutputBoundary.JoinGroupOutputBoundary;
 
@@ -13,7 +10,7 @@ import java.util.ArrayList;
 public class GroupManager implements GroupInputBoundary{
 
     public boolean checkGroupID(String id) {
-        //Check whether the id existed in StoreGroup or not
+        //Check whether the id existed in GroupList or not
         GroupList store = new GroupList();
         ArrayList<Group> stored = store.getAllGroups();
         for (Group group : stored) {
@@ -27,7 +24,7 @@ public class GroupManager implements GroupInputBoundary{
 
 
     public boolean checkGroupName(String userName) {
-        //Check whether the group name existed in StoreGroup or not
+        //Check whether the group name existed in GroupList or not
         GroupList store = new GroupList();
         ArrayList<Group> stored = store.getAllGroups();
         for (Group group : stored) {
@@ -61,7 +58,7 @@ public class GroupManager implements GroupInputBoundary{
     }
 
     public void joinGroup (String Userid, String GroupID){
-        //Join a group by given Userid
+        //Join a user with Userid to an existing group with GroupID
         Group group = this.getGroup(GroupID);
         ArrayList<User> members = group.getMembers();
         User u = new UserManager().getUser(Userid);

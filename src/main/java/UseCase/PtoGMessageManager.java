@@ -4,17 +4,11 @@ import Entity.Group;
 import Entity.PtoGMessage;
 import Entity.User;
 import InputBoundary.PtoGMessageInputBoundary;
-import InputBoundary.PtoPMessageInputBoundary;
 import OutputBoundary.PtoGMessageOutputBoundary;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class PtoGMessageManager implements PtoGMessageInputBoundary {
-
-
-
-
     /**
      * @param sender the sender of a text.
      * @param group the group of receiver of a text.
