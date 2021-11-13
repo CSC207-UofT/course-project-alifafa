@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class PtoGMessageManager implements PtoGMessageInputBoundary {
 
-    
+
 
 
     /**
@@ -26,7 +26,7 @@ public class PtoGMessageManager implements PtoGMessageInputBoundary {
     }
 
     @Override
-    public void sendMessage(User sender, Group group, PtoGMessage message) throws IOException {
+    public void sendMessage(User sender, Group group, PtoGMessage message){
         group.addGroupMessage(message);
     }
 

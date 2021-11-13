@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class PtoGChatUI extends ParentUI{
 
     /**
-     * an user interface for sending and receiving ptop message.
+     * a Group interface for sending and receiving ptog message.
      */
 
-    // Use this method to realize person to person chat function.
-    public void run () throws IOException {
+
+    public void run (){
         PtoGMessageController controller = new PtoGMessageController();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
         String[] parameters = new String[3];
@@ -25,13 +25,12 @@ public class PtoGChatUI extends ParentUI{
         parameters[0] = scanner.nextLine();
         System.out.println("GroupID: ");
         parameters[1] = scanner.nextLine();
-
-        //print previous chat history between my friend and me.
+        //print previous chat history from the group
         System.out.println("Previous chat history: ");
         controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();
 
-        //send message to the friend
+        //send message to the group
         System.out.println("Please type your message.");
         parameters[2] = scanner.nextLine();
         controller.sendMessage(parameters[0], parameters[1], parameters[2]);

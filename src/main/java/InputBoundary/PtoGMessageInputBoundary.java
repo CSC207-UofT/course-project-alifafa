@@ -26,7 +26,7 @@ public interface PtoGMessageInputBoundary {
      * @param message the message sent from sender to receiver
      */
 
-    void sendMessage(User sender, Group group, PtoGMessage message) throws IOException;
+    void sendMessage(User sender, Group group, PtoGMessage message);
 
     /**
      * Stores all messages between receiver and sender.

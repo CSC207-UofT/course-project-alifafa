@@ -29,7 +29,7 @@ public class PtoGMessageController{
     private final GroupInputBoundary groupInputBoundary = new GroupManager();
     private final UserInputBoundary userInputBoundary = new UserManager();
 
-    
+
 
     /**
      * Sends message from one user to another user
@@ -37,7 +37,7 @@ public class PtoGMessageController{
      * @param GroupID group's ID
      * @param content the content of a message
      */
-    public void sendMessage(String senderUserID, String GroupID, String content) throws IOException {
+    public void sendMessage(String senderUserID, String GroupID, String content) {
 
         ptoGMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
                 groupInputBoundary.getGroup(GroupID) ,
