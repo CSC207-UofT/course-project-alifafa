@@ -1,8 +1,11 @@
 package Entity;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.time.LocalDateTime;
 
 /** 
 * SharingCentre Tester. 
@@ -11,14 +14,22 @@ import org.junit.After;
 * @since <pre>Nov 10, 2021</pre> 
 * @version 1.0 
 */ 
-public class SharingCentreTest { 
+public class SharingCentreTest {
+
+    User a = new User("1", "a", "123");
+    User b = new User("2", "b", "321");
+    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
+    ParagraphPost post1 = new ParagraphPost(LocalDateTime.now(), "", "dd");
+    Notifications notifications = new Notifications(a, LocalDateTime.now(), post, true);
+    Notifications notifications1 = new Notifications(a, LocalDateTime.now(), post1, false);
 
 @Before
-public void before() throws Exception { 
-} 
+public void before() {
+
+}
 
 @After
-public void after() throws Exception { 
+public void after() {
 } 
 
 /** 
@@ -27,8 +38,13 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetAllPosts() throws Exception { 
-//TODO: Test goes here..
+public void testGetAllPosts() {
+    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
+    ParagraphPost post1 = new ParagraphPost(LocalDateTime.now(), "", "dd");
+    a.getSharingCentre().getAllPosts().add(post);
+    a.getSharingCentre().getAllPosts().add(post1);
+    int size = a.getSharingCentre().getAllPosts().size();
+    Assert.assertEquals(2, size);
 } 
 
 /** 
@@ -37,9 +53,12 @@ public void testGetAllPosts() throws Exception {
 * 
 */ 
 @Test
-public void testGetNotificationList() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testGetNotificationList() {
+    a.getSharingCentre().getNotificationList().add(notifications);
+    a.getSharingCentre().getNotificationList().add(notifications1);
+    int size = a.getSharingCentre().getNotificationList().size();
+    Assert.assertEquals(2, size);
+}
 
 /** 
 * 
@@ -47,8 +66,11 @@ public void testGetNotificationList() throws Exception {
 * 
 */ 
 @Test
-public void testIsNewPostNotification() throws Exception { 
-//TODO: Test goes here... 
+public void testIsNewPostNotification() {
+    b.getSharingCentre().setNewPostNotification(false);
+    Assert.assertFalse(b.getSharingCentre().isNewPostNotification());
+    a.getSharingCentre().setNewPostNotification(true);
+    Assert.assertTrue(a.getSharingCentre().isNewPostNotification());
 } 
 
 /** 
@@ -57,8 +79,9 @@ public void testIsNewPostNotification() throws Exception {
 * 
 */ 
 @Test
-public void testSetNewPostNotification() throws Exception { 
-//TODO: Test goes here... 
+public void testSetNewPostNotification() {
+    b.getSharingCentre().setNewPostNotification(false);
+    Assert.assertFalse(b.getSharingCentre().isNewPostNotification());
 } 
 
 
