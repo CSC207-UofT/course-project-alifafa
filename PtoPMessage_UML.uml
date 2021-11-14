@@ -3,212 +3,234 @@
   <ID>JAVA</ID>
   <OriginalElement>InputBoundary.PtoPMessageInputBoundary</OriginalElement>
   <nodes>
-    <node x="-63.51845730027546" y="392.1454545454545">Gateway.PtoPMessageDataAccess</node>
-    <node x="-92.51845730027546" y="305.17190082644623">DataAccessInterface.PtoPMessageDataAccessInterface</node>
-    <node x="853.9146650169774" y="433.3487603305785">Presenters.PtoPMessageHistoryPresenter</node>
-    <node x="450.57969961240315" y="576.2644628099171">UIs.PtoPChatUI</node>
-    <node x="409.12499999999994" y="226.04462809917356">UseCase.PtoPMessageManager</node>
-    <node x="463.03073267025434" y="733.1504132231406">MainProgram</node>
-    <node x="824.6423509673907" y="305.17190082644623">OutputBoundary.PtoPMessageOutputBoundary</node>
-    <node x="561.9929752066116" y="147.6016528925618">Entity.User</node>
-    <node x="335.1902368024858" y="497.8214876033053">Controllers.ChatControllers.PtoPMessageController</node>
-    <node x="380.6706611570248" y="120.29173553719006">Entity.PtoPMessage</node>
-    <node x="571.8712285380229" y="654.7074380165288">CommandControl.CommandHelper</node>
-    <node x="380.1902368024858" y="654.7074380165288">CommandControl.Constants</node>
-    <node x="458.4038935756612" y="401.1545454545453">InputBoundary.PtoPMessageInputBoundary</node>
+    <node x="899.1589147286822" y="300.0">Gateway.PtoPMessageDataAccess</node>
+    <node x="658.7466085271317" y="196.0">DataAccessInterface.PtoPMessageDataAccessInterface</node>
+    <node x="0.0" y="300.0">Presenters.PtoPMessageHistoryPresenter</node>
+    <node x="412.4132751937984" y="486.0">UIs.PtoPChatUI</node>
+    <node x="637.9966085271317" y="300.0">UseCase.PtoPMessageManager</node>
+    <node x="405.9132751937984" y="730.0">MainProgram</node>
+    <node x="835.7100543349027" y="60.895705521472394">OutputBoundary.PtoPMessageOutputBoundary</node>
+    <node x="544.9132751937984" y="92.0">Entity.User</node>
+    <node x="485.91327519379837" y="404.0">Controllers.ChatControllers.PtoPMessageController</node>
+    <node x="378.5373062015505" y="0.0">Entity.PtoPMessage</node>
+    <node x="340.4132751937984" y="648.0">CommandControl.CommandHelper</node>
+    <node x="417.9132751937984" y="566.0">CommandControl.Constants</node>
+    <node x="167.5" y="196.0">InputBoundary.PtoPMessageInputBoundary</node>
   </nodes>
   <notes />
   <edges>
     <edge source="UseCase.PtoPMessageManager" target="Entity.PtoPMessage" relationship="CREATE">
-      <point x="-79.26384297520656" y="-17.99256198347109" />
-      <point x="430.3611570247934" y="223.55206611570247" />
-      <point x="430.3611570247934" y="198.5206611570248" />
-      <point x="-20.80950413223144" y="15.654545454545485" />
+      <point x="85.875" y="-15.0" />
+      <point x="838.3716085271317" y="268.0" />
+      <point x="1052.5799418604652" y="268.0" />
+      <point x="1052.5799418604652" y="51.0" />
+      <point x="511.8706395348838" y="51.0" />
+      <point x="53.33333333333334" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="InputBoundary.PtoPMessageInputBoundary" relationship="DEPENDENCY">
-      <point x="69.0" y="-15.5" />
-      <point x="533.3694214876033" y="497.3214876033053" />
-      <point x="533.3694214876033" y="512.8223140495867" />
-      <point x="507.6902368024858" y="512.8223140495867" />
-      <point x="507.6902368024858" y="431.6545454545453" />
-      <point x="79.66666666666669" y="15.5" />
+      <point x="-79.66666666666669" y="-15.0" />
+      <point x="525.7466085271317" y="382.0" />
+      <point x="361.78827519379837" y="382.0" />
+      <point x="361.78827519379837" y="372.0" />
+      <point x="335.25" y="372.0" />
+      <point x="335.25" y="278.0" />
+      <point x="213.5" y="278.0" />
+      <point x="-92.0" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="Gateway.PtoPMessageDataAccess" relationship="CREATE">
-      <point x="-69.0" y="-15.5" />
-      <point x="369.6902368024858" y="523.1231404958676" />
-      <point x="44.98154269972454" y="523.1231404958676" />
-      <point x="0.0" y="15.5" />
+      <point x="79.66666666666663" y="-15.0" />
+      <point x="685.0799418604649" y="382.0" />
+      <point x="903.0625" y="382.0" />
+      <point x="903.0625" y="352.0" />
+      <point x="1026.1589147286822" y="352.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="Presenters.PtoPMessageHistoryPresenter" relationship="DEPENDENCY">
-      <point x="69.0" y="-15.5" />
-      <point x="507.6902368024858" y="523.1231404958676" />
-      <point x="916.6646650169774" y="523.1231404958676" />
-      <point x="-62.75" y="15.5" />
+      <point x="-79.66666666666669" y="-15.0" />
+      <point x="525.7466085271317" y="382.0" />
+      <point x="361.78827519379837" y="382.0" />
+      <point x="361.78827519379837" y="372.0" />
+      <point x="220.5" y="372.0" />
+      <point x="73.5" y="15.0" />
     </edge>
     <edge source="InputBoundary.PtoPMessageInputBoundary" target="Entity.User" relationship="DEPENDENCY">
-      <point x="53.710425675892225" y="-15.179338842975312" />
-      <point x="650.1143192515534" y="151.29173553719008" />
-      <point x="636.5148760330579" y="151.29173553719008" />
-      <point x="29.521900826446313" y="12.463636363636368" />
+      <point x="0.0" y="-15.0" />
+      <point x="305.5" y="174.0" />
+      <point x="589.9132751937984" y="174.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="InputBoundary.PtoPMessageInputBoundary" relationship="TO_ONE">
-      <point x="0.0" y="-15.5" />
-      <point x="474.8597107438016" y="497.3214876033053" />
-      <point x="474.8597107438016" y="431.6545454545453" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="605.4132751937984" y="382.0" />
+      <point x="604.0755813953489" y="382.0" />
+      <point x="604.0755813953489" y="362.0" />
+      <point x="346.25" y="362.0" />
+      <point x="346.25" y="268.0" />
+      <point x="305.5" y="268.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="DataAccessInterface.PtoPMessageDataAccessInterface" relationship="TO_ONE">
-      <point x="0.0" y="-15.5" />
-      <point x="438.6902368024858" y="505.096694214876" />
-      <point x="166.98264462809917" y="505.096694214876" />
-      <point x="166.98264462809917" y="328.39752066115693" />
-      <point x="44.98154269972454" y="328.39752066115693" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="605.4132751937984" y="382.0" />
+      <point x="604.0755813953489" y="382.0" />
+      <point x="604.0755813953489" y="362.0" />
+      <point x="877.4966085271317" y="362.0" />
+      <point x="877.4966085271317" y="278.0" />
+      <point x="829.3091085271317" y="278.0" />
+      <point x="829.3091085271317" y="268.0" />
+      <point x="821.2466085271317" y="268.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="MainProgram" target="CommandControl.Constants" relationship="CREATE">
-      <point x="0.0" y="-15.5" />
-      <point x="534.5307326702543" y="709.4289256198347" />
-      <point x="409.4402368024858" y="709.4289256198347" />
-      <point x="-29.25" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="484.4132751937984" y="704.0" />
+      <point x="535.9132751937984" y="704.0" />
+      <point x="535.9132751937984" y="622.0" />
+      <point x="517.6632751937984" y="622.0" />
+      <point x="33.25" y="15.0" />
     </edge>
     <edge source="UseCase.PtoPMessageManager" target="DataAccessInterface.PtoPMessageDataAccessInterface" relationship="TO_ONE">
-      <point x="-25.125" y="-15.5" />
-      <point x="484.49999999999994" y="241.54462809917356" />
-      <point x="44.98154269972454" y="241.54462809917356" />
-      <point x="0.0" y="15.5" />
+      <point x="28.625" y="-15.0" />
+      <point x="781.1216085271317" y="278.0" />
+      <point x="829.3091085271317" y="278.0" />
+      <point x="829.3091085271317" y="268.0" />
+      <point x="821.2466085271317" y="268.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="InputBoundary.PtoPMessageInputBoundary" target="OutputBoundary.PtoPMessageOutputBoundary" relationship="DEPENDENCY">
-      <point x="110.36497113043765" y="4.13471074380152" />
-      <point x="907.3923509673907" y="420.28925619834683" />
-      <point x="-62.75" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="305.5" y="164.0" />
+      <point x="446.78827519379837" y="164.0" />
+      <point x="446.78827519379837" y="144.0" />
+      <point x="1053.9600543349027" y="144.0" />
+      <point x="72.75" y="15.0" />
     </edge>
     <edge source="UseCase.PtoPMessageManager" target="DataAccessInterface.PtoPMessageDataAccessInterface" relationship="DEPENDENCY">
-      <point x="25.125" y="-15.5" />
-      <point x="534.75" y="248.52231404958678" />
-      <point x="411.1400826446281" y="248.52231404958678" />
-      <point x="411.1400826446281" y="241.54462809917356" />
-      <point x="593.6727228682171" y="241.54462809917356" />
-      <point x="593.6727228682171" y="232.53140495867774" />
-      <point x="23.33911845730033" y="232.53140495867774" />
-      <point x="23.33911845730033" y="316.8334710743801" />
-      <point x="136.64820936639123" y="316.8334710743801" />
-      <point x="91.66666666666669" y="15.5" />
+      <point x="-28.625" y="-15.0" />
+      <point x="723.8716085271317" y="278.0" />
+      <point x="522.875" y="278.0" />
+      <point x="522.875" y="268.0" />
+      <point x="627.4966085271317" y="268.0" />
+      <point x="627.4966085271317" y="248.0" />
+      <point x="712.9132751937984" y="248.0" />
+      <point x="-108.33333333333333" y="15.0" />
     </edge>
     <edge source="Entity.PtoPMessage" target="Entity.User" relationship="DEPENDENCY">
-      <point x="31.982231404958725" y="13.057024793388425" />
-      <point x="483.15289256198355" y="123.1190082644628" />
-      <point x="605.4752066115703" y="123.1190082644628" />
-      <point x="2.482231404958725" y="-15.863636363636374" />
+      <point x="0.0" y="15.0" />
+      <point x="458.5373062015505" y="71.0" />
+      <point x="612.4132751937984" y="71.0" />
+      <point x="22.5" y="-15.0" />
     </edge>
     <edge source="Entity.User" target="Entity.PtoPMessage" relationship="DEPENDENCY">
-      <point x="20.5" y="-15.5" />
-      <point x="574.5727272727273" y="147.6016528925618" />
-      <point x="574.5727272727273" y="147.44152892561982" />
-      <point x="498.1706611570248" y="147.44152892561982" />
-      <point x="47.0" y="15.5" />
+      <point x="22.5" y="-15.0" />
+      <point x="612.4132751937984" y="71.0" />
+      <point x="458.5373062015505" y="71.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="Presenters.PtoPMessageHistoryPresenter" target="OutputBoundary.PtoPMessageOutputBoundary" relationship="REALIZATION">
-      <point x="0.0" y="-15.5" />
-      <point x="997.4411112979693" y="433.3487603305785" />
-      <point x="997.4411112979693" y="336.17190082644623" />
-      <point x="62.75" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="147.0" y="174.0" />
+      <point x="908.4600543349027" y="174.0" />
+      <point x="-72.75" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="DataAccessInterface.PtoPMessageDataAccessInterface" relationship="DEPENDENCY">
-      <point x="-90.15655911653533" y="-19.121487603305695" />
-      <point x="348.53367768595047" y="320.67190082644623" />
-      <point x="159.82506887052347" y="320.67190082644623" />
-      <point x="159.82506887052347" y="336.17190082644623" />
-      <point x="91.66666666666669" y="15.5" />
+      <point x="-79.66666666666669" y="-15.0" />
+      <point x="525.7466085271317" y="382.0" />
+      <point x="361.78827519379837" y="382.0" />
+      <point x="361.78827519379837" y="372.0" />
+      <point x="627.4966085271317" y="372.0" />
+      <point x="627.4966085271317" y="248.0" />
+      <point x="712.9132751937984" y="248.0" />
+      <point x="-108.33333333333333" y="15.0" />
     </edge>
     <edge source="UseCase.PtoPMessageManager" target="OutputBoundary.PtoPMessageOutputBoundary" relationship="DEPENDENCY">
-      <point x="92.08037190082649" y="-15.5" />
-      <point x="601.7053719008264" y="241.54462809917356" />
-      <point x="632.3008220417709" y="241.54462809917356" />
-      <point x="632.3008220417709" y="241.0" />
-      <point x="655.5477228682171" y="241.0" />
-      <point x="655.5477228682171" y="241.54462809917356" />
-      <point x="887.3923509673907" y="241.54462809917356" />
-      <point x="-62.75" y="15.5" />
+      <point x="-28.625" y="-15.0" />
+      <point x="723.8716085271317" y="278.0" />
+      <point x="522.875" y="278.0" />
+      <point x="522.875" y="248.0" />
+      <point x="454.0" y="248.0" />
+      <point x="454.0" y="154.0" />
+      <point x="446.78827519379837" y="154.0" />
+      <point x="446.78827519379837" y="144.0" />
+      <point x="1053.9600543349027" y="144.0" />
+      <point x="72.75" y="15.0" />
     </edge>
     <edge source="Gateway.PtoPMessageDataAccess" target="DataAccessInterface.PtoPMessageDataAccessInterface" relationship="REALIZATION">
-      <point x="0.0" y="-15.5" />
-      <point x="44.98154269972454" y="336.17190082644623" />
-      <point x="-91.66666666666667" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="1026.1589147286822" y="258.0" />
+      <point x="929.5799418604649" y="258.0" />
+      <point x="108.33333333333331" y="15.0" />
     </edge>
     <edge source="UIs.PtoPChatUI" target="Controllers.ChatControllers.PtoPMessageController" relationship="CREATE">
-      <point x="0.0" y="-15.5" />
-      <point x="514.0796996124031" y="502.63223140495853" />
-      <point x="438.6902368024858" y="502.63223140495853" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="484.4132751937984" y="460.0" />
+      <point x="605.4132751937984" y="460.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="UIs.PtoPChatUI" target="Presenters.PtoPMessageHistoryPresenter" relationship="CREATE">
-      <point x="0.0" y="-15.5" />
-      <point x="514.0796996124031" y="591.5148760330578" />
-      <point x="1042.1646650169773" y="591.5148760330578" />
-      <point x="62.75" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="484.4132751937984" y="460.0" />
+      <point x="142.0" y="460.0" />
+      <point x="142.0" y="382.0" />
+      <point x="73.5" y="382.0" />
+      <point x="-73.5" y="15.0" />
     </edge>
     <edge source="MainProgram" target="CommandControl.CommandHelper" relationship="CREATE">
-      <point x="0.0" y="-15.5" />
-      <point x="534.5307326702543" y="709.4289256198347" />
-      <point x="654.8712285380229" y="709.4289256198347" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="484.4132751937984" y="704.0" />
+      <point x="432.9132751937984" y="704.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="UseCase.PtoPMessageManager" target="InputBoundary.PtoPMessageInputBoundary" relationship="REALIZATION">
-      <point x="75.375" y="-15.5" />
-      <point x="599.0" y="257.04462809917356" />
-      <point x="516.7372269089944" y="257.04462809917356" />
-      <point x="-79.66666666666669" y="15.5" />
+      <point x="-85.875" y="-15.0" />
+      <point x="666.6216085271317" y="258.0" />
+      <point x="397.5" y="258.0" />
+      <point x="92.0" y="15.0" />
     </edge>
     <edge source="Entity.PtoPMessage" target="Entity.User" relationship="TO_ONE">
-      <point x="0.0" y="15.5" />
-      <point x="484.49999999999994" y="151.29173553719005" />
-      <point x="484.49999999999994" y="169.31818181818178" />
-      <point x="582.4929752066116" y="169.31818181818178" />
-      <point x="-20.5" y="-15.5" />
+      <point x="-53.33333333333334" y="15.0" />
+      <point x="405.2039728682172" y="61.0" />
+      <point x="567.4132751937984" y="61.0" />
+      <point x="-22.5" y="-15.0" />
     </edge>
     <edge source="InputBoundary.PtoPMessageInputBoundary" target="Entity.PtoPMessage" relationship="DEPENDENCY">
-      <point x="98.77654137837158" y="-3.5909090909091788" />
-      <point x="673.7181818181818" y="412.56363636363614" />
-      <point x="673.7181818181818" y="417.41322314049586" />
-      <point x="673.7181818181817" y="417.41322314049586" />
-      <point x="673.7181818181817" y="73.44214876033058" />
-      <point x="451.1706611570248" y="73.44214876033058" />
-      <point x="451.1706611570248" y="122.6190082644628" />
-      <point x="-36.26074380165289" y="-12.672727272727244" />
+      <point x="0.0" y="-15.0" />
+      <point x="305.5" y="154.0" />
+      <point x="126.66327519379843" y="154.0" />
+      <point x="126.66327519379843" y="71.0" />
+      <point x="458.5373062015505" y="71.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="UseCase.PtoPMessageManager" target="Entity.User" relationship="DEPENDENCY">
-      <point x="25.125" y="-15.5" />
-      <point x="534.75" y="241.54462809917356" />
-      <point x="593.6727228682171" y="241.54462809917356" />
-      <point x="593.6727228682171" y="241.0" />
-      <point x="602.9929752066116" y="241.0" />
-      <point x="0.0" y="15.5" />
+      <point x="-28.625" y="-15.0" />
+      <point x="723.8716085271317" y="278.0" />
+      <point x="522.875" y="278.0" />
+      <point x="522.875" y="248.0" />
+      <point x="589.9132751937984" y="248.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="Controllers.ChatControllers.PtoPMessageController" target="UseCase.PtoPMessageManager" relationship="CREATE">
-      <point x="-69.0" y="-15.5" />
-      <point x="369.6902368024858" y="504.001652892562" />
-      <point x="426.3447822570313" y="504.001652892562" />
-      <point x="426.3447822570313" y="257.04462809917356" />
-      <point x="0.0" y="15.5" />
+      <point x="79.66666666666663" y="-15.0" />
+      <point x="685.0799418604649" y="382.0" />
+      <point x="903.0625" y="382.0" />
+      <point x="903.0625" y="352.0" />
+      <point x="752.4966085271317" y="352.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="CommandControl.Constants" target="UIs.PtoPChatUI" relationship="CREATE">
-      <point x="0.0" y="-15.5" />
-      <point x="438.6902368024858" y="595.8537190082644" />
-      <point x="514.0796996124031" y="595.8537190082644" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="CommandControl.CommandHelper" target="CommandControl.Constants" relationship="DEPENDENCY">
-      <point x="0.0" y="-15.5" />
-      <point x="654.8712285380229" y="670.2074380165288" />
-      <point x="502.491269860337" y="670.2074380165288" />
-      <point x="502.491269860337" y="669.5880165289256" />
-      <point x="467.9402368024858" y="669.5880165289256" />
-      <point x="29.25" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="432.9132751937984" y="622.0" />
+      <point x="451.1632751937984" y="622.0" />
+      <point x="-33.25" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.675161746237988" showDependencies="true" x="729.086364927882" y="443.9652930691392" />
+  <settings layout="Hierarchic" zoom="0.8358974358974359" showDependencies="true" x="577.0" y="380.0" />
   <SelectedNodes>
-    <node>InputBoundary.PtoPMessageInputBoundary</node>
+    <node>OutputBoundary.PtoPMessageOutputBoundary</node>
   </SelectedNodes>
   <Categories />
   <SCOPE>All</SCOPE>
