@@ -35,7 +35,6 @@ public class PtoPMessageController{
      * @param content the content of a message
      */
     public void sendMessage(String senderUserID, String receiverUserID, String content) throws IOException {
-
         ptoPMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
                 userInputBoundary.getUser(receiverUserID) ,
                 ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),

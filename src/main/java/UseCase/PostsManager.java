@@ -151,31 +151,23 @@ public class PostsManager implements SharingCentreInputBoundary {
     }
 
     @Override
-    public void runPostAPost(String[] parameters, PostAPostOutputBoundary outputBoundary) {
-        if (parameters[1] == null && parameters[3] == null) {
+    public void runPostAPost(String userid, String content, String location, List<File> pictures, PostAPostOutputBoundary outputBoundary) {
+        if (content.isEmpty() && pictures.size() == 0) {
             outputBoundary.setPostStatus(false);
         }
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters[0]);
-        List<File> files = new ArrayList<>();
-        if (!parameters[3].isEmpty()) {   // Convert input String to File
-            int i = 3;
-            // Cannot have more than 9 files
-            while (!parameters[i].isEmpty() && i < 11) {
-                files.add(new File(parameters[i]));
-                i++;
-            }
-        }
-        postAPost(user, parameters[1], parameters[2], files);
+        User user = userManager.getUser(userid);
+        postAPost(user, content, location, pictures);
         outputBoundary.setPostStatus(true);
     }
 
     @Override
-    public void runDeletePost(String[] parameters, DeletePostOutputBoundary outputBoundary) {
+    public void runDeletePost(String userid, String postID, DeletePostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters[0]);
+        User user = userManager.getUser(userid);
         for (ParagraphPost post: getUsersAllPosts(user)) {
-            if (post.getPostID() == Integer.parseInt(parameters[1])) {
+            if (post.getPostid() == Integer.parseInt(postID)) {
+
                 outputBoundary.setDeleteStatus(true);
                 deletePost(user, post);
             }
@@ -183,46 +175,46 @@ public class PostsManager implements SharingCentreInputBoundary {
     }
 
     @Override
-    public void runCommentPost(String[] parameters, CommentPostOutputBoundary outputBoundary) {
+    public void runCommentPost(String userid, String postID, String content, CommentPostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters[0]);
+        User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {
-            if (post.getPostID() == Integer.parseInt(parameters[1])) {
+            if (post.getPostid() == Integer.parseInt(postID)) {
                 outputBoundary.setCommented(true);
-                commentPost(user, post, parameters[2]);
+                commentPost(user, post, content);
             }
         }
     }
 
     @Override
-    public void likeAPost(String[] parameters) {
+    public void likeAPost(String userid, String postID) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters[0]);
+        User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {
-            if (post.getPostID() == Integer.parseInt(parameters[1])) {
+            if (post.getPostid() == Integer.parseInt(postID)) {
                 likePost(user, post);
             }
         }
     }
 
     @Override
-    public void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void retrieveUsersAllPosts(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters);
+        User user = userManager.getUser(userID);
         outputBoundary.setContent(getUsersAllPosts(user));
     }
 
     @Override
-    public void retrieveSharingCentre(String parameters, SharingCentreOutputBoundary outputBoundary) {
+    public void retrieveSharingCentre(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters);
+        User user = userManager.getUser(userID);
         outputBoundary.setContent(getSharingCentre(user));
     }
 
     @Override
-    public void retrieveNotifications(String parameters, NotificationOutputBoundary outputBoundary) {
+    public void retrieveNotifications(String userID, NotificationOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
-        User user = userManager.getUser(parameters);
+        User user = userManager.getUser(userID);
         outputBoundary.setContent(getNotifications(user));
     }
 }

@@ -6,7 +6,7 @@ import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.util.List;
 
-public class SharingCentrePresenter<T> implements SharingCentreOutputBoundary {
+public class SharingCentrePresenter implements SharingCentreOutputBoundary {
     List<ParagraphPost> content;
 
     @Override
