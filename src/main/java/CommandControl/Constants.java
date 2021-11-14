@@ -1,7 +1,5 @@
 package CommandControl;
 
-//TODO import Controllers.PostControllers.ParPostController;
-//TODO import Controllers.PostControllers.PicPostController;
 import UIs.*;
 
 import java.util.HashMap;
