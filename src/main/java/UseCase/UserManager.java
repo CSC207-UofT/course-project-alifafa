@@ -1,7 +1,7 @@
 package UseCase;
 
 
-import DataAccess.DataAccess;
+import DataAccessInterface.DataAccess;
 import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;
@@ -11,25 +11,15 @@ import OutputBoundary.LogInOutputBoundary;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-/*
-Responsibilities
-It can Create User
-Login
-Find friend for a given user with given friend's userName.
-Return a password with given ID after searching in StoreUser. Return null if such user does not exist.
-Change LogIn status.
-Return user with given ID
-Change Username
-Change Password
-Add Friend, Remove Friend
-Return user’s request list.
- */
 
 public class UserManager implements UserInputBoundary {
 
+    /**
+     * A manager that manage User, including create user, login, read and write data, add friend.
+     */
+
     public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
+        //Read data from file and cast it to right class.
         boolean readable = false;
         try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
             String line = br.readLine();
@@ -44,7 +34,8 @@ public class UserManager implements UserInputBoundary {
         }
     }
 
-    public void writeData (DataAccess dataAccess) throws IOException, ClassNotFoundException {
+    public void writeData (DataAccess dataAccess) throws IOException {
+        //Write data to file
         UserList store = new UserList();
         dataAccess.saveToFile("User_State.csv", store.getAllUsers());
     }
@@ -61,7 +52,7 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-
+    /* will be implemented in later phase.
     public boolean checkUserName (String userName) {
         //Check whether the username existed in StoreUser or not
         UserList store = new UserList();
@@ -73,17 +64,17 @@ public class UserManager implements UserInputBoundary {
         }
         return true;
     }
+    */
 
     public void createUser (String id, String userName, String password){
         //Create a user
         UserList store = new UserList();
-        ArrayList<User> stored = store.getAllUsers();
         User user = new User(id, userName, password);
         store.addUser(user);
     }
 
 
-
+    /* will be implemented in later phase.
     public User findFriend (String id, String friendID){
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(id);
@@ -95,6 +86,7 @@ public class UserManager implements UserInputBoundary {
         }
         return null;
     }
+     */
 
     public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
@@ -127,6 +119,7 @@ public class UserManager implements UserInputBoundary {
         return null;
     }
 
+    /* will be implemented in later phase.
     public void changeUserName (User user, String userName){
         //Change the userName to new userName
         user.changeUserName(userName);
@@ -136,6 +129,7 @@ public class UserManager implements UserInputBoundary {
         //Change the userName to new password
         user.changePassword(password);
     }
+     */
 
     public void addFriend (String id, String friendID){
         //Add friend to the list friends
@@ -146,6 +140,7 @@ public class UserManager implements UserInputBoundary {
 
     }
 
+    /* will be implemented in later phase.
     public void removeFriend (User user, User friend) {
         //Remove friend from the list friends
         user.removeFriend(friend);
@@ -155,6 +150,7 @@ public class UserManager implements UserInputBoundary {
         //Return user’s request list.
         return user.getAddFriendRequests();
     }
+     */
 
     @Override
     public void runLogIn(String[] parameters, LogInOutputBoundary outputBoundary) {

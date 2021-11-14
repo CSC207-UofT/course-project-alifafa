@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class CreateGroupUI extends ParentUI{
     /**
-     * A user interface for account registration, will receive feedback from AccountRegistrationPresenter.
+     * A user interface for creating a group, will receive feedback from CreateGroupPresenter.
      */
 
 

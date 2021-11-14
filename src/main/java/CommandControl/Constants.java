@@ -22,6 +22,9 @@ public class Constants {
         validCommands.put("message", new PtoPChatUI());
         validCommands.put("add friend", new AddFriendUI());
         validCommands.put("chat", new PtoPChatUI());
+        validCommands.put("create a group", new CreateGroupUI());
+        validCommands.put("join group", new JoinGroupUI());
+        validCommands.put("group chat", new PtoGChatUI());
 //      TODO:  validCommands.put("share picture post", new PostUI());
 //        validCommands.put("share paragraph post", new PostUI());
     }

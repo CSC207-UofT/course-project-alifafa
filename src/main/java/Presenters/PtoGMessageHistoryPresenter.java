@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class PtoGMessageHistoryPresenter implements PtoGMessageOutputBoundary {
 
-    //The ptog message history.
+    //The PtoG message history.
     private String PtoGMessageHistory;
 
     public PtoGMessageHistoryPresenter(){this.PtoGMessageHistory = "";}
@@ -19,7 +19,7 @@ public class PtoGMessageHistoryPresenter implements PtoGMessageOutputBoundary {
     @Override
     public void present() {
         if (Objects.equals(PtoGMessageHistory, "")){
-            System.out.println("No previous chat history");
+            System.out.println("No previous group chat history");
         }else{
             System.out.println(PtoGMessageHistory);
         }

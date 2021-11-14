@@ -1,6 +1,6 @@
 package Controllers.UserControllers;
 
-import DataAccess.DataAccessGateway;
+import Gateway.DataAccessGateway;
 import UseCase.UserManager;
 
 import java.io.IOException;
