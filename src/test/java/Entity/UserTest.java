@@ -1,8 +1,12 @@
 package Entity;
 
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Before;
+import org.junit.Before; 
 import org.junit.After;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
 * User Tester.
@@ -13,12 +17,13 @@ import org.junit.After;
 */
 public class UserTest {
 
+
     @Before
-    public void before() throws Exception {
+    public void before() {
     }
 
     @After
-    public void after() throws Exception {
+    public void after() {
     }
 
     /**
@@ -27,9 +32,9 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetID() throws Exception {
+    public void testGetID() {
         User user = new User("1", "a", "123");
-        Assert.assertEquals("1", user.getID())
+        Assert.assertEquals("1", user.getID());
     }
 
     /**
@@ -38,9 +43,9 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetUserName() throws Exception {
+    public void testGetUserName() {
         User user = new User("1", "a", "123");
-        Assert.assertEquals("a", user.getUserName())
+        Assert.assertEquals("a", user.getUserName());
     }
 
     /**
@@ -49,9 +54,9 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetPassword() throws Exception {
+    public void testGetPassword() {
         User user = new User("1", "a", "123");
-        Assert.assertEquals("123", user.getPassword())
+        Assert.assertEquals("123", user.getPassword());
     }
 
     /**
@@ -60,13 +65,13 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetFriends() throws Exception {
+    public void testGetFriends() {
         User user1 = new User("1", "a", "123");
         User user2 = new User("2", "b", "123");
-        user1.addFriend(user2)
-        ArrayList friends = new Arraylist<>();
-        friends.add(user2)
-        Assert.assertEquals(friends, user1.getFriends())
+        user1.addFriend(user2);
+        ArrayList<User> friends = new ArrayList<>();
+        friends.add(user2);
+        Assert.assertEquals(friends, user1.getFriends());
     }
 
     /**
@@ -75,29 +80,32 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetMyPosts() throws Exception {
-    //TODO: Test goes here...
+    public void testGetMyPosts() {
+        User user1 = new User("1", "a", "123");
+        ArrayList<ParagraphPost> lst = new ArrayList<>();
+        Assert.assertEquals(lst, user1.getMyPosts());
+
     }
 
-    /**
+    /*
     *
     * Method: getBlockedUser()
     *
-    */
+
     @Test
     public void testGetBlockedUser() throws Exception {
-    //TODO: Test goes here...
     }
+     */
 
-    /**
+    /*
     *
     * Method: getAddFriendRequests()
     *
-    */
+
     @Test
     public void testGetAddFriendRequests() throws Exception {
-    //TODO: Test goes here...
     }
+     */
 
     /**
     *
@@ -105,8 +113,9 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetLoggedIn() throws Exception {
-    //TODO: Test goes here...
+    public void testGetLoggedIn() {
+        User user1 = new User("1", "a", "123");
+        Assert.assertFalse(user1.getLoggedIn());
     }
 
     /**
@@ -115,8 +124,10 @@ public class UserTest {
     *
     */
     @Test
-    public void testGetSharingCentre() throws Exception {
-    //TODO: Test goes here...
+    public void testGetSharingCentre() {
+        User user1 = new User("1", "a", "123");
+        SharingCentre s = new SharingCentre();
+        Assert.assertEquals(s, user1.getSharingCentre());
     }
 
     /**
@@ -125,32 +136,30 @@ public class UserTest {
     *
     */
     @Test
-    public void testChangeLoggedInStatus() throws Exception {
+    public void testChangeLoggedInStatus() {
         User user = new User("1", "a", "123");
-        Boolean begin = user.getLoggedIn();
-        Boolean end = user.changeLoggedInStatus()
-        Assert.assertTrue(begin == not end)
+        boolean begin = user.getLoggedIn();
+        user.changeLoggedInStatus();
+        boolean end = user.getLoggedIn();
+        Assert.assertEquals(begin, !end);
     }
 
-    /**
+    /*
     *
     * Method: changeUserName(String userName)
     *
-    */
     @Test
     public void testChangeUserName() throws Exception {
-    //TODO: Test goes here...
     }
 
-    /**
     *
     * Method: changePassword(String password)
     *
-    */
     @Test
     public void testChangePassword() throws Exception {
-    //TODO: Test goes here...
     }
+
+     */
 
     /**
     *
@@ -158,24 +167,25 @@ public class UserTest {
     *
     */
     @Test
-    public void testAddFriend() throws Exception {
+    public void testAddFriend() {
         User user1 = new User("1", "a", "123");
         User user2 = new User("2", "b", "123");
-        user1.addFriend(user2)
-        ArrayList friends = new Arraylist<>();
+
+        user1.addFriend(user2);
+        ArrayList<User> friends = new ArrayList<>();
+
         friends.add(user2);
         Assert.assertEquals(friends, user1.getFriends());
     }
 
-    /**
+    /*
     *
     * Method: removeFriend(User friend)
     *
-    */
     @Test
     public void testRemoveFriend() throws Exception {
-    //TODO: Test goes here...
     }
+     */
 
     /**
     *
@@ -183,29 +193,35 @@ public class UserTest {
     *
     */
     @Test
-    public void testAddMessage() throws Exception {
-    //TODO: Test goes here...
+    public void testAddMessage() {
+        User user1 = new User("1", "a", "123");
+        User user2 = new User("2", "b", "123");
+        user1.addFriend(user2);
+        PtoPMessage message = new PtoPMessage(user1, user2, "hi");
+        ArrayList<PtoPMessage> first = new ArrayList<>();
+        first.add(message);
+        user1.addMessage(user2, message);
+        HashMap<User, ArrayList<PtoPMessage>> map = new HashMap<>();
+        map.put(user1, first);
+        Assert.assertEquals(map, user1.PtoPMessageHistory);
     }
 
-    /**
+    /*
     *
     * Method: getMessage(User user)
     *
-    */
     @Test
     public void testGetMessage() throws Exception {
-    //TODO: Test goes here...
     }
 
-    /**
     *
     * Method: deleteMessage(User user, PtoPMessage message)
     *
-    */
+
     @Test
     public void testDeleteMessage() throws Exception {
-    //TODO: Test goes here...
     }
+     */
 
 
 }

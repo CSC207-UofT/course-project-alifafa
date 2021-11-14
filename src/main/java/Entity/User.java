@@ -14,17 +14,15 @@ public class User implements Serializable {
     //The ID of User.
     private final String iD;
     //The username of the User.
-    private String userName;
+    private final String userName;
     //The password of the User.
-    private String password;
+    private final String password;
     //All friends of the User.
     private final ArrayList<User> friends;
     //All posts of the User.
     private final ArrayList<ParagraphPost> myPosts;
-    //All blocked user of the User.
-    private final ArrayList<User> blockedUser;
-    //All add friend request received by the User.
-    private final ArrayList<String> addFriendRequests;
+    /* private final ArrayList<User> blockedUser;private final ArrayList<String> addFriendRequests;
+     */
     //The sharing centre of the User.
     private final SharingCentre sharingCentre;
     //The log in status of the User.
@@ -43,8 +41,8 @@ public class User implements Serializable {
         this.password = password;
         this.friends = new ArrayList<>();
         this.myPosts = new ArrayList<>();
-        this.blockedUser = new ArrayList<>();
-        this.addFriendRequests = new ArrayList<>();
+        /*this.blockedUser = new ArrayList<>();this.addFriendRequests = new ArrayList<>();
+         */
         this.loggedIn = false;
 //        this.PtoPMessageHistory = new HashMap<>();
         this.sharingCentre = new SharingCentre();
@@ -70,13 +68,16 @@ public class User implements Serializable {
         return this.myPosts;
     }
 
+    /* will be implemented in later phase.
     public ArrayList<User> getBlockedUser() {
         return this.blockedUser;
     }
 
+
     public ArrayList<String> getAddFriendRequests() {
         return this.addFriendRequests;
     }
+    */
 
     public boolean getLoggedIn() {
         return this.loggedIn;
@@ -88,12 +89,11 @@ public class User implements Serializable {
 
     public void changeLoggedInStatus() {
         //Change LogIn status of the user with given id.
-        if (this.loggedIn){
-            this.loggedIn = false;
-        }
-        this.loggedIn = true;
+        boolean status = this.loggedIn;
+        this.loggedIn = !status;
     }
 
+    /* will be implemented in later phase.
     public void changeUserName (String userName){
         //Change the userName to new userName
         this.userName = userName;
@@ -103,12 +103,14 @@ public class User implements Serializable {
         //Change the password to new password
         this.password = password;
     }
+     */
 
     public void addFriend (User friend){
         //Add friend to the list friends
         this.friends.add(friend);
     }
 
+    /* will be implemented in later phase.
     public void removeFriend (User friend){
         //Remove friend from the list friends
         int k = this.friends.size() + 1;
@@ -121,6 +123,7 @@ public class User implements Serializable {
             this.friends.remove(k);
         }
     }
+     */
 
     }
 
