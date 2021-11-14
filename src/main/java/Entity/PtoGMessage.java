@@ -33,14 +33,14 @@ public class PtoGMessage {
     }
 
 
-    /**
-     * Gets the time when this message is created.
-     *
-     * @return the time when this message is created.
-     */
-    public LocalDateTime getTime(){
-        return TIME;
-    }
+//    /**
+//     * Gets the time when this message is created.
+//     *
+//     * @return the time when this message is created.
+//     */
+////    public LocalDateTime getTime(){
+////        return TIME;
+////    }
 
 
     /**
@@ -53,14 +53,15 @@ public class PtoGMessage {
     }
 
 
-    /**
-     * Gets the sender of this message.
-     *
-     * @return the sender of this message.
-     */
-    public User getSender(){
-        return SENDER;
-    }
+    /*
+//     * Gets the sender of this message.
+//     *
+//     * @return the sender of this message.
+//     */
+
+////    public User getSender(){
+//        return SENDER;
+//    }
 
 
     /**

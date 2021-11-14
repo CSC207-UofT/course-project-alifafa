@@ -1,6 +1,6 @@
 package OutputBoundary;
 
 public interface JoinGroupOutputBoundary {
-    public void setJoinGroupStatus(String status);
-    public String presentOutput();
+    void setJoinGroupStatus(String status);
+    String presentOutput();
 }

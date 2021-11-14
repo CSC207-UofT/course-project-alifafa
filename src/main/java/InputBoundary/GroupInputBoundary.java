@@ -9,9 +9,9 @@ public interface GroupInputBoundary {
      * Controller knows nothing about the GroupManager but it can use InputBoundary instead.
      */
 
-    public void runCreateGroup (String[] parameters, CreateGroupOutputBoundary outputBoundary);
+    void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary);
 
-    public void runJoinGroup(String[] parameters, JoinGroupOutputBoundary outputBoundary);
+    void runJoinGroup(String[] parameters, JoinGroupOutputBoundary outputBoundary);
 
-    public Group getGroup (String id);
+    Group getGroup(String id);
 }
