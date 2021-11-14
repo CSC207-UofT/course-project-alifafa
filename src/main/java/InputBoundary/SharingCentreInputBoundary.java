@@ -1,6 +1,5 @@
 package InputBoundary;
 
-import Entity.User;
 import OutputBoundary.*;
 
 import java.io.File;
@@ -15,9 +14,9 @@ public interface SharingCentreInputBoundary {
 
     void runDeletePost(String user, String postID, DeletePostOutputBoundary outputBoundary);
 
-    void runCommentPost(String[] parameters, CommentPostOutputBoundary outputBoundary);
+    void runCommentPost(String userid, String postID, String content, CommentPostOutputBoundary outputBoundary);
 
-    void likeAPost(String[] parameters);
+    void likeAPost(String userid, String postID);
 
     void retrieveUsersAllPosts(String parameters, SharingCentreOutputBoundary outputBoundary);
 
