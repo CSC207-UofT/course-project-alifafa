@@ -1,7 +1,7 @@
 package UseCase;
 
 
-import DataAccess.DataAccess;
+import DataAccessInterface.DataAccess;
 import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;
@@ -11,7 +11,6 @@ import OutputBoundary.LogInOutputBoundary;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /*
 Responsibilities
