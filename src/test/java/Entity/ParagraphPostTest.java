@@ -1,8 +1,11 @@
 package Entity;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /** 
 * ParagraphPost Tester. 
@@ -11,135 +14,98 @@ import org.junit.After;
 * @since <pre>Nov 9, 2021</pre> 
 * @version 1.0 
 */ 
-public class ParagraphPostTest { 
+public class ParagraphPostTest {
 
-@Before
-public void before() throws Exception { 
-} 
+    User a = new User("1", "a", "123");
+    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
+    List<String> comments = new ArrayList<>();
 
-@After
-public void after() throws Exception { 
-} 
+    /**
+    *
+    * Method: setLikes(int likes)
+    *
+    */
+    @Test
+    public void testSetLikes() {
+        post.setLikes(1);
+        Assert.assertEquals(1, post.getLikes());
+    }
 
-/** 
-* 
-* Method: setVisibleTo(String visibleTo) 
-* 
-*/ 
-@Test
-public void testSetVisibleTo() throws Exception { 
-//TODO: Test goes here..
-} 
+    /**
+    *
+    * Method: setContent(String content)
+    *
+    */
+    @Test
+    public void testSetContent() {
+        post.setContent("Hello");
+        Assert.assertEquals("Hello", post.getContent());
+    }
 
-/** 
-* 
-* Method: setLikes(int likes) 
-* 
-*/ 
-@Test
-public void testSetLikes() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getPOSTTIME()
+    *
+    */
+    @Test
+    public void testGetPOSTTIME() {
+        Assert.assertEquals(LocalDateTime.now(), post.getPOSTTIME());
+    }
 
-/** 
-* 
-* Method: setContent(String content) 
-* 
-*/ 
-@Test
-public void testSetContent() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getLOCATION()
+    *
+    */
+    @Test
+    public void testGetLOCATION() {
+        Assert.assertEquals("LOL", post.getLOCATION());
+    }
 
-/** 
-* 
-* Method: getPOSTTIME() 
-* 
-*/ 
-@Test
-public void testGetPOSTTIME() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getLikes()
+    *
+    */
+    @Test
+    public void testGetLikes() {
+        post.setLikes(1);
+        Assert.assertEquals(1, post.getLikes());
+    }
 
-/** 
-* 
-* Method: getVisibleTo() 
-* 
-*/ 
-@Test
-public void testGetVisibleTo() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getComments()
+    *
+    */
+    @Test
+    public void testGetComments() {
+        comments.add("Haha");
+        post.getComments().put(a,comments);
+        Assert.assertEquals(1, post.getComments().size());
+        Assert.assertEquals("Haha", post.getComments().get(a).get(0));
+    }
 
-/** 
-* 
-* Method: getLOCATION() 
-* 
-*/ 
-@Test
-public void testGetLOCATION() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getContent()
+    *
+    */
+    @Test
+    public void testGetContent() {
+        post.setContent("Don't look.");
+        Assert.assertEquals("Don't look.", post.getContent());
+    }
 
-/** 
-* 
-* Method: getLikes() 
-* 
-*/ 
-@Test
-public void testGetLikes() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: getComments() 
-* 
-*/ 
-@Test
-public void testGetComments() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: getContent() 
-* 
-*/ 
-@Test
-public void testGetContent() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: getId() 
-* 
-*/ 
-@Test
-public void testGetId() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: getPostid() 
-* 
-*/ 
-@Test
-public void testGetPostid() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-/** 
-* 
-* Method: getUsersWhoLiked() 
-* 
-*/ 
-@Test
-public void testGetUsersWhoLiked() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: getUsersWhoLiked()
+    *
+    */
+    @Test
+    public void testGetUsersWhoLiked() {
+        Assert.assertEquals(0, post.getUsersWhoLiked().size());
+    }
 
 
 } 

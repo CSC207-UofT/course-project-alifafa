@@ -19,7 +19,7 @@ public class ParagraphPost implements Serializable {
     private final String LOCATION;
     private int likes;
     protected static int id = 0;
-    private final int postid;
+    private final int postID;
 
     /**
      * Creates a post.
@@ -33,7 +33,7 @@ public class ParagraphPost implements Serializable {
         this.content = content;
         this.comments = new HashMap<>();
         this.usersWhoLiked = new ArrayList<>();
-        this.postid = id;
+        this.postID = id;
         likes = 0;
         id += 1;
     }
@@ -70,8 +70,8 @@ public class ParagraphPost implements Serializable {
         return id;
     }
 
-    public int getPostid() {
-        return postid;
+    public int getPostID() {
+        return postID;
     }
 
     public List<User> getUsersWhoLiked() {

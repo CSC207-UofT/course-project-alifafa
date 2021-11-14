@@ -1,8 +1,14 @@
 package Entity;
 
-import org.junit.Test; 
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+
+import java.io.File;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /** 
 * PicturePost Tester. 
@@ -12,24 +18,17 @@ import org.junit.After;
 * @version 1.0 
 */ 
 public class PicturePostTest { 
+    List<File> files = new ArrayList<>();
+    PicturePost post = new PicturePost(LocalDateTime.now(), "LoL", "Hello", files);
 
 @Before
-public void before() throws Exception { 
+public void before() {
 } 
 
 @After
-public void after() throws Exception { 
+public void after() {
 } 
 
-/** 
-* 
-* Method: setPictures(List<File> pictures) 
-* 
-*/ 
-@Test
-public void testSetPictures() throws Exception { 
-//TODO: Test goes here..
-} 
 
 /** 
 * 
@@ -37,8 +36,10 @@ public void testSetPictures() throws Exception {
 * 
 */ 
 @Test
-public void testGetPictures() throws Exception { 
-//TODO: Test goes here... 
+public void testGetPictures() {
+    File file = new File("dd");
+    files.add(file);
+    Assert.assertEquals(1, post.getPictures().size());
 } 
 
 

@@ -13,7 +13,7 @@ public class PicturePost extends ParagraphPost implements Serializable {
      * Included pictures attribute which is a list of picture files.
      */
 
-    private List<File> pictures;
+    private final List<File> pictures;
 
     /**
      * Creates PicturePost that contains pictures
@@ -27,8 +27,6 @@ public class PicturePost extends ParagraphPost implements Serializable {
         super(POSTTIME, location, description);
         this.pictures = pictures;
     }
-
-    public void setPictures(List<File> pictures) {this.pictures = pictures;}
 
     public List<File> getPictures(){return pictures;}
 

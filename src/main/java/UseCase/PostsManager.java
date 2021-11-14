@@ -175,7 +175,7 @@ public class PostsManager implements SharingCentreInputBoundary {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(parameters[0]);
         for (ParagraphPost post: getUsersAllPosts(user)) {
-            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+            if (post.getPostID() == Integer.parseInt(parameters[1])) {
                 outputBoundary.setDeleteStatus(true);
                 deletePost(user, post);
             }
@@ -187,7 +187,7 @@ public class PostsManager implements SharingCentreInputBoundary {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(parameters[0]);
         for (ParagraphPost post: getSharingCentre(user)) {
-            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+            if (post.getPostID() == Integer.parseInt(parameters[1])) {
                 outputBoundary.setCommented(true);
                 commentPost(user, post, parameters[2]);
             }
@@ -199,7 +199,7 @@ public class PostsManager implements SharingCentreInputBoundary {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(parameters[0]);
         for (ParagraphPost post: getSharingCentre(user)) {
-            if (post.getPostid() == Integer.parseInt(parameters[1])) {
+            if (post.getPostID() == Integer.parseInt(parameters[1])) {
                 likePost(user, post);
             }
         }
