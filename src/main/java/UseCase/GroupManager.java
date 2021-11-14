@@ -23,39 +23,37 @@ public class GroupManager implements GroupInputBoundary{
     }
 
 
-    public boolean checkGroupName(String userName) {
-        //Check whether the group name existed in GroupList or not
-        GroupList store = new GroupList();
-        ArrayList<Group> stored = store.getAllGroups();
-        for (Group group : stored) {
-            if (group.getGroupName().equals(userName)) {
-                return false;
-            }
-        }
-        return true;
-    }
+////    public boolean checkGroupName(String userName) {
+//        //Check whether the group name existed in GroupList or not
+//        GroupList store = new GroupList();
+//        ArrayList<Group> stored = store.getAllGroups();
+//        for (Group g : stored) {
+//            if (group.getGroupName().equals(userName)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 
-    public Group createGroup(String id, String groupName) {
+    public void createGroup(String id, String groupName) {
         //Create a group
         GroupList group = new GroupList();
-        ArrayList<Group> stored = group.getAllGroups();
         Group g = new Group(id, groupName);
         group.addGroup(g);
-        return g;
     }
 
-    public Group findGroup (String Userid, String GroupID){
-        //Find the group for a given user id and group id
-        Group group = this.getGroup(GroupID);
-        ArrayList<User> members = group.getMembers();
-        for (User i: members){
-            if (i.getID().equals(Userid)){
-                return group;
-            }
-        }
-        return null;
-    }
+////    public Group findGroup (String Userid, String GroupID){
+//        //Find the group for a given user id and group id
+//        Group g = this.getGroup(GroupID);
+//        ArrayList<User> members = group.getMembers();
+//        for (User i: members){
+//            if (i.getID().equals(Userid)){
+//                return group;
+//            }
+//        }
+//        return null;
+//    }
 
     public void joinGroup (String Userid, String GroupID){
         //Join a user with Userid to an existing group with GroupID
