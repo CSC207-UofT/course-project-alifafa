@@ -187,11 +187,11 @@ public class UserTest {
     }
      */
 
-    /**
+    /*
     *
     * Method: addMessage(User user, PtoPMessage message)
     *
-    */
+
     @Test
     public void testAddMessage() {
         User user1 = new User("1", "a", "123");
