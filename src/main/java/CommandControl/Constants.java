@@ -1,7 +1,5 @@
 package CommandControl;
 
-//TODO import Controllers.PostControllers.ParPostController;
-//TODO import Controllers.PostControllers.PicPostController;
 import UIs.*;
 
 import java.util.HashMap;
@@ -12,7 +10,7 @@ import java.util.HashMap;
  */
 
 public class Constants {
-    private HashMap<String, ParentUI> validCommands;
+    private final HashMap<String, ParentUI> validCommands;
 
     public Constants(){
         validCommands = new HashMap<>();
@@ -25,22 +23,9 @@ public class Constants {
         validCommands.put("create a group", new CreateGroupUI());
         validCommands.put("join group", new JoinGroupUI());
         validCommands.put("group chat", new PtoGChatUI());
-//      TODO:  validCommands.put("share picture post", new PostUI());
-//        validCommands.put("share paragraph post", new PostUI());
-    }
+}
 
 
-    public Constants(HashMap<String, ParentUI> UIs){
-        this.validCommands = UIs;
-    }
-
-    public void setValidCommands(HashMap<String, ParentUI> validCommands) {
-        this.validCommands = validCommands;
-    }
-
-    public void addUI(String input, ParentUI UI){
-        validCommands.put(input, UI);
-    }
 
     public ParentUI getUI(String taskName){
         return this.validCommands.get(taskName);
