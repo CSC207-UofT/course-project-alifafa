@@ -26,10 +26,6 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     @Override
     public void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {
 
-        sender.addMessage(receiver, message);
-        receiver.addMessage(sender, message);
-
-
 
         String senderChatFile = sender.getUserName() + "PtoPChatHistory.txt";
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";

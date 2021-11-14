@@ -18,8 +18,8 @@ public class SharingCentre implements Serializable {
      * A constructor of sharingCentre.
      */
     public SharingCentre() {
-        this.allPosts = new ArrayList<ParagraphPost>();
-        this.notificationList = new ArrayList<Notifications>();
+        this.allPosts = new ArrayList<>();
+        this.notificationList = new ArrayList<>();
         this.newPostNotification = false;
     }
 

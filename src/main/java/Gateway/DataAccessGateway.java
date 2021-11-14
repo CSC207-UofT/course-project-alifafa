@@ -1,8 +1,10 @@
-package DataAccess;
+package Gateway;
+
+import DataAccessInterface.DataAccess;
 
 import java.io.*;
 
-public class DataAccessGateway implements DataAccess{
+public class DataAccessGateway implements DataAccess {
 
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {

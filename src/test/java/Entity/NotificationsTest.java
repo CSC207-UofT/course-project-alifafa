@@ -1,8 +1,11 @@
 package Entity;
 
-import org.junit.Test; 
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+
+import java.time.LocalDateTime;
 
 /** 
 * Notifications Tester. 
@@ -11,7 +14,10 @@ import org.junit.After;
 * @since <pre>Nov 10, 2021</pre> 
 * @version 1.0 
 */ 
-public class NotificationsTest { 
+public class NotificationsTest {
+    User a = new User("1", "A", "123");
+    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
+    Notifications notification = new Notifications(a, LocalDateTime.now(), post, true);
 
 @Before
 public void before() throws Exception { 
@@ -27,8 +33,8 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testGetUSER() throws Exception { 
-//TODO: Test goes here..
+public void testGetUSER() {
+    Assert.assertEquals(a, notification.getUSER());
 } 
 
 /** 
@@ -37,8 +43,8 @@ public void testGetUSER() throws Exception {
 * 
 */ 
 @Test
-public void testGetTIME() throws Exception { 
-//TODO: Test goes here... 
+public void testGetTIME() {
+    Assert.assertEquals(LocalDateTime.now(), notification.getTIME());
 } 
 
 /** 
@@ -47,8 +53,8 @@ public void testGetTIME() throws Exception {
 * 
 */ 
 @Test
-public void testGetPOST() throws Exception { 
-//TODO: Test goes here... 
+public void testGetPOST() {
+    Assert.assertEquals(post, notification.getPOST());
 } 
 
 /** 
@@ -57,8 +63,8 @@ public void testGetPOST() throws Exception {
 * 
 */ 
 @Test
-public void testIsLikeNotification() throws Exception { 
-//TODO: Test goes here... 
+public void testIsLikeNotification() {
+    Assert.assertTrue(notification.isLikeNotification());
 } 
 
 /** 
@@ -67,8 +73,9 @@ public void testIsLikeNotification() throws Exception {
 * 
 */ 
 @Test
-public void testSetLikeNotification() throws Exception { 
-//TODO: Test goes here... 
+public void testSetLikeNotification() {
+    notification.setLikeNotification(false);
+    Assert.assertFalse(notification.isLikeNotification());
 } 
 
 

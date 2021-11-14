@@ -167,6 +167,7 @@ public class PostsManager implements SharingCentreInputBoundary {
         User user = userManager.getUser(userid);
         for (ParagraphPost post: getUsersAllPosts(user)) {
             if (post.getPostid() == Integer.parseInt(postID)) {
+
                 outputBoundary.setDeleteStatus(true);
                 deletePost(user, post);
             }
