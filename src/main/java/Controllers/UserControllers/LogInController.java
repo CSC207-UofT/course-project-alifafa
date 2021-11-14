@@ -14,15 +14,17 @@ public class LogInController{
     /**
      * The input boundary for the login use case.
      */
-    private UserInputBoundary loginInputBoundary = new UserManager();
+    private final UserInputBoundary loginInputBoundary = new UserManager();
 
-    /**
-     * A new LoginController for the use case defined by the LoginInputBoundary.
-     * @param loginInputBoundary the input boundary for the login use case
-     */
-    public void setLoginInputBoundary(UserInputBoundary loginInputBoundary) {
-        this.loginInputBoundary = loginInputBoundary;
-    }
+/*    /**
+//     * A new LoginController for the use case defined by the LoginInputBoundary.
+//     * @param loginInputBoundary the input boundary for the login use case
+//     */
+/*    public void setLoginInputBoundary(UserInputBoundary loginInputBoundary) {
+//        this.loginInputBoundary = loginInputBoundary;
+//    }
+*/
+
 
     /**
      *
