@@ -1,17 +1,17 @@
 package Entity;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
 
-/** 
-* User Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Nov 10, 2021</pre> 
-* @version 1.0 
-*/ 
-public class UserTest { 
+/**
+* User Tester.
+*
+* @author <Authors name>
+* @since <pre>Nov 10, 2021</pre>
+* @version 1.0
+*/
+public class UserTest {
 
     @Before
     public void before() throws Exception {
@@ -163,8 +163,8 @@ public class UserTest {
         User user2 = new User("2", "b", "123");
         user1.addFriend(user2)
         ArrayList friends = new Arraylist<>();
-        friends.add(user2)
-        Assert.assertEquals(friends, user1.getFriends())
+        friends.add(user2);
+        Assert.assertEquals(friends, user1.getFriends());
     }
 
     /**
@@ -208,4 +208,4 @@ public class UserTest {
     }
 
 
-} 
+}
