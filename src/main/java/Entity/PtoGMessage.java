@@ -59,9 +59,9 @@ public class PtoGMessage {
 //     * @return the sender of this message.
 //     */
 
-////    public User getSender(){
-//        return SENDER;
-//    }
+    public User getSender(){
+        return SENDER;
+    }
 
 
     /**
