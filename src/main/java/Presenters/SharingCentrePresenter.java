@@ -1,6 +1,5 @@
 package Presenters;
 
-import Entity.Notifications;
 import Entity.ParagraphPost;
 import OutputBoundary.SharingCentreOutputBoundary;
 
@@ -11,7 +10,7 @@ public class SharingCentrePresenter implements SharingCentreOutputBoundary {
 
     @Override
     public void setContent(List<ParagraphPost> content) {
-
+        this.content = content;
     }
 
     @Override
