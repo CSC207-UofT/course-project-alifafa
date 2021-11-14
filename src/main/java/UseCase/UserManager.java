@@ -1,7 +1,7 @@
 package UseCase;
 
 
-import DataAccess.DataAccess;
+import DataAccessInterface.DataAccess;
 import Entity.UserList;
 import Entity.User;
 import InputBoundary.UserInputBoundary;

@@ -8,14 +8,15 @@ import org.junit.After;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** 
-* User Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Nov 10, 2021</pre> 
-* @version 1.0 
-*/ 
-public class UserTest { 
+/**
+* User Tester.
+*
+* @author <Authors name>
+* @since <pre>Nov 10, 2021</pre>
+* @version 1.0
+*/
+public class UserTest {
+
 
     @Before
     public void before() {
@@ -169,8 +170,10 @@ public class UserTest {
     public void testAddFriend() {
         User user1 = new User("1", "a", "123");
         User user2 = new User("2", "b", "123");
+
         user1.addFriend(user2);
         ArrayList<User> friends = new ArrayList<>();
+
         friends.add(user2);
         Assert.assertEquals(friends, user1.getFriends());
     }
@@ -221,4 +224,4 @@ public class UserTest {
      */
 
 
-} 
+}
