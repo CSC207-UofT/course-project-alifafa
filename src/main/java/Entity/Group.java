@@ -2,13 +2,13 @@ package Entity;
 import java.util.ArrayList;
 
 public class Group {
-    private final String GroupiD;
-    private String GroupName;
-    private ArrayList<User> members;
+    private final String GroupID;
+    private final String GroupName;
+    private final ArrayList<User> members;
     private final ArrayList<PtoGMessage> PtoGMessageHistory;
 
     public Group(String id, String name) {
-        this.GroupiD = id;
+        this.GroupID = id;
         this.GroupName = name;
         this.members = new ArrayList<>();
         this.PtoGMessageHistory = new ArrayList<>();
@@ -37,7 +37,7 @@ public class Group {
     }
 
     public String getGroupID() {
-        return this.GroupiD;
+        return this.GroupID;
     }
 
 }

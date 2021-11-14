@@ -1,6 +1,6 @@
 package OutputBoundary;
 
 public interface AddFriendOutputBoundary {
-    public void setAddFriendStatus(String status);
-    public String presentOutput();
+    void setAddFriendStatus(String status);
+    String presentOutput();
 }

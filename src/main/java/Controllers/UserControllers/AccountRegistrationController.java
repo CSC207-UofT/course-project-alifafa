@@ -12,12 +12,12 @@ public class AccountRegistrationController{
     /**
      * The input boundary for the AccountRegistration use case.
      */
-    private UserInputBoundary accountRegistrationInputBoundary = new UserManager();
+    private final UserInputBoundary accountRegistrationInputBoundary = new UserManager();
 
-    public void setAccountRegistrationInputBoundary(UserInputBoundary accountRegistrationInputBoundary){
-        this.accountRegistrationInputBoundary = accountRegistrationInputBoundary;
-    }
-
+/*    public void setAccountRegistrationInputBoundary(UserInputBoundary accountRegistrationInputBoundary){
+//        this.accountRegistrationInputBoundary = accountRegistrationInputBoundary;
+//    }
+*/
     /**
      *
      * @param parameters The input from the user, which is an array that contains userID and input password.

@@ -2,7 +2,6 @@ package UIs;
 
 import Controllers.ChatControllers.PtoGMessageController;
 import Entity.Group;
-import Entity.PtoGMessage;
 import Presenters.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 

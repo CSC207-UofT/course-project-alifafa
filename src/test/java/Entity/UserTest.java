@@ -1,12 +1,11 @@
 package Entity;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.Before; 
 import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
 * User Tester.
@@ -127,7 +126,8 @@ public class UserTest {
     public void testGetSharingCentre() {
         User user1 = new User("1", "a", "123");
         SharingCentre s = new SharingCentre();
-        Assert.assertEquals(s, user1.getSharingCentre());
+        Assert.assertEquals(s.getAllPosts(), user1.getSharingCentre().getAllPosts());
+        Assert.assertEquals(s.getNotificationList(), user1.getSharingCentre().getNotificationList());
     }
 
     /**
@@ -187,11 +187,11 @@ public class UserTest {
     }
      */
 
-    /**
+    /*
     *
     * Method: addMessage(User user, PtoPMessage message)
     *
-    */
+
     @Test
     public void testAddMessage() {
         User user1 = new User("1", "a", "123");

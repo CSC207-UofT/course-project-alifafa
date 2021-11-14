@@ -8,7 +8,6 @@ import UseCase.GroupManager;
 import UseCase.PtoGMessageManager;
 import UseCase.UserManager;
 
-import java.io.IOException;
 
 public class PtoGMessageController{
     /**

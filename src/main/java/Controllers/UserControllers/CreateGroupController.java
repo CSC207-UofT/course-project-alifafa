@@ -14,9 +14,10 @@ public class CreateGroupController{
      */
     private final GroupInputBoundary CreateGroupInputBoundary = new GroupManager();
 
-    /**
-     * A new CreateGroupController for the use case defined by the CreateGroupInputBoundary.
-     * @param CreateGroupInputBoundary the input boundary for the 'create a group' use case
+
+    /*
+      A new CreateGroupController for the use case defined by the CreateGroupInputBoundary.
+      @param CreateGroupInputBoundary the input boundary for the 'create a group' use case
      */
 
     /**
