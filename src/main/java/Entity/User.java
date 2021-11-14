@@ -29,8 +29,6 @@ public class User implements Serializable {
     private final SharingCentre sharingCentre;
     //The log in status of the User.
     private boolean loggedIn;
-    //The message history of the User.
-    private final HashMap<User, ArrayList<PtoPMessage>> PtoPMessageHistory;
 
     /**
      * Creates a user.
@@ -48,7 +46,7 @@ public class User implements Serializable {
         this.blockedUser = new ArrayList<>();
         this.addFriendRequests = new ArrayList<>();
         this.loggedIn = false;
-        this.PtoPMessageHistory = new HashMap<>();
+//        this.PtoPMessageHistory = new HashMap<>();
         this.sharingCentre = new SharingCentre();
     }
 
@@ -124,18 +122,8 @@ public class User implements Serializable {
         }
     }
 
-    public void addMessage(User user, PtoPMessage message){
-        if (! PtoPMessageHistory.containsKey(user)){
-            ArrayList<PtoPMessage> first = new ArrayList<>();
-            first.add(message);
-            PtoPMessageHistory.put(user, first);
-        }
-        else {
-            ArrayList<PtoPMessage> lst = PtoPMessageHistory.get(user);
-            lst.add(message);
-        }
     }
 
 
-}
+
 
