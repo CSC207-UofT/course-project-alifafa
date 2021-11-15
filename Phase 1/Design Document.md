@@ -15,6 +15,8 @@ Each object in our code can be replaceable with instances of their subtypes with
 We make the Output Boundaries small and only have 2 essential methods (to store the information and to return the information). that the presenter needs to implement in order to run the program. Hence people will not end up implementing the things they don’t need. 
 * Dependency Inversion Principle.
 All higher level usecases are not importing any lower level modules. Both depend on abstraction through interfaces. In our code, the PostManager imports the OutputBoundary interface instead of importing the actual presenter. In addition, the presenter implements the same OutputBoundary interface. This way, the higher level PostManager is able to talk with the presenter through this interface. Even though PostManager and presenter knows zero details about each other, every concrete implementation depends on the OutputBoundary interface. 
+### Bad Designs that remain to be fixed
+DataAcessGateway and PtoPMessageDataAccess has similar code.
 
 
 ## Clean Architecture
