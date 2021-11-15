@@ -85,6 +85,8 @@ Our code organization strictly follows the clean architecture principle. They ar
 ### Our program follows the speficiation.
 (Discuss why it's ambitious here).
 
+Our program completed 90% of the specification. Basic functionalities like group chat, chat, sharing centre, and adding/removing friends are all available at this stage. Considering the size of our group and the time we can contribute to this course, we made our design reasonably large with 3 main parts, which are user, chat, and posts. Two group members are responsible for implementing the functions of one part. Functions related to the user part are mainly log in, registration, add friends. Functions related to chat are mainly chatting with a single user, or chatting within a group. Functions related to post are mainly creating posts and sharing posts. In addition to those functions, our program can also load and store state, which is discussed below. Moreover, we are also developing user interface and GUI. Hence the functionality is ambitious.
+
 ### Store state and load state
 #### Stores user information and its p-to-p chat history
 Our program can store all the user information and the p-to-p chat histories. It does it by reading a file from the computer which contains the previous histories, and write to the file after the user ends the program run. Hence the history is stored even if the program is closed. Moreover, when the user re-run the program, our program can get access to the previous chat history and read them or add to them.
