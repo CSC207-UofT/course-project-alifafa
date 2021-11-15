@@ -34,18 +34,32 @@ public class PtoPMessage implements Serializable {
     }
 
 
+    /**
+     * Converts message to a readable String
+     *
+     * @return return the string of message
+     */
     public String toString (){
         return SENDER.getUserName() + " -> " + RECEIVER.getUserName() +": " + CONTENT + "   (" + TIME + ")";
     }
 
+    /**
+     * @return Return the receiver of the message.
+     */
     public User getReceiver() {
         return this.RECEIVER;
     }
 
+    /**
+     * @return Return the sender of the message.
+     */
     public User getSender() {
         return this.SENDER;
     }
 
+    /**
+     * @return Return the content of the message.
+     */
     public String getContent() {
         return this.CONTENT;
     }
