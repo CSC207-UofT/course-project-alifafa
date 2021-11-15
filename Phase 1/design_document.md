@@ -78,8 +78,8 @@ During refraction,
 ## Code Smells
 - Duplication: DataAcessGateway and PtoPMessageDataAccess has similar code.
 
-## Code Organization
-Our code organization strictly follows the clean architecture principle. They are first separated into big categories like Use Cases, Entities, Controllers etc. according to the big layers in the Clean Architecture diagram. Then, under some of these big categories we have smaller categories classified by features. For example, under the controllers folder, we have a Chat Controller folder which contains controller files related to the Chat feature of our app. This way of code organization allows us to find a file easily and understand the relationship of a file to other files. This way of organization also allows other people reading our code to easily navigate through it and understand our code.
+## Code Organization and Packaging Strategy
+Our code organization strictly follows the clean architecture principle. They are first separated into big categories like Use Cases, Entities, Controllers etc. according to the big layers in the Clean Architecture diagram. Then, under some of these big categories we have smaller categories classified by features. For example, under the controllers folder, we have a Chat Controller folder which contains controller files related to the Chat feature of our app. So our packaging strategy is **by layer**. This way of code organization allows us to find a file easily and understand the relationship of a file to other files. This way of organization also allows other people reading our code to easily navigate through it and understand our code.
 
 ## Functionality
 ### Our program follows the speficiation.
