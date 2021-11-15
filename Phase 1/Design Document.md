@@ -81,7 +81,10 @@ During refraction,
 ## Code Organization
 Our code organization strictly follows the clean architecture principle. They are first separated into big categories like Use Cases, Entities, Controllers etc. according to the big layers in the Clean Architecture diagram. Then, under some of these big categories we have smaller categories classified by features. For example, under the controllers folder, we have a Chat Controller folder which contains controller files related to the Chat feature of our app. This way of code organization allows us to find a file easily and understand the relationship of a file to other files. This way of organization also allows other people reading our code to easily navigate through it and understand our code.
 
-## Store and Load State
+## Functionality
+### (Discuss why ambitious here) (also See Specification).
+
+### Store state and load state
 #### Stores user information and its p-to-p chat history
 Our program can store all the user information and the p-to-p chat histories. It does it by reading a file from the computer which contains the previous histories, and write to the file after the user ends the program run. Hence the history is stored even if the program is closed. Moreover, when the user re-run the program, our program can get access to the previous chat history and read them or add to them.
 
