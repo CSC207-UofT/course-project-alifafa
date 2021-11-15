@@ -10,7 +10,7 @@
 
 **Houyi Chen**: I created a Group entity and PtoG chat entity and every controller, managers, and UIs that belong to those two entities. In Phase 1, I have created two new functions that associate with ‘Group’, which are ‘Create Group’ and ‘JoinGroup’. In conclusion, the user can now use the command ‘create a group’ to create a new group with an unique ID; use ‘join group’ to join an existing group; use ‘group chat’ to send a message to a group. For future development, I plan to store all group chat history to a local file and also make it work with GUI.
 
-**Lucas Lei**: I modified a few entity classes that were unfinished in Phase 0. Created Input/Output Boundaries, controllers, presenters for post and sharing centre related features. I have also created and finished the usecase (PostManager) for entities ParagraphPost, PicturePost, Notification, and SharingCentre. 
+**Lucas Lei**: I modified a few entity classes that were unfinished in Phase 0. Created Input/Output Boundaries, controllers, presenters for post and sharing centre related features. I have also created and finished the usecase (PostManager) for entities ParagraphPost, PicturePost, Notification, and SharingCentre. For the next phase, I'm planning to work on configuring our code with Android and developing our android app together with my team.
 
 
 ## What has worked well so far:
