@@ -13,7 +13,7 @@ public class ReadAndWriteController {
         userManager.readData(gateway);
     }
 
-    public void runWrite () throws IOException, ClassNotFoundException {
+    public void runWrite () throws IOException {
         UserManager userManager = new UserManager();
         DataAccessGateway gateway = new DataAccessGateway();
         userManager.writeData(gateway);
