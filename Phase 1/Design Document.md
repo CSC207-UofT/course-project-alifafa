@@ -3,6 +3,20 @@
 ## Design Decision
 We decided to develop two major functions of our application, which are chatting and making posts. The intended users of our application are students, and thus we believe the two functions best suit their needs in sharing their daily life with their friends. 
 
+## Solid Principle
+### How our program followed SOLID Principle.
+* Single Responsibility Principle
+Each module of our code is only responsible for one business function. For example, we have different tasks available to users such as login, add friend, chat. Each of the tasks has its own UI, controller and presenter.
+* Open/Closed Principle.
+Our code is open for extension but closed for modification. For example, if we want to implement the membership of user by extending our program, we could create “Member” and “Non-Member” as subclass of User, without change any method or attribute in User.
+* Liskov substitution principle
+Each object in our code can be replaceable with instances of their subtypes without creating errors. For example, there is no problem with replacing a paragraph post with an instance of picture post.
+* Interface Segregation Principle
+We make the Output Boundaries small and only have 2 essential methods (to store the information and to return the information). that the presenter needs to implement in order to run the program. Hence people will not end up implementing the things they don’t need. 
+* Dependency Inversion Principle
+All higher level usecases are not importing any lower level modules. Both depend on abstraction through interfaces. In our code, the PostManager imports the OutputBoundary interface instead of importing the actual presenter. In addition, the presenter implements the same OutputBoundary interface. This way, the higher level PostManager is able to talk with the presenter through this interface. Even though PostManager and presenter knows zero details about each other, every concrete implementation depends on the OutputBoundary interface. 
+
+
 ## Clean Architecture
 Most parts of our program are consistent with Clean Architecture. The Dependency Rule is consistent:
 * UIs interact with the user’s input. LogInUI depends on LogInController and LogInPresenter.
