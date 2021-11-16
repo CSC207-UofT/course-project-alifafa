@@ -2,8 +2,6 @@ package OutputBoundary;
 
 public interface PtoGMessageOutputBoundary {
 
-    //the message history for PtoG chat
-    String ptoGMessageHistory = "";
 
     /**
      * Store the PtoG message history to presenter's attribute.
