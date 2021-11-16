@@ -6,7 +6,7 @@
 
 **Zhiqi Zhao**: I created presenters and defined Input Boundaries and Output Boundaries for tasks associated with person-to-person chat. I also implemented the function that saving chat histories in separate files so that we can review chat history after rerun the program. In the next phase, I plan to work on GUI.
 
-**Stephanie**: I built some parts of the UI and implemented the login feature in the UI. Now we can do simple tasks like logging in to the app, clicking into different pages and clicking various buttons. However, I am still not quite sure how we should connect the UI to the back end of the app, they are separated and I hope to investigate more into that in phase 2.
+**Stephanie**: I built some parts of the GUI and implemented the login feature in the GUI. Now we can do simple tasks like logging in to the app, clicking into different pages and clicking various buttons. However, I am still not quite sure how we should connect the UI to the back end of the app, they are separated and I hope to investigate more into that in phase 2.
 
 **Houyi Chen**: I created a Group entity and PtoG chat entity and every controller, managers, and UIs that belong to those two entities. In Phase 1, I have created two new functions that associate with ‘Group’, which are ‘Create Group’ and ‘JoinGroup’. In conclusion, the user can now use the command ‘create a group’ to create a new group with an unique ID; use ‘join group’ to join an existing group; use ‘group chat’ to send a message to a group. For future development, I plan to store all group chat history to a local file and also make it work with GUI.
 
