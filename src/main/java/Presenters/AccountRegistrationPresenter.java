@@ -2,7 +2,6 @@ package Presenters;
 
 import OutputBoundary.AccountRegistrationOutputBoundary;
 
-import java.util.ArrayList;
 
 public class AccountRegistrationPresenter implements AccountRegistrationOutputBoundary {
     boolean registrationStatus;
