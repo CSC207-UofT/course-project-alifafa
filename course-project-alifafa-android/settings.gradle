@@ -1,0 +1,2 @@
+rootProject.name = "course-project-alifafa-android"
+include ':app'
