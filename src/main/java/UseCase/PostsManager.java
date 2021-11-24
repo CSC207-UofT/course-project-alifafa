@@ -37,7 +37,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * Also notify all user's friends.
      * @param user The user who wants to post
      * @param content Content of the post (could be none only if pictures is non-empty)
-     * @param location Location
+     * @param location Location (Optional*)
      * @param pictures List of pictures that the user wants to add
      *                 (could be none)
      */
@@ -150,8 +150,17 @@ public class PostsManager implements SharingCentreInputBoundary {
         return user.getSharingCentre().getNotificationList();
     }
 
+    /**
+     * To post a post in Sharing Centre
+     * @param userid The id of the user
+     * @param content The content of the post
+     * @param location The location (Optional)
+     * @param pictures Files of pictures (Optional)
+     * @param outputBoundary PostAPostPresenter
+     */
     @Override
-    public void runPostAPost(String userid, String content, String location, List<File> pictures, PostAPostOutputBoundary outputBoundary) {
+    public void runPostAPost(String userid, String content, String location, List<File> pictures,
+                             PostAPostOutputBoundary outputBoundary) {
         if (content.isEmpty() && pictures.size() == 0) {
             outputBoundary.setPostStatus(false);
         }
@@ -161,6 +170,12 @@ public class PostsManager implements SharingCentreInputBoundary {
         outputBoundary.setPostStatus(true);
     }
 
+    /**
+     * To delete a post the user had posted
+     * @param userid The id of the user
+     * @param postID The id of the post to be deleted
+     * @param outputBoundary DeletePostPresenter
+     */
     @Override
     public void runDeletePost(String userid, String postID, DeletePostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
@@ -174,8 +189,16 @@ public class PostsManager implements SharingCentreInputBoundary {
         }
     }
 
+    /**
+     * Comment a post
+     * @param userid The id of the user
+     * @param postID The id of the post
+     * @param content The comment
+     * @param outputBoundary CommentPostPresenter
+     */
     @Override
-    public void runCommentPost(String userid, String postID, String content, CommentPostOutputBoundary outputBoundary) {
+    public void runCommentPost(String userid, String postID, String content,
+                               CommentPostOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {
@@ -186,6 +209,11 @@ public class PostsManager implements SharingCentreInputBoundary {
         }
     }
 
+    /**
+     * Like a post by the user
+     * @param userid The id of the user
+     * @param postID The id of the post to be liked
+     */
     @Override
     public void likeAPost(String userid, String postID) {
         UserManager userManager = new UserManager();
@@ -197,6 +225,11 @@ public class PostsManager implements SharingCentreInputBoundary {
         }
     }
 
+    /**
+     * Get all posts the user possess
+     * @param userID The id of the user
+     * @param outputBoundary SharingCentrePresenter
+     */
     @Override
     public void retrieveUsersAllPosts(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
@@ -204,6 +237,11 @@ public class PostsManager implements SharingCentreInputBoundary {
         outputBoundary.setContent(getUsersAllPosts(user));
     }
 
+    /**
+     * Get all posts inside the user's sharing centre
+     * @param userID The id of the user
+     * @param outputBoundary SharingCentrePresenter
+     */
     @Override
     public void retrieveSharingCentre(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
@@ -211,6 +249,11 @@ public class PostsManager implements SharingCentreInputBoundary {
         outputBoundary.setContent(getSharingCentre(user));
     }
 
+    /**
+     * Get all notifications inside of user's sharing centre
+     * @param userID The id of the user
+     * @param outputBoundary NotificationPresenter
+     */
     @Override
     public void retrieveNotifications(String userID, NotificationOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();

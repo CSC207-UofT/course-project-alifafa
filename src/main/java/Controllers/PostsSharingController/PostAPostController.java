@@ -9,9 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostAPostController {
-    // TODO: Add a data access interface attribute
+
     private final SharingCentreInputBoundary sharingInputBoundary = new PostsManager();
 
+    /**
+     * Ask the use case to run PostAPost method.
+     * @param userid The id of the user who wants post something
+     * @param content The content of the post
+     * @param location The location (optional*)
+     * @param pictures Include pictures (optional*)
+     * @param presenter PostAPostPresenter
+     */
     public void runPostAPost(String userid, String content, String location, List<String> pictures,
                               PostAPostPresenter presenter){
         List<File> files = new ArrayList<>();
@@ -24,29 +32,5 @@ public class PostAPostController {
             }
         }
         sharingInputBoundary.runPostAPost(userid, content, location, files, presenter);
-    }
-
-    public void runDeletePost(String userid, String postID, DeletePostPresenter presenter) {
-        sharingInputBoundary.runDeletePost(userid, postID, presenter);
-    }
-
-    public void runLikesPost(String userid, String postID) {
-        sharingInputBoundary.likeAPost(userid, postID);
-    }
-
-    public void runCommentPost(String userid, String postID, String content, CommentPostPresenter presenter) {
-        sharingInputBoundary.runCommentPost(userid, postID, content, presenter);
-    }
-
-    public void runRetrieveUserAllPost(String userid, SharingCentrePresenter presenter) {
-        sharingInputBoundary.retrieveUsersAllPosts(userid, presenter);
-    }
-
-    public void runRetrieveSharingCentre(String userid, SharingCentrePresenter presenter) {
-        sharingInputBoundary.retrieveSharingCentre(userid, presenter);
-    }
-
-    public void runRetrieveNotifications(String userid, NotificationPresenter presenter) {
-        sharingInputBoundary.retrieveNotifications(userid, presenter);
     }
 }
