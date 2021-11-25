@@ -1,5 +1,6 @@
 package com.example.course_project_alifafa_android.Activity;
 
+import Controllers.UserControllers.LogInController;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,12 +16,15 @@ import android.widget.Toast;
 import com.example.course_project_alifafa_android.MainActivity;
 import com.example.course_project_alifafa_android.R;
 
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEtUserName;
     private EditText mEtPassword;
     private Button mBtnLogin;
     private TextView mTvRegister;
+
+    private boolean loggedIn;
 
     private static final String TAG = "LoginActivity";
     @Override
@@ -35,14 +39,19 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(mEtUserName.getText())
-                        && !TextUtils.isEmpty(mEtPassword.getText())) {
+                mEtUserName.getText();
+                mEtPassword.getText();
+//                loggedIn = true;
+//
+                LogInController logInController = new LogInController();
+                loggedIn = logInController.runLogIn(mEtUserName, mEtPassword);
+                if (loggedIn) {
                     mBtnLogin.setEnabled(true);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else {
                     mBtnLogin.setEnabled(false);
-                    Toast.makeText(LoginActivity.this,"Please enter the correct...",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Please enter the correct Username or Password",Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -15,7 +15,7 @@ import com.example.course_project_alifafa_android.Fragment.ProfileFragment;
 import com.example.course_project_alifafa_android.Fragment.SharingCentreFragment;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
     private FrameLayout mFlMainContainer;
 
     private RadioGroup mRgMain;
@@ -45,54 +45,53 @@ public class MainActivity extends AppCompatActivity {
         mProfileFragment = new ProfileFragment();
         mSharingCentreFragment = new SharingCentreFragment();
 
-//        mRgMain.setOnCheckedChangeListener((RadioGroup.OnCheckedChangeListener) this);
-//
-//        mRbChat.setChecked(true);
-//        replaceFragment(mChatFragment);
+        mRgMain.setOnCheckedChangeListener((RadioGroup.OnCheckedChangeListener) this);
+
+        mRbChat.setChecked(true);
+        replaceFragment(mChatFragment);
     }
 
-//    private void replaceFragment(Fragment fragment){
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.fl_main_container,fragment);
-//        fragmentTransaction.commit();
-//    }
-//
-//    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-//        switch (i) {
-//
-//            case R.id.rb_chat:
-//                if(null != mChatFragment){
-//                    mChatFragment = new ChatFragment();
-//                }
-//                replaceFragment(mChatFragment);
-//                break;
-//
-//            case R.id.rb_contact:
-//                if(null != mContactFragment) {
-//                    mContactFragment = new ContactFragment();
-//                }
-//                replaceFragment(mContactFragment);
-//                break;
-//
-//            case R.id.rb_sharing_centre:
-//                if (null != mSharingCentreFragment) {
-//                    mSharingCentreFragment = new SharingCentreFragment();
-//                }
-//                replaceFragment(mSharingCentreFragment);
-//                break;
-//
-//            case R.id.rb_profile:
-//                if(null != mProfileFragment){
-//                    mProfileFragment = new ProfileFragment();
-//                }
-//                replaceFragment(mProfileFragment);
-//                break;
-//
-//
-//            default:
-//                break;
-//        }
-//    }
-//
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fl_main_container,fragment);
+        fragmentTransaction.commit();
+    }
+
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch (i) {
+
+            case R.id.rb_chat:
+                if(null != mChatFragment){
+                    mChatFragment = new ChatFragment();
+                }
+                replaceFragment(mChatFragment);
+                break;
+
+            case R.id.rb_contact:
+                if(null != mContactFragment) {
+                    mContactFragment = new ContactFragment();
+                }
+                replaceFragment(mContactFragment);
+                break;
+
+            case R.id.rb_sharing_centre:
+                if (null != mSharingCentreFragment) {
+                    mSharingCentreFragment = new SharingCentreFragment();
+                }
+                replaceFragment(mSharingCentreFragment);
+                break;
+
+            case R.id.rb_profile:
+                if(null != mProfileFragment){
+                    mProfileFragment = new ProfileFragment();
+                }
+                replaceFragment(mProfileFragment);
+                break;
+
+
+            default:
+                break;
+        }
+    }
 }
