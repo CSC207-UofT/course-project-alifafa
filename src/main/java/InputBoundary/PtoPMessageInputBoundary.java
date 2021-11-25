@@ -35,11 +35,4 @@ public interface PtoPMessageInputBoundary {
      */
     void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary);
 
-
-    /**
-     * Set the ptoPMessageDataAccessInterface of PtoPMessageManager.
-     * @param ptoPMessageDataAccessInterface the ptoPMessageDataAccessInterface of PtoPMessageManager.
-     */
-    void setPtoPMessageDataAccess(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface);
-
 }
