@@ -3,7 +3,8 @@ package Presenters;
 import OutputBoundary.CommentPostOutputBoundary;
 
 public class CommentPostPresenter implements CommentPostOutputBoundary {
-    boolean commented = false;
+    boolean commented = false;  // This signifies whether a user commented or
+                                // not
 
     @Override
     public void setCommented(boolean commented) {

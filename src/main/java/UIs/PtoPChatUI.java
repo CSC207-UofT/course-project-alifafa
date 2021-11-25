@@ -1,6 +1,8 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoPMessageController;
+import DataAccessInterface.PtoPMessageDataAccessInterface;
+import Gateway.PtoPMessageDataAccess;
 import Presenters.PtoPMessageHistoryPresenter;
 
 import java.io.IOException;
@@ -14,7 +16,8 @@ public class PtoPChatUI extends ParentUI{
 
     // Use this method to realize person to person chat function.
     public void run () throws IOException {
-        PtoPMessageController controller = new PtoPMessageController();
+        PtoPMessageDataAccessInterface dataAccess= new PtoPMessageDataAccess();
+        PtoPMessageController controller = new PtoPMessageController(dataAccess);
         PtoPMessageHistoryPresenter presenter = new PtoPMessageHistoryPresenter();
         String[] parameters = new String[3];
 

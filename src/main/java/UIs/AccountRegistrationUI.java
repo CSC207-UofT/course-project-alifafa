@@ -1,9 +1,8 @@
 package UIs;
 
 import Controllers.UserControllers.AccountRegistrationController;
-import Controllers.UserControllers.LogInController;
 import Presenters.AccountRegistrationPresenter;
-import Presenters.LogInPresenter;
+
 
 import java.util.Scanner;
 

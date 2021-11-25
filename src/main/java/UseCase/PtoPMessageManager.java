@@ -16,10 +16,10 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
 
     // ptoPMessageDataAccessInterface of this class, which is implemented by PtoPMessageDataAccess.It should be
     // constructed outside this class, then injected into this class's constructor.
-    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
+    private PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
 
-    //Constructor of PtoPMessageManager
-    public PtoPMessageManager(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
+    @Override
+    public void setPtoPMessageDataAccess(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
         this.ptoPMessageDataAccessInterface = ptoPMessageDataAccessInterface;
     }
 

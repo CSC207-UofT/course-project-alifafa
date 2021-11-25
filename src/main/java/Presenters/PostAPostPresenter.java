@@ -1,7 +1,6 @@
 package Presenters;
 
 import OutputBoundary.PostAPostOutputBoundary;
-import OutputBoundary.SharingCentreOutputBoundary;
 
 public class PostAPostPresenter implements PostAPostOutputBoundary {
     boolean posted;
