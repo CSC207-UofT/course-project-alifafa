@@ -1,0 +1,157 @@
+Index: course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/Activity/LoginActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.course_project_alifafa_android.Activity;\n\nimport Controllers.UserControllers.LogInController;\nimport androidx.appcompat.app.AppCompatActivity;\nimport android.os.Bundle;\n\nimport android.content.Intent;\nimport android.text.TextUtils;\nimport android.util.Log;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.TextView;\nimport android.widget.Toast;\n\nimport com.example.course_project_alifafa_android.MainActivity;\nimport com.example.course_project_alifafa_android.R;\n\n\npublic class LoginActivity extends AppCompatActivity {\n\n    private EditText mEtUserName;\n    private EditText mEtPassword;\n    private Button mBtnLogin;\n    private TextView mTvRegister;\n\n    private boolean loggedIn;\n\n    private static final String TAG = \"LoginActivity\";\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_login);\n\n        mEtUserName = findViewById(R.id.et_username);\n        mEtPassword = findViewById(R.id.et_password);\n\n        mBtnLogin = findViewById(R.id.btn_login);\n        mBtnLogin.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                mEtUserName.getText();\n                mEtPassword.getText();\n//                loggedIn = true;\n//\n                LogInController logInController = new LogInController();\n                loggedIn = logInController.runLogIn(mEtUserName, mEtPassword);\n                if (loggedIn) {\n                    mBtnLogin.setEnabled(true);\n                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);\n                    startActivity(intent);\n                }else {\n                    mBtnLogin.setEnabled(false);\n                    Toast.makeText(LoginActivity.this,\"Please enter the correct Username or Password\",Toast.LENGTH_SHORT).show();\n                }\n            }\n        });\n        mTvRegister = findViewById(R.id.tv_register);\n        mTvRegister.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);\n                startActivity(intent);\n            }\n        });\n    }\n}
+===================================================================
+diff --git a/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/Activity/LoginActivity.java b/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/Activity/LoginActivity.java
+--- a/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/Activity/LoginActivity.java	
++++ b/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/Activity/LoginActivity.java	
+@@ -31,6 +31,7 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_login);
++        Log.d("LoginActivity", "onCreate execute");
+ 
+         mEtUserName = findViewById(R.id.et_username);
+         mEtPassword = findViewById(R.id.et_password);
+@@ -41,8 +42,7 @@
+             public void onClick(View view) {
+                 mEtUserName.getText();
+                 mEtPassword.getText();
+-//                loggedIn = true;
+-//
++
+                 LogInController logInController = new LogInController();
+                 loggedIn = logInController.runLogIn(mEtUserName, mEtPassword);
+                 if (loggedIn) {
+Index: course-project-alifafa-android/app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    id 'com.android.application'\n}\n\nandroid {\n    compileSdkVersion 31\n    buildToolsVersion \"31.0.0\"\n\n    defaultConfig {\n        applicationId \"com.example.course_project_alifafa_android\"\n        minSdkVersion 16\n        targetSdkVersion 31\n        versionCode 1\n        versionName \"1.0\"\n\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\n        }\n    }\n    compileOptions {\n        sourceCompatibility JavaVersion.VERSION_1_8\n        targetCompatibility JavaVersion.VERSION_1_8\n    }\n}\n\ndependencies {\n\n    implementation 'androidx.appcompat:appcompat:1.3.1'\n    implementation 'com.google.android.material:material:1.4.0'\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'\n    implementation 'com.android.support:appcompat-v7:28.0.0'\n    implementation 'com.android.support.constraint:constraint-layout:2.0.1'\n    testImplementation 'junit:junit:4.+'\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\n}\n\ntask wrapper(type: Wrapper) {\n    gradleVersion = '6.7.1'\n}\ntask prepareKotlinBuildScriptModel {\n}
+===================================================================
+diff --git a/course-project-alifafa-android/app/build.gradle b/course-project-alifafa-android/app/build.gradle
+--- a/course-project-alifafa-android/app/build.gradle	
++++ b/course-project-alifafa-android/app/build.gradle	
+@@ -13,6 +13,7 @@
+         versionCode 1
+         versionName "1.0"
+ 
++
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     }
+ 
+@@ -33,11 +34,11 @@
+     implementation 'androidx.appcompat:appcompat:1.3.1'
+     implementation 'com.google.android.material:material:1.4.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+-    implementation 'com.android.support:appcompat-v7:28.0.0'
+     implementation 'com.android.support.constraint:constraint-layout:2.0.1'
+     testImplementation 'junit:junit:4.+'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
++    implementation 'com.github.AnyChart:AnyChart-Android:1.1.4'
+ }
+ 
+ task wrapper(type: Wrapper) {
+Index: course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.course_project_alifafa_android;\n\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.fragment.app.Fragment;\nimport androidx.fragment.app.FragmentManager;\nimport androidx.fragment.app.FragmentTransaction;\n\nimport android.os.Bundle;\nimport android.widget.FrameLayout;\nimport android.widget.RadioButton;\nimport android.widget.RadioGroup;\nimport com.example.course_project_alifafa_android.Fragment.ChatFragment;\nimport com.example.course_project_alifafa_android.Fragment.ContactFragment;\nimport com.example.course_project_alifafa_android.Fragment.ProfileFragment;\nimport com.example.course_project_alifafa_android.Fragment.SharingCentreFragment;\n\n\npublic class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{\n    private FrameLayout mFlMainContainer;\n\n    private RadioGroup mRgMain;\n    private RadioButton mRbChat;\n    private RadioButton mRbContact;\n    private RadioButton mRbSharingCentre;\n    private RadioButton mRbProfile;\n\n    private ChatFragment mChatFragment;\n    private ContactFragment mContactFragment;\n    private ProfileFragment mProfileFragment;\n    private SharingCentreFragment mSharingCentreFragment;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n\n        mRgMain = findViewById(R.id.rg_main);\n        mRbChat = findViewById(R.id.rb_chat);\n        mRbContact = findViewById(R.id.rb_contact);\n        mRbSharingCentre = findViewById(R.id.rb_sharing_centre);\n        mRbProfile = findViewById(R.id.rb_profile);\n\n        mChatFragment = new ChatFragment();\n        mContactFragment = new ContactFragment();\n        mProfileFragment = new ProfileFragment();\n        mSharingCentreFragment = new SharingCentreFragment();\n\n        mRgMain.setOnCheckedChangeListener((RadioGroup.OnCheckedChangeListener) this);\n\n        mRbChat.setChecked(true);\n        replaceFragment(mChatFragment);\n    }\n\n    private void replaceFragment(Fragment fragment){\n        FragmentManager fragmentManager = getSupportFragmentManager();\n        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();\n        fragmentTransaction.replace(R.id.fl_main_container,fragment);\n        fragmentTransaction.commit();\n    }\n\n    public void onCheckedChanged(RadioGroup radioGroup, int i) {\n        switch (i) {\n\n            case R.id.rb_chat:\n                if(null != mChatFragment){\n                    mChatFragment = new ChatFragment();\n                }\n                replaceFragment(mChatFragment);\n                break;\n\n            case R.id.rb_contact:\n                if(null != mContactFragment) {\n                    mContactFragment = new ContactFragment();\n                }\n                replaceFragment(mContactFragment);\n                break;\n\n            case R.id.rb_sharing_centre:\n                if (null != mSharingCentreFragment) {\n                    mSharingCentreFragment = new SharingCentreFragment();\n                }\n                replaceFragment(mSharingCentreFragment);\n                break;\n\n            case R.id.rb_profile:\n                if(null != mProfileFragment){\n                    mProfileFragment = new ProfileFragment();\n                }\n                replaceFragment(mProfileFragment);\n                break;\n\n\n            default:\n                break;\n        }\n    }\n}
+===================================================================
+diff --git a/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/MainActivity.java b/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/MainActivity.java
+--- a/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/MainActivity.java	
++++ b/course-project-alifafa-android/app/src/main/java/com/example/course_project_alifafa_android/MainActivity.java	
+@@ -39,6 +39,7 @@
+         mRbContact = findViewById(R.id.rb_contact);
+         mRbSharingCentre = findViewById(R.id.rb_sharing_centre);
+         mRbProfile = findViewById(R.id.rb_profile);
++        mFlMainContainer = findViewById(R.id.fl_main_container);
+ 
+         mChatFragment = new ChatFragment();
+         mContactFragment = new ContactFragment();
+Index: course-project-alifafa-android/app/src/main/res/layout/activity_login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout\n        xmlns:android=\"http://schemas.android.com/apk/res/android\"\n        xmlns:tools=\"http://schemas.android.com/tools\"\n        xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        tools:context=\".Activity.LoginActivity\"\n        android:id=\"@+id/login_container\"\n        android:orientation=\"vertical\">\n\n    <TextView\n            android:id=\"@+id/tv_welcome\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:textSize=\"10pt\"\n            android:text=\"WELCOME!\"\n            android:gravity=\"center_horizontal\"\n            android:paddingTop=\"30dp\" />\n\n\n    <EditText\n            android:id=\"@+id/et_username\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginStart=\"24dp\"\n            android:layout_marginTop=\"96dp\"\n            android:layout_marginEnd=\"24dp\"\n            android:hint=\"Username\"/>\n<!--            app:layout_constraintEnd_toEndOf=\"parent\"-->\n<!--            app:layout_constraintStart_toStartOf=\"parent\"-->\n<!--            app:layout_constraintTop_toTopOf=\"parent\"/>-->\n\n    <EditText\n            android:id=\"@+id/et_password\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginStart=\"24dp\"\n            android:layout_marginTop=\"8dp\"\n            android:layout_marginEnd=\"24dp\"\n            android:hint=\"Password\"\n            android:imeOptions=\"actionDone\"\n            android:inputType=\"textPassword\"/>\n<!--            app:layout_constraintEnd_toEndOf=\"parent\"-->\n<!--            app:layout_constraintStart_toStartOf=\"parent\"-->\n<!--            app:layout_constraintTop_toBottomOf=\"@+id/et_username\"/>-->\n\n    <TextView\n        android:id=\"@+id/tv_register\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:paddingTop=\"10dp\"\n        android:text=\"Register\"\n        android:layout_marginLeft=\"320dp\"\n         />\n\n    <Button\n            android:id=\"@+id/btn_login\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_gravity=\"center\"\n            android:layout_marginStart=\"48dp\"\n            android:layout_marginTop=\"16dp\"\n            android:layout_marginEnd=\"48dp\"\n            android:layout_marginBottom=\"64dp\"\n            android:text=\"SIGN IN\"/>\n<!--            app:layout_constraintBottom_toBottomOf=\"parent\"-->\n<!--            app:layout_constraintEnd_toEndOf=\"parent\"-->\n<!--            app:layout_constraintStart_toStartOf=\"parent\"-->\n<!--            app:layout_constraintTop_toBottomOf=\"@+id/et_password\"-->\n<!--            app:layout_constraintVertical_bias=\"0.2\"/>-->\n\n\n\n</LinearLayout>
+===================================================================
+diff --git a/course-project-alifafa-android/app/src/main/res/layout/activity_login.xml b/course-project-alifafa-android/app/src/main/res/layout/activity_login.xml
+--- a/course-project-alifafa-android/app/src/main/res/layout/activity_login.xml	
++++ b/course-project-alifafa-android/app/src/main/res/layout/activity_login.xml	
+@@ -27,9 +27,7 @@
+             android:layout_marginTop="96dp"
+             android:layout_marginEnd="24dp"
+             android:hint="Username"/>
+-<!--            app:layout_constraintEnd_toEndOf="parent"-->
+-<!--            app:layout_constraintStart_toStartOf="parent"-->
+-<!--            app:layout_constraintTop_toTopOf="parent"/>-->
++
+ 
+     <EditText
+             android:id="@+id/et_password"
+@@ -41,9 +39,6 @@
+             android:hint="Password"
+             android:imeOptions="actionDone"
+             android:inputType="textPassword"/>
+-<!--            app:layout_constraintEnd_toEndOf="parent"-->
+-<!--            app:layout_constraintStart_toStartOf="parent"-->
+-<!--            app:layout_constraintTop_toBottomOf="@+id/et_username"/>-->
+ 
+     <TextView
+         android:id="@+id/tv_register"
+@@ -64,11 +59,6 @@
+             android:layout_marginEnd="48dp"
+             android:layout_marginBottom="64dp"
+             android:text="SIGN IN"/>
+-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+-<!--            app:layout_constraintEnd_toEndOf="parent"-->
+-<!--            app:layout_constraintStart_toStartOf="parent"-->
+-<!--            app:layout_constraintTop_toBottomOf="@+id/et_password"-->
+-<!--            app:layout_constraintVertical_bias="0.2"/>-->
+ 
+ 
+ 
+Index: course-project-alifafa-android/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.example.course_project_alifafa_android\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity android:name=\".Activity.GroupChatActivity\"></activity>\n        <activity android:name=\".Activity.PtoPActivity\" />\n        <activity android:name=\".Activity.ChatActivity\" />\n        <activity android:name=\".Activity.RegisterActivity\" />\n        <activity\n            android:name=\".Activity.LoginActivity\"\n            android:exported=\"true\"\n            android:launchMode=\"singleTask\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\" />\n    </application>\n\n</manifest>
+===================================================================
+diff --git a/course-project-alifafa-android/app/src/main/AndroidManifest.xml b/course-project-alifafa-android/app/src/main/AndroidManifest.xml
+--- a/course-project-alifafa-android/app/src/main/AndroidManifest.xml	
++++ b/course-project-alifafa-android/app/src/main/AndroidManifest.xml	
+@@ -1,6 +1,9 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    package="com.example.course_project_alifafa_android">
++    xmlns:tools="http://schemas.android.com/tools"
++    package="com.example.course_project_alifafa_android"
++
++    >
+ 
+     <application
+         android:allowBackup="true"
+@@ -8,7 +11,8 @@
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+-        android:theme="@style/AppTheme">
++        android:theme="@style/AppTheme"
++        >
+         <activity android:name=".Activity.GroupChatActivity"></activity>
+         <activity android:name=".Activity.PtoPActivity" />
+         <activity android:name=".Activity.ChatActivity" />
+Index: course-project-alifafa-android/app/src/main/res/layout/activity_group_chat.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<android.support.constraint.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".Activity.GroupChatActivity\">\n\n</android.support.constraint.ConstraintLayout>
+===================================================================
+diff --git a/course-project-alifafa-android/app/src/main/res/layout/activity_group_chat.xml b/course-project-alifafa-android/app/src/main/res/layout/activity_group_chat.xml
+--- a/course-project-alifafa-android/app/src/main/res/layout/activity_group_chat.xml	
++++ b/course-project-alifafa-android/app/src/main/res/layout/activity_group_chat.xml	
+@@ -6,4 +6,6 @@
+     android:layout_height="match_parent"
+     tools:context=".Activity.GroupChatActivity">
+ 
++
++
+ </android.support.constraint.ConstraintLayout>
+\ No newline at end of file
