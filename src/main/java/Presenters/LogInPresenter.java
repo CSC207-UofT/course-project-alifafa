@@ -2,7 +2,6 @@ package Presenters;
 
 import OutputBoundary.LogInOutputBoundary;
 
-import java.util.ArrayList;
 
 public class LogInPresenter implements LogInOutputBoundary {
     boolean loggedIn;

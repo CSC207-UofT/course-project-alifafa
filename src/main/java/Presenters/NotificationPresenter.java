@@ -1,9 +1,7 @@
 package Presenters;
 
 import Entity.Notifications;
-import Entity.ParagraphPost;
 import OutputBoundary.NotificationOutputBoundary;
-import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.util.List;
 

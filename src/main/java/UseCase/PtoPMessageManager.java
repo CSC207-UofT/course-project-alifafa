@@ -5,6 +5,7 @@ import Entity.PtoPMessage;
 import Entity.User;
 import InputBoundary.PtoPMessageInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
+import Gateway.PtoPMessageDataAccess;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,12 +17,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
 
     // ptoPMessageDataAccessInterface of this class, which is implemented by PtoPMessageDataAccess.It should be
     // constructed outside this class, then injected into this class's constructor.
-    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
-
-    //Constructor of PtoPMessageManager
-    public PtoPMessageManager(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
-        this.ptoPMessageDataAccessInterface = ptoPMessageDataAccessInterface;
-    }
+    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface = new PtoPMessageDataAccess();
 
     @Override
     public void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {

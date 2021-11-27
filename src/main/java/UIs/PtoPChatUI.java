@@ -1,6 +1,8 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoPMessageController;
+import DataAccessInterface.PtoPMessageDataAccessInterface;
+import Gateway.PtoPMessageDataAccess;
 import Presenters.PtoPMessageHistoryPresenter;
 
 import java.io.IOException;
