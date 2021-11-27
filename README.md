@@ -18,7 +18,6 @@ Thank you for choosing **Alichat** by team Alifafa. **Alichat** is an instant me
 1. Clone repository 
 2. Open text editor, ItelliJ recommended
 3. Set up SDK, version 11 recommended
-4. Find 'src/main/java/MainProgram.java' and run the file
-
+4. Checkout branch "Android" and Link MyApplication/
 ## Phase 1
 Please navigate to the 'Phase 0' folder at the top.
