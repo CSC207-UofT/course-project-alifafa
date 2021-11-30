@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class User implements Serializable {
     /**
-     * A User's information.
+     * Store a User's information.
      */
 
     // === Instance Variables ===
