@@ -38,13 +38,13 @@ public class LoginActivity extends AppCompatActivity {
             mEtUsername.getText();
             mEtPassword.getText();
 
-            loggedIn = logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString());
-            logInPresenter.setLogInStatus(loggedIn);
-            message = logInPresenter.presentOutput();
-            if (loggedIn){
+            logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString(), logInPresenter);
+
+            if (logInPresenter.isLoggedIn()){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{
+                message = logInPresenter.presentOutput();
                 Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
             }
