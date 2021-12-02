@@ -36,6 +36,7 @@ public class LogInController{
 //        loginInputBoundary.runLogIn(parameters, presenter);
 //    }
     public boolean runLogIn(String username, String password){
+        loginInputBoundary.runLogIn(parameters, presenter);
         return true;
     }
 
