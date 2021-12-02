@@ -8,15 +8,6 @@
     tools:context=".Fragment.AliChatFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="TESTCHAT"
-        android:textColor="@color/white"
-        android:textSize="10pt"
-        android:background="@color/black"
-        android:gravity="center"
-        tools:ignore="MissingConstraints" />
 
     <RelativeLayout
         android:layout_width="match_parent"

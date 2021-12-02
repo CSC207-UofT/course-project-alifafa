@@ -16,7 +16,8 @@
         android:textSize="10pt"
         android:text="WELCOME!"
         android:gravity="center_horizontal"
-        android:paddingTop="30dp" />
+        android:paddingTop="30dp"
+        android:layout_marginTop="70dp"/>
 
 
     <EditText
@@ -26,7 +27,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="24dp"
-        android:hint="Username"/>
+        android:hint="Username"
+        android:textColorHint="@color/pale_silver"
+        android:backgroundTint="@color/middle_grey"/>
     <!--            app:layout_constraintEnd_toEndOf="parent"-->
     <!--            app:layout_constraintStart_toStartOf="parent"-->
     <!--            app:layout_constraintTop_toTopOf="parent"/>-->
@@ -40,7 +43,9 @@
         android:layout_marginEnd="24dp"
         android:hint="Password"
         android:imeOptions="actionDone"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:textColorHint="@color/pale_silver"
+        android:backgroundTint="@color/middle_grey"/>
     <!--            app:layout_constraintEnd_toEndOf="parent"-->
     <!--            app:layout_constraintStart_toStartOf="parent"-->
     <!--            app:layout_constraintTop_toBottomOf="@+id/et_username"/>-->
@@ -52,6 +57,7 @@
         android:paddingTop="10dp"
         android:text="Register"
         android:layout_marginLeft="320dp"
+        android:textColor="@color/melon"
         />
 
     <Button
@@ -63,7 +69,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
-        android:text="SIGN IN"/>
+        android:text="SIGN IN"
+        android:textColor="@color/dark_lava"
+        android:backgroundTint="@color/alabaster"/>
     <!--            app:layout_constraintBottom_toBottomOf="parent"-->
     <!--            app:layout_constraintEnd_toEndOf="parent"-->
     <!--            app:layout_constraintStart_toStartOf="parent"-->

@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             mEtUsername.getText();
             mEtPassword.getText();
 
-            loggedIn = logInController.runLogIn(mEtUsername, mEtPassword);
+            loggedIn = logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString());
             if (loggedIn){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);

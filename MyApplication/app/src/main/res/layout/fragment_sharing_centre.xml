@@ -8,14 +8,6 @@
     tools:context=".Fragment.SharingCentreFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Sharing Centre"
-        android:textColor="@color/white"
-        android:textSize="10pt"
-        android:background="@color/black"
-        android:gravity="center" />
 
     <RelativeLayout
         android:layout_width="match_parent"
