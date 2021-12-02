@@ -1,5 +1,6 @@
 package com.example.myapplication.Activity;
 
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,12 +8,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.myapplication.Controllers.UserControllers.AccountRegistrationController;
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.Presenters.AccountRegistrationPresenter;
 import com.example.myapplication.R;
 
@@ -36,9 +34,10 @@ public class RegisterActivity extends AppCompatActivity {
         mEtPassword2 = findViewById(R.id.et_reg_password2);
         mEtRegUsername = findViewById(R.id.et_reg_username);
 
+        AccountRegistrationController controller = new AccountRegistrationController();
+        AccountRegistrationPresenter presenter = new AccountRegistrationPresenter();
+
         mBtnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            AccountRegistrationController controller = new AccountRegistrationController();
-            AccountRegistrationPresenter presenter = new AccountRegistrationPresenter();
 
             @Override
             public void onClick(View view) {
@@ -47,10 +46,17 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(inputs[0]) && !TextUtils.isEmpty(inputs[1]) &&
                         !TextUtils.isEmpty(inputs[2])) {
                     controller.createAnAccount(inputs, presenter);
-
+                    String message = presenter.presentOutput();
+                    Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    Toast.makeText(RegisterActivity.this, "Fill in all the blanks", Toast.LENGTH_SHORT).show();
+                }
 
+                //if the user have logged in successfully
+                if(presenter.getRegistrationStatus()){
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
 
             }

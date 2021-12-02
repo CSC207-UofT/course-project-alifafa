@@ -24,6 +24,13 @@ public class AccountRegistrationController{
      * @param parameters The input from the user, which is an array that contains userID and input password.
      */
     public void createAnAccount(String[] parameters, AccountRegistrationPresenter presenter) {
-        accountRegistrationInputBoundary.runAccountRegistration(parameters, presenter);
+
+        // check if the two passwords match each other
+        if (! parameters[1].equals(parameters[2])){
+            presenter.setMessage("The passwords must match!");
+        } else {
+            String[] validInput = {parameters[0], parameters[1]};
+            accountRegistrationInputBoundary.runAccountRegistration(validInput, presenter);
+        }
     }
 }
