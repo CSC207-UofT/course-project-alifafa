@@ -3,6 +3,7 @@ package com.example.myapplication.UseCase;
 import com.example.myapplication.DataAccessInterface.PtoPMessageDataAccessInterface;
 import com.example.myapplication.Entity.PtoPMessage;
 import com.example.myapplication.Entity.User;
+import com.example.myapplication.Gateway.PtoPMessageDataAccess;
 import com.example.myapplication.InputBoundary.PtoPMessageInputBoundary;
 import com.example.myapplication.OutputBoundary.PtoPMessageOutputBoundary;
 
@@ -16,12 +17,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
 
     // ptoPMessageDataAccessInterface of this class, which is implemented by PtoPMessageDataAccess.It should be
     // constructed outside this class, then injected into this class's constructor.
-    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
-
-    //Constructor of PtoPMessageManager
-    public PtoPMessageManager(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
-        this.ptoPMessageDataAccessInterface = ptoPMessageDataAccessInterface;
-    }
+    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface = new PtoPMessageDataAccess();
 
     @Override
     public void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {
