@@ -11,6 +11,18 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../course-project-alifafa-android">
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/build" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../course-project-alifafa-android">
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/.gradle" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../course-project-alifafa-android">
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/.gradle" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../course-project-alifafa-android">
       <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/build" />
       <excludeFolder url="file://$MODULE_DIR$/../../course-project-alifafa-android/.gradle" />
     </content>
