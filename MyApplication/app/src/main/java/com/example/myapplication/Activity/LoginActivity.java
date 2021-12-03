@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Controllers.UserControllers.LogInController;
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.Presenters.LogInPresenter;
 import com.example.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView mTvRegistration;
 
     private boolean loggedIn;
+    private String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         LogInController logInController = new LogInController();
+        LogInPresenter logInPresenter = new LogInPresenter();
 
         mEtPassword = findViewById(R.id.et_password);
         mEtUsername = findViewById(R.id.et_username);
@@ -35,12 +38,14 @@ public class LoginActivity extends AppCompatActivity {
             mEtUsername.getText();
             mEtPassword.getText();
 
-            loggedIn = logInController.runLogIn(mEtUsername, mEtPassword);
-            if (loggedIn){
+            logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString(), logInPresenter);
+
+            if (logInPresenter.isLoggedIn()){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{
-                Toast.makeText(LoginActivity.this, "Please type the correct username or password!", Toast.LENGTH_SHORT).show();
+                message = logInPresenter.presentOutput();
+                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
 
             }
         });

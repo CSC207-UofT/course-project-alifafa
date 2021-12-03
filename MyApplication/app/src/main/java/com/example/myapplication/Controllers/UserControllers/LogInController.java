@@ -2,6 +2,7 @@ package com.example.myapplication.Controllers.UserControllers;
 
 import android.widget.EditText;
 import com.example.myapplication.InputBoundary.UserInputBoundary;
+import com.example.myapplication.Presenters.LogInPresenter;
 import com.example.myapplication.UseCase.UserManager;
 
 
@@ -35,8 +36,9 @@ public class LogInController{
 //    public void runLogIn(String[] parameters, LogInPresenter presenter) {
 //        loginInputBoundary.runLogIn(parameters, presenter);
 //    }
-    public boolean runLogIn(EditText username, EditText password){
-        return true;
+    public void runLogIn(String username, String password, LogInPresenter presenter){
+        String[] input = {username, password};
+        loginInputBoundary.runLogIn(input, presenter);
     }
 
 }
