@@ -5,6 +5,8 @@ import com.example.myapplication.OutputBoundary.AccountRegistrationOutputBoundar
 import com.example.myapplication.OutputBoundary.AddFriendOutputBoundary;
 import com.example.myapplication.OutputBoundary.LogInOutputBoundary;
 
+import java.io.IOException;
+
 
 public interface UserInputBoundary {
     /**
@@ -14,7 +16,7 @@ public interface UserInputBoundary {
 
     void runLogIn (String[] parameters, LogInOutputBoundary outputBoundary);
 
-    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary);
+    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException;
 
     void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
 
