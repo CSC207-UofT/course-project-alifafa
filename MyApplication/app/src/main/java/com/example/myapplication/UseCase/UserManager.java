@@ -3,6 +3,7 @@ package com.example.myapplication.UseCase;
 import com.example.myapplication.DataAccessInterface.DataAccess;
 import com.example.myapplication.Entity.User;
 import com.example.myapplication.Entity.UserList;
+import com.example.myapplication.Gateway.DataAccessGateway;
 import com.example.myapplication.InputBoundary.UserInputBoundary;
 import com.example.myapplication.OutputBoundary.*;
 
@@ -63,11 +64,13 @@ public class UserManager implements UserInputBoundary {
     }
     */
 
-    public void createUser (String id, String userName, String password){
+    public void createUser (String id, String userName, String password) throws IOException {
         //Create a user
         UserList store = new UserList();
         User user = new User(id, userName, password);
         store.addUser(user);
+        DataAccessGateway gateway = new DataAccessGateway();
+        this.writeData(gateway);
     }
 
     /* will be implemented in later phase.
@@ -163,7 +166,7 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) {
+    public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException {
         if (this.checkID(parameters[0])){
             this.createUser(parameters[0], parameters[1], parameters[2]);
             outputBoundary.setRegistrationStatus(true);
