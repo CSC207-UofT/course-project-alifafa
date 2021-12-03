@@ -10,6 +10,10 @@ public class LogInPresenter implements LogInOutputBoundary {
         this.loggedIn = loggedIn;
     }
 
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
     @Override
     public String presentOutput() {
         if(! loggedIn){
