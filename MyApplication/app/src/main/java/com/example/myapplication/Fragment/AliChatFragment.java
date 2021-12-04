@@ -14,8 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
-import com.example.myapplication.Activity.PtoPitemActivity;
-import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
 import com.example.myapplication.Entity.PtoPMessage;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.R;
@@ -23,7 +22,6 @@ import com.example.myapplication.R;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class AliChatFragment extends Fragment {
 
@@ -54,7 +52,7 @@ public class AliChatFragment extends Fragment {
         });
 
 
-        PtoPMessageController ptoPMessageController = new PtoPMessageController();
+        PtoPMessageFacade ptoPMessageFacade = new PtoPMessageFacade();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
         CheckFriendController checkFriendController = new CheckFriendController();
@@ -72,13 +70,13 @@ public class AliChatFragment extends Fragment {
             if (isFriend){
                 // send message
                 try {
-                    ptoPMessageController.sendMessage(myUserName,friendUsername,message);
+                    ptoPMessageFacade.sendMessage(myUserName,friendUsername,message);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
                 //receive message
-                ptoPMessageController.receiveMessageHistory(myUserName,friendUsername,ptoPMessageHistoryPresenter);
+                ptoPMessageFacade.receiveMessageHistory(myUserName,friendUsername,ptoPMessageHistoryPresenter);
                 // return chat history, and turn it into an array, each element is a message
                 String chatHistory = ptoPMessageHistoryPresenter.present();
                 String[] chatArray = chatHistory.split("\n");
