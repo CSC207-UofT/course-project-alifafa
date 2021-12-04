@@ -3,6 +3,7 @@ package com.example.myapplication.UseCase;
 import com.example.myapplication.DataAccessInterface.DataAccess;
 import com.example.myapplication.Entity.User;
 import com.example.myapplication.Entity.UserList;
+import com.example.myapplication.Gateway.DataAccessGateway;
 import com.example.myapplication.InputBoundary.UserInputBoundary;
 import com.example.myapplication.OutputBoundary.*;
 
@@ -14,8 +15,9 @@ public class UserManager implements UserInputBoundary {
     /**
      * A manager that manage User, including create user, login, read and write data, add friend.
      */
+    private final DataAccess gateway = new DataAccessGateway();
 
-    public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
+    public void readData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean readable = false;
         try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
@@ -25,8 +27,9 @@ public class UserManager implements UserInputBoundary {
             }
         }
         if (readable) {
+
             UserList store = new UserList();
-            ArrayList<User> lst = dataAccess.readFromFile("User_State.csv");
+            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
             store.addUsers(lst);
         }
     }
@@ -49,40 +52,42 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    /* will be implemented in later phase.
+
     public boolean checkUserName (String userName) {
         //Check whether the username existed in StoreUser or not
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
+        System.out.println(stored.size());
         for (User user : stored) {
+            System.out.println("We have one stored user here.");
             if (user.getUserName().equals(userName)) {
+                System.out.println("The stored username is "+user.getUserName());
                 return false;
             }
         }
         return true;
     }
-    */
 
-    public void createUser (String id, String userName, String password){
+    public void createUser (String userName, String password) throws IOException {
         //Create a user
         UserList store = new UserList();
-        User user = new User(id, userName, password);
+        User user = new User(userName, password);
         store.addUser(user);
+        this.writeData(this.gateway);
     }
 
-    /* will be implemented in later phase.
-    public User findFriend (String id, String friendID){
+
+    public boolean checkFriend (String username, String friendUsername){
         //Find friend for a given user with given friend's userName.
-        User user = this.getUser(id);
+        User user = this.getUser(username);
         ArrayList<User> friends = user.getFriends();
         for (User i: friends){
-            if (i.getID().equals(friendID)){
-                return i;
+            if (i.getUserName().equals(friendUsername)){
+                return true;
             }
         }
-        return null;
+        return false;
     }
-     */
 
     public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
@@ -103,12 +108,12 @@ public class UserManager implements UserInputBoundary {
         user.changeLoggedInStatus();
     }
 
-    public User getUser (String id){
+    public User getUser (String username){
         //Return user with given ID
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getUserName().equals(username)) {
                 return user;
             }
         }
@@ -163,11 +168,13 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) {
-        if (this.checkID(parameters[0])){
-            this.createUser(parameters[0], parameters[1], parameters[2]);
+    public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException {
+        if (this.checkUserName(parameters[0])){
+            this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
+            System.out.println("This user does not exist before, but now it is created. Registration status is set to true");
         } else{
+            System.out.println("The user already exists");
             outputBoundary.setRegistrationStatus(false);
         }
     }

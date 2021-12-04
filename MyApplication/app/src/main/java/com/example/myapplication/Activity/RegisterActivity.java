@@ -14,6 +14,7 @@ import com.example.myapplication.MainActivity;
 import com.example.myapplication.Presenters.AccountRegistrationPresenter;
 import com.example.myapplication.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -45,7 +46,11 @@ public class RegisterActivity extends AppCompatActivity {
                         mEtPassword2.getText().toString()};
                 if (!TextUtils.isEmpty(inputs[0]) && !TextUtils.isEmpty(inputs[1]) &&
                         !TextUtils.isEmpty(inputs[2])) {
-                    controller.createAnAccount(inputs, presenter);
+                    try {
+                        controller.createAnAccount(inputs, presenter);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     String message = presenter.presentOutput();
                     Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
                 }

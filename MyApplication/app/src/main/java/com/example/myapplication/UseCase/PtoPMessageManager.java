@@ -3,6 +3,7 @@ package com.example.myapplication.UseCase;
 import com.example.myapplication.DataAccessInterface.PtoPMessageDataAccessInterface;
 import com.example.myapplication.Entity.PtoPMessage;
 import com.example.myapplication.Entity.User;
+import com.example.myapplication.Gateway.PtoPMessageDataAccess;
 import com.example.myapplication.InputBoundary.PtoPMessageInputBoundary;
 import com.example.myapplication.OutputBoundary.PtoPMessageOutputBoundary;
 
@@ -16,12 +17,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
 
     // ptoPMessageDataAccessInterface of this class, which is implemented by PtoPMessageDataAccess.It should be
     // constructed outside this class, then injected into this class's constructor.
-    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface;
-
-    //Constructor of PtoPMessageManager
-    public PtoPMessageManager(PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface){
-        this.ptoPMessageDataAccessInterface = ptoPMessageDataAccessInterface;
-    }
+    private final PtoPMessageDataAccessInterface ptoPMessageDataAccessInterface = new PtoPMessageDataAccess();
 
     @Override
     public void sendMessage(User sender, User receiver, PtoPMessage message) throws IOException {
@@ -38,7 +34,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     //Helps to save ChatHistory of sender and receiver separately.
     private void saveChatHistory(User receiver, String senderChatFile, PtoPMessage message) throws IOException {
 
-        String receiverID = receiver.getID();
+        String receiverID = (String) receiver.getID();
 
         try {
             //get the previous chat history of sender.
@@ -46,7 +42,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
                     = ptoPMessageDataAccessInterface.readFromFile(senderChatFile);
 
             //update chat history of  sender.
-            String history = senderChatHistory.get(receiverID);
+            String history = senderChatHistory.get(String(receiverID));
             String newHistory = history + "\n" + message.toString();
             senderChatHistory.put(receiverID, newHistory);
 

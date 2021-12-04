@@ -37,6 +37,7 @@
             <option value="$PROJECT_DIR$/MyApplication/app" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
@@ -49,6 +50,7 @@
             <option value="$PROJECT_DIR$/MyApplication/app" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
@@ -69,7 +71,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/course-project-alifafa-android/app" />
-        <option name="gradleJvm" value="corretto-11" />
+        <option name="gradleJvm" value="corretto-11 (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/course-project-alifafa-android" />

@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString(), logInPresenter);
 
             if (logInPresenter.isLoggedIn()){
+            // if (true){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{

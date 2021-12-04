@@ -33,4 +33,5 @@ public interface PtoPMessageInputBoundary {
      * @param sender the user who sends messages to the receiver.
      */
     void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary);
+
 }
