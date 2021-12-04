@@ -15,8 +15,9 @@ public class UserManager implements UserInputBoundary {
     /**
      * A manager that manage User, including create user, login, read and write data, add friend.
      */
+    private final DataAccess gateway = new DataAccessGateway();
 
-    public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
+    public void readData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean readable = false;
         try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
@@ -26,8 +27,9 @@ public class UserManager implements UserInputBoundary {
             }
         }
         if (readable) {
+
             UserList store = new UserList();
-            ArrayList<User> lst = dataAccess.readFromFile("User_State.csv");
+            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
             store.addUsers(lst);
         }
     }
@@ -71,8 +73,7 @@ public class UserManager implements UserInputBoundary {
         UserList store = new UserList();
         User user = new User(userName, password);
         store.addUser(user);
-        DataAccessGateway gateway = new DataAccessGateway();
-        this.writeData(gateway);
+        this.writeData(this.gateway);
     }
 
 
