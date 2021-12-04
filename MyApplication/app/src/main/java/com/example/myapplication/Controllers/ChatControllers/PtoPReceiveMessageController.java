@@ -6,8 +6,6 @@ import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.UseCase.PtoPMessageManager;
 import com.example.myapplication.UseCase.UserManager;
 
-import java.io.IOException;
-
 public class PtoPReceiveMessageController {
     /**
      * This class is responsible for receiving messages between two users
