@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Activity.RegisterActivity">
-        </activity>
+        <activity
+            android:name=".Activity.PtoPitemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.GChatActivity"
+            android:exported="false" />
+        <activity android:name=".Activity.RegisterActivity" />
         <activity
             android:name=".Activity.LoginActivity"
-            android:label="Login"
             android:exported="true"
+            android:label="Login"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
