@@ -38,12 +38,12 @@ public class UserManager implements UserInputBoundary {
         dataAccess.saveToFile("User_State.csv", store.getAllUsers());
     }
 
-    public boolean checkID (int id){
+    public boolean checkID (String id){
         //Check whether the id existed in StoreUser or not
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID()==(id)) {
+            if (user.getID().equals(id)) {
                 return false;
             }
         }
@@ -63,10 +63,10 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    public void createUser (String id, String userName, String password) throws IOException {
+    public void createUser (String userName, String password) throws IOException {
         //Create a user
         UserList store = new UserList();
-        User user = new User(id, userName, password);
+        User user = new User(userName, password);
         store.addUser(user);
         DataAccessGateway gateway = new DataAccessGateway();
         this.writeData(gateway);
@@ -86,13 +86,13 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public String findPassword (int id){
+    public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID()==(id)) {
+            if (user.getID().equals(id)) {
                 return user.getPassword();
             }
         }
@@ -167,7 +167,7 @@ public class UserManager implements UserInputBoundary {
     @Override
     public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException {
         if (this.checkUserName(parameters[0])){
-            this.createUser(parameters[0], parameters[1], parameters[2]);
+            this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
         } else{
             outputBoundary.setRegistrationStatus(false);

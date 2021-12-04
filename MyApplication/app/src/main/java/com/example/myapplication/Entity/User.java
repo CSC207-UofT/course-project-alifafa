@@ -14,6 +14,7 @@ public class User implements Serializable {
     //The ID of User.
     private static int iD = 0;
     //The username of the User.
+    private final String userID;
     private final String userName;
     //The password of the User.
     private final String password;
@@ -29,14 +30,14 @@ public class User implements Serializable {
     private boolean loggedIn;
 
     /**
-     * Creates a user.
-     * iD is the ID of the user.
+     * Creates a user
+     *
      * @param username the username of the user.
      * @param password the password of the user.
      *
      */
     public User(String username, String password){
-        iD = iD + 1;
+        this.userID = String.valueOf(iD);
         this.userName = username;
         this.password = password;
         this.friends = new ArrayList<>();
@@ -46,10 +47,11 @@ public class User implements Serializable {
         this.loggedIn = false;
 //        this.PtoPMessageHistory = new HashMap<>();
         this.sharingCentre = new SharingCentre();
+        iD = iD + 1;
     }
 
-    public int getID (){
-        return iD;
+    public String getID (){
+        return userID;
     }
 
     public String getUserName() {
