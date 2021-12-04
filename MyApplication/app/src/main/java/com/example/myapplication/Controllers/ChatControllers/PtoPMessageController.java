@@ -22,29 +22,29 @@ public class PtoPMessageController{
 
     /**
      * Sends message from one user to another user
-     * @param senderUserID sender's userID
-     * @param receiverUserID receiver's userID
+     * @param senderUsername sender's username
+     * @param receiverUsername receiver's username
      * @param content the content of a message
      */
-    public void sendMessage(String senderUserID, String receiverUserID, String content) throws IOException {
-        ptoPMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
-                userInputBoundary.getUser(receiverUserID) ,
-                ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
-                        userInputBoundary.getUser(receiverUserID) , content));
+    public void sendMessage(String senderUsername, String receiverUsername, String content) throws IOException {
+        ptoPMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUsername),
+                userInputBoundary.getUser(receiverUsername) ,
+                ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUsername),
+                        userInputBoundary.getUser(receiverUsername) , content));
     }
 
 
     /**
      * Stores all messages between receiver and sender.
      *
-     * @param senderUserID sender's id
-     * @param receiverUserID receiver's id
+     * @param senderUsername sender's name
+     * @param receiverUsername receiver's name
      * @param presenter PtoPMessageHistoryPresenter
      */
-    public void receiveMessageHistory(String senderUserID, String receiverUserID,
+    public void receiveMessageHistory(String senderUsername, String receiverUsername,
                                       PtoPMessageHistoryPresenter presenter){
-        ptoPMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUserID),
-                userInputBoundary.getUser(receiverUserID), presenter);
+        ptoPMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUsername),
+                userInputBoundary.getUser(receiverUsername), presenter);
     }
 
 
