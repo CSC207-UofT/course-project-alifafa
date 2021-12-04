@@ -34,7 +34,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     //Helps to save ChatHistory of sender and receiver separately.
     private void saveChatHistory(User receiver, String senderChatFile, PtoPMessage message) throws IOException {
 
-        String receiverID = receiver.getID();
+        String receiverID = (String) receiver.getID();
 
         try {
             //get the previous chat history of sender.
@@ -42,7 +42,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
                     = ptoPMessageDataAccessInterface.readFromFile(senderChatFile);
 
             //update chat history of  sender.
-            String history = senderChatHistory.get(receiverID);
+            String history = senderChatHistory.get(String(receiverID));
             String newHistory = history + "\n" + message.toString();
             senderChatHistory.put(receiverID, newHistory);
 

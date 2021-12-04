@@ -12,7 +12,7 @@ public class User implements Serializable {
 
     // === Instance Variables ===
     //The ID of User.
-    private final String iD;
+    private static int iD = 0;
     //The username of the User.
     private final String userName;
     //The password of the User.
@@ -30,13 +30,13 @@ public class User implements Serializable {
 
     /**
      * Creates a user.
-     * @param id the ID of the user.
+     * iD is the ID of the user.
      * @param username the username of the user.
      * @param password the password of the user.
      *
      */
-    public User(String id, String username, String password){
-        this.iD = id;
+    public User(String username, String password){
+        iD = iD + 1;
         this.userName = username;
         this.password = password;
         this.friends = new ArrayList<>();
@@ -48,8 +48,8 @@ public class User implements Serializable {
         this.sharingCentre = new SharingCentre();
     }
 
-    public String getID (){
-        return this.iD;
+    public int getID (){
+        return iD;
     }
 
     public String getUserName() {

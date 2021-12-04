@@ -38,19 +38,19 @@ public class UserManager implements UserInputBoundary {
         dataAccess.saveToFile("User_State.csv", store.getAllUsers());
     }
 
-    public boolean checkID (String id){
+    public boolean checkID (int id){
         //Check whether the id existed in StoreUser or not
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getID()==(id)) {
                 return false;
             }
         }
         return true;
     }
 
-    /* will be implemented in later phase.
+
     public boolean checkUserName (String userName) {
         //Check whether the username existed in StoreUser or not
         UserList store = new UserList();
@@ -62,7 +62,6 @@ public class UserManager implements UserInputBoundary {
         }
         return true;
     }
-    */
 
     public void createUser (String id, String userName, String password) throws IOException {
         //Create a user
@@ -87,13 +86,13 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public String findPassword (String id){
+    public String findPassword (int id){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getID()==(id)) {
                 return user.getPassword();
             }
         }
@@ -106,12 +105,12 @@ public class UserManager implements UserInputBoundary {
         user.changeLoggedInStatus();
     }
 
-    public User getUser (String id){
+    public User getUser (String username){
         //Return user with given ID
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getUserName().equals(username)) {
                 return user;
             }
         }
@@ -167,7 +166,7 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException {
-        if (this.checkID(parameters[0])){
+        if (this.checkUserName(parameters[0])){
             this.createUser(parameters[0], parameters[1], parameters[2]);
             outputBoundary.setRegistrationStatus(true);
         } else{
