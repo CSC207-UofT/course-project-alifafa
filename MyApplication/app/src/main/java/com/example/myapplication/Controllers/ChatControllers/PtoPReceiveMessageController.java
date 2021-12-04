@@ -6,11 +6,9 @@ import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.UseCase.PtoPMessageManager;
 import com.example.myapplication.UseCase.UserManager;
 
-import java.io.IOException;
-
-public class PtoPMessageController{
+public class PtoPReceiveMessageController {
     /**
-     * This class is responsible for controlling messages between two users
+     * This class is responsible for receiving messages between two users
      */
 
     //The input boundary of this class, which is implemented by PtoPMessageManager. It should be
@@ -18,21 +16,6 @@ public class PtoPMessageController{
     //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
     private final PtoPMessageInputBoundary ptoPMessageInputBoundary= new PtoPMessageManager();
     private final UserInputBoundary userInputBoundary = new UserManager();
-
-
-    /**
-     * Sends message from one user to another user
-     * @param senderUsername sender's username
-     * @param receiverUsername receiver's username
-     * @param content the content of a message
-     */
-    public void sendMessage(String senderUsername, String receiverUsername, String content) throws IOException {
-        ptoPMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUsername),
-                userInputBoundary.getUser(receiverUsername) ,
-                ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUsername),
-                        userInputBoundary.getUser(receiverUsername) , content));
-    }
-
 
     /**
      * Stores all messages between receiver and sender.
@@ -46,6 +29,5 @@ public class PtoPMessageController{
         ptoPMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUsername),
                 userInputBoundary.getUser(receiverUsername), presenter);
     }
-
 
 }
