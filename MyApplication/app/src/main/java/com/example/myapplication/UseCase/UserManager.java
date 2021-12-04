@@ -164,8 +164,8 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) {
-        if (this.checkID(parameters[0])){
-            this.createUser(parameters[0], parameters[1], parameters[2]);
+        if (this.checkUsername(parameters[0])){
+            this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
         } else{
             outputBoundary.setRegistrationStatus(false);
