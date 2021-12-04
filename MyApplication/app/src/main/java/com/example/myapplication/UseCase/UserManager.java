@@ -55,8 +55,11 @@ public class UserManager implements UserInputBoundary {
         //Check whether the username existed in StoreUser or not
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
+        System.out.println(stored.size());
         for (User user : stored) {
+            System.out.println("We have one stored user here.");
             if (user.getUserName().equals(userName)) {
+                System.out.println("The stored username is "+user.getUserName());
                 return false;
             }
         }
@@ -72,19 +75,18 @@ public class UserManager implements UserInputBoundary {
         this.writeData(gateway);
     }
 
-    /* will be implemented in later phase.
-    public User findFriend (String id, String friendID){
+
+    public boolean checkFriend (String username, String friendUsername){
         //Find friend for a given user with given friend's userName.
-        User user = this.getUser(id);
+        User user = this.getUser(username);
         ArrayList<User> friends = user.getFriends();
         for (User i: friends){
-            if (i.getID().equals(friendID)){
-                return i;
+            if (i.getUserName().equals(friendUsername)){
+                return true;
             }
         }
-        return null;
+        return false;
     }
-     */
 
     public String findPassword (String id){
         //Return a password with given ID after searching in StoreUser.
@@ -169,7 +171,9 @@ public class UserManager implements UserInputBoundary {
         if (this.checkUserName(parameters[0])){
             this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
+            System.out.println("This user does not exist before, but now it is created. Registration status is set to true");
         } else{
+            System.out.println("The user already exists");
             outputBoundary.setRegistrationStatus(false);
         }
     }
