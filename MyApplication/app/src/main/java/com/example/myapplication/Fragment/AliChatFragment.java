@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -85,6 +86,7 @@ public class AliChatFragment extends Fragment {
                 // Haven't been implemented yet:
                 // After click Send Button, present the message in chatArray on the phone line by line
             }else{
+                Toast.makeText(view.getContext(), "Not valid friend",Toast.LENGTH_SHORT).show();
                 // Haven't been implemented yet:
                 // When they are not friends
                 // Pop up a warning show "No friend found"
