@@ -14,9 +14,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
 import com.example.myapplication.Activity.PtoPitemActivity;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
 import com.example.myapplication.Entity.PtoPMessage;
+import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -27,8 +30,10 @@ public class AliChatFragment extends Fragment {
     private Button mBtnSend;
     private EditText mEtFriendName;
     private EditText mEtMessage;
+    private EditText mEtMyName;
 
     private List<PtoPMessage> mPtoPList = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -39,16 +44,52 @@ public class AliChatFragment extends Fragment {
         mBtnSend = view.findViewById(R.id.btn_send);
         mEtFriendName = view.findViewById(R.id.et_friend_name);
         mEtMessage = view.findViewById(R.id.message);
+        mEtMyName = view.findViewById(R.id.et_my_name);
 
+        // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
             Intent intent = new Intent(view1.getContext(), GChatActivity.class);
             view.getContext().startActivity(intent);
         });
 
+
+        PtoPMessageController ptoPMessageController = new PtoPMessageController();
+        PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
+        // Haven't been implemented yet
+        CheckFriendController checkFriendController = new CheckFriendController();
+
+        // Send message and present message
         mBtnSend.setOnClickListener(view1 -> {
             String message = mEtMessage.getText().toString();
-            String friend = mEtFriendName.getFontFeatureSettings().toString();
+            String friendUsername = mEtFriendName.getText().toString();
+            String myUserName = mEtMyName.getText().toString();
+
+            // haven't been implemented yet
+            Boolean isFriend = checkFriendController.checkFriend(myUserName, friendUsername);
+
             //write if statement that searches if friend is an existing friend and send out message.
+            if (isFriend){
+                // send message
+                try {
+                    ptoPMessageController.sendMessage(myUserName,friendUsername,message);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                //receive message
+                ptoPMessageController.receiveMessageHistory(myUserName,friendUsername,ptoPMessageHistoryPresenter);
+                // return chat history, and turn it into an array, each element is a message
+                String chatHistory = ptoPMessageHistoryPresenter.present();
+                String[] chatArray = chatHistory.split("\n");
+
+                // Haven't been implemented yet:
+                // After click Send Button, present the message in chatArray on the phone line by line
+            }else{
+                // Haven't been implemented yet:
+                // When they are not friends
+                // Pop up a warning show "No friend found"
+            }
+
         });
 
         return view;
