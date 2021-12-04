@@ -1,6 +1,7 @@
 package com.example.myapplication.Fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,9 @@ public class ProfileFragment extends Fragment {
     private Button mBtnLogout;
     private ImageView mIvProfilePic;
     private TextView mTvUsername;
+//    private Button mBtnUpdateProfile;
+
+//    private Uri;
 
     @Nullable
     @Override
@@ -30,6 +34,7 @@ public class ProfileFragment extends Fragment {
         mBtnLogout = view.findViewById(R.id.btn_logout);
         mTvUsername = view.findViewById(R.id.tv_profile_name);
         mIvProfilePic = view.findViewById(R.id.iv_profile_pic);
+//        mBtnUpdateProfile = view.findViewById(R.id.btn_update_pic);
 
         mBtnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

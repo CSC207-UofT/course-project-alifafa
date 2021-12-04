@@ -10,7 +10,8 @@ public interface PtoPMessageOutputBoundary {
 
     /**
      * Present the  ptop message.
+     * @return ptop chat history
      */
-    void present();
+    String present();
 
 }
