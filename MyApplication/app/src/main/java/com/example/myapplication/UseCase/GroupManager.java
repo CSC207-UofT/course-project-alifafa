@@ -1,16 +1,45 @@
 package com.example.myapplication.UseCase;
 
 
-import com.example.myapplication.Entity.Group;
-import com.example.myapplication.Entity.GroupList;
-import com.example.myapplication.Entity.User;
+import com.example.myapplication.DataAccessInterface.DataAccess;
+import com.example.myapplication.Entity.*;
+import com.example.myapplication.Gateway.DataAccessGateway;
 import com.example.myapplication.InputBoundary.GroupInputBoundary;
 import com.example.myapplication.OutputBoundary.CreateGroupOutputBoundary;
 import com.example.myapplication.OutputBoundary.JoinGroupOutputBoundary;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GroupManager implements GroupInputBoundary{
+
+
+    private final DataAccess gateway = new DataAccessGateway();
+
+    public void readData() throws IOException, ClassNotFoundException {
+        //Read data from file and cast it to right class.
+        boolean b = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
+            String line = br.readLine();
+            if (line != null) {
+                b = true;
+            }
+        }
+        if (b) {
+
+            UserList store = new UserList();
+            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
+            store.addUsers(lst);
+        }
+    }
+
+    public void writeData (DataAccess dataAccess) throws IOException {
+        //Write data to file
+        UserList store = new UserList();
+        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
+    }
 
     public boolean checkGroupID(String id) {
         //Check whether the id existed in GroupList or not
@@ -79,6 +108,15 @@ public class GroupManager implements GroupInputBoundary{
             }
         }
         return null;
+    }
+
+    /**
+     * Deleting a user from a specific group
+     * @param group The group.
+     * @param user The user that will be kicked.
+     */
+    public void kickGroupMember(Group group, User user){
+        group.getMembers().remove(user);
     }
 
     @Override
