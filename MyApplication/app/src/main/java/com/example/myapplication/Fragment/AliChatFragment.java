@@ -40,7 +40,7 @@ public class AliChatFragment extends Fragment {
 
     private PtoPListAdapter ptoPListAdapter;
 
-    private List<PtoPMessage> mPtoPList = new ArrayList<>();
+    private List<String> mPtoPList = new ArrayList<>();
 
 
     @Nullable
@@ -94,10 +94,7 @@ public class AliChatFragment extends Fragment {
                 String chatHistory = ptoPMessageHistoryPresenter.present();
                 String[] chatArray = chatHistory.split("\n");
                 for (String chat: chatArray){
-                    PtoPMessage ptoPMessage = new PtoPMessage(ptoPMessageController.getUser(myUserName),
-                            ptoPMessageController.getUser(friendUsername), message);
-                    mPtoPList.add(ptoPMessage);
-
+                    mPtoPList.add(chat);
                 }
 
                 // Haven't been implemented yet:
