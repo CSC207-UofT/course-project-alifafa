@@ -8,38 +8,40 @@
     tools:context=".Fragment.SharingCentreFragment"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/teal_200"
+            android:orientation="horizontal">
 
         <ImageButton
                 android:id="@+id/back_sc"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
-                android:layout_marginTop="42dp"
-                android:layout_marginLeft="5dp"
                 android:background=""
         />
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="42dp"
                 android:text="SharingCentre"
                 android:layout_toRightOf="@+id/back_sc"
                 android:layout_centerInParent="true"
-                android:textSize="20sp"/>
+                android:textSize="25sp"/>
 
         <ImageButton
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_camera"
-                android:layout_marginTop="42dp"
-                android:layout_gravity="right"
-                android:paddingRight="20dp"
+                android:layout_marginLeft="100dp"
+                android:layout_gravity="center_vertical|right"
                 android:background="" />
-    </RelativeLayout>
+
+    </LinearLayout>
 
 
     <RelativeLayout

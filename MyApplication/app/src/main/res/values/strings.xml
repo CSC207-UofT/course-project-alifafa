@@ -6,4 +6,5 @@
     <string name="comment">Comment</string>
     <string name="zero">0</string>
     <string name="location">location</string>
+    <string name="colon">:</string>
 </resources>
