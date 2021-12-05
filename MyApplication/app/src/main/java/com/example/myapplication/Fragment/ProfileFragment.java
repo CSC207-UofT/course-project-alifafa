@@ -10,12 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.BlockedListActivity;
 import com.example.myapplication.Activity.LoginActivity;
+import com.example.myapplication.Controllers.UserControllers.LogOutController;
 import com.example.myapplication.R;
 
 public class ProfileFragment extends Fragment {
@@ -39,9 +41,13 @@ public class ProfileFragment extends Fragment {
         mBtnBlockList = view.findViewById(R.id.btn_blocked_list);
 //        mBtnUpdateProfile = view.findViewById(R.id.btn_update_pic);
 
+        String userName = mTvUsername.getText().toString();
+        LogOutController logOutController = new LogOutController();
+
         mBtnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                logOutController.runLogOut(userName);
                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
                 view.getContext().startActivity(intent);
             }
@@ -55,6 +61,25 @@ public class ProfileFragment extends Fragment {
             }
         });
         return view;
+    }
+
+
+    @Override
+    public void onGeneratedString(String string) {
+        mTvUsername.setText(string);
+//        switch (string) {
+//            // Use a switch case to determine which text view gets what parameters
+//            // for the sake of the example, I just passed a dummy text view input
+//            case "userName":
+//                mTvUsername.setText(string);
+//                break;
+//            case "test Two":
+//                textViewTwo.setText(string);
+//                break;
+//            case "test Three":
+//                textViewThree.setText(string);
+//                break;
+//        }
     }
 
 

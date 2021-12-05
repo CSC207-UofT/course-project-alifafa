@@ -29,7 +29,7 @@ public class LogOutController {
 //    public void runLogIn(String[] parameters, LogInPresenter presenter) {
 //        loginInputBoundary.runLogIn(parameters, presenter);
 //    }
-    public void runLogOut(String username, LogInPresenter presenter){
+    public void runLogOut(String username){
 
         logOutInputBoundary.runLogOut(username);
     }
