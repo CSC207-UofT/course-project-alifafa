@@ -1,0 +1,38 @@
+package com.example.myapplication.Controllers.ChatControllers;
+
+import com.example.myapplication.InputBoundary.GroupInputBoundary;
+import com.example.myapplication.InputBoundary.PtoGMessageInputBoundary;
+import com.example.myapplication.InputBoundary.UserInputBoundary;
+import com.example.myapplication.UseCase.GroupManager;
+import com.example.myapplication.UseCase.PtoGMessageManager;
+import com.example.myapplication.UseCase.UserManager;
+
+import java.io.IOException;
+
+public class PtoGSendMessageController {
+
+    /**
+     * This class is responsible for sending messages from a user to a group
+     */
+
+    private final PtoGMessageInputBoundary ptoGMessageInputBoundary = new PtoGMessageManager();
+    private final GroupInputBoundary groupInputBoundary = new GroupManager();
+    private final UserInputBoundary userInputBoundary = new UserManager();
+
+
+    /**
+     * Sends message from one user to a group.
+     *
+     * @param senderUserID sender's userID
+     * @param GroupID      group's ID
+     * @param content      the content of a message
+     */
+    public void sendMessage(String senderUserID, String GroupID, String content) {
+
+        ptoGMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
+                groupInputBoundary.getGroup(GroupID),
+                ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
+                        groupInputBoundary.getGroup(GroupID), content));
+    }
+
+}
