@@ -205,6 +205,6 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runLogOut(String username) {
-
+        this.getUser(username).changeLoggedInStatus();
     }
 }

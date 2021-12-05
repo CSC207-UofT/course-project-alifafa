@@ -24,4 +24,6 @@ public interface UserInputBoundary {
     User getUser (String id);
 
     void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary);
+
+    void runLogOut(String username);
 }
