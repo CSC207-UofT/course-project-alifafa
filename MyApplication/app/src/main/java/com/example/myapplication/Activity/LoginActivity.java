@@ -24,21 +24,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean loggedIn;
     private String message;
-    private OnGenerateStringListener onGenerateStringListener;
-    ProfileFragment mFragment;
+
+    private static String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        onGenerateStringListener = (OnGenerateStringListener) this;
-        onStartGenerateStringFragment();
-
-        try {
-            generateString();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         LogInController logInController = new LogInController();
         LogInPresenter logInPresenter = new LogInPresenter();
@@ -52,10 +44,9 @@ public class LoginActivity extends AppCompatActivity {
             logInController.runLogIn(mEtUsername.getText().toString(), mEtPassword.getText().toString(), logInPresenter);
 
             if (logInPresenter.isLoggedIn()){
-
+                userName = mEtUsername.getText().toString();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
-                mFragment.changeText(mEtUsername.getText().toString());
             }else{
                 message = logInPresenter.presentOutput();
                 Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
@@ -70,43 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void generateString() throws InterruptedException {
-
-        // After string userName is generated
-        String userName = "userName";
-        onGenerateStringListener.onGeneratedString(userName);
-
-        // Sleep 10 secs
-        Thread.sleep(10000);
-
-//        String b = "test Two";
-//        onGenerateStringListener.onGeneratedString(b);
-//
-//        // Sleep 10 secs
-//        Thread.sleep(10000);
-//
-//        String c = "test Three";
-//        onGenerateStringListener.onGeneratedString(c);
-
+    public static String getUserName() {
+        return userName;
     }
-
-    private void onStartGenerateStringFragment() {
-        //Method to launch your fragment
-    }
-
-    interface OnGenerateStringListener {
-        void onGeneratedString(String string);
-    }
-
-    //Do not create new object each time you set text. Use the same fragment object which you use for view pager.
-//    ProfileFragment mFragment;
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        switch (requestCode) {
-//            case FILE_SELECT_CODE:
-//                if (resultCode == RESULT_OK) {
-//
-//                    //Set text from here
-//                    mFragment.changeText(imgName);
-//
-//                }
 }

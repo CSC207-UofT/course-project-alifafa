@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
+import com.example.myapplication.Activity.LoginActivity;
 import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
 import com.example.myapplication.Controllers.UserControllers.CheckFriendController;
 import com.example.myapplication.Entity.PtoPMessage;

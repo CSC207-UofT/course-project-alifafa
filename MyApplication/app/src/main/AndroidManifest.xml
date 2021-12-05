@@ -15,7 +15,7 @@
         <activity
             android:name=".Activity.GChatActivity"
             android:exported="false" />
-        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.RegisterActivity" android:exported="true"/>
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="true"
