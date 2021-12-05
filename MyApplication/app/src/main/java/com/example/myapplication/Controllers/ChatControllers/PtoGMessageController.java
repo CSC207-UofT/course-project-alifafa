@@ -7,6 +7,8 @@ import com.example.myapplication.Presenters.PtoGMessageHistoryPresenter;
 import com.example.myapplication.UseCase.GroupManager;
 import com.example.myapplication.UseCase.PtoGMessageManager;
 import com.example.myapplication.UseCase.UserManager;
+import java.io.IOException;
+
 
 public class PtoGMessageController {
 
@@ -28,9 +30,9 @@ public class PtoGMessageController {
      * @param GroupID group's ID
      * @param content the content of a message
      */
-    public void sendMessage(String senderUserID, String GroupID, String content) {
+    public void sendGroupMessage(String senderUserID, String GroupID, String content) throws IOException{
 
-        ptoGMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
+        ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserID),
                 groupInputBoundary.getGroup(GroupID) ,
                 ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
                         groupInputBoundary.getGroup(GroupID) , content));
@@ -44,9 +46,9 @@ public class PtoGMessageController {
      * @param GroupID group's id
      * @param presenter PtoGMessageHistoryPresenter
      */
-    public void receiveMessageHistory(String senderUserID, String GroupID,
+    public void GroupMessageHistory(String senderUserID, String GroupID,
                                       PtoGMessageHistoryPresenter presenter){
-        ptoGMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUserID),
+        ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserID),
                 groupInputBoundary.getGroup(GroupID), presenter);
     }
 

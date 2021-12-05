@@ -3,7 +3,7 @@ package com.example.myapplication.UseCase;
 
 import com.example.myapplication.DataAccessInterface.DataAccess;
 import com.example.myapplication.Entity.*;
-import com.example.myapplication.Gateway.DataAccessGateway;
+import com.example.myapplication.Gateway.GroupDataGateway;
 import com.example.myapplication.InputBoundary.GroupInputBoundary;
 import com.example.myapplication.OutputBoundary.CreateGroupOutputBoundary;
 import com.example.myapplication.OutputBoundary.JoinGroupOutputBoundary;
@@ -16,29 +16,28 @@ import java.util.ArrayList;
 public class GroupManager implements GroupInputBoundary{
 
 
-    private final DataAccess gateway = new DataAccessGateway();
+    private final DataAccess gateway = new GroupDataGateway();
 
     public void readData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean b = false;
-        try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Group_Info.csv"))) {
             String line = br.readLine();
             if (line != null) {
                 b = true;
             }
         }
         if (b) {
-
-            UserList store = new UserList();
-            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
-            store.addUsers(lst);
+            GroupList store = new GroupList();
+            ArrayList<Group> lst = this.gateway.readFromFile("Group_Info.csv");
+            store.addGroups(lst);
         }
     }
 
     public void writeData (DataAccess dataAccess) throws IOException {
         //Write data to file
-        UserList store = new UserList();
-        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
+        GroupList store = new GroupList();
+        dataAccess.saveToFile("Group_Info.csv", store.getAllGroups());
     }
 
     public boolean checkGroupID(String id) {
@@ -111,13 +110,15 @@ public class GroupManager implements GroupInputBoundary{
     }
 
     /**
-     * Deleting a user from a specific group
+     * Kick a user out of the group
      * @param group The group.
      * @param user The user that will be kicked.
      */
     public void kickGroupMember(Group group, User user){
         group.getMembers().remove(user);
     }
+
+
 
     @Override
     public void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary) {

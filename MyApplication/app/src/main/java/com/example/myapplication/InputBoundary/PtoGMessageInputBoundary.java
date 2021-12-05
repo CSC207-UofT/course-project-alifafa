@@ -5,6 +5,8 @@ import com.example.myapplication.Entity.User;
 import com.example.myapplication.Entity.Group;
 import com.example.myapplication.OutputBoundary.PtoGMessageOutputBoundary;
 
+import java.io.IOException;
+
 
 public interface PtoGMessageInputBoundary {
 
@@ -25,12 +27,12 @@ public interface PtoGMessageInputBoundary {
      * @param message the message sent from sender to receiver
      */
 
-    void sendMessage(User sender, Group group, PtoGMessage message);
+    void sendGroupMessage(User sender, Group group, PtoGMessage message) throws IOException;
 
     /**
      * Stores all messages between receiver and sender.
      * @param group the group who wants to receive all messages between receiver and sender.
      * @param user the user who sends messages to the receiver.
      */
-    void receiveMessageHistory(User user, Group group, PtoGMessageOutputBoundary outputBoundary);
+    void GroupMessageHistory(User user, Group group, PtoGMessageOutputBoundary outputBoundary);
 }

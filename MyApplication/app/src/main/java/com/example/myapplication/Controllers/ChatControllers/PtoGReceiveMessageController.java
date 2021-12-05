@@ -28,7 +28,7 @@ public class PtoGReceiveMessageController {
      */
     public void receiveMessageHistory(String senderUserID, String GroupID,
                                       PtoGMessageHistoryPresenter presenter){
-        PtoGMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUserID),
+        PtoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserID),
                 groupInputBoundary.getGroup(GroupID), presenter);
     }
 
