@@ -35,13 +35,11 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin = findViewById(R.id.btn_login);
 
         mBtnLogin.setOnClickListener(view -> {
-            mEtUsername.getText();
-            mEtPassword.getText();
 
             logInController.runLogIn(mEtUsername.getText().toString(), mEtPassword.getText().toString(), logInPresenter);
 
-        //    if (logInPresenter.isLoggedIn()){
-            if (true){
+            if (logInPresenter.isLoggedIn()){
+                // if (true){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{
