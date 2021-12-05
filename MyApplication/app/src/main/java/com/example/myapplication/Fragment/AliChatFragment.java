@@ -21,6 +21,9 @@ import com.example.myapplication.Entity.PtoPMessage;
 import com.example.myapplication.Presenters.CheckFriendPresenter;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.R;
+import com.example.myapplication.Activity.PtoPitemActivity;
+import com.example.myapplication.Adapter.PtoPListAdapter;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
 
 import java.io.IOException;
 import java.util.ArrayList;
