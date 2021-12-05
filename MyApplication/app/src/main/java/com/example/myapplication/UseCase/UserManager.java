@@ -89,13 +89,13 @@ public class UserManager implements UserInputBoundary {
         return false;
     }
 
-    public String findPassword (String id){
+    public String findPassword (String userName){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getUserName().equals(userName)) {
                 return user.getPassword();
             }
         }
@@ -200,6 +200,11 @@ public class UserManager implements UserInputBoundary {
             outputBoundary.setCheckFriendStatus(false);
             System.out.println("Invalid friend");
         }
+
+    }
+
+    @Override
+    public void runLogOut(String username) {
 
     }
 }
