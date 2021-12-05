@@ -8,13 +8,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ListView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
+
 import com.example.myapplication.Activity.LoginActivity;
+
+import com.example.myapplication.Activity.PtoPitemActivity;
+import com.example.myapplication.Adapter.PtoPListAdapter;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
 import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
 import com.example.myapplication.Controllers.UserControllers.CheckFriendController;
 import com.example.myapplication.Entity.PtoPMessage;
@@ -36,6 +42,9 @@ public class AliChatFragment extends Fragment {
     private EditText mEtFriendName;
     private EditText mEtMessage;
     private EditText mEtMyName;
+    private ListView mLvPtoP;
+
+    private PtoPListAdapter ptoPListAdapter;
 
     private List<PtoPMessage> mPtoPList = new ArrayList<>();
 
@@ -50,6 +59,7 @@ public class AliChatFragment extends Fragment {
         mEtFriendName = view.findViewById(R.id.et_friend_name);
         mEtMessage = view.findViewById(R.id.message);
         mEtMyName = view.findViewById(R.id.et_my_name);
+        mLvPtoP = view.findViewById(R.id.lv_ptop);
 
         // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
@@ -59,6 +69,7 @@ public class AliChatFragment extends Fragment {
 
 
         PtoPMessageFacade ptoPMessageFacade = new PtoPMessageFacade();
+        PtoPMessageController ptoPMessageController = new PtoPMessageController();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
         CheckFriendController checkFriendController = new CheckFriendController();
@@ -88,6 +99,12 @@ public class AliChatFragment extends Fragment {
                 // return chat history, and turn it into an array, each element is a message
                 String chatHistory = ptoPMessageHistoryPresenter.present();
                 String[] chatArray = chatHistory.split("\n");
+                for (String chat: chatArray){
+                    PtoPMessage ptoPMessage = new PtoPMessage(ptoPMessageController.getUser(myUserName),
+                            ptoPMessageController.getUser(friendUsername), message);
+                    mPtoPList.add(ptoPMessage);
+
+                }
 
                 // Haven't been implemented yet:
                 // After click Send Button, present the message in chatArray on the phone line by line
@@ -99,6 +116,9 @@ public class AliChatFragment extends Fragment {
             }
 
         });
+
+        ptoPListAdapter = new PtoPListAdapter(getActivity(), R.layout.activity_ptop_item, mPtoPList);
+        mLvPtoP.setAdapter(ptoPListAdapter);
 
         return view;
     }

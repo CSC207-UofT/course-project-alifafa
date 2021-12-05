@@ -52,6 +52,7 @@ public class ProfileFragment extends Fragment {
         mTvUsername.setText(userName);
 
         mBtnLogout.setOnClickListener(new View.OnClickListener() {
+            
             @Override
             public void onClick(View view) {
 

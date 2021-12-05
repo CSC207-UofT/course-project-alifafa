@@ -8,7 +8,10 @@
     tools:context=".Activity.PtoPitemActivity"
     android:orientation="vertical">
 
-
+    <TextView
+        android:id="@+id/tv_ptop_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </RelativeLayout>
