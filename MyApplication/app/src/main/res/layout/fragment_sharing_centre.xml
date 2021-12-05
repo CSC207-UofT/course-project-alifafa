@@ -22,7 +22,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_back"
-                android:background=""
+                android:background="#00000000"
         />
 
         <TextView
@@ -38,7 +38,7 @@
                 android:src="@drawable/ic_camera"
                 android:layout_marginLeft="100dp"
                 android:layout_gravity="center_vertical|right"
-                android:background="" />
+                android:background="#00000000" />
 
     </LinearLayout>
 

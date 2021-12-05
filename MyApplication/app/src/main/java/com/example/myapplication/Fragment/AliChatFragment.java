@@ -44,7 +44,7 @@ public class AliChatFragment extends Fragment {
         mBtnSend = view.findViewById(R.id.btn_send);
         mEtFriendName = view.findViewById(R.id.et_friend_name);
         mEtMessage = view.findViewById(R.id.message);
-        mEtMyName = view.findViewById(R.id.et_my_name);
+        // mEtMyName = view.findViewById(R.id.et_my_name);
 
         // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
@@ -56,7 +56,7 @@ public class AliChatFragment extends Fragment {
         PtoPMessageController ptoPMessageController = new PtoPMessageController();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
-        CheckFriendController checkFriendController = new CheckFriendController();
+        //CheckFriendController checkFriendController = new CheckFriendController();
 
         // Send message and present message
         mBtnSend.setOnClickListener(view1 -> {
@@ -65,7 +65,7 @@ public class AliChatFragment extends Fragment {
             String myUserName = mEtMyName.getText().toString();
 
             // haven't been implemented yet
-            Boolean isFriend = checkFriendController.checkFriend(myUserName, friendUsername);
+            Boolean isFriend = true; //checkFriendController.checkFriend(myUserName, friendUsername);
 
             //write if statement that searches if friend is an existing friend and send out message.
             if (isFriend){
