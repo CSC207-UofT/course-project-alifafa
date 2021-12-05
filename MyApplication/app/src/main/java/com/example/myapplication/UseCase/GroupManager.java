@@ -18,7 +18,7 @@ public class GroupManager implements GroupInputBoundary{
 
     private final DataAccess gateway = new GroupDataGateway();
 
-    public void readData() throws IOException, ClassNotFoundException {
+    public void readGroupData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean b = false;
         try (BufferedReader br = new BufferedReader(new FileReader("Group_Info.csv"))) {
@@ -34,7 +34,7 @@ public class GroupManager implements GroupInputBoundary{
         }
     }
 
-    public void writeData (DataAccess dataAccess) throws IOException {
+    public void writeGroupData (DataAccess dataAccess) throws IOException {
         //Write data to file
         GroupList store = new GroupList();
         dataAccess.saveToFile("Group_Info.csv", store.getAllGroups());
@@ -67,11 +67,12 @@ public class GroupManager implements GroupInputBoundary{
 //    }
 
 
-    public void createGroup(String id, String groupName) {
+    public void createGroup(String id, String groupName) throws IOException {
         //Create a group
         GroupList group = new GroupList();
         Group g = new Group(id, groupName);
         group.addGroup(g);
+        this.writeGroupData(this.gateway);
     }
 
 ////    public Group findGroup (String Userid, String GroupID){
@@ -121,7 +122,7 @@ public class GroupManager implements GroupInputBoundary{
 
 
     @Override
-    public void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary) {
+    public void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary) throws IOException{
         if (this.checkGroupID(parameters[0])){
             this.createGroup(parameters[0], parameters[1]);
             outputBoundary.SetCreateStatus(true);
