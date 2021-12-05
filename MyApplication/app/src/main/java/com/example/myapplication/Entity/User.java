@@ -22,8 +22,13 @@ public class User implements Serializable {
     private final ArrayList<User> friends;
     //All posts of the User.
     private final ArrayList<ParagraphPost> myPosts;
-    /* private final ArrayList<User> blockedUser;private final ArrayList<String> addFriendRequests;
+
+    private final ArrayList<User> blockedUser;
+
+    /*private final ArrayList<String> addFriendRequests;
+
      */
+
     //The sharing centre of the User.
     private final SharingCentre sharingCentre;
     //The log in status of the User.
@@ -42,7 +47,8 @@ public class User implements Serializable {
         this.password = password;
         this.friends = new ArrayList<>();
         this.myPosts = new ArrayList<>();
-        /*this.blockedUser = new ArrayList<>();this.addFriendRequests = new ArrayList<>();
+        this.blockedUser = new ArrayList<>();
+        /* this.addFriendRequests = new ArrayList<>();
          */
         this.loggedIn = false;
 //        this.PtoPMessageHistory = new HashMap<>();
@@ -70,13 +76,13 @@ public class User implements Serializable {
         return this.myPosts;
     }
 
-    /* will be implemented in later phase.
+
     public ArrayList<User> getBlockedUser() {
         return this.blockedUser;
     }
-    public ArrayList<String> getAddFriendRequests() {
+
+    /* public ArrayList<String> getAddFriendRequests() {
         return this.addFriendRequests;
-    }
     */
 
     public boolean getLoggedIn() {
@@ -107,6 +113,11 @@ public class User implements Serializable {
     public void addFriend (User friend){
         //Add friend to the list friends
         this.friends.add(friend);
+    }
+
+    public void addBlockedUser (User blocked){
+        //Add user to blocked list
+        this.blockedUser.add(blocked);
     }
 
     /* will be implemented in later phase.
