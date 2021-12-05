@@ -205,6 +205,17 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runLogOut(String username) {
+        this.getUser(username).changeLoggedInStatus();
+    }
 
+    @Override
+    public void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary) {
+        UserList store = new UserList();
+        ArrayList<User> stored = store.getAllUsers();
+        for (User user: stored) {
+            if (user.getLoggedIn()) {
+                logOutOutputBoundary.getUsername(user.getUserName());
+            }
+        }
     }
 }
