@@ -15,7 +15,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
 import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
+import com.example.myapplication.Controllers.UserControllers.CheckFriendController;
 import com.example.myapplication.Entity.PtoPMessage;
+import com.example.myapplication.Presenters.CheckFriendPresenter;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.R;
 
@@ -56,6 +58,7 @@ public class AliChatFragment extends Fragment {
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
         CheckFriendController checkFriendController = new CheckFriendController();
+        CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
 
         // Send message and present message
         mBtnSend.setOnClickListener(view1 -> {
@@ -64,7 +67,8 @@ public class AliChatFragment extends Fragment {
             String myUserName = mEtMyName.getText().toString();
 
             // haven't been implemented yet
-            Boolean isFriend = checkFriendController.checkFriend(myUserName, friendUsername);
+            checkFriendController.runCheckFriend(myUserName, friendUsername, checkFriendPresenter);
+            boolean isFriend = checkFriendPresenter.isFriend();
 
             //write if statement that searches if friend is an existing friend and send out message.
             if (isFriend){
