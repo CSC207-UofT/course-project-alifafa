@@ -8,6 +8,39 @@
     tools:context=".Fragment.SharingCentreFragment"
     android:orientation="vertical">
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageButton
+                android:id="@+id/back_sc"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back"
+                android:layout_marginTop="42dp"
+                android:layout_marginLeft="5dp"
+                android:background=""
+        />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:text="SharingCentre"
+                android:layout_toRightOf="@+id/back_sc"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"/>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera"
+                android:layout_marginTop="42dp"
+                android:layout_gravity="right"
+                android:paddingRight="20dp"
+                android:background="" />
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +50,7 @@
             android:id="@+id/lv_sharing_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:listitem="@layout/activity_sharing_item"
             />
 
     </RelativeLayout>
