@@ -27,10 +27,10 @@
         android:background="@color/alabaster">
 
         <ListView
-                android:id="@+id/lv_ptop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/activity_ptop_item"/>
+            android:id="@+id/lv_ptop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/activity_ptop_item" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -46,11 +46,11 @@
                 android:hint="My UserName" />
 
             <EditText
-                    android:layout_below="@id/et_my_name"
-                    android:id="@+id/et_friend_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Friend's UserName" />
+                android:id="@+id/et_friend_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_my_name"
+                android:hint="Friend's UserName" />
 
             <EditText
                 android:id="@+id/et_message"

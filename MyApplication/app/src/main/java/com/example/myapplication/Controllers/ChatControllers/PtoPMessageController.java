@@ -1,5 +1,6 @@
 package com.example.myapplication.Controllers.ChatControllers;
 
+import com.example.myapplication.Entity.User;
 import com.example.myapplication.InputBoundary.PtoPMessageInputBoundary;
 import com.example.myapplication.InputBoundary.UserInputBoundary;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
@@ -47,5 +48,9 @@ public class PtoPMessageController{
                 userInputBoundary.getUser(receiverUsername), presenter);
     }
 
+    public User getUser(String name){
+        return userInputBoundary.getUser(name);
+
+    }
 
 }

@@ -40,6 +40,7 @@ public class ProfileFragment extends Fragment {
 //        mBtnUpdateProfile = view.findViewById(R.id.btn_update_pic);
 
         mBtnLogout.setOnClickListener(new View.OnClickListener() {
+            
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), LoginActivity.class);
