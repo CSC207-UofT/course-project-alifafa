@@ -140,6 +140,13 @@ public class UserManager implements UserInputBoundary {
 
     }
 
+    public void addBlockedUser (String id, String friendID){
+        //Add user to blocked list
+        User user = this.getUser(id);
+        User friend = this.getUser(friendID);
+        user.addBlockedUser(friend);
+    }
+
     /* will be implemented in later phase.
     public void removeFriend (User user, User friend) {
         //Remove friend from the list friends
