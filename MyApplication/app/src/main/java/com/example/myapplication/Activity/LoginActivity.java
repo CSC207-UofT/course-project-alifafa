@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean loggedIn;
     private String message;
     private OnGenerateStringListener onGenerateStringListener;
+    ProfileFragment mFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                mFragment.changeText(mEtUsername.getText().toString());
             }else{
                 message = logInPresenter.presentOutput();
                 Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
@@ -95,4 +97,16 @@ public class LoginActivity extends AppCompatActivity {
     interface OnGenerateStringListener {
         void onGeneratedString(String string);
     }
+
+    //Do not create new object each time you set text. Use the same fragment object which you use for view pager.
+//    ProfileFragment mFragment;
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        switch (requestCode) {
+//            case FILE_SELECT_CODE:
+//                if (resultCode == RESULT_OK) {
+//
+//                    //Set text from here
+//                    mFragment.changeText(imgName);
+//
+//                }
 }

@@ -63,23 +63,9 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-
-    @Override
-    public void onGeneratedString(String string) {
-        mTvUsername.setText(string);
-//        switch (string) {
-//            // Use a switch case to determine which text view gets what parameters
-//            // for the sake of the example, I just passed a dummy text view input
-//            case "userName":
-//                mTvUsername.setText(string);
-//                break;
-//            case "test Two":
-//                textViewTwo.setText(string);
-//                break;
-//            case "test Three":
-//                textViewThree.setText(string);
-//                break;
-//        }
+    public void changeText(String mText)
+    {
+        mTvUsername.setText(mText);
     }
 
 
