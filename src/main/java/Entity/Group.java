@@ -1,7 +1,8 @@
 package Entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Group {
+public class Group implements Serializable {
 //    private final String GroupID;
     private final String GroupName;
     private final ArrayList<User> members;

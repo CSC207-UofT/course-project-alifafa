@@ -103,9 +103,7 @@ public class UserManager implements UserInputBoundary {
         ArrayList<User> stored = store.getAllUsers();
         System.out.println(stored.size());
         for (User user : stored) {
-            System.out.println("We have one stored user here.");
             if (user.getUserName().equals(userName)) {
-                System.out.println("The stored username is "+user.getUserName());
                 return false;
             }
         }
@@ -252,9 +250,7 @@ public class UserManager implements UserInputBoundary {
         if (this.checkUserName(parameters[0])){
             this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
-            System.out.println("This user does not exist before, but now it is created. Registration status is set to true");
         } else{
-            System.out.println("The user already exists");
             outputBoundary.setRegistrationStatus(false);
         }
     }
@@ -303,7 +299,8 @@ public class UserManager implements UserInputBoundary {
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getLoggedIn()) {
-                logOutOutputBoundary.getUsername(user.getUserName());
+                String name = user.getUserName();
+                user.changeLoggedInStatus();
             }
         }
     }

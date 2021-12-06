@@ -29,11 +29,13 @@ public class Constants {
         validCommands.put("comment post", new CommentPostUI());
         validCommands.put("post a post", new PostAPostUI());
         validCommands.put("like post", new LikePostUI());
-        validCommands.put("delete post", new DeletePostUI());
+//        validCommands.put("delete post", new DeletePostUI());  // Has exceptions that needs to be fixed
         validCommands.put("view posts", new RetrieveUsersPostsUI());
         validCommands.put("remove friend", new RemoveFriendUI());
         validCommands.put("edit password", new EditPasswordUI());
         validCommands.put("group kick", new KickGroupMemberUI());
+        validCommands.put("log out", new LogoutUI());
+
 
 }
 
