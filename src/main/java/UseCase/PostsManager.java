@@ -4,6 +4,7 @@ import Entity.*;
 import InputBoundary.SharingCentreInputBoundary;
 import OutputBoundary.*;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param pictures List of pictures that the user wants to add
      *                 (could be none)
      */
-    public void postAPost(User user, String content, String location, List<String> pictures){
+    public void postAPost(User user, String content, String location, List<String> pictures) throws IOException {
         ParagraphPost post = createPost(user.getUserName(), content, location, pictures);
         user.getSharingCentre().getAllPosts().add(post);
         user.getMyPosts().add(post);
@@ -48,6 +49,9 @@ public class PostsManager implements SharingCentreInputBoundary {
             friend.getSharingCentre().getAllPosts().add(post);
             friend.getSharingCentre().setNewPostNotification(true);
         }
+
+        UserManager userManager = new UserManager();
+        userManager.writeData(userManager.getGateway());
     }
 
     /**
@@ -70,11 +74,14 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param user The user who liked the post
      * @param post The post liked
      */
-    public void likePost(User user, ParagraphPost post){
+    public void likePost(User user, ParagraphPost post) throws IOException {
         post.setLikes(post.getLikes() + 1);
         post.getUsersWhoLiked().add(user);
         Notifications notification = new Notifications(user, LocalDateTime.now(), post, true);
         addNotification(user, post, notification);
+
+        UserManager userManager = new UserManager();
+        userManager.writeData(userManager.getGateway());
     }
 
     /**
@@ -104,10 +111,12 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param post The post that's commented on
      * @param comment Comment the commenter wrote to the post
      */
-    public void commentPost(User user, ParagraphPost post, String comment){
+    public void commentPost(User user, ParagraphPost post, String comment) throws IOException {
         post.getComments().add(new String[]{user.getUserName(), comment});
         Notifications notification = new Notifications(user, LocalDateTime.now(), post, false);
         addNotification(user, post, notification);
+        UserManager userManager = new UserManager();
+        userManager.writeData(userManager.getGateway());
     }
 
     /**
@@ -147,7 +156,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      */
     @Override
     public void runPostAPost(String userid, String content, String location, List<String> pictures,
-                             PostAPostOutputBoundary outputBoundary) {
+                             PostAPostOutputBoundary outputBoundary) throws IOException {
         if (content.isEmpty() && pictures.size() == 0) {
             outputBoundary.setPostStatus(false);
             return;
@@ -186,7 +195,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      */
     @Override
     public void runCommentPost(String userid, String postID, String content,
-                               CommentPostOutputBoundary outputBoundary) {
+                               CommentPostOutputBoundary outputBoundary) throws IOException {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {
@@ -203,7 +212,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param postID The id of the post to be liked
      */
     @Override
-    public void likeAPost(String userid, String postID) {
+    public void likeAPost(String userid, String postID) throws IOException {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {

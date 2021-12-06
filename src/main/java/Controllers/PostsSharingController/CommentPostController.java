@@ -4,6 +4,8 @@ import InputBoundary.SharingCentreInputBoundary;
 import Presenters.CommentPostPresenter;
 import UseCase.PostsManager;
 
+import java.io.IOException;
+
 public class CommentPostController {
 
     private final SharingCentreInputBoundary sharingInputBoundary = new PostsManager();
@@ -15,7 +17,7 @@ public class CommentPostController {
      * @param content The comment the user writes
      * @param presenter CommentPostPresenter
      */
-    public void runCommentPost(String userid, String postID, String content, CommentPostPresenter presenter) {
+    public void runCommentPost(String userid, String postID, String content, CommentPostPresenter presenter) throws IOException {
         sharingInputBoundary.runCommentPost(userid, postID, content, presenter);
     }
 }

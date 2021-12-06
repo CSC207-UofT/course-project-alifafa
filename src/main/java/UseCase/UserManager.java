@@ -2,6 +2,7 @@ package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +21,12 @@ public class UserManager implements UserInputBoundary {
      */
     private final DataAccess gateway = new DataAccessGateway();
 
-    public void readData() throws IOException, ClassNotFoundException {
+    public DataAccess getGateway(){
+        return gateway;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> void readData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean readable = false;
         try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
@@ -31,26 +37,47 @@ public class UserManager implements UserInputBoundary {
         }
         if (readable) {
             UserList store = new UserList();
-            HashMap<String, ArrayList<User>> saved = this.gateway.readFromFile("User_State.csv");
-            ArrayList<User> storage = saved.get("storage");
+            HashMap<String, T> saved = this.gateway.readFromFile("User_State.csv");
+            ArrayList<User> storage = (ArrayList<User>) saved.get("storage");
             for (User u: storage) {
                 String name = u.getUserName();
-                ArrayList<User> f = saved.get(name);
+                ArrayList<User> f = (ArrayList<User>) saved.get(name + "f");
                 u.addFriends(f);
+                ArrayList<ParagraphPost> p = (ArrayList<ParagraphPost>) saved.get(name + "p");
+                u.getMyPosts().addAll(p);
+
+                /*
+                for (ParagraphPost post: p)
+                    List<String[]> c = (List<String[]>) saved.get(name + "p_comments");
+                    post.getComments().addAll((List<String[]>) saved.get(name + "p_comments"));
+                    post.getUsersWhoLiked().addAll((List<User>) saved.get(name + "p_usersWhoLiked"));
+                }
+                List<String[]> co = u.getMyPosts().get(0).getComments();
+
+                 */
             }
             store.addUsers(storage);
         }
     }
 
-    public void writeData (DataAccess dataAccess) throws IOException {
+    @SuppressWarnings("unchecked")
+    public <T> void writeData (DataAccess dataAccess) throws IOException {
         //Write data to file
         UserList store = new UserList();
         ArrayList<User> lst = store.getAllUsers();
-        HashMap<String, ArrayList<User>> save = new HashMap<String, ArrayList<User>>();
-        save.put("storage", lst);
+        HashMap<String, T> save = new HashMap<String, T>();
+        save.put("storage", (T) lst);
         for (User u: lst) {
-            save.put(u.getUserName(), u.getFriends());
+            save.put(u.getUserName() + "f", (T) u.getFriends());
+            save.put(u.getUserName() + "p", (T) u.getMyPosts());
+            ArrayList<ParagraphPost> posts = u.getMyPosts();
+            for (ParagraphPost post: posts){
+                save.put(u.getUserName() + "p_comments", (T) post.getComments());
+                save.put(u.getUserName() + "p_usersWhoLiked", (T) post.getUsersWhoLiked());
+            }
         }
+        //List<String[]> comments = (List<String[]>) save.get(lst.get(0).getUserName() + "p_comments");
+
         dataAccess.saveToFile("User_State.csv", save);
     }
 
