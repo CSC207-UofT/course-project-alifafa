@@ -8,10 +8,7 @@ import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
 import Entity.UserList;
-import OutputBoundary.AccountRegistrationOutputBoundary;
-import OutputBoundary.AddFriendOutputBoundary;
-import OutputBoundary.LogInOutputBoundary;
-import OutputBoundary.LogOutOutputBoundary;
+import OutputBoundary.*;
 
 public class UserManager implements UserInputBoundary {
 
@@ -193,6 +190,12 @@ public class UserManager implements UserInputBoundary {
     public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
         addFriend(userInput[0], userInput[1]);
         outputBoundary.setAddFriendStatus(userInput[1]);
+    }
+
+    @Override
+    public void runAddBlocked(String[] userInput, BlockedListOutputBoundary outputBoundary){
+        addBlockedUser(userInput[0], userInput[1]);
+        outputBoundary.setAddBlockedStatus(userInput[1]);
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
