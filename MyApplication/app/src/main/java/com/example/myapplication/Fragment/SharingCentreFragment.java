@@ -14,12 +14,13 @@ import com.example.myapplication.Adapter.SharingCentreFragmentAdapter;
 import com.example.myapplication.Entity.ParagraphPost;
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SharingCentreFragment extends Fragment {
 
     private RecyclerView mRVPosts;
-    public static List<String[]> postInfo;
+    public static List<String[]> postInfo = new ArrayList<>();
 
     @Nullable
     @Override

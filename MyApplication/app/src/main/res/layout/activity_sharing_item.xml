@@ -124,9 +124,9 @@
 <!--            -->
 <!--        </LinearLayout>-->
 
-        <include layout="@layout/include_item_gridview">
+<!--        <include layout="@layout/include_item_gridview">-->
 
-        </include>
+<!--        </include>-->
 
         <TextView
                     android:id="@+id/tv_location"
@@ -168,7 +168,12 @@
 
         </LinearLayout>
 
-        <include layout="@layout/include_item_listcomments" />
+        <ListView
+                android:id="@+id/lv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                tools:listitem="@layout/include_item_comment"/>
 
     </LinearLayout>
 

@@ -26,7 +26,7 @@ public class CommentLVAdapter extends ArrayAdapter<String[]> {
             String[] comment = getItem(position);
             TextView commenterTV = list_itemView.findViewById(R.id.tv_commenter);
             TextView commentTV = list_itemView.findViewById(R.id.tv_comment);
-            commentTV.setText(comment[0]);
+            commenterTV.setText(comment[0]);
             commentTV.setText(comment[1]);
             return list_itemView;
     }

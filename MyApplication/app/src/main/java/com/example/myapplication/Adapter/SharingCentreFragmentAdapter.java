@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.myapplication.Activity.SharingItemActivity;
 import com.example.myapplication.Fragment.SharingCentreFragment;
 import com.example.myapplication.R;
 
@@ -48,6 +50,7 @@ public class SharingCentreFragmentAdapter extends RecyclerView.Adapter<RecyclerV
         private TextView mtvContent;
         private TextView mtvLocation;
         private TextView mtvLikes;
+        private ListView mlvComments;
 
         public LinearViewHolder(View itemView) {
             super(itemView);
@@ -55,6 +58,7 @@ public class SharingCentreFragmentAdapter extends RecyclerView.Adapter<RecyclerV
             mtvUsername = itemView.findViewById(R.id.tv_username);
             mtvLocation = itemView.findViewById(R.id.tv_location);
             mtvLikes = itemView.findViewById(R.id.tv_num_likes);
+            mlvComments = itemView.findViewById(R.id.lv_comments);
         }
     }
 }
