@@ -20,17 +20,25 @@ public class AddFriendUI extends ParentUI {
         AddFriendPresenter presenter = new AddFriendPresenter();
         Constants constants = new Constants();
 
-        String[] parameters = new String[2];
+        String currentUser = constants.getCurrentUser();
 
-        parameters[0] = constants.getCurrentUser();
-        System.out.println("The current logged in user is " + parameters[0]);
+        if (currentUser==null){
+            System.out.println("You need to log in first!");
+        } else{
+            String[] parameters = new String[2];
 
-        System.out.println("Your friend's userName: ");
-        Scanner scanner = new Scanner(System.in);
-        parameters[1] = scanner.nextLine();
+            parameters[0] = currentUser;
+            System.out.println("The current logged in user is " + parameters[0]);
+
+            System.out.println("Your friend's userName: ");
+            Scanner scanner = new Scanner(System.in);
+            parameters[1] = scanner.nextLine();
+
+            controller.addFriend(parameters, presenter);
+            System.out.println(presenter.presentOutput());
+        }
 
 
-        controller.addFriend(parameters, presenter);
-        System.out.println(presenter.presentOutput());
+
     }
 }

@@ -1,5 +1,6 @@
 package UIs;
 
+import CommandControl.Constants;
 import Controllers.UserControllers.CreateGroupController;
 import Presenters.CreateGroupPresenter;
 
@@ -14,16 +15,24 @@ public class CreateGroupUI extends ParentUI{
 
 
     public void run() {
-        CreateGroupController controller = new CreateGroupController();
-        CreateGroupPresenter presenter = new CreateGroupPresenter();
-        String[] parameters = new String[2];
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("GroupID: ");
-        parameters[0] = scanner.nextLine();
-        System.out.println("GroupName: ");
-        parameters[1] = scanner.nextLine();
+        Constants constants = new Constants();
 
-        controller.createAGroup(parameters, presenter);
-        System.out.println(presenter.presentOutput());
+        String currentUser = constants.getCurrentUser();
+
+        if (currentUser==null){
+            System.out.println("You need to log in first!");
+        } else {
+            CreateGroupController controller = new CreateGroupController();
+            CreateGroupPresenter presenter = new CreateGroupPresenter();
+            String[] parameters = new String[2];
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("GroupID: ");
+            parameters[0] = scanner.nextLine();
+            System.out.println("GroupName: ");
+            parameters[1] = scanner.nextLine();
+
+            controller.createAGroup(parameters, presenter);
+            System.out.println(presenter.presentOutput());
+        }
     }
 }
