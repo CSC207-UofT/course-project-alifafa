@@ -21,9 +21,9 @@ public class PtoPChatUI extends ParentUI{
     public void run () throws IOException {
         Constants constants = new Constants();
 
-        String currentUser = constants.getCurrentUser();
+        String userName = constants.getCurrentUser();
 
-        if (currentUser==null){
+        if (userName==null){
             System.out.println("You need to log in first!");
         } else {
 
@@ -33,11 +33,6 @@ public class PtoPChatUI extends ParentUI{
             CheckFriendController checkFriendController = new CheckFriendController();
             CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
 
-            FindLoggedInUserPresenter findLoggedInUserPresenter = new FindLoggedInUserPresenter();
-            FindLoggedInUserController findLoggedInUserController = new FindLoggedInUserController();
-
-            findLoggedInUserController.findLoggedInUser(findLoggedInUserPresenter);
-            String userName = findLoggedInUserPresenter.presentOutput();
 
 
             String[] parameters = new String[2];
