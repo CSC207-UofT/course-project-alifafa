@@ -1,6 +1,7 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoGMessageController;
+import Controllers.ChatControllers.PtoGMessageControllerFacade;
 import Controllers.UserControllers.CheckGroupController;
 import Controllers.UserControllers.FindLoggedInUserController;
 import Entity.Group;
@@ -20,7 +21,7 @@ public class PtoGChatUI extends ParentUI{
 
     private final GroupManager groupManager = new GroupManager();
     public void run () throws IOException {
-        PtoGMessageController controller = new PtoGMessageController();
+        PtoGMessageControllerFacade controller = new PtoGMessageControllerFacade();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
         CheckGroupController checkGroupController = new CheckGroupController();
         CheckGroupPresenter checkGroupPresenter = new CheckGroupPresenter();
