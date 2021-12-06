@@ -23,7 +23,7 @@ public class JoinGroupUI extends ParentUI {
         System.out.println("Your Name ");
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
-        System.out.println("GroupID: ");
+        System.out.println("GroupName: ");
         parameters[1] = scanner.nextLine();
 
         controller.joinGroup(parameters, presenter);

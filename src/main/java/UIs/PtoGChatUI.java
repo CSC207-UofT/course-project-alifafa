@@ -37,7 +37,7 @@ public class PtoGChatUI extends ParentUI{
         System.out.println("My UserName: ");
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
-        System.out.println("GroupID: ");
+        System.out.println("Group Name: ");
         parameters[1] = scanner.nextLine();
 
         checkGroupController.checkGroup(parameters[0], parameters[1], checkGroupPresenter);
@@ -65,7 +65,7 @@ public class PtoGChatUI extends ParentUI{
         controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();}
         else {
-            System.out.println("You are not in this group");
+            System.out.println("You are not in this group, please join this group first");
         }
     }
 }

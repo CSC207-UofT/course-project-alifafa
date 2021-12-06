@@ -16,4 +16,7 @@ public interface GroupInputBoundary {
     void runCheckGroup(String user, String group, CheckGroupOutputBoundary outputBoundary);
 
     Group getGroup(String id);
+
+    void runKickGroupMember(String[] parameters, KickGroupMemberOutputBoundary outputBoundary);
+
 }

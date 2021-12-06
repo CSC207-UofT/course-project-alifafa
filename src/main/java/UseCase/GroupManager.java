@@ -2,21 +2,19 @@ package UseCase;
 import Entity.*;
 import Entity.Group;
 import InputBoundary.GroupInputBoundary;
-import OutputBoundary.CheckFriendOutputBoundary;
-import OutputBoundary.CheckGroupOutputBoundary;
-import OutputBoundary.CreateGroupOutputBoundary;
-import OutputBoundary.JoinGroupOutputBoundary;
+import OutputBoundary.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GroupManager implements GroupInputBoundary {
 
-    public boolean checkGroupID(String id) {
+    public boolean checkGroupName(String name) {
         //Check whether the id existed in GroupList or not
         GroupList store = new GroupList();
         ArrayList<Group> stored = store.getAllGroups();
         for (Group group : stored) {
-            if (group.getGroupID().equals(id)) {
+            if (group.getGroupName().equals(name)) {
                 return false;
             }
         }
@@ -38,10 +36,10 @@ public class GroupManager implements GroupInputBoundary {
 //    }
 
 
-    public void createGroup(String id, String groupName) {
+    public void createGroup(String groupName) {
         //Create a group
         GroupList group = new GroupList();
-        Group g = new Group(id, groupName);
+        Group g = new Group(groupName);
         group.addGroup(g);
     }
 
@@ -57,9 +55,9 @@ public class GroupManager implements GroupInputBoundary {
 //        return null;
 //    }
 
-    public void joinGroup(String Userid, String GroupID) {
+    public void joinGroup(String Userid, String GroupName) {
         //Join a user with Userid to an existing group with GroupID
-        Group group = this.getGroup(GroupID);
+        Group group = this.getGroup(GroupName);
         ArrayList<User> members = group.getMembers();
         User u = new UserManager().getUser(Userid);
         if (!members.contains(u)) {
@@ -68,12 +66,12 @@ public class GroupManager implements GroupInputBoundary {
     }
 
 
-    public Group getGroup(String id) {
-        //Return group by given ID
+    public Group getGroup(String name) {
+        //Return group by given group name
         GroupList store = new GroupList();
         ArrayList<Group> stored = store.getAllGroups();
         for (Group group : stored) {
-            if (group.getGroupID().equals(id)) {
+            if (group.getGroupName().equals(name)) {
                 return group;
             }
         }
@@ -82,8 +80,8 @@ public class GroupManager implements GroupInputBoundary {
 
     @Override
     public void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary) {
-        if (this.checkGroupID(parameters[0])) {
-            this.createGroup(parameters[0], parameters[1]);
+        if (this.checkGroupName(parameters[0])) {
+            this.createGroup(parameters[0]);
             outputBoundary.SetCreateStatus(true);
         } else {
             outputBoundary.SetCreateStatus(false);
@@ -118,6 +116,19 @@ public class GroupManager implements GroupInputBoundary {
         }
 
 
+    }
+
+    public void kickGroupMember (String groupName, String userName){
+        Group group = this.getGroup(groupName);
+        User user = new UserManager().getUser(userName);
+        group.kickGroupMember(user);
+    }
+
+    @Override
+    public void runKickGroupMember(String[] parameters, KickGroupMemberOutputBoundary outputBoundary) {
+        this.kickGroupMember(parameters[0], parameters[1]);
+        outputBoundary.setGroupName(parameters[0]);
+        outputBoundary.setRemoveUsername(parameters[1]);
     }
 
 }

@@ -28,15 +28,15 @@ public class PtoGMessageController {
     /**
      * Sends message from one user to a group.
      * @param senderUserID sender's userID
-     * @param GroupID group's ID
+     * @param GroupName group's ID
      * @param content the content of a message
      */
-    public void sendGroupMessage(String senderUserID, String GroupID, String content) throws IOException {
+    public void sendGroupMessage(String senderUserID, String GroupName, String content) throws IOException {
 
         ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserID),
-                groupInputBoundary.getGroup(GroupID) ,
+                groupInputBoundary.getGroup(GroupName) ,
                 ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
-                        groupInputBoundary.getGroup(GroupID) , content));
+                        groupInputBoundary.getGroup(GroupName) , content));
     }
 
 
@@ -44,13 +44,13 @@ public class PtoGMessageController {
      * Stores all messages in a given group.
      *
      * @param senderUserName sender's name
-     * @param GroupID group's id
+     * @param GroupName group's id
      * @param presenter PtoGMessageHistoryPresenter
      */
-    public void GroupMessageHistory(String senderUserName, String GroupID,
+    public void GroupMessageHistory(String senderUserName, String GroupName,
                                     PtoGMessageHistoryPresenter presenter){
         ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserName),
-                groupInputBoundary.getGroup(GroupID), presenter);
+                groupInputBoundary.getGroup(GroupName), presenter);
     }
 
 }

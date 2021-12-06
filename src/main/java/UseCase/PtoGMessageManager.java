@@ -33,19 +33,19 @@ public class PtoGMessageManager implements PtoGMessageInputBoundary {
     //Helps to save GroupChatHistory of a group.
     private void saveGroupChatHistory(Group group, String GroupChatFile, PtoGMessage message) throws IOException {
 
-        String groupID = group.getGroupID();
+        String groupName = group.getGroupName();
 
         try {
             HashMap<String, String> GroupChatHistory
                     = PtoGDataAccessInterface.ReadFromFile(GroupChatFile);
             //update chat history
-            String history = GroupChatHistory.get(groupID);
+            String history = GroupChatHistory.get(groupName);
             String newHistory = history + "\n" + message.toString();
-            GroupChatHistory.put(groupID, newHistory);
+            GroupChatHistory.put(groupName, newHistory);
             PtoGDataAccessInterface.SaveToFile(GroupChatFile, GroupChatHistory);
         } catch (IOException | ClassNotFoundException e) {
             HashMap<String, String> groupChatHistory = new HashMap<>();
-            groupChatHistory.put(groupID, message.toString());
+            groupChatHistory.put(groupName, message.toString());
             PtoGDataAccessInterface.SaveToFile(GroupChatFile, groupChatHistory);
         }
 
@@ -59,8 +59,8 @@ public class PtoGMessageManager implements PtoGMessageInputBoundary {
         try {
             HashMap<String, String> GroupChatHistory
                     = PtoGDataAccessInterface.ReadFromFile(GroupChatFile);
-            if (GroupChatHistory.containsKey(group.getGroupID())) {
-                String history = GroupChatHistory.get(group.getGroupID());
+            if (GroupChatHistory.containsKey(group.getGroupName())) {
+                String history = GroupChatHistory.get(group.getGroupName());
                 outputBoundary.store(history);
             } else {
                 outputBoundary.store("");
