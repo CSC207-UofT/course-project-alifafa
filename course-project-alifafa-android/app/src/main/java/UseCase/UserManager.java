@@ -18,6 +18,7 @@ public class UserManager implements UserInputBoundary {
      * A manager that manage User, including create user, login, read and write data, add friend.
      */
 
+    
     public void readData(DataAccess dataAccess) throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean readable = false;
