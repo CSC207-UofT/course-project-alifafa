@@ -5,6 +5,7 @@ import Presenters.*;
 import UseCase.PostsManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class PostAPostController {
      * @param presenter PostAPostPresenter
      */
     public void runPostAPost(String userid, String content, String location, List<String> pictures,
-                              PostAPostPresenter presenter){
+                              PostAPostPresenter presenter) throws IOException {
 
         sharingInputBoundary.runPostAPost(userid, content, location, pictures, presenter);
     }
