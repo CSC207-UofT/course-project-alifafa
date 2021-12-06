@@ -32,7 +32,7 @@ public class MainProgram {
 
 
             } else {
-                commands.getUI(task).execute();
+                commands.getUI(task).run();
                 System.out.println("");
                 System.out.println("Do you want to exit (Type 'yes' or 'no')");
                 quit = in.nextLine();
