@@ -13,21 +13,21 @@ public class PicturePost extends ParagraphPost implements Serializable {
      * Included pictures attribute which is a list of picture files.
      */
 
-    private final List<File> pictures;
+    private final List<String> pictures;
 
     /**
      * Creates PicturePost that contains pictures
      * @param POSTTIME When it is posted
      * @param location Location
      * @param description Description of the Post
-     * @param pictures List of pictures
+     * @param pictures List of pictures urls
      */
 
-    public PicturePost(LocalDateTime POSTTIME, String location, String description, List<File> pictures){
+    public PicturePost(LocalDateTime POSTTIME, String location, String description, List<String> pictures){
         super(POSTTIME, location, description);
         this.pictures = pictures;
     }
 
-    public List<File> getPictures(){return pictures;}
+    public List<String> getPictures(){return pictures;}
 
 }

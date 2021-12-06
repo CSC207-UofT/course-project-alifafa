@@ -4,10 +4,7 @@ import Entity.*;
 import InputBoundary.SharingCentreInputBoundary;
 import OutputBoundary.*;
 
-import java.io.File;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,7 +21,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      *                (could be none)
      * @return Either a PicturePost or a ParagraphPost
      */
-    private ParagraphPost createPost(String content, String location, List<File> pictures){
+    private ParagraphPost createPost(String content, String location, List<String> pictures){
         if (!pictures.isEmpty()) {
             return new PicturePost(LocalDateTime.now(), location, content, pictures);
         }
@@ -41,7 +38,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param pictures List of pictures that the user wants to add
      *                 (could be none)
      */
-    public void postAPost(User user, String content, String location, List<File> pictures){
+    public void postAPost(User user, String content, String location, List<String> pictures){
         ParagraphPost post = createPost(content, location, pictures);
         user.getSharingCentre().getAllPosts().add(post);
         user.getMyPosts().add(post);
@@ -148,7 +145,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param outputBoundary PostAPostPresenter
      */
     @Override
-    public void runPostAPost(String userid, String content, String location, List<File> pictures,
+    public void runPostAPost(String userid, String content, String location, List<String> pictures,
                              PostAPostOutputBoundary outputBoundary) {
         if (content.isEmpty() && pictures.size() == 0) {
             outputBoundary.setPostStatus(false);

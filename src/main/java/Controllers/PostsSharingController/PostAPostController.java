@@ -22,7 +22,7 @@ public class PostAPostController {
      */
     public void runPostAPost(String userid, String content, String location, List<String> pictures,
                               PostAPostPresenter presenter){
-        List<File> files = new ArrayList<>();
+        List<String> files = new ArrayList<>();
         if (!pictures.isEmpty()) {   // Convert input String to File
             int i = 0;
             // Cannot have more than 9 files
