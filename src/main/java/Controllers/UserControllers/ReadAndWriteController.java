@@ -1,6 +1,7 @@
-package com.example.myapplication.Controllers.UserControllers;
+package Controllers.UserControllers;
 
-import com.example.myapplication.UseCase.UserManager;
+
+import UseCase.UserManager;
 
 import java.io.IOException;
 

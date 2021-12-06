@@ -1,14 +1,13 @@
-package com.example.myapplication.UseCase;
-
-import com.example.myapplication.DataAccessInterface.DataAccess;
-import com.example.myapplication.Entity.User;
-import com.example.myapplication.Entity.UserList;
-import com.example.myapplication.Gateway.DataAccessGateway;
-import com.example.myapplication.InputBoundary.UserInputBoundary;
-import com.example.myapplication.OutputBoundary.*;
+package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
+
+import DataAccessInterface.DataAccess;
+import Entity.User;
+import Gateway.DataAccessGateway;
+import InputBoundary.UserInputBoundary;
+import Entity.UserList;
 
 public class UserManager implements UserInputBoundary {
 
