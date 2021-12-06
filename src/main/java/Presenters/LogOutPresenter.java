@@ -13,7 +13,7 @@ public class LogOutPresenter implements LogOutOutputBoundary {
 
     @Override
     public void setLogInStatus(boolean loggedIn) {
-
+        this.loggedIn = loggedIn;
     }
 
     @Override

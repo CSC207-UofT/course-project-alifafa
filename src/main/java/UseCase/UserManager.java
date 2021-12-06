@@ -291,7 +291,8 @@ public class UserManager implements UserInputBoundary {
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
             if (user.getLoggedIn()) {
-                logOutOutputBoundary.getUsername(user.getUserName());
+                String name = user.getUserName();
+                user.changeLoggedInStatus();
             }
         }
     }
