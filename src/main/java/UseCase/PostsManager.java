@@ -5,6 +5,7 @@ import InputBoundary.SharingCentreInputBoundary;
 import OutputBoundary.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,11 +22,11 @@ public class PostsManager implements SharingCentreInputBoundary {
      *                (could be none)
      * @return Either a PicturePost or a ParagraphPost
      */
-    private ParagraphPost createPost(String content, String location, List<String> pictures){
+    private ParagraphPost createPost(String username, String content, String location, List<String> pictures){
         if (!pictures.isEmpty()) {
-            return new PicturePost(LocalDateTime.now(), location, content, pictures);
+            return new PicturePost(username , LocalDateTime.now(), location, content, pictures);
         }
-        return new ParagraphPost(LocalDateTime.now(), location, content);
+        return new ParagraphPost(username, LocalDateTime.now(), location, content);
     }
 
     /**
@@ -39,7 +40,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      *                 (could be none)
      */
     public void postAPost(User user, String content, String location, List<String> pictures){
-        ParagraphPost post = createPost(content, location, pictures);
+        ParagraphPost post = createPost(user.getUserName(), content, location, pictures);
         user.getSharingCentre().getAllPosts().add(post);
         user.getMyPosts().add(post);
         // Add post to which the user wants to share with
@@ -220,7 +221,12 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void retrieveUsersAllPosts(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userID);
-        outputBoundary.setContent(getUsersAllPosts(user));
+        List<ParagraphPost> usersPosts = getUsersAllPosts(user);
+        List<String> output = new ArrayList<>();
+        for (ParagraphPost post : usersPosts) {
+            output.add(post.toString() + "\n");
+        }
+        outputBoundary.setContent(output);
     }
 
     /**
@@ -232,7 +238,12 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void retrieveSharingCentre(String userID, SharingCentreOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userID);
-        outputBoundary.setContent(getSharingCentre(user));
+        List<ParagraphPost> posts = getSharingCentre(user);
+        List<String> all_posts = new ArrayList<>();
+        for (ParagraphPost post : posts) {
+            all_posts.add(post.toString() + "\n");
+        }
+        outputBoundary.setContent(all_posts);
     }
 
     /**

@@ -19,7 +19,7 @@ import java.util.List;
 */ 
 public class PicturePostTest { 
     List<String> urls = new ArrayList<>();
-    PicturePost post = new PicturePost(LocalDateTime.now(), "LoL", "Hello", urls);
+    PicturePost post = new PicturePost("a", LocalDateTime.now(), "LoL", "Hello", urls);
 
 @Before
 public void before() {
