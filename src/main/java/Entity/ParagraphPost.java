@@ -92,7 +92,7 @@ public class ParagraphPost implements Serializable {
         for (String[] comment : comments) {
             allComments.append("\t").append(comment[0]).append(": ").append(comment[1]).append("\n");
         }
-        return userName + "\n" + "Content: " + content + "\n" + "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" +
+        return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + "\n" + "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" +
                 "WhoLiked: " + userLiked + "\n" + "Comments: " + allComments;
     }
 
