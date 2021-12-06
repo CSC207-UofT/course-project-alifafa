@@ -24,4 +24,4 @@ public class LogInPresenter implements LogInOutputBoundary {
         }
     }
 }
-}
+
