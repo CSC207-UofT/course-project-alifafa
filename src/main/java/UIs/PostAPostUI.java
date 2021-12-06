@@ -19,7 +19,7 @@ public class PostAPostUI extends ParentUI{
     public void run() throws IOException {
         PostAPostController controller = new PostAPostController();
         PostAPostPresenter presenter = new PostAPostPresenter();
-        List<String> pictures = new ArrayList<String>();
+        List<String> pictures = new ArrayList<>();
 
         String[] params = new String[3];
         Constants constants = new Constants();
