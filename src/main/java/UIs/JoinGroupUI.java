@@ -20,7 +20,7 @@ public class JoinGroupUI extends ParentUI {
 
         String[] parameters = new String[2];
 
-        System.out.println("Your ID ");
+        System.out.println("Your Name ");
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
         System.out.println("GroupID: ");

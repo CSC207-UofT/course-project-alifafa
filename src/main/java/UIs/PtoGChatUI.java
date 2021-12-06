@@ -1,7 +1,13 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoGMessageController;
+import Controllers.UserControllers.CheckFriendController;
+import Controllers.UserControllers.CheckGroupController;
+import Controllers.UserControllers.FindLoggedInUserController;
 import Entity.Group;
+import Presenters.CheckFriendPresenter;
+import Presenters.CheckGroupPresenter;
+import Presenters.FindLoggedInUserPresenter;
 import Presenters.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 
@@ -18,14 +24,28 @@ public class PtoGChatUI extends ParentUI{
     public void run () throws IOException {
         PtoGMessageController controller = new PtoGMessageController();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
+        CheckGroupController checkGroupController = new CheckGroupController();
+        CheckGroupPresenter checkGroupPresenter = new CheckGroupPresenter();
+
+        FindLoggedInUserPresenter findLoggedInUserPresenter = new FindLoggedInUserPresenter();
+        FindLoggedInUserController findLoggedInUserController = new FindLoggedInUserController();
+
+        findLoggedInUserController.findLoggedInUser(findLoggedInUserPresenter);
+        String userName = findLoggedInUserPresenter.presentOutput();
+
         String[] parameters = new String[3];
 
-        System.out.println("My UserID: ");
+        System.out.println("My UserName: ");
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
         System.out.println("GroupID: ");
         parameters[1] = scanner.nextLine();
 
+        checkGroupController.checkGroup(parameters[0], parameters[1], checkGroupPresenter);
+        boolean inGroup = checkGroupPresenter.inGroup();
+
+
+        if (inGroup){
         //print the GroupName
         Group group = groupManager.getGroup(parameters[1]);
         String g = "Current Group:" + group.getGroupName();
@@ -44,6 +64,9 @@ public class PtoGChatUI extends ParentUI{
         //print latest chat history from this group.
         System.out.println("Current group chat history: ");
         controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
-        presenter.present();
+        presenter.present();}
+        else {
+            System.out.println("You are not in this group");
+        }
     }
 }

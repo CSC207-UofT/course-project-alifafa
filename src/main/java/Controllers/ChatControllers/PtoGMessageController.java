@@ -43,13 +43,13 @@ public class PtoGMessageController {
     /**
      * Stores all messages in a given group.
      *
-     * @param senderUserID sender's id
+     * @param senderUserName sender's name
      * @param GroupID group's id
      * @param presenter PtoGMessageHistoryPresenter
      */
-    public void GroupMessageHistory(String senderUserID, String GroupID,
+    public void GroupMessageHistory(String senderUserName, String GroupID,
                                     PtoGMessageHistoryPresenter presenter){
-        ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserID),
+        ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserName),
                 groupInputBoundary.getGroup(GroupID), presenter);
     }
 

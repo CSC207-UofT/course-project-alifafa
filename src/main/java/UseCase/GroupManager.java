@@ -2,12 +2,14 @@ package UseCase;
 import Entity.*;
 import Entity.Group;
 import InputBoundary.GroupInputBoundary;
+import OutputBoundary.CheckFriendOutputBoundary;
+import OutputBoundary.CheckGroupOutputBoundary;
 import OutputBoundary.CreateGroupOutputBoundary;
 import OutputBoundary.JoinGroupOutputBoundary;
 
 import java.util.ArrayList;
 
-public class GroupManager implements GroupInputBoundary{
+public class GroupManager implements GroupInputBoundary {
 
     public boolean checkGroupID(String id) {
         //Check whether the id existed in GroupList or not
@@ -55,7 +57,7 @@ public class GroupManager implements GroupInputBoundary{
 //        return null;
 //    }
 
-    public void joinGroup (String Userid, String GroupID){
+    public void joinGroup(String Userid, String GroupID) {
         //Join a user with Userid to an existing group with GroupID
         Group group = this.getGroup(GroupID);
         ArrayList<User> members = group.getMembers();
@@ -80,10 +82,10 @@ public class GroupManager implements GroupInputBoundary{
 
     @Override
     public void runCreateGroup(String[] parameters, CreateGroupOutputBoundary outputBoundary) {
-        if (this.checkGroupID(parameters[0])){
+        if (this.checkGroupID(parameters[0])) {
             this.createGroup(parameters[0], parameters[1]);
             outputBoundary.SetCreateStatus(true);
-        } else{
+        } else {
             outputBoundary.SetCreateStatus(false);
         }
     }
@@ -93,5 +95,30 @@ public class GroupManager implements GroupInputBoundary{
         joinGroup(userInput[0], userInput[1]);
         outputBoundary.setJoinGroupStatus(userInput[1]);
     }
+
+    public boolean checkGroup(String username, String GroupID) {
+        Group group = this.getGroup(GroupID);
+        ArrayList<User> members = group.getMembers();
+        for (User i : members) {
+            if (i.getUserName().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void runCheckGroup(String user, String group, CheckGroupOutputBoundary outputBoundary) {
+        if (checkGroup(user, group)) {
+            outputBoundary.setCheckGroupStatus(true);
+            System.out.println("In group");
+        } else {
+            outputBoundary.setCheckGroupStatus(false);
+            System.out.println("Not in group");
+        }
+
+
+    }
+
 }
 

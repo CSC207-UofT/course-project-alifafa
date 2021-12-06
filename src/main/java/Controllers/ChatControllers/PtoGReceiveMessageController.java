@@ -22,13 +22,13 @@ public class PtoGReceiveMessageController {
     /**
      * Stores all messages in a given group.
      *
-     * @param senderUserID sender's id
+     * @param senderUserName sender's name
      * @param GroupName group's Name
      * @param presenter PtoGMessageHistoryPresenter
      */
-    public void receiveMessageHistory(String senderUserID, String GroupName,
+    public void receiveMessageHistory(String senderUserName, String GroupName,
                                       PtoGMessageHistoryPresenter presenter){
-        PtoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserID),
+        PtoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserName),
                 groupInputBoundary.getGroup(GroupName), presenter);
     }
 

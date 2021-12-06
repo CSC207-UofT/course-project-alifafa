@@ -10,7 +10,7 @@ public class CheckGroupController {
 
     private final GroupInputBoundary checkGroupInputBoundary = new GroupManager();
 
-    public void checkFriend(String me, String friend, Presenters.CheckFriendPresenter presenter){
-        checkGroupInputBoundary.runCheckFriend(me, friend, presenter);
+    public void checkGroup(String user, String group, Presenters.CheckGroupPresenter presenter){
+        checkGroupInputBoundary.runCheckGroup(user, group, presenter);
     }
 }
