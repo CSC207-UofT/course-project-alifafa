@@ -131,12 +131,12 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public void addFriend (String id, String friendID){
+    public void addFriend (String userName, String friendUserName){
         //Add friend to the list friends
-        User user = this.getUser(id);
-        user.addFriend(this.getUser(friendID));
-        User friend = this.getUser(friendID);
-        friend.addFriend(this.getUser(id));
+        User user = this.getUser(userName);
+        user.addFriend(this.getUser(friendUserName));
+        User friend = this.getUser(friendUserName);
+        friend.addFriend(this.getUser(userName));
 
     }
 

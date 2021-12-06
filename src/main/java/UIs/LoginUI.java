@@ -31,6 +31,7 @@ public class LoginUI extends ParentUI{
         controller.runLogIn(parameters, presenter);
         if (presenter.isLoggedIn()){
             constants.setCurrentUser(parameters[0]);
+            System.out.println("Username "+ parameters[0]+" is logged in.");
         }
         System.out.println(presenter.presentOutput());
     }
