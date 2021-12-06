@@ -192,6 +192,12 @@ public class UserManager implements UserInputBoundary {
         outputBoundary.setAddFriendStatus(userInput[1]);
     }
 
+    @Override
+    public void runAddBlocked(String[] userInput, BlockedListOutputBoundary outputBoundary){
+        addBlockedUser(userInput[0], userInput[1]);
+        outputBoundary.setAddBlockedStatus(userInput[1]);
+    }
+
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
         if (checkFriend(me, friend)){
             outputBoundary.setCheckFriendStatus(true);

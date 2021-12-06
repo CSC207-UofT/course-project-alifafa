@@ -25,4 +25,6 @@ public interface UserInputBoundary {
     void runLogOut(String username);
 
     void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
+
+    void runAddBlocked(String[] parameters, BlockedListOutputBoundary outputBoundary);
 }
