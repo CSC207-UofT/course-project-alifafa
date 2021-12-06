@@ -27,6 +27,7 @@ public class CommandHelper {
                     "'view share center', 'comment post', 'post a post', 'edit password')");
             Scanner scanner = new Scanner(System.in);
             command = scanner.nextLine();
+
         }
         return command;
     }

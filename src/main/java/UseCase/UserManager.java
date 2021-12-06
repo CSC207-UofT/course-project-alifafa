@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import DataAccessInterface.DataAccess;
+import Entity.ParagraphPost;
 import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
@@ -144,13 +145,20 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
+
     public void addFriend (String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.addFriend(this.getUser(userName));
+
+        // update the sharing centre of both users
+        user.getSharingCentre().getAllPosts().addAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().addAll(user.getMyPosts());
+
         this.writeData(this.gateway);
+
     }
 
     public void editPassword(String new_password, String userName){
@@ -173,6 +181,10 @@ public class UserManager implements UserInputBoundary {
         user.removeFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.removeFriend(this.getUser(userName));
+
+        // remove the posts from each other's sharing centre
+        user.getSharingCentre().getAllPosts().removeAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().removeAll(user.getMyPosts());
 
     }
 
@@ -211,9 +223,15 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException {
-        addFriend(userInput[0], userInput[1]);
-        outputBoundary.setAddFriendName(userInput[1]);
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException{
+        if(userInput[0].equals(userInput[1])){
+            outputBoundary.setStatus("add themselves");
+        } else if (this.checkFriend(userInput[0], userInput[1])) {
+            outputBoundary.setStatus("existing friend");
+        } else {
+            addFriend(userInput[0], userInput[1]);
+            outputBoundary.setAddFriendName(userInput[1]);
+        }
     }
 
     @Override
