@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class PtoGMessageControllerFacade {
     /**
-     * This class's is a Facade for ptop message, which contains methods in PtoPSendMessageController and
-     * PtoPReceiveMessageController.
+     * This class's is a Facade for PtoG message, which contains methods in PtoGSendMessageController and
+     * PtoGReceiveMessageController.
      */
 
     private final PtoGSendMessageController ptoGSendMessageController = new PtoGSendMessageController();
@@ -16,17 +16,17 @@ public class PtoGMessageControllerFacade {
     /**
      * Stores all messages between receiver and sender.
      *
-     * @param senderUsername sender's name
-     * @param receiverUsername receiver's name
-     * @param presenter PtoPMessageHistoryPresenter
+     * @param senderUsername sender's username
+     * @param GroupName group's name
+     * @param presenter PtoGMessageHistoryPresenter
      */
-    public void GroupMessageHistory(String senderUsername, String receiverUsername,
+    public void GroupMessageHistory(String senderUsername, String GroupName,
                                       PtoGMessageHistoryPresenter presenter){
-        ptoGReceiveMessageController.receiveMessageHistory(senderUsername, receiverUsername, presenter);
+        ptoGReceiveMessageController.receiveMessageHistory(senderUsername, GroupName, presenter);
     }
 
-    public void sendGroupMessage(String senderUsername, String receiverUsername, String content) throws IOException {
-        ptoGSendMessageController.sendGroupMessage(senderUsername, receiverUsername, content);
+    public void sendGroupMessage(String senderUsername, String GroupName, String content) throws IOException {
+        ptoGSendMessageController.sendGroupMessage(senderUsername, GroupName, content);
     }
 
 
