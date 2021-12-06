@@ -150,6 +150,7 @@ public class PostsManager implements SharingCentreInputBoundary {
                              PostAPostOutputBoundary outputBoundary) {
         if (content.isEmpty() && pictures.size() == 0) {
             outputBoundary.setPostStatus(false);
+            return;
         }
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userid);

@@ -10,6 +10,7 @@ public class ViewSharingCentreUI extends ParentUI{
      * A user interface to view the posts inside its sharing centre.
      */
 
+    @Override
     public void run() {
         GetSharingCenterController sharingController = new GetSharingCenterController();
         SharingCentrePresenter sharingPresenter = new SharingCentrePresenter();
