@@ -16,7 +16,7 @@ public interface UserInputBoundary {
 
     void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException;
 
-    void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
+    void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary) throws IOException;
 
     User getUser (String id);
 
