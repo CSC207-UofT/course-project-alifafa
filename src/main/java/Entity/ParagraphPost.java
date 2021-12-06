@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ParagraphPost implements Serializable {
     /**
@@ -18,8 +19,8 @@ public class ParagraphPost implements Serializable {
     private String content;
     private final String LOCATION;
     private int likes;
-    protected static int id = 0;
-    private final int postID;
+//    protected static int id = 0;
+    private final String postID;
 
     /**
      * Creates a post.
@@ -34,9 +35,9 @@ public class ParagraphPost implements Serializable {
         this.content = content;
         this.comments = new ArrayList<>();
         this.usersWhoLiked = new ArrayList<>();
-        this.postID = id;
+        this.postID = UUID.randomUUID().toString();
         likes = 0;
-        id += 1;
+//        id += 1;
     }
 
     public  void setLikes(int likes) {
@@ -67,11 +68,11 @@ public class ParagraphPost implements Serializable {
         return content;
     }
 
-    public static int getId() {
-        return id;
-    }
+//    public static int getId() {
+//        return id;
+//    }
 
-    public int getPostID() {
+    public String getPostID() {
         return postID;
     }
 
@@ -92,14 +93,8 @@ public class ParagraphPost implements Serializable {
         for (String[] comment : comments) {
             allComments.append("\t").append(comment[0]).append(": ").append(comment[1]).append("\n");
         }
-        return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + "\n" + "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" +
-                "WhoLiked: " + userLiked + "\n" + "Comments: " + allComments;
-    }
-
-    public static void main(String[] args) {
-        ParagraphPost post = new ParagraphPost("Lucas", LocalDateTime.now(), "Toronto", "NIhaoAAAA");
-        post.comments.add(new String[]{"lucas", " hahaha"});
-        post.comments.add(new String[]{"ssda", "dasdasdw"});
-        System.out.println(post);
+        return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + "\n" + "Location: " + LOCATION +
+                "\t\t" + "Likes:"+ likes + "\n" + "Time posted: " + POSTTIME + "\n" + "WhoLiked: " +
+                userLiked + "\n" + "Comments: " + allComments;
     }
 }

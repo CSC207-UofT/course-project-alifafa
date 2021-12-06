@@ -30,12 +30,14 @@ public class DeletePostUI extends ParentUI {
             System.out.println("The post id: (Integer)");
             params[1] = scanner.nextLine();
 
-            try {
-                controller.runDeletePost(params[0], params[1], presenter);
-                System.out.println(presenter.presentOutput());
-            } catch (Exception e) {
-                System.out.println("ConcurrentModificationException");
-            }
+            controller.runDeletePost(params[0], params[1], presenter);
+            System.out.println(presenter.presentOutput());
+//            try {
+//                controller.runDeletePost(params[0], params[1], presenter);
+//                System.out.println(presenter.presentOutput());
+//            } catch (Exception e) {
+//                System.out.println("ConcurrentModificationException");
+//            }
 
 
         }
