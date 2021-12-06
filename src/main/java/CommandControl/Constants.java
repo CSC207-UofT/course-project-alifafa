@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class Constants {
     private final HashMap<String, ParentUI> validCommands;
+    private static String currentUser;
 
     public Constants(){
         validCommands = new HashMap<>();
@@ -41,6 +42,11 @@ public class Constants {
         return validCommands.containsKey(taskName);
     }
 
+    public String getCurrentUser() {
+        return currentUser;
+    }
 
-
+    public void setCurrentUser(String currentUser) {
+        Constants.currentUser = currentUser;
+    }
 }
