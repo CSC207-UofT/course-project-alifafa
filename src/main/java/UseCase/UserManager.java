@@ -153,6 +153,13 @@ public class UserManager implements UserInputBoundary {
         this.writeData(this.gateway);
     }
 
+    public void editPassword(String new_password, String userName){
+        //Edit password or username
+        User user = this.getUser(userName);
+        user.setPassword(new_password);
+      
+    }
+
     public void addBlockedUser (String id, String friendID){
         //Add user to blocked list
         User user = this.getUser(id);
@@ -160,16 +167,20 @@ public class UserManager implements UserInputBoundary {
         user.addBlockedUser(friend);
     }
 
-    /* will be implemented in later phase.
-    public void removeFriend (User user, User friend) {
-        //Remove friend from the list friends
-        user.removeFriend(friend);
+    public void removeFriend (String userName, String friendUserName){
+        //remove friend to the list friends
+        User user = this.getUser(userName);
+        user.removeFriend(this.getUser(friendUserName));
+        User friend = this.getUser(friendUserName);
+        friend.removeFriend(this.getUser(userName));
+
     }
+
     public ArrayList<String> getAddFriendRequests(User user) {
         //Return user’s request list.
         return user.getAddFriendRequests();
     }
-     */
+
 
     @Override
     public void runLogIn(String[] parameters, LogInOutputBoundary outputBoundary) {
@@ -202,7 +213,7 @@ public class UserManager implements UserInputBoundary {
     @Override
     public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException {
         addFriend(userInput[0], userInput[1]);
-        outputBoundary.setAddFriendStatus(userInput[1]);
+        outputBoundary.setAddFriendName(userInput[1]);
     }
 
     @Override
@@ -212,14 +223,13 @@ public class UserManager implements UserInputBoundary {
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
-        if (checkFriend(me, friend)){
-            outputBoundary.setCheckFriendStatus(true);
-            System.out.println("Valid Friend");
-        }else{
-            outputBoundary.setCheckFriendStatus(false);
-            System.out.println("Invalid friend");
-        }
+        outputBoundary.setCheckFriendStatus(checkFriend(me, friend));
 
+    }
+
+    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary){
+        editPassword(parameters[0], parameters[1]);
+        outputBoundary.setEdited(true);
     }
 
     @Override
@@ -237,4 +247,11 @@ public class UserManager implements UserInputBoundary {
             }
         }
     }
+
+    @Override
+    public void runRemoveFriend(String[] parameters, RemoveFriendOutputBoundary outputBoundary) {
+        this.removeFriend(parameters[0], parameters[1]);
+        outputBoundary.setRemoveFriendName(parameters[1]);
+    }
+
 }
