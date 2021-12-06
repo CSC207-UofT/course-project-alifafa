@@ -43,6 +43,8 @@ public class UserManager implements UserInputBoundary {
                 String name = u.getUserName();
                 ArrayList<User> f = (ArrayList<User>) saved.get(name + "f");
                 u.addFriends(f);
+                ArrayList<User> b = (ArrayList<User>) saved.get(name + "b");
+                u.getBlockedUser().addAll(b);
                 ArrayList<ParagraphPost> p = (ArrayList<ParagraphPost>) saved.get(name + "p");
                 u.getMyPosts().addAll(p);
 
@@ -70,6 +72,7 @@ public class UserManager implements UserInputBoundary {
         for (User u: lst) {
             save.put(u.getUserName() + "f", (T) u.getFriends());
             save.put(u.getUserName() + "p", (T) u.getMyPosts());
+            save.put(u.getUserName() + "b", (T) u.getBlockedUser());
             ArrayList<ParagraphPost> posts = u.getMyPosts();
             for (ParagraphPost post: posts){
                 save.put(u.getUserName() + "p_comments", (T) post.getComments());
