@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.GChatActivity"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join Group"
+            android:textColor="@color/dark_lava"
+            android:textSize="30sp"
+            android:gravity="center"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_lava"
+            android:text="YourID"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="50dp"
+            android:textSize="7pt"/>
+
+    <EditText
+            android:id="@+id/et_reg_UID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/pale_silver"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="7pt"
+            android:text="GroupID"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="24dp"
+            android:textColor="@color/dark_lava"
+    />
+
+    <EditText
+            android:id="@+id/et_reg_GroupID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/pale_silver"/>
+
+
+
+    <Button
+            android:id="@+id/btn_join_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Join Group"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/melon"
+            android:textColor="@color/dark_lava"/>
+
+</LinearLayout>

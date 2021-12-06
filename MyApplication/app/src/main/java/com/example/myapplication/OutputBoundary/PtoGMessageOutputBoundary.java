@@ -13,7 +13,8 @@ public interface PtoGMessageOutputBoundary {
 
     /**
      * Present the PtoG message.
+     * @return
      */
-    void present();
+    String present();
 
 }

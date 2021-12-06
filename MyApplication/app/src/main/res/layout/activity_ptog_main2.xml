@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/alabaster"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:background="@color/alabaster">
+
+    </RelativeLayout>
+    <Button
+            android:id="@+id/btn_create_group"
+            android:layout_marginTop="10dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Create Group"
+            android:textColor="@color/alabaster"
+            android:backgroundTint="@color/melon"/>
+    <Button
+            android:id="@+id/btn_join_group"
+            android:layout_marginTop="10dp"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:text="Join Group"
+            android:layout_gravity="center"
+            android:textColor="@color/alabaster"
+            android:backgroundTint="@color/melon"/>
+
+
+    <Button
+            android:id="@+id/btn_group_chat"
+            android:layout_marginTop="10dp"
+            android:layout_width="251dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center"
+            android:text="Group Chat"
+            android:textColor="@color/alabaster"
+            android:backgroundTint="@color/melon"/>
+
+
+</LinearLayout>

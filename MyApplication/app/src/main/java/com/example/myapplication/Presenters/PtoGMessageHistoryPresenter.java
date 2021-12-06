@@ -17,11 +17,11 @@ public class PtoGMessageHistoryPresenter implements PtoGMessageOutputBoundary {
     }
 
     @Override
-    public void present() {
+    public String present() {
         if (Objects.equals(PtoGMessageHistory, "")){
-            System.out.println("No previous group chat history");
+            return "No previous group chat history";
         }else{
-            System.out.println(PtoGMessageHistory);
+            return PtoGMessageHistory;
         }
     }
 }

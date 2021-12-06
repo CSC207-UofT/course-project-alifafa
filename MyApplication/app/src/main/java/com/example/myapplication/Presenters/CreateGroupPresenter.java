@@ -12,6 +12,9 @@ public class CreateGroupPresenter implements CreateGroupOutputBoundary {
         this.CreateStatus = success;
     }
 
+    public boolean getCreateStatus() {
+        return CreateStatus;
+    }
 
     @Override
     public String presentOutput() {

@@ -98,12 +98,12 @@ public class GroupManager implements GroupInputBoundary{
     }
 
 
-    public Group getGroup(String id) {
-        //Return group by given ID
+    public Group getGroup(String name) {
+        //Return group by given Name
         GroupList store = new GroupList();
         ArrayList<Group> stored = store.getAllGroups();
         for (Group group : stored) {
-            if (group.getGroupID().equals(id)) {
+            if (group.getGroupName().equals(name)) {
                 return group;
             }
         }

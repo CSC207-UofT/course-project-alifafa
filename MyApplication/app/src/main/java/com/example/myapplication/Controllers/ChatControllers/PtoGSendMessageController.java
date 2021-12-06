@@ -24,15 +24,15 @@ public class PtoGSendMessageController {
      * Sends message from one user to a group.
      *
      * @param senderUserID sender's userID
-     * @param GroupID      group's ID
+     * @param GroupName      group's Name
      * @param content      the content of a message
      */
-    public void sendGroupMessage(String senderUserID, String GroupID, String content) throws IOException{
+    public void sendGroupMessage(String senderUserID, String GroupName, String content) throws IOException{
 
         ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserID),
-                groupInputBoundary.getGroup(GroupID),
+                groupInputBoundary.getGroup(GroupName),
                 ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
-                        groupInputBoundary.getGroup(GroupID), content));
+                        groupInputBoundary.getGroup(GroupName), content));
     }
 
 }

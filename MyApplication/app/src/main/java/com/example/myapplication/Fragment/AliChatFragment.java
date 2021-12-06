@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.Activity.GChatActivity;
+import com.example.myapplication.Activity.PtogMainActivity;
 import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
 import com.example.myapplication.Entity.PtoPMessage;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
@@ -47,7 +46,7 @@ public class AliChatFragment extends Fragment {
 
         // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
-            Intent intent = new Intent(view1.getContext(), GChatActivity.class);
+            Intent intent = new Intent(view1.getContext(), PtogMainActivity.class);
             view.getContext().startActivity(intent);
         });
 
@@ -55,7 +54,7 @@ public class AliChatFragment extends Fragment {
         PtoPMessageFacade ptoPMessageFacade = new PtoPMessageFacade();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
-        CheckFriendController checkFriendController = new CheckFriendController();
+//        CheckFriendController checkFriendController = new CheckFriendController();
 
         // Send message and present message
         mBtnSend.setOnClickListener(view1 -> {
@@ -64,12 +63,12 @@ public class AliChatFragment extends Fragment {
             String myUserName = mEtMyName.getText().toString();
 
             // haven't been implemented yet
-            Boolean isFriend = checkFriendController.checkFriend(myUserName, friendUsername);
+//            Boolean isFriend = checkFriendController.checkFriend(myUserName, friendUsername);
 
             //write if statement that searches if friend is an existing friend and send out message.
-            if (isFriend){
+
                 // send message
-                try {
+            try {
                     ptoPMessageFacade.sendMessage(myUserName,friendUsername,message);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -83,14 +82,13 @@ public class AliChatFragment extends Fragment {
 
                 // Haven't been implemented yet:
                 // After click Send Button, present the message in chatArray on the phone line by line
-            }else{
-                Toast.makeText(view.getContext(), "Not valid friend",Toast.LENGTH_SHORT).show();
+//            }else{
+//                Toast.makeText(view.getContext(), "Not valid friend",Toast.LENGTH_SHORT).show();
                 // Haven't been implemented yet:
                 // When they are not friends
                 // Pop up a warning show "No friend found"
-            }
+            });
 
-        });
 
         return view;
     }
