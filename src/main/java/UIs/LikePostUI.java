@@ -27,7 +27,7 @@ public class LikePostUI extends ParentUI {
         } else {
             params[0] = currentUser;
 
-            System.out.println("The post id: (Integer)");
+            System.out.println("The post id: ");
             Scanner scanner = new Scanner(System.in);
             params[1] = scanner.nextLine();
             try {
