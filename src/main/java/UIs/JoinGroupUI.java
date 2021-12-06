@@ -4,6 +4,8 @@ package UIs;
 import CommandControl.Constants;
 import Controllers.UserControllers.JoinGroupController;
 import Presenters.JoinGroupPresenter;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -15,7 +17,7 @@ public class JoinGroupUI extends ParentUI {
     /*
      * This method is responsible for users to join a group.
      */
-    public void run () {
+    public void run () throws IOException {
         Constants constants = new Constants();
         String currentUser = constants.getCurrentUser();
 
