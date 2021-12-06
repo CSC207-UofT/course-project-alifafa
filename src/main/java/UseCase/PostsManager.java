@@ -99,17 +99,6 @@ public class PostsManager implements SharingCentreInputBoundary {
         }
     }
 
-    private void addElementToHashMap(User key, HashMap<User, List<String>> obj, String element){
-        if (obj.containsKey(key)){
-            obj.get(key).add(element);
-        } else {
-            List<String> comments = new ArrayList<>();
-            comments.add(element);
-            obj.put(key, comments);
-        }
-
-    }
-
     /**
      * Add a comment from the user who commented to the post and add
      * notification to the post creator.
@@ -118,7 +107,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      * @param comment Comment the commenter wrote to the post
      */
     public void commentPost(User user, ParagraphPost post, String comment){
-        addElementToHashMap(user, post.getComments(), comment);
+        post.getComments().add(new String[]{user.getUserName(), comment});
         Notifications notification = new Notifications(user, LocalDateTime.now(), post, false);
         addNotification(user, post, notification);
     }

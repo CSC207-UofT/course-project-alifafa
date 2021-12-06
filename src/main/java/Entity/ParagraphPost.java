@@ -13,7 +13,7 @@ public class ParagraphPost implements Serializable {
      */
 
     private final LocalDateTime POSTTIME;
-    private final HashMap<User, List<String>> comments;
+    private final List<String[]> comments;
     private final List<User> usersWhoLiked;
     private String content;
     private final String LOCATION;
@@ -31,7 +31,7 @@ public class ParagraphPost implements Serializable {
         this.POSTTIME = POSTTIME;
         this.LOCATION = LOCATION;
         this.content = content;
-        this.comments = new HashMap<>();
+        this.comments = new ArrayList<>();
         this.usersWhoLiked = new ArrayList<>();
         this.postID = id;
         likes = 0;
@@ -58,7 +58,7 @@ public class ParagraphPost implements Serializable {
         return likes;
     }
 
-    public HashMap<User, List<String>> getComments() {
+    public List<String[]> getComments() {
         return comments;
     }
 
