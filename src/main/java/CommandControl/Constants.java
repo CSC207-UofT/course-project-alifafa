@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class Constants {
     private final HashMap<String, ParentUI> validCommands;
+    private static String currentUser;
 
     public Constants(){
         validCommands = new HashMap<>();
@@ -23,6 +24,7 @@ public class Constants {
         validCommands.put("create a group", new CreateGroupUI());
         validCommands.put("join group", new JoinGroupUI());
         validCommands.put("group chat", new PtoGChatUI());
+        currentUser = null;
 }
 
 
@@ -41,6 +43,11 @@ public class Constants {
         return validCommands.containsKey(taskName);
     }
 
+    public String getCurrentUser() {
+        return currentUser;
+    }
 
-
+    public void setCurrentUser(String currentUser) {
+        Constants.currentUser = currentUser;
+    }
 }

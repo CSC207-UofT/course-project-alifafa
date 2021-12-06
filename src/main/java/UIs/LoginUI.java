@@ -1,5 +1,6 @@
 package UIs;
 
+import CommandControl.Constants;
 import Controllers.UserControllers.LogInController;
 import Presenters.LogInPresenter;
 
@@ -16,6 +17,7 @@ public class LoginUI extends ParentUI{
      * @param userInput This is the user's input we get from the keyboard.
      */
     public void run () {
+        Constants constants = new Constants();
         LogInController controller = new LogInController();
         LogInPresenter presenter = new LogInPresenter();
         String[] parameters = new String[2];
@@ -27,6 +29,9 @@ public class LoginUI extends ParentUI{
         parameters[1] = scanner.nextLine();
 
         controller.runLogIn(parameters, presenter);
+        if (presenter.isLoggedIn()){
+            constants.setCurrentUser(parameters[0]);
+        }
         System.out.println(presenter.presentOutput());
     }
 }
