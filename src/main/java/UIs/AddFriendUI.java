@@ -2,6 +2,7 @@ package UIs;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.AddFriendController;
+import Controllers.UserControllers.BlockedListController;
 import Presenters.AddFriendPresenter;
 
 
@@ -46,7 +47,12 @@ public class AddFriendUI extends ParentUI {
         Scanner scanner = new Scanner(System.in);
         parameters[1] = scanner.nextLine();
 
+        BlockedListController b = new BlockedListController();
+        if(!b.checkBlocked(parameters)) {
         controller.addFriend(parameters, presenter);
-        System.out.println(presenter.presentOutput());
+        System.out.println(presenter.presentOutput());}
+        else{
+            System.out.println("You cannot add this user because you are in the blocked list");
+            }
     }
 }
