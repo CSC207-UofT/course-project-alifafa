@@ -1,12 +1,10 @@
 package UIs;
 
-import Controllers.ChatControllers.PtoGMessageController;
+import CommandControl.Constants;
 import Controllers.ChatControllers.PtoGMessageControllerFacade;
 import Controllers.UserControllers.CheckGroupController;
-import Controllers.UserControllers.FindLoggedInUserController;
 import Entity.Group;
 import Presenters.CheckGroupPresenter;
-import Presenters.FindLoggedInUserPresenter;
 import Presenters.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 
@@ -21,6 +19,9 @@ public class PtoGChatUI extends ParentUI{
 
     private final GroupManager groupManager = new GroupManager();
     public void run () throws IOException {
+        Constants constants = new Constants();
+        String currentUser = constants.getCurrentUser();
+
         PtoGMessageControllerFacade controller = new PtoGMessageControllerFacade();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
         CheckGroupController checkGroupController = new CheckGroupController();
@@ -28,10 +29,11 @@ public class PtoGChatUI extends ParentUI{
 
         String[] parameters = new String[3];
 
-        System.out.println("My UserName: ");
-        Scanner scanner = new Scanner(System.in);
-        parameters[0] = scanner.nextLine();
+        parameters[0] = currentUser;
+        System.out.println("The current logged in user is " + parameters[0]);
+
         System.out.println("Group Name: ");
+        Scanner scanner = new Scanner(System.in);
         parameters[1] = scanner.nextLine();
 
         checkGroupController.checkGroup(parameters[0], parameters[1], checkGroupPresenter);
