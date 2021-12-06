@@ -14,9 +14,15 @@ public interface UserInputBoundary {
 
     void runLogIn (String[] parameters, LogInOutputBoundary outputBoundary);
 
-    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary);
+    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException;
 
     void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
 
     User getUser (String id);
+
+    void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary);
+
+    void runLogOut(String username);
+
+    void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
 }
