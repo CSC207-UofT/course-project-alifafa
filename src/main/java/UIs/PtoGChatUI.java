@@ -1,11 +1,14 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.ChatControllers.PtoGMessageController;
+import Controllers.ChatControllers.PtoGMessageControllerFacade;
+import Controllers.UserControllers.CheckGroupController;
 import Entity.Group;
+import Presenters.CheckGroupPresenter;
 import Presenters.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PtoGChatUI extends ParentUI{
@@ -15,43 +18,50 @@ public class PtoGChatUI extends ParentUI{
      */
 
     private final GroupManager groupManager = new GroupManager();
-    public void run (){
+    public void run () throws IOException {
         Constants constants = new Constants();
-
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
-            System.out.println("You need to log in first!");
-        } else {
-            PtoGMessageController controller = new PtoGMessageController();
-            PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
-            String[] parameters = new String[3];
+        PtoGMessageControllerFacade controller = new PtoGMessageControllerFacade();
+        PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
+        CheckGroupController checkGroupController = new CheckGroupController();
+        CheckGroupPresenter checkGroupPresenter = new CheckGroupPresenter();
 
-            System.out.println("My UserID: ");
-            Scanner scanner = new Scanner(System.in);
-            parameters[0] = scanner.nextLine();
-            System.out.println("GroupID: ");
-            parameters[1] = scanner.nextLine();
+        String[] parameters = new String[3];
 
-            //print the GroupName
-            Group group = groupManager.getGroup(parameters[1]);
-            String g = "Current Group:" + group.getGroupName();
-            System.out.println(g);
+        parameters[0] = currentUser;
+        System.out.println("The current logged in user is " + parameters[0]);
 
-            //print previous chat history from the group
-            System.out.println("Previous group chat history: ");
-            controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
-            presenter.present();
+        System.out.println("Group Name: ");
+        Scanner scanner = new Scanner(System.in);
+        parameters[1] = scanner.nextLine();
 
-            //send message to the group
-            System.out.println("Please type your message.");
-            parameters[2] = scanner.nextLine();
-            controller.sendMessage(parameters[0], parameters[1], parameters[2]);
+        checkGroupController.checkGroup(parameters[0], parameters[1], checkGroupPresenter);
+        boolean inGroup = checkGroupPresenter.inGroup();
 
-            //print latest chat history from this group.
-            System.out.println("Current group chat history: ");
-            controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
-            presenter.present();
+
+        if (inGroup){
+        //print the GroupName
+        Group group = groupManager.getGroup(parameters[1]);
+        String g = "Current Group:" + group.getGroupName();
+        System.out.println(g);
+
+        //print previous chat history from the group
+        System.out.println("Previous group chat history: ");
+        controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
+        presenter.present();
+
+        //send message to the group
+        System.out.println("Please type your message.");
+        parameters[2] = scanner.nextLine();
+        controller.sendGroupMessage(parameters[0], parameters[1], parameters[2]);
+
+        //print latest chat history from this group.
+        System.out.println("Current group chat history: ");
+        controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
+        presenter.present();}
+        else {
+            System.out.println("You are not in this group, please join this group first");
         }
     }
 }

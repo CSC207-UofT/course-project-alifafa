@@ -5,6 +5,7 @@ import Controllers.UserControllers.AddFriendController;
 import Presenters.AddFriendPresenter;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddFriendUI extends ParentUI {
@@ -15,7 +16,8 @@ public class AddFriendUI extends ParentUI {
     /*
      * This method is responsible for adding a friend task.
      */
-    public void run () {
+
+    public void run () throws IOException {
 
         Constants constants = new Constants();
 
@@ -34,7 +36,7 @@ public class AddFriendUI extends ParentUI {
 
     }
 
-    static void addFriend(String currentUser, AddFriendController controller, AddFriendPresenter presenter) {
+    static void addFriend(String currentUser, AddFriendController controller, AddFriendPresenter presenter) throws IOException {
         String[] parameters = new String[2];
 
         parameters[0] = currentUser;

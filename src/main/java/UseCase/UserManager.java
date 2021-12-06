@@ -2,8 +2,12 @@ package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import DataAccessInterface.DataAccess;
+import Entity.ParagraphPost;
 import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
@@ -17,7 +21,12 @@ public class UserManager implements UserInputBoundary {
      */
     private final DataAccess gateway = new DataAccessGateway();
 
-    public void readData() throws IOException, ClassNotFoundException {
+    public DataAccess getGateway(){
+        return gateway;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> void readData() throws IOException, ClassNotFoundException {
         //Read data from file and cast it to right class.
         boolean readable = false;
         try (BufferedReader br = new BufferedReader(new FileReader("User_State.csv"))) {
@@ -27,17 +36,52 @@ public class UserManager implements UserInputBoundary {
             }
         }
         if (readable) {
-
             UserList store = new UserList();
-            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
-            store.addUsers(lst);
+            HashMap<String, T> saved = this.gateway.readFromFile("User_State.csv");
+            ArrayList<User> storage = (ArrayList<User>) saved.get("storage");
+            for (User u: storage) {
+                String name = u.getUserName();
+                ArrayList<User> f = (ArrayList<User>) saved.get(name + "f");
+                u.addFriends(f);
+                ArrayList<User> b = (ArrayList<User>) saved.get(name + "b");
+                u.getBlockedUser().addAll(b);
+                ArrayList<ParagraphPost> p = (ArrayList<ParagraphPost>) saved.get(name + "p");
+                u.getMyPosts().addAll(p);
+
+                /*
+                for (ParagraphPost post: p)
+                    List<String[]> c = (List<String[]>) saved.get(name + "p_comments");
+                    post.getComments().addAll((List<String[]>) saved.get(name + "p_comments"));
+                    post.getUsersWhoLiked().addAll((List<User>) saved.get(name + "p_usersWhoLiked"));
+                }
+                List<String[]> co = u.getMyPosts().get(0).getComments();
+
+                 */
+            }
+            store.addUsers(storage);
         }
     }
 
-    public void writeData (DataAccess dataAccess) throws IOException {
+    @SuppressWarnings("unchecked")
+    public <T> void writeData (DataAccess dataAccess) throws IOException {
         //Write data to file
         UserList store = new UserList();
-        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
+        ArrayList<User> lst = store.getAllUsers();
+        HashMap<String, T> save = new HashMap<String, T>();
+        save.put("storage", (T) lst);
+        for (User u: lst) {
+            save.put(u.getUserName() + "f", (T) u.getFriends());
+            save.put(u.getUserName() + "p", (T) u.getMyPosts());
+            save.put(u.getUserName() + "b", (T) u.getBlockedUser());
+            ArrayList<ParagraphPost> posts = u.getMyPosts();
+            for (ParagraphPost post: posts){
+                save.put(u.getUserName() + "p_comments", (T) post.getComments());
+                save.put(u.getUserName() + "p_usersWhoLiked", (T) post.getUsersWhoLiked());
+            }
+        }
+        //List<String[]> comments = (List<String[]>) save.get(lst.get(0).getUserName() + "p_comments");
+
+        dataAccess.saveToFile("User_State.csv", save);
     }
 
     public boolean checkID (String id){
@@ -80,7 +124,7 @@ public class UserManager implements UserInputBoundary {
     public boolean checkFriend (String username, String friendUsername){
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(username);
-        ArrayList<User> friends = user.getFriends();
+        List<User> friends = user.getFriends();
         for (User i: friends){
             if (i.getUserName().equals(friendUsername)){
                 return true;
@@ -131,12 +175,19 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public void addFriend (String userName, String friendUserName){
+
+    public void addFriend (String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.addFriend(this.getUser(userName));
+
+        // update the sharing centre of both users
+        user.getSharingCentre().getAllPosts().addAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().addAll(user.getMyPosts());
+
+        this.writeData(this.gateway);
 
     }
 
@@ -160,6 +211,10 @@ public class UserManager implements UserInputBoundary {
         user.removeFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.removeFriend(this.getUser(userName));
+
+        // remove the posts from each other's sharing centre
+        user.getSharingCentre().getAllPosts().removeAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().removeAll(user.getMyPosts());
 
     }
 
@@ -198,9 +253,15 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
-        addFriend(userInput[0], userInput[1]);
-        outputBoundary.setAddFriendName(userInput[1]);
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException{
+        if(userInput[0].equals(userInput[1])){
+            outputBoundary.setStatus("add themselves");
+        } else if (this.checkFriend(userInput[0], userInput[1])) {
+            outputBoundary.setStatus("existing friend");
+        } else {
+            addFriend(userInput[0], userInput[1]);
+            outputBoundary.setAddFriendName(userInput[1]);
+        }
     }
 
     @Override
@@ -210,13 +271,7 @@ public class UserManager implements UserInputBoundary {
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
-        if (checkFriend(me, friend)){
-            outputBoundary.setCheckFriendStatus(true);
-            System.out.println("Valid Friend");
-        }else{
-            outputBoundary.setCheckFriendStatus(false);
-            System.out.println("Invalid friend");
-        }
+        outputBoundary.setCheckFriendStatus(checkFriend(me, friend));
 
     }
 

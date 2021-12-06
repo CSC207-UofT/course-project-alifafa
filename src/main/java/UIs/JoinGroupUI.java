@@ -17,25 +17,22 @@ public class JoinGroupUI extends ParentUI {
      */
     public void run () {
         Constants constants = new Constants();
-
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
-            System.out.println("You need to log in first!");
-        } else {
-            JoinGroupController controller = new JoinGroupController();
-            JoinGroupPresenter presenter = new JoinGroupPresenter();
+        JoinGroupController controller = new JoinGroupController();
+        JoinGroupPresenter presenter = new JoinGroupPresenter();
 
-            String[] parameters = new String[2];
+        String[] parameters = new String[2];
 
-            System.out.println("Your ID ");
-            Scanner scanner = new Scanner(System.in);
-            parameters[0] = scanner.nextLine();
-            System.out.println("GroupID: ");
-            parameters[1] = scanner.nextLine();
 
-            controller.joinGroup(parameters, presenter);
-            System.out.println(presenter.presentOutput());
-        }
+        parameters[0] = currentUser;
+        System.out.println("The current logged in user is " + parameters[0]);
+
+        System.out.println("GroupName: ");
+        Scanner scanner = new Scanner(System.in);
+        parameters[1] = scanner.nextLine();
+
+        controller.joinGroup(parameters, presenter);
+        System.out.println(presenter.presentOutput());
     }
 }

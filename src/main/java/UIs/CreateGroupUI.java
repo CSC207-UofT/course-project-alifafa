@@ -24,12 +24,10 @@ public class CreateGroupUI extends ParentUI{
         } else {
             CreateGroupController controller = new CreateGroupController();
             CreateGroupPresenter presenter = new CreateGroupPresenter();
-            String[] parameters = new String[2];
+            String[] parameters = new String[1];
             Scanner scanner = new Scanner(System.in);
-            System.out.println("GroupID: ");
-            parameters[0] = scanner.nextLine();
             System.out.println("GroupName: ");
-            parameters[1] = scanner.nextLine();
+            parameters[0] = scanner.nextLine();
 
             controller.createAGroup(parameters, presenter);
             System.out.println(presenter.presentOutput());

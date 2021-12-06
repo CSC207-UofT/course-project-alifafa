@@ -1,13 +1,14 @@
 package Gateway;
 
-import DataAccessInterface.DataAccess;
+import DataAccessInterface.PtoGMessageDataAccessInterface;
 
 import java.io.*;
+import java.util.HashMap;
 
-public class DataAccessGateway implements DataAccess {
+public class PtoGMessageDataAccess implements PtoGMessageDataAccessInterface {
 
     @Override
-    public void saveToFile(String filepath, Object o) throws IOException {
+    public void SaveToFile(String filepath, Object o) throws IOException {
         FileOutputStream file = new FileOutputStream(filepath);
         ObjectOutputStream output = new ObjectOutputStream(file);
         output.writeObject(o);
@@ -17,11 +18,10 @@ public class DataAccessGateway implements DataAccess {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T readFromFile(String filepath) throws IOException, ClassNotFoundException {
+    public HashMap<String, String> ReadFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
-
-        T read = (T) input.readObject();
+        HashMap<String, String> read = (HashMap<String, String>)input.readObject();
         input.close();
         return read;
     }

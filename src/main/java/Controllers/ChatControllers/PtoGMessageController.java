@@ -1,5 +1,6 @@
 package Controllers.ChatControllers;
 
+
 import InputBoundary.GroupInputBoundary;
 import InputBoundary.PtoGMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
@@ -8,8 +9,10 @@ import UseCase.GroupManager;
 import UseCase.PtoGMessageManager;
 import UseCase.UserManager;
 
+import java.io.IOException;
 
-public class PtoGMessageController{
+public class PtoGMessageController {
+
     /**
      * This class is responsible for controlling messages between two users
      */
@@ -25,30 +28,29 @@ public class PtoGMessageController{
     /**
      * Sends message from one user to a group.
      * @param senderUserID sender's userID
-     * @param GroupID group's ID
+     * @param GroupName group's ID
      * @param content the content of a message
      */
-    public void sendMessage(String senderUserID, String GroupID, String content) {
+    public void sendGroupMessage(String senderUserID, String GroupName, String content) throws IOException {
 
-        ptoGMessageInputBoundary.sendMessage(userInputBoundary.getUser(senderUserID),
-                groupInputBoundary.getGroup(GroupID) ,
+        ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserID),
+                groupInputBoundary.getGroup(GroupName) ,
                 ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
-                        groupInputBoundary.getGroup(GroupID) , content));
+                        groupInputBoundary.getGroup(GroupName) , content));
     }
 
 
     /**
      * Stores all messages in a given group.
      *
-     * @param senderUserID sender's id
-     * @param GroupID group's id
+     * @param senderUserName sender's name
+     * @param GroupName group's id
      * @param presenter PtoGMessageHistoryPresenter
      */
-    public void receiveMessageHistory(String senderUserID, String GroupID,
-                                      PtoGMessageHistoryPresenter presenter){
-        ptoGMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUserID),
-                groupInputBoundary.getGroup(GroupID), presenter);
+    public void GroupMessageHistory(String senderUserName, String GroupName,
+                                    PtoGMessageHistoryPresenter presenter){
+        ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserName),
+                groupInputBoundary.getGroup(GroupName), presenter);
     }
-
 
 }
