@@ -43,7 +43,7 @@ public class GroupManager implements GroupInputBoundary {
         //Write data to file
         GroupList store = new GroupList();
         ArrayList<Group> lst = store.getAllGroups();
-        HashMap<String, ArrayList<Group>> s = new HashMap<String, ArrayList<Group>>();
+        HashMap<String, ArrayList<Group>> s = new HashMap<>();
         s.put("storage", lst);
 //        for (Group g: lst) {
 //            s.put(g.getGroupName(), g.getMembers());
@@ -100,11 +100,11 @@ public class GroupManager implements GroupInputBoundary {
 //        return null;
 //    }
 
-    public void joinGroup(String Userid, String GroupName) throws IOException {
+    public void joinGroup(String UserName, String GroupName) throws IOException {
         //Join a user with Userid to an existing group with GroupID
         Group group = this.getGroup(GroupName);
         ArrayList<User> members = group.getMembers();
-        User u = new UserManager().getUser(Userid);
+        User u = new UserManager().getUser(UserName);
         if (!members.contains(u)) {
             group.addMember(u);
         }
@@ -136,8 +136,13 @@ public class GroupManager implements GroupInputBoundary {
 
     @Override
     public void runJoinGroup(String[] userInput, JoinGroupOutputBoundary outputBoundary) throws IOException {
-        joinGroup(userInput[0], userInput[1]);
-        outputBoundary.setJoinGroupStatus(userInput[1]);
+        if (this.checkGroup(userInput[0], userInput[1])) {
+            outputBoundary.setJoinGroupStatus("already in group");
+        }
+        else {
+            joinGroup(userInput[0], userInput[1]);
+            outputBoundary.setJoinGroupName(userInput[1]);
+        }
     }
 
     public boolean checkGroup(String username, String GroupName) {
