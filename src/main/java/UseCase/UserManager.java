@@ -308,6 +308,7 @@ public class UserManager implements UserInputBoundary {
     @Override
     public void runRemoveFriend(String[] parameters, RemoveFriendOutputBoundary outputBoundary) {
         this.removeFriend(parameters[0], parameters[1]);
+        this.removeFriend(parameters[1], parameters[0]);
         outputBoundary.setRemoveFriendName(parameters[1]);
     }
 
