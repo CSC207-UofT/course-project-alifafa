@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".Activity.GCMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BlockedListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.PtoPitemActivity"
             android:exported="false" />
         <activity
