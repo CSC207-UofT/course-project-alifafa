@@ -5,6 +5,7 @@ import Entity.Group;
 import Presenters.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PtoGChatUI extends ParentUI{
@@ -14,7 +15,7 @@ public class PtoGChatUI extends ParentUI{
      */
 
     private final GroupManager groupManager = new GroupManager();
-    public void run (){
+    public void run () throws IOException {
         PtoGMessageController controller = new PtoGMessageController();
         PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
         String[] parameters = new String[3];
@@ -32,17 +33,17 @@ public class PtoGChatUI extends ParentUI{
 
         //print previous chat history from the group
         System.out.println("Previous group chat history: ");
-        controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
+        controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();
 
         //send message to the group
         System.out.println("Please type your message.");
         parameters[2] = scanner.nextLine();
-        controller.sendMessage(parameters[0], parameters[1], parameters[2]);
+        controller.sendGroupMessage(parameters[0], parameters[1], parameters[2]);
 
         //print latest chat history from this group.
         System.out.println("Current group chat history: ");
-        controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
+        controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
         presenter.present();
     }
 }
