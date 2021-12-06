@@ -1,5 +1,7 @@
 package Presenters;
 
+import OutputBoundary.LogOutOutputBoundary;
+
 public class FindLoggedInUserPresenter implements LogOutOutputBoundary {
     String userName;
 

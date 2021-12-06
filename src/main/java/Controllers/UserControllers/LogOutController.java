@@ -1,7 +1,8 @@
 package Controllers.UserControllers;
 
 
-import android.os.UserManager;
+import InputBoundary.UserInputBoundary;
+import UseCase.UserManager;
 
 public class LogOutController {
     /**

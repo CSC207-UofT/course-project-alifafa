@@ -2,6 +2,8 @@ package Controllers.UserControllers;
 
 
 import InputBoundary.UserInputBoundary;
+import Presenters.FindLoggedInUserPresenter;
+import UseCase.UserManager;
 
 public class FindLoggedInUserController {
     /**

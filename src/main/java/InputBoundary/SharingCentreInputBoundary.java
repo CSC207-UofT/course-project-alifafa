@@ -2,7 +2,6 @@ package InputBoundary;
 
 import OutputBoundary.*;
 
-import java.io.File;
 import java.util.List;
 
 public interface SharingCentreInputBoundary {
@@ -10,7 +9,7 @@ public interface SharingCentreInputBoundary {
      * This interface is implemented by PostManager.
      */
 
-    void runPostAPost(String user, String content, String location, List<File> pictures, PostAPostOutputBoundary outputBoundary);
+    void runPostAPost(String user, String content, String location, List<String> pictures, PostAPostOutputBoundary outputBoundary);
 
     void runDeletePost(String user, String postID, DeletePostOutputBoundary outputBoundary);
 

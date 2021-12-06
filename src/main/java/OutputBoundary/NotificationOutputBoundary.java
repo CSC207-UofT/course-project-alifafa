@@ -1,4 +1,4 @@
-zpackage OutputBoundary;
+package OutputBoundary;
 
 import Entity.Notifications;
 

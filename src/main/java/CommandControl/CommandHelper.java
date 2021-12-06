@@ -17,9 +17,13 @@ public class CommandHelper {
      */
     public String readCommand(Constants validCommands) {
         String command = null;
+        Constants constants = new Constants();
+
         while (!validCommands.isValid(command)) {
+
             System.out.println("Hello! Please type a valid command to begin (eg. type 'log in', " +
-                    "'create an account', 'add friend', 'chat', 'create a group', 'join group', 'group chat', 'edit info')");
+                    "'create an account', 'add friend', 'chat', 'create a group', 'join group', 'group chat', " +
+                    "'view share center', 'comment post', 'post a post')");
             Scanner scanner = new Scanner(System.in);
             command = scanner.nextLine();
         }
