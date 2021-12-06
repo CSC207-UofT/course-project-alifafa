@@ -1,6 +1,6 @@
 package OutputBoundary;
 
-public interface LogOutInputBoundary {
+public interface LogOutOutputBoundary {
     void getUsername(String userName);
     String presentOutput();
 }

@@ -8,6 +8,9 @@ import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
 import Entity.UserList;
+import OutputBoundary.AccountRegistrationOutputBoundary;
+import OutputBoundary.AddFriendOutputBoundary;
+import OutputBoundary.LogOutOutputBoundary;
 
 public class UserManager implements UserInputBoundary {
 
