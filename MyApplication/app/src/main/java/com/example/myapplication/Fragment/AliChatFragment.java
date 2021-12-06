@@ -8,21 +8,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ListView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Activity.GChatActivity;
+
+import com.example.myapplication.Activity.LoginActivity;
+
 import com.example.myapplication.Activity.PtoPitemActivity;
+import com.example.myapplication.Adapter.PtoPListAdapter;
 import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageFacade;
+import com.example.myapplication.Controllers.UserControllers.CheckFriendController;
 import com.example.myapplication.Entity.PtoPMessage;
+import com.example.myapplication.Presenters.CheckFriendPresenter;
 import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.R;
+import com.example.myapplication.Activity.PtoPitemActivity;
+import com.example.myapplication.Adapter.PtoPListAdapter;
+import com.example.myapplication.Controllers.ChatControllers.PtoPMessageController;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class AliChatFragment extends Fragment {
 
@@ -31,6 +42,9 @@ public class AliChatFragment extends Fragment {
     private EditText mEtFriendName;
     private EditText mEtMessage;
     private EditText mEtMyName;
+    private ListView mLvPtoP;
+
+    private PtoPListAdapter ptoPListAdapter;
 
     private List<PtoPMessage> mPtoPList = new ArrayList<>();
 
@@ -44,7 +58,8 @@ public class AliChatFragment extends Fragment {
         mBtnSend = view.findViewById(R.id.btn_send);
         mEtFriendName = view.findViewById(R.id.et_friend_name);
         mEtMessage = view.findViewById(R.id.message);
-        //mEtMyName = view.findViewById(R.id.et_my_name);
+        mEtMyName = view.findViewById(R.id.et_my_name);
+        mLvPtoP = view.findViewById(R.id.lv_ptop);
 
         // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
@@ -53,10 +68,13 @@ public class AliChatFragment extends Fragment {
         });
 
 
+        PtoPMessageFacade ptoPMessageFacade = new PtoPMessageFacade();
         PtoPMessageController ptoPMessageController = new PtoPMessageController();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
-        //CheckFriendController checkFriendController = new CheckFriendController();
+
+        CheckFriendController checkFriendController = new CheckFriendController();
+        CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
 
         // Send message and present message
         mBtnSend.setOnClickListener(view1 -> {
@@ -65,32 +83,43 @@ public class AliChatFragment extends Fragment {
             String myUserName = mEtMyName.getText().toString();
 
             // haven't been implemented yet
-            Boolean isFriend = true;//checkFriendController.checkFriend(myUserName, friendUsername);
+            checkFriendController.runCheckFriend(myUserName, friendUsername, checkFriendPresenter);
+            boolean isFriend = checkFriendPresenter.isFriend();
 
             //write if statement that searches if friend is an existing friend and send out message.
             if (isFriend){
                 // send message
                 try {
-                    ptoPMessageController.sendMessage(myUserName,friendUsername,message);
+                    ptoPMessageFacade.sendMessage(myUserName,friendUsername,message);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
                 //receive message
-                ptoPMessageController.receiveMessageHistory(myUserName,friendUsername,ptoPMessageHistoryPresenter);
+                ptoPMessageFacade.receiveMessageHistory(myUserName,friendUsername,ptoPMessageHistoryPresenter);
                 // return chat history, and turn it into an array, each element is a message
                 String chatHistory = ptoPMessageHistoryPresenter.present();
                 String[] chatArray = chatHistory.split("\n");
+                for (String chat: chatArray){
+                    PtoPMessage ptoPMessage = new PtoPMessage(ptoPMessageController.getUser(myUserName),
+                            ptoPMessageController.getUser(friendUsername), message);
+                    mPtoPList.add(ptoPMessage);
+
+                }
 
                 // Haven't been implemented yet:
                 // After click Send Button, present the message in chatArray on the phone line by line
             }else{
+                Toast.makeText(view.getContext(), "Not valid friend",Toast.LENGTH_SHORT).show();
                 // Haven't been implemented yet:
                 // When they are not friends
                 // Pop up a warning show "No friend found"
             }
 
         });
+
+        ptoPListAdapter = new PtoPListAdapter(getActivity(), R.layout.activity_ptop_item, mPtoPList);
+        mLvPtoP.setAdapter(ptoPListAdapter);
 
         return view;
     }

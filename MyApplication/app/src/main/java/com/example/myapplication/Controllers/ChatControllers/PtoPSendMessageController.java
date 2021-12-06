@@ -1,17 +1,16 @@
 package com.example.myapplication.Controllers.ChatControllers;
 
-import com.example.myapplication.Entity.User;
 import com.example.myapplication.InputBoundary.PtoPMessageInputBoundary;
 import com.example.myapplication.InputBoundary.UserInputBoundary;
-import com.example.myapplication.Presenters.PtoPMessageHistoryPresenter;
 import com.example.myapplication.UseCase.PtoPMessageManager;
 import com.example.myapplication.UseCase.UserManager;
 
 import java.io.IOException;
 
-public class PtoPMessageController{
+public class PtoPSendMessageController {
+
     /**
-     * This class is responsible for controlling messages between two users
+     * This class is responsible for sending messages between two users
      */
 
     //The input boundary of this class, which is implemented by PtoPMessageManager. It should be
@@ -19,7 +18,6 @@ public class PtoPMessageController{
     //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
     private final PtoPMessageInputBoundary ptoPMessageInputBoundary= new PtoPMessageManager();
     private final UserInputBoundary userInputBoundary = new UserManager();
-
 
     /**
      * Sends message from one user to another user
@@ -33,24 +31,4 @@ public class PtoPMessageController{
                 ptoPMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUsername),
                         userInputBoundary.getUser(receiverUsername) , content));
     }
-
-
-    /**
-     * Stores all messages between receiver and sender.
-     *
-     * @param senderUsername sender's name
-     * @param receiverUsername receiver's name
-     * @param presenter PtoPMessageHistoryPresenter
-     */
-    public void receiveMessageHistory(String senderUsername, String receiverUsername,
-                                      PtoPMessageHistoryPresenter presenter){
-        ptoPMessageInputBoundary.receiveMessageHistory(userInputBoundary.getUser(senderUsername),
-                userInputBoundary.getUser(receiverUsername), presenter);
-    }
-
-    public User getUser(String name){
-        return userInputBoundary.getUser(name);
-
-    }
-
 }

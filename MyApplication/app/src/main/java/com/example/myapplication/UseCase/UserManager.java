@@ -89,13 +89,13 @@ public class UserManager implements UserInputBoundary {
         return false;
     }
 
-    public String findPassword (String id){
+    public String findPassword (String userName){
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user: stored) {
-            if (user.getID().equals(id)) {
+            if (user.getUserName().equals(userName)) {
                 return user.getPassword();
             }
         }
@@ -138,6 +138,13 @@ public class UserManager implements UserInputBoundary {
         User friend = this.getUser(friendID);
         friend.addFriend(this.getUser(id));
 
+    }
+
+    public void addBlockedUser (String id, String friendID){
+        //Add user to blocked list
+        User user = this.getUser(id);
+        User friend = this.getUser(friendID);
+        user.addBlockedUser(friend);
     }
 
     /* will be implemented in later phase.
@@ -183,5 +190,32 @@ public class UserManager implements UserInputBoundary {
     public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
         addFriend(userInput[0], userInput[1]);
         outputBoundary.setAddFriendStatus(userInput[1]);
+    }
+
+    public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
+        if (checkFriend(me, friend)){
+            outputBoundary.setCheckFriendStatus(true);
+            System.out.println("Valid Friend");
+        }else{
+            outputBoundary.setCheckFriendStatus(false);
+            System.out.println("Invalid friend");
+        }
+
+    }
+
+    @Override
+    public void runLogOut(String username) {
+        this.getUser(username).changeLoggedInStatus();
+    }
+
+    @Override
+    public void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary) {
+        UserList store = new UserList();
+        ArrayList<User> stored = store.getAllUsers();
+        for (User user: stored) {
+            if (user.getLoggedIn()) {
+                logOutOutputBoundary.getUsername(user.getUserName());
+            }
+        }
     }
 }

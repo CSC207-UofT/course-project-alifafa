@@ -13,8 +13,8 @@
                 android:name=".Activity.PtoPitemActivity"
                 android:exported="false" />
         <activity
-                android:name=".Activity.GChatActivity"
-                android:exported="false" />
+            android:name=".Activity.GChatActivity"
+            android:exported="false" />
         <activity android:name=".Activity.RegisterActivity" android:exported="true"/>
         <activity
                 android:name=".Activity.LoginActivity"

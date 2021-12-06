@@ -1,3 +1,5 @@
+
+
 package com.example.myapplication.Activity;
 
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Controllers.UserControllers.LogInController;
+import com.example.myapplication.Fragment.ProfileFragment;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.Presenters.LogInPresenter;
 import com.example.myapplication.R;
@@ -22,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private boolean loggedIn;
     private String message;
 
+    private static String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +40,11 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin = findViewById(R.id.btn_login);
 
         mBtnLogin.setOnClickListener(view -> {
-            mEtUsername.getText();
-            mEtPassword.getText();
 
-            logInController.runLogIn(mEtUsername.toString(), mEtPassword.toString(), logInPresenter);
+            logInController.runLogIn(mEtUsername.getText().toString(), mEtPassword.getText().toString(), logInPresenter);
 
             if (logInPresenter.isLoggedIn()){
-            // if (true){
+                userName = mEtUsername.getText().toString();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{
@@ -56,5 +59,9 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+
+    public static String getUserName() {
+        return userName;
     }
 }

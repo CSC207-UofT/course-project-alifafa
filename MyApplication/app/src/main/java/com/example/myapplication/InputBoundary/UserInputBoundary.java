@@ -1,9 +1,7 @@
 package com.example.myapplication.InputBoundary;
 
 import com.example.myapplication.Entity.User;
-import com.example.myapplication.OutputBoundary.AccountRegistrationOutputBoundary;
-import com.example.myapplication.OutputBoundary.AddFriendOutputBoundary;
-import com.example.myapplication.OutputBoundary.LogInOutputBoundary;
+import com.example.myapplication.OutputBoundary.*;
 
 import java.io.IOException;
 
@@ -21,4 +19,10 @@ public interface UserInputBoundary {
     void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
 
     User getUser (String id);
+
+    void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary);
+
+    void runLogOut(String username);
+
+    void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
 }

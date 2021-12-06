@@ -38,6 +38,7 @@ public class SharingCentreFragment extends Fragment {
         mRVPosts.setLayoutManager(new LinearLayoutManager(view.getContext()));
         mRVPosts.setAdapter(new SharingCentreFragmentAdapter(view.getContext()));
 
+
         return view;
     }
 

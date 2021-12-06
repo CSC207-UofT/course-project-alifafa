@@ -31,14 +31,26 @@
             android:clickable="false"
             android:enabled="false"/>
     </RelativeLayout>
+    <Button
+            android:id="@+id/btn_blocked_list"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Blocked List"
+            android:textColor="@color/alabaster"
+            android:backgroundTint="@color/black"/>
 
     <Button
         android:id="@+id/btn_update_pic"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/middle_grey"
         android:text="Update Profile"
         android:layout_gravity="center"/>
+
+
 
     <Button
         android:id="@+id/btn_logout"
@@ -49,7 +61,6 @@
         android:text="Logout"
         android:textColor="@color/alabaster"
         android:backgroundTint="@color/melon"/>
-
 
 
 </LinearLayout>
