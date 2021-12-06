@@ -144,6 +144,7 @@ public class UserManager implements UserInputBoundary {
         //Edit password or username
         User user = this.getUser(userName);
         user.setPassword(new_password);
+      
     }
 
     public void addBlockedUser (String id, String friendID){
