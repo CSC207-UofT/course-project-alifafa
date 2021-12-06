@@ -33,6 +33,8 @@ public class Constants {
         validCommands.put("remove friend", new RemoveFriendUI());
         validCommands.put("edit password", new EditPasswordUI());
         validCommands.put("group kick", new KickGroupMemberUI());
+        validCommands.put("log out", new LogoutUI());
+
 
 }
 

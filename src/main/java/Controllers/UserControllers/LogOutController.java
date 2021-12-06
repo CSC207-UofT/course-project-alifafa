@@ -30,7 +30,6 @@ public class LogOutController {
 //        loginInputBoundary.runLogIn(parameters, presenter);
 //    }
     public void runLogOut(String username){
-
         logOutInputBoundary.runLogOut(username);
     }
 
