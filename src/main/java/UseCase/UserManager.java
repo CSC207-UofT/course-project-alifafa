@@ -140,6 +140,13 @@ public class UserManager implements UserInputBoundary {
 
     }
 
+    public void editPassword(String new_password, String userName){
+        //Edit password or username
+        User user = this.getUser(userName);
+        user.setPassword(new_password);
+      
+    }
+
     public void addBlockedUser (String id, String friendID){
         //Add user to blocked list
         User user = this.getUser(id);
@@ -213,6 +220,11 @@ public class UserManager implements UserInputBoundary {
 
     }
 
+    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary){
+        editPassword(parameters[0], parameters[1]);
+        outputBoundary.setEdited(true);
+    }
+
     @Override
     public void runLogOut(String username) {
         this.getUser(username).changeLoggedInStatus();
@@ -234,4 +246,5 @@ public class UserManager implements UserInputBoundary {
         this.removeFriend(parameters[0], parameters[1]);
         outputBoundary.setRemoveFriendName(parameters[1]);
     }
+
 }

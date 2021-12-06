@@ -29,4 +29,6 @@ public interface UserInputBoundary {
     void runRemoveFriend(String[] parameters, RemoveFriendOutputBoundary outputBoundary);
 
     void runAddBlocked(String[] parameters, BlockedListOutputBoundary outputBoundary);
+
+    void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary);
 }

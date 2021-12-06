@@ -120,6 +120,11 @@ public class User implements Serializable {
         this.blockedUser.add(blocked);
     }
 
+    public void setPassword (String password){
+        //Set password for user.
+        this.password = password;
+    }
+
 
     public void removeFriend (User friend){
         //Remove friend from the list friends
