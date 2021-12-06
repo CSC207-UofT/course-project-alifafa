@@ -1,20 +1,19 @@
 package Presenters;
 
-import Entity.ParagraphPost;
 import OutputBoundary.SharingCentreOutputBoundary;
 
 import java.util.List;
 
 public class SharingCentrePresenter implements SharingCentreOutputBoundary {
-    List<ParagraphPost> content;
+    List<String> content;
 
     @Override
-    public void setContent(List<ParagraphPost> content) {
+    public void setContent(List<String> content) {
         this.content = content;
     }
 
     @Override
-    public String presentOutput() {
-        return null;
+    public List<String> presentOutput() {
+        return this.content;
     }
 }

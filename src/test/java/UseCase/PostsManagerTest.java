@@ -39,7 +39,7 @@ public class PostsManagerTest {
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
-        List<File> pictures = new ArrayList<>();
+        List<String> pictures = new ArrayList<>();
         postsManager.postAPost(a, "Haha", "", pictures);
         Assert.assertEquals(a.getMyPosts(), b.getSharingCentre().getAllPosts());
         Assert.assertEquals(1, a.getMyPosts().size());
@@ -64,7 +64,7 @@ public class PostsManagerTest {
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
-        List<File> pictures = new ArrayList<>();
+        List<String> pictures = new ArrayList<>();
         postsManager.postAPost(a, "Haha", "", pictures);
         Assert.assertEquals(a.getMyPosts(), b.getSharingCentre().getAllPosts());
         Assert.assertEquals(1, a.getMyPosts().size());
@@ -87,7 +87,7 @@ public class PostsManagerTest {
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
-        List<File> pictures = new ArrayList<>();
+        List<String> pictures = new ArrayList<>();
         postsManager.postAPost(a, "Haha", "", pictures);
         postsManager.likePost(b, a.getMyPosts().get(0));
         Assert.assertEquals(1, a.getMyPosts().get(0).getLikes());
@@ -109,11 +109,11 @@ public class PostsManagerTest {
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
-        List<File> pictures = new ArrayList<>();
+        List<String> pictures = new ArrayList<>();
         postsManager.postAPost(a, "Haha", "", pictures);
         postsManager.commentPost(b, a.getMyPosts().get(0), "WoW");
         Assert.assertEquals(b, a.getSharingCentre().getNotificationList().get(0).getUSER());
-        Assert.assertEquals(1, a.getMyPosts().get(0).getComments().get(b).size());
+        Assert.assertEquals(1, a.getMyPosts().get(0).getComments().size());
         Assert.assertFalse(a.getSharingCentre().getNotificationList().get(0).isLikeNotification());
     }
 

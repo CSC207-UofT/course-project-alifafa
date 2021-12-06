@@ -18,8 +18,8 @@ import java.util.List;
 * @version 1.0 
 */ 
 public class PicturePostTest { 
-    List<File> files = new ArrayList<>();
-    PicturePost post = new PicturePost(LocalDateTime.now(), "LoL", "Hello", files);
+    List<String> urls = new ArrayList<>();
+    PicturePost post = new PicturePost("a", LocalDateTime.now(), "LoL", "Hello", urls);
 
 @Before
 public void before() {
@@ -37,8 +37,8 @@ public void after() {
 */ 
 @Test
 public void testGetPictures() {
-    File file = new File("dd");
-    files.add(file);
+    String url = "https://";
+    urls.add(url);
     Assert.assertEquals(1, post.getPictures().size());
 } 
 
