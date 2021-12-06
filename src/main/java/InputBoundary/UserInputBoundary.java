@@ -1,9 +1,9 @@
 package InputBoundary;
 
 import Entity.User;
-import OutputBoundary.AccountRegistrationOutputBoundary;
-import OutputBoundary.AddFriendOutputBoundary;
-import OutputBoundary.LogInOutputBoundary;
+import OutputBoundary.*;
+
+import java.io.IOException;
 
 
 public interface UserInputBoundary {

@@ -2,6 +2,7 @@ package Controllers.UserControllers;
 
 
 import InputBoundary.UserInputBoundary;
+import UseCase.UserManager;
 
 public class LogOutController {
     /**
