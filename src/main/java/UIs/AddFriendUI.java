@@ -23,6 +23,7 @@ public class AddFriendUI extends ParentUI {
         String[] parameters = new String[2];
 
         parameters[0] = constants.getCurrentUser();
+        System.out.println("The current logged in user is " + parameters[0]);
 
         System.out.println("Your friend's userName: ");
         Scanner scanner = new Scanner(System.in);
