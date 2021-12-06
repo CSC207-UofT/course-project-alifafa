@@ -1,5 +1,6 @@
 package UIs;
 
+import CommandControl.Constants;
 import Controllers.PostsSharingController.GetSharingCenterController;
 import Presenters.SharingCentrePresenter;
 
@@ -17,10 +18,15 @@ public class ViewSharingCentreUI extends ParentUI{
 
         String[] params = new String[1];
 
-        System.out.println("The Username of the User: ");
-        Scanner scanner = new Scanner(System.in);
-        params[0] = scanner.nextLine();
+        Constants constants = new Constants();
 
+        String currentUser = constants.getCurrentUser();
+
+        if (currentUser==null){
+            System.out.println("You need to log in first!");
+        } else {
+            params[0] = currentUser;
+        }
         sharingController.runRetrieveSharingCentre(params[0], sharingPresenter);
         System.out.println(sharingPresenter.presentOutput());
     }
