@@ -1,12 +1,10 @@
 package OutputBoundary;
 
-import Entity.ParagraphPost;
-
 import java.util.List;
 
 public interface SharingCentreOutputBoundary {
 
-    void setContent(List<ParagraphPost> content);
+    void setContent(List<String> content);
 
-    String presentOutput();
+    List<String> presentOutput();
 }
