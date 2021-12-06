@@ -1,6 +1,6 @@
-import CommandControl.CommandHelper;
-import CommandControl.Constants;
+
 import Controllers.UserControllers.ReadAndWriteController;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -8,7 +8,6 @@ public class MainProgram {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         ReadAndWriteController readAndWriteController = new ReadAndWriteController();
-        readAndWriteController.runRead();
 
         CommandHelper commandUI = new CommandHelper();
         Constants commands = new Constants();
@@ -22,8 +21,6 @@ public class MainProgram {
             System.out.println("Do you want to exit (Type 'yes' or 'no')");
             quit = in.nextLine();
         }
-
-        readAndWriteController.runWrite();
 
         in.close();
     }
