@@ -72,6 +72,7 @@ public class AliChatFragment extends Fragment {
         PtoPMessageController ptoPMessageController = new PtoPMessageController();
         PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
         // Haven't been implemented yet
+
         CheckFriendController checkFriendController = new CheckFriendController();
         CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
 

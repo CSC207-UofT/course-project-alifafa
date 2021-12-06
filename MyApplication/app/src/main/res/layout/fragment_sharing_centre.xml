@@ -8,18 +8,51 @@
     tools:context=".Fragment.SharingCentreFragment"
     android:orientation="vertical">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/lv_sharing_list"
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/teal_200"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+        <ImageButton
+                android:id="@+id/back_sc"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_back"
+                android:background="#00000000"
+        />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SharingCentre"
+                android:layout_centerInParent="true"
+                android:textSize="25sp"/>
+
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera"
+                android:layout_marginLeft="100dp"
+                android:layout_gravity="center_vertical|right"
+                android:background="#00000000" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_sharing_centre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
+    </ScrollView>
 
 
 </LinearLayout>
