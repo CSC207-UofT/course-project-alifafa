@@ -11,6 +11,7 @@ public class MainProgram {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         ReadAndWriteController readAndWriteController = new ReadAndWriteController();
+        readAndWriteController.readData();
 
         CommandHelper commandUI = new CommandHelper();
         Constants commands = new Constants();
