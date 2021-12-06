@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import DataAccessInterface.DataAccess;
+import Entity.ParagraphPost;
 import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
@@ -138,6 +139,10 @@ public class UserManager implements UserInputBoundary {
         User friend = this.getUser(friendUserName);
         friend.addFriend(this.getUser(userName));
 
+        // update the sharing centre of both users
+        user.getSharingCentre().getAllPosts().addAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().addAll(user.getMyPosts());
+
     }
 
     public void editPassword(String new_password, String userName){
@@ -160,6 +165,10 @@ public class UserManager implements UserInputBoundary {
         user.removeFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.removeFriend(this.getUser(userName));
+
+        // remove the posts from each other's sharing centre
+        user.getSharingCentre().getAllPosts().removeAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().removeAll(user.getMyPosts());
 
     }
 
