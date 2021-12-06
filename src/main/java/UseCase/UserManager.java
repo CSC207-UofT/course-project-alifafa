@@ -139,6 +139,11 @@ public class UserManager implements UserInputBoundary {
 
     }
 
+    public void editInfo(String choice, String new_info){
+        //Edit password or username
+        User user = this.get
+    }
+
     public void addBlockedUser (String id, String friendID){
         //Add user to blocked list
         User user = this.getUser(id);
@@ -217,4 +222,5 @@ public class UserManager implements UserInputBoundary {
             }
         }
     }
+
 }

@@ -23,6 +23,7 @@ public class Constants {
         validCommands.put("create a group", new CreateGroupUI());
         validCommands.put("join group", new JoinGroupUI());
         validCommands.put("group chat", new PtoGChatUI());
+        validCommands.put("edit info", new EditInfoUI());
 }
 
 
