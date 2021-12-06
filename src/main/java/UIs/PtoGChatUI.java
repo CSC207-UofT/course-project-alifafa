@@ -26,12 +26,6 @@ public class PtoGChatUI extends ParentUI{
         CheckGroupController checkGroupController = new CheckGroupController();
         CheckGroupPresenter checkGroupPresenter = new CheckGroupPresenter();
 
-        FindLoggedInUserPresenter findLoggedInUserPresenter = new FindLoggedInUserPresenter();
-        FindLoggedInUserController findLoggedInUserController = new FindLoggedInUserController();
-
-        findLoggedInUserController.findLoggedInUser(findLoggedInUserPresenter);
-        String userName = findLoggedInUserPresenter.presentOutput();
-
         String[] parameters = new String[3];
 
         System.out.println("My UserName: ");
