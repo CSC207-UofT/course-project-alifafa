@@ -12,6 +12,6 @@ public class JoinGroupPresenter implements JoinGroupOutputBoundary {
 
     @Override
     public String presentOutput() {
-        return "You have successfully joined "+ this.status + " group!";
+        return "You have successfully joined "+ "'" + this.status + "'" + " group!";
     }
 }

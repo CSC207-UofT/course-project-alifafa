@@ -29,7 +29,7 @@ public class Constants {
         validCommands.put("view share center", new ViewSharingCentreUI());
         validCommands.put("comment post", new CommentPostUI());
         validCommands.put("post a post", new PostAPostUI());
-
+        validCommands.put("group kick", new KickGroupMemberUI());
 
 }
 
