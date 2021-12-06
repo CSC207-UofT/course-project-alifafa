@@ -36,7 +36,7 @@ public class AddFriendUI extends ParentUI {
 
     }
 
-    static void addFriend(String currentUser, AddFriendController controller, AddFriendPresenter presenter) {
+    static void addFriend(String currentUser, AddFriendController controller, AddFriendPresenter presenter) throws IOException {
         String[] parameters = new String[2];
 
         parameters[0] = currentUser;
