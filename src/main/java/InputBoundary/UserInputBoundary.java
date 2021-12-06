@@ -1,9 +1,9 @@
 package InputBoundary;
 
 import Entity.User;
-import OutputBoundary.AccountRegistrationOutputBoundary;
-import OutputBoundary.AddFriendOutputBoundary;
-import OutputBoundary.LogInOutputBoundary;
+import OutputBoundary.*;
+
+import java.io.IOException;
 
 
 public interface UserInputBoundary {
@@ -14,9 +14,17 @@ public interface UserInputBoundary {
 
     void runLogIn (String[] parameters, LogInOutputBoundary outputBoundary);
 
-    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary);
+    void runAccountRegistration (String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException;
 
     void runAddFriend(String[] parameters, AddFriendOutputBoundary outputBoundary);
 
     User getUser (String id);
+
+    void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary);
+
+    void runLogOut(String username);
+
+    void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
+
+    void runAddBlocked(String[] parameters, BlockedListOutputBoundary outputBoundary);
 }
