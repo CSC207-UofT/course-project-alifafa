@@ -1,9 +1,9 @@
 package InputBoundary;
 
 import Entity.User;
-import OutputBoundary.AccountRegistrationOutputBoundary;
-import OutputBoundary.AddFriendOutputBoundary;
-import OutputBoundary.LogInOutputBoundary;
+import OutputBoundary.*;
+
+import java.io.IOException;
 
 
 public interface UserInputBoundary {
@@ -25,4 +25,6 @@ public interface UserInputBoundary {
     void runLogOut(String username);
 
     void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
+
+    void runAddBlocked(String[] parameters, BlockedListOutputBoundary outputBoundary);
 }

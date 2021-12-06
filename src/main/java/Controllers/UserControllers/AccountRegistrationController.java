@@ -3,6 +3,9 @@ package Controllers.UserControllers;
 import InputBoundary.UserInputBoundary;
 import Presenters.AccountRegistrationPresenter;
 import UseCase.UserManager;
+
+import java.io.IOException;
+
 /**
  * This class is responsible for managing the user input and calling associated UserManager when the user
  * wants to create an account.

@@ -1,6 +1,11 @@
 package UIs;
 
+import CommandControl.Constants;
 import Controllers.ChatControllers.PtoPMessageControllerFacade;
+import Controllers.UserControllers.CheckFriendController;
+import Controllers.UserControllers.FindLoggedInUserController;
+import Presenters.CheckFriendPresenter;
+import Presenters.FindLoggedInUserPresenter;
 import Presenters.PtoPMessageHistoryPresenter;
 
 import java.io.IOException;
@@ -14,45 +19,49 @@ public class PtoPChatUI extends ParentUI{
 
     // Use this method to realize person to person chat function.
     public void run () throws IOException {
+        Constants constants = new Constants();
 
-        PtoPMessageControllerFacade controller = new PtoPMessageControllerFacade();
-        PtoPMessageHistoryPresenter presenter = new PtoPMessageHistoryPresenter();
+        String userName = constants.getCurrentUser();
 
-        CheckFriendController checkFriendController = new CheckFriendController();
-        CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
+        if (userName==null){
+            System.out.println("You need to log in first!");
+        } else {
 
-        FindLoggedInUserPresenter findLoggedInUserPresenter = new FindLoggedInUserPresenter();
-        FindLoggedInUserController findLoggedInUserController = new FindLoggedInUserController();
+            PtoPMessageControllerFacade controller = new PtoPMessageControllerFacade();
+            PtoPMessageHistoryPresenter presenter = new PtoPMessageHistoryPresenter();
 
-        findLoggedInUserController.findLoggedInUser(findLoggedInUserPresenter);
-        String userName = findLoggedInUserPresenter.presentOutput();
+            CheckFriendController checkFriendController = new CheckFriendController();
+            CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
 
 
-        String[] parameters = new String[2];
 
-        System.out.println("Friend's UserName: ");
-        Scanner scanner = new Scanner(System.in);
-        parameters[0] = scanner.nextLine();
+            String[] parameters = new String[2];
 
-        checkFriendController.runCheckFriend(userName, parameters[0], checkFriendPresenter);
-        boolean isFriend = checkFriendPresenter.isFriend();
+            System.out.println("Friend's UserName: ");
+            Scanner scanner = new Scanner(System.in);
+            parameters[0] = scanner.nextLine();
 
-        if (isFriend){
-        //print previous chat history between my friend and me.
-        System.out.println("Previous chat history: ");
-        controller.receiveMessageHistory(userName, parameters[0], presenter);
-        presenter.present();
+            checkFriendController.checkFriend(userName, parameters[0], checkFriendPresenter);
+            boolean isFriend = checkFriendPresenter.isFriend();
 
-        //send message to the friend
-        System.out.println("Please type your message.");
-        parameters[1] = scanner.nextLine();
-        controller.sendMessage(userName, parameters[0], parameters[1]);
+            if (isFriend) {
+                //print previous chat history between my friend and me.
+                System.out.println("Previous chat history: ");
+                controller.receiveMessageHistory(userName, parameters[0], presenter);
+                presenter.present();
 
-        //print latest chat history between my friend and me.
-        System.out.println("Current chat history: ");
-        controller.receiveMessageHistory(userName, parameters[0], presenter);
-        presenter.present();}else{
-            System.out.println("Not valid friend");
+                //send message to the friend
+                System.out.println("Please type your message.");
+                parameters[1] = scanner.nextLine();
+                controller.sendMessage(userName, parameters[0], parameters[1]);
+
+                //print latest chat history between my friend and me.
+                System.out.println("Current chat history: ");
+                controller.receiveMessageHistory(userName, parameters[0], presenter);
+                presenter.present();
+            } else {
+                System.out.println("Not valid friend");
+            }
         }
 
     }

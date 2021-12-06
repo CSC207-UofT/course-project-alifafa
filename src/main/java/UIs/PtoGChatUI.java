@@ -1,5 +1,6 @@
 package UIs;
 
+import CommandControl.Constants;
 import Controllers.ChatControllers.PtoGMessageController;
 import Entity.Group;
 import Presenters.PtoGMessageHistoryPresenter;
@@ -15,34 +16,42 @@ public class PtoGChatUI extends ParentUI{
 
     private final GroupManager groupManager = new GroupManager();
     public void run (){
-        PtoGMessageController controller = new PtoGMessageController();
-        PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
-        String[] parameters = new String[3];
+        Constants constants = new Constants();
 
-        System.out.println("My UserID: ");
-        Scanner scanner = new Scanner(System.in);
-        parameters[0] = scanner.nextLine();
-        System.out.println("GroupID: ");
-        parameters[1] = scanner.nextLine();
+        String currentUser = constants.getCurrentUser();
 
-        //print the GroupName
-        Group group = groupManager.getGroup(parameters[1]);
-        String g = "Current Group:" + group.getGroupName();
-        System.out.println(g);
+        if (currentUser==null){
+            System.out.println("You need to log in first!");
+        } else {
+            PtoGMessageController controller = new PtoGMessageController();
+            PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
+            String[] parameters = new String[3];
 
-        //print previous chat history from the group
-        System.out.println("Previous group chat history: ");
-        controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
-        presenter.present();
+            System.out.println("My UserID: ");
+            Scanner scanner = new Scanner(System.in);
+            parameters[0] = scanner.nextLine();
+            System.out.println("GroupID: ");
+            parameters[1] = scanner.nextLine();
 
-        //send message to the group
-        System.out.println("Please type your message.");
-        parameters[2] = scanner.nextLine();
-        controller.sendMessage(parameters[0], parameters[1], parameters[2]);
+            //print the GroupName
+            Group group = groupManager.getGroup(parameters[1]);
+            String g = "Current Group:" + group.getGroupName();
+            System.out.println(g);
 
-        //print latest chat history from this group.
-        System.out.println("Current group chat history: ");
-        controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
-        presenter.present();
+            //print previous chat history from the group
+            System.out.println("Previous group chat history: ");
+            controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
+            presenter.present();
+
+            //send message to the group
+            System.out.println("Please type your message.");
+            parameters[2] = scanner.nextLine();
+            controller.sendMessage(parameters[0], parameters[1], parameters[2]);
+
+            //print latest chat history from this group.
+            System.out.println("Current group chat history: ");
+            controller.receiveMessageHistory(parameters[0], parameters[1], presenter);
+            presenter.present();
+        }
     }
 }

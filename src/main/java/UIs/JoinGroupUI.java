@@ -1,6 +1,7 @@
 package UIs;
 
 
+import CommandControl.Constants;
 import Controllers.UserControllers.JoinGroupController;
 import Presenters.JoinGroupPresenter;
 import java.util.Scanner;
@@ -15,18 +16,26 @@ public class JoinGroupUI extends ParentUI {
      * This method is responsible for users to join a group.
      */
     public void run () {
-        JoinGroupController controller = new JoinGroupController();
-        JoinGroupPresenter presenter = new JoinGroupPresenter();
+        Constants constants = new Constants();
 
-        String[] parameters = new String[2];
+        String currentUser = constants.getCurrentUser();
 
-        System.out.println("Your ID ");
-        Scanner scanner = new Scanner(System.in);
-        parameters[0] = scanner.nextLine();
-        System.out.println("GroupID: ");
-        parameters[1] = scanner.nextLine();
+        if (currentUser==null){
+            System.out.println("You need to log in first!");
+        } else {
+            JoinGroupController controller = new JoinGroupController();
+            JoinGroupPresenter presenter = new JoinGroupPresenter();
 
-        controller.joinGroup(parameters, presenter);
-        System.out.println(presenter.presentOutput());
+            String[] parameters = new String[2];
+
+            System.out.println("Your ID ");
+            Scanner scanner = new Scanner(System.in);
+            parameters[0] = scanner.nextLine();
+            System.out.println("GroupID: ");
+            parameters[1] = scanner.nextLine();
+
+            controller.joinGroup(parameters, presenter);
+            System.out.println(presenter.presentOutput());
+        }
     }
 }
