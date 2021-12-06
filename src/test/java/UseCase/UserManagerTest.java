@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -155,7 +156,7 @@ public class UserManagerTest {
     *
     */
     @Test
-    public void testAddFriend() {
+    public void testAddFriend() throws IOException {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();

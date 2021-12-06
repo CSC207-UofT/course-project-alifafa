@@ -2,6 +2,8 @@ package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import DataAccessInterface.DataAccess;
 import Entity.ParagraphPost;
@@ -28,17 +30,28 @@ public class UserManager implements UserInputBoundary {
             }
         }
         if (readable) {
-
             UserList store = new UserList();
-            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
-            store.addUsers(lst);
+            HashMap<String, ArrayList<User>> saved = this.gateway.readFromFile("User_State.csv");
+            ArrayList<User> storage = saved.get("storage");
+            for (User u: storage) {
+                String name = u.getUserName();
+                ArrayList<User> f = saved.get(name);
+                u.addFriends(f);
+            }
+            store.addUsers(storage);
         }
     }
 
     public void writeData (DataAccess dataAccess) throws IOException {
         //Write data to file
         UserList store = new UserList();
-        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
+        ArrayList<User> lst = store.getAllUsers();
+        HashMap<String, ArrayList<User>> save = new HashMap<String, ArrayList<User>>();
+        save.put("storage", lst);
+        for (User u: lst) {
+            save.put(u.getUserName(), u.getFriends());
+        }
+        dataAccess.saveToFile("User_State.csv", save);
     }
 
     public boolean checkID (String id){
@@ -81,7 +94,7 @@ public class UserManager implements UserInputBoundary {
     public boolean checkFriend (String username, String friendUsername){
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(username);
-        ArrayList<User> friends = user.getFriends();
+        List<User> friends = user.getFriends();
         for (User i: friends){
             if (i.getUserName().equals(friendUsername)){
                 return true;
@@ -132,8 +145,8 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public void addFriend (String userName, String friendUserName){
 
+    public void addFriend (String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
@@ -143,6 +156,8 @@ public class UserManager implements UserInputBoundary {
         // update the sharing centre of both users
         user.getSharingCentre().getAllPosts().addAll(friend.getMyPosts());
         friend.getSharingCentre().getAllPosts().addAll(user.getMyPosts());
+
+        this.writeData(this.gateway);
 
     }
 
@@ -208,7 +223,7 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException{
         if(userInput[0].equals(userInput[1])){
             outputBoundary.setStatus("add themselves");
         } else if (this.checkFriend(userInput[0], userInput[1])) {
