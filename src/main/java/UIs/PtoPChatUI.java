@@ -1,6 +1,10 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoPMessageControllerFacade;
+import Controllers.UserControllers.CheckFriendController;
+import Controllers.UserControllers.FindLoggedInUserController;
+import Presenters.CheckFriendPresenter;
+import Presenters.FindLoggedInUserPresenter;
 import Presenters.PtoPMessageHistoryPresenter;
 
 import java.io.IOException;
