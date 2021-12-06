@@ -2,12 +2,14 @@ package UIs;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.AddFriendController;
+import Controllers.UserControllers.RemoveFriendController;
 import Presenters.AddFriendPresenter;
+import Presenters.RemoveFriendPresenter;
 
 
 import java.util.Scanner;
 
-public class AddFriendUI extends ParentUI {
+public class RemoveFriendUI extends ParentUI {
     /**
      * A user interface for adding friend, will receive feedback from AddFriendPresenter.
      */
@@ -24,27 +26,27 @@ public class AddFriendUI extends ParentUI {
         if (currentUser==null){
             System.out.println("You need to log in first!");
         } else{
-            AddFriendController controller = new AddFriendController();
-            AddFriendPresenter presenter = new AddFriendPresenter();
+            RemoveFriendController controller = new RemoveFriendController();
+            RemoveFriendPresenter presenter = new RemoveFriendPresenter();
 
-            addFriend(currentUser, controller, presenter);
+            removeFriend(currentUser, controller, presenter);
         }
 
 
 
     }
 
-    static void addFriend(String currentUser, AddFriendController controller, AddFriendPresenter presenter) {
+    static void removeFriend(String currentUser, RemoveFriendController controller, RemoveFriendPresenter presenter) {
         String[] parameters = new String[2];
 
         parameters[0] = currentUser;
         System.out.println("The current logged in user is " + parameters[0]);
 
-        System.out.println("Your friend's userName: ");
+        System.out.println("Enter the username of the friend you want to remove");
         Scanner scanner = new Scanner(System.in);
         parameters[1] = scanner.nextLine();
 
-        controller.addFriend(parameters, presenter);
+        controller.removeFriend(parameters, presenter);
         System.out.println(presenter.presentOutput());
     }
 }

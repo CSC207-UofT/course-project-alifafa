@@ -17,7 +17,7 @@ public class User implements Serializable {
     private final String userID;
     private final String userName;
     //The password of the User.
-    private final String password;
+    private String password;
     //All friends of the User.
     private final ArrayList<User> friends;
     //All posts of the User.
@@ -25,8 +25,7 @@ public class User implements Serializable {
 
     private final ArrayList<User> blockedUser;
 
-    /*private final ArrayList<String> addFriendRequests;
-     */
+    private ArrayList<String> addFriendRequests;
 
     //The sharing centre of the User.
     private final SharingCentre sharingCentre;
@@ -103,11 +102,13 @@ public class User implements Serializable {
         //Change the userName to new userName
         this.userName = userName;
     }
+
+     */
     public void changePassword (String password){
         //Change the password to new password
         this.password = password;
     }
-     */
+
 
     public void addFriend (User friend){
         //Add friend to the list friends
@@ -119,7 +120,12 @@ public class User implements Serializable {
         this.blockedUser.add(blocked);
     }
 
-    /* will be implemented in later phase.
+    public void setPassword (String password){
+        //Set password for user.
+        this.password = password;
+    }
+
+
     public void removeFriend (User friend){
         //Remove friend from the list friends
         int k = this.friends.size() + 1;
@@ -132,6 +138,9 @@ public class User implements Serializable {
             this.friends.remove(k);
         }
     }
-     */
 
+
+    public ArrayList<String> getAddFriendRequests() {
+        return addFriendRequests;
+    }
 }

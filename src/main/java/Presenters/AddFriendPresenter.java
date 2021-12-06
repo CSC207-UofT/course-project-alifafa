@@ -6,7 +6,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
     String status;
 
     @Override
-    public void setAddFriendStatus(String status) {
+    public void setAddFriendName(String status) {
         this.status = status;
     }
 
