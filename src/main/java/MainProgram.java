@@ -11,6 +11,7 @@ public class MainProgram {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         ReadAndWriteController readAndWriteController = new ReadAndWriteController();
+        readAndWriteController.readData();
 
         CommandHelper commandUI = new CommandHelper();
         Constants commands = new Constants();
@@ -22,9 +23,16 @@ public class MainProgram {
             String task = commandUI.readCommand(commands);
 
             commands.getUI(task).run();
+            System.out.println("");
             System.out.println("Do you want to exit (Type 'yes' or 'no')");
             quit = in.nextLine();
+            while (!(quit.equals("no")||quit.equals("yes"))){
+                System.out.println("Please type a valid command (yes or no)");
+                quit = in.nextLine();
+            }
+            System.out.println("");
         }
+        System.out.println("");
 
         in.close();
     }

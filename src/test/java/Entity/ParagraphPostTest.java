@@ -3,6 +3,7 @@ package Entity;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,8 @@ import java.util.List;
 public class ParagraphPostTest {
 
     User a = new User("1", "a", "123");
-    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
-    List<String> comments = new ArrayList<>();
+    ParagraphPost post = new ParagraphPost(a.getUserName(), LocalDateTime.now(), "LOL", "hello");
+    List<String[]> comments = new ArrayList<>();
 
     /**
     *
@@ -80,10 +81,9 @@ public class ParagraphPostTest {
     */
     @Test
     public void testGetComments() {
-        comments.add("Haha");
-        post.getComments().put(a,comments);
+        comments.add(new String[]{"lucas", "haha"});
         Assert.assertEquals(1, post.getComments().size());
-        Assert.assertEquals("Haha", post.getComments().get(a).get(0));
+        Assert.assertEquals("Haha", post.getComments().get(0)[1]);
     }
 
     /**

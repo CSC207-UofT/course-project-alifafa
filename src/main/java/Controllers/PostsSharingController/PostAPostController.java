@@ -22,15 +22,7 @@ public class PostAPostController {
      */
     public void runPostAPost(String userid, String content, String location, List<String> pictures,
                               PostAPostPresenter presenter){
-        List<File> files = new ArrayList<>();
-        if (!pictures.isEmpty()) {   // Convert input String to File
-            int i = 0;
-            // Cannot have more than 9 files
-            while (i < pictures.size()) {
-                files.add(new File(pictures.get(i)));
-                i++;
-            }
-        }
-        sharingInputBoundary.runPostAPost(userid, content, location, files, presenter);
+
+        sharingInputBoundary.runPostAPost(userid, content, location, pictures, presenter);
     }
 }

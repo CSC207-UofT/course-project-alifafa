@@ -4,6 +4,8 @@ import InputBoundary.UserInputBoundary;
 import Presenters.AddFriendPresenter;
 import UseCase.UserManager;
 
+import java.io.IOException;
+
 public class AddFriendController{
 
     /**
@@ -15,7 +17,7 @@ public class AddFriendController{
 //        AddFriendInputBoundary = addFriendInputBoundary;
 //    }
 */
-    public void addFriend(String[] parameters, AddFriendPresenter presenter){
+    public void addFriend(String[] parameters, AddFriendPresenter presenter) throws IOException {
         AddFriendInputBoundary.runAddFriend(parameters, presenter);
     }
 
