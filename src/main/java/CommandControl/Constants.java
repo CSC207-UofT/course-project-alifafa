@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class Constants {
     private final HashMap<String, ParentUI> validCommands;
+    private static String currentUser;
 
     public Constants(){
         validCommands = new HashMap<>();
@@ -28,6 +29,7 @@ public class Constants {
         validCommands.put("view share center", new ViewSharingCentreUI());
         validCommands.put("comment post", new CommentPostUI());
         validCommands.put("post a post", new PostAPostUI());
+
 
 }
 
@@ -47,6 +49,12 @@ public class Constants {
         return validCommands.containsKey(taskName);
     }
 
+    public String getCurrentUser() {
+        return currentUser;
+    }
 
+    public void setCurrentUser(String currentUser) {
+        Constants.currentUser = currentUser;
+    }
 
 }
