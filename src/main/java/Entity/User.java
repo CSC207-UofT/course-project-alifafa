@@ -17,7 +17,7 @@ public class User implements Serializable {
     private final String userID;
     private final String userName;
     //The password of the User.
-    private final String password;
+    private String password;
     //All friends of the User.
     private final ArrayList<User> friends;
     //All posts of the User.
@@ -118,6 +118,12 @@ public class User implements Serializable {
         //Add user to blocked list
         this.blockedUser.add(blocked);
     }
+
+    public void setPassword (String password){
+        //Set password for user.
+        this.password = password;
+    }
+
 
     /* will be implemented in later phase.
     public void removeFriend (User friend){

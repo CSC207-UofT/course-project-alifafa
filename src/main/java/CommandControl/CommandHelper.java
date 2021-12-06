@@ -23,7 +23,7 @@ public class CommandHelper {
 
             System.out.println("Hello! Please type a valid command to begin (eg. type 'log in', " +
                     "'create an account', 'add friend', 'chat', 'create a group', 'join group', 'group chat', " +
-                    "'view share center', 'comment post', 'post a post')");
+                    "'view share center', 'comment post', 'post a post', 'edit password')");
             Scanner scanner = new Scanner(System.in);
             command = scanner.nextLine();
         }
