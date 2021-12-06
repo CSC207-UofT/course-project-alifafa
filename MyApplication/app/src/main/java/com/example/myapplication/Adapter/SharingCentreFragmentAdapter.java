@@ -13,6 +13,8 @@ import com.example.myapplication.Activity.SharingItemActivity;
 import com.example.myapplication.Fragment.SharingCentreFragment;
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
+
 import static com.example.myapplication.Fragment.SharingCentreFragment.postInfo;
 
 public class SharingCentreFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -37,6 +39,14 @@ public class SharingCentreFragmentAdapter extends RecyclerView.Adapter<RecyclerV
         ((LinearViewHolder) holder).mtvContent.setText(info[1]);
         ((LinearViewHolder) holder).mtvLocation.setText(info[2]);
         ((LinearViewHolder) holder).mtvLikes.setText(info[3]);
+        ArrayList<String[]> commentArrayList = new ArrayList<>();
+
+        // Try out
+        commentArrayList.add(new String[]{"lucas", "Hello!"});
+        commentArrayList.add(new String[]{"lucas", "Hello"});
+        commentArrayList.add(new String[]{"lucas", "Hell"});
+        CommentLVAdapter commentLVAdapter = new CommentLVAdapter(mContext, R.layout.support_simple_spinner_dropdown_item, commentArrayList);
+        ((LinearViewHolder) holder).mlvComments.setAdapter(commentLVAdapter);
 
     }
 

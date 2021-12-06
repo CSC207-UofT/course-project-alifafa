@@ -171,9 +171,8 @@
         <ListView
                 android:id="@+id/lv_comments"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                tools:listitem="@layout/include_item_comment"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" />
 
     </LinearLayout>
 

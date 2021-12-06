@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class CommentLVAdapter extends ArrayAdapter<String[]> {
 
-    public CommentLVAdapter(Context context, ArrayList<String[]> commentsArrayList) {
-        super(context, 0, commentsArrayList);
+    public CommentLVAdapter(Context context, int res, ArrayList<String[]> commentsArrayList) {
+        super(context, res, commentsArrayList);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -30,5 +30,6 @@ public class CommentLVAdapter extends ArrayAdapter<String[]> {
             commentTV.setText(comment[1]);
             return list_itemView;
     }
+
 
 }
