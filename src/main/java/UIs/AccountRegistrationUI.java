@@ -4,6 +4,7 @@ import Controllers.UserControllers.AccountRegistrationController;
 import Presenters.AccountRegistrationPresenter;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AccountRegistrationUI extends ParentUI{
@@ -13,16 +14,16 @@ public class AccountRegistrationUI extends ParentUI{
 
 
 
-    public void run() {
+    public void run() throws IOException {
         AccountRegistrationController controller = new AccountRegistrationController();
         AccountRegistrationPresenter presenter = new AccountRegistrationPresenter();
         String[] parameters = new String[3];
         Scanner scanner = new Scanner(System.in);
-        System.out.println("ID: ");
-        parameters[0] = scanner.nextLine();
         System.out.println("Username: ");
-        parameters[1] = scanner.nextLine();
+        parameters[0] = scanner.nextLine();
         System.out.println("Password: ");
+        parameters[1] = scanner.nextLine();
+        System.out.println("Re-enter your Password (the password need to match): ");
         parameters[2] = scanner.nextLine();
 
         controller.createAnAccount(parameters, presenter);
