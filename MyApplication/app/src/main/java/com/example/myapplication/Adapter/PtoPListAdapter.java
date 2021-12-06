@@ -19,14 +19,14 @@ import com.example.myapplication.R;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class PtoPListAdapter extends ArrayAdapter<PtoPMessage> {
+public class PtoPListAdapter extends ArrayAdapter<String> {
 
     private Context mContext;
     private int mResourceID;
-    private List<PtoPMessage> mItemList;
+    private List<String> mItemList;
 
-    public PtoPListAdapter(Context context, int resource, List<PtoPMessage> itemList){
-        super(context, resource, itemList);
+    public PtoPListAdapter(Context context, int resource, List<String> itemList) {
+        super(context, resource);
         this.mContext = context;
         this.mResourceID = resource;
         this.mItemList = itemList;
@@ -35,11 +35,11 @@ public class PtoPListAdapter extends ArrayAdapter<PtoPMessage> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final PtoPMessage item = getItem(position);
+        final String item = getItem(position);
 
         View view = null;
         ViewHolder viewHolder;
-        if(convertView == null){
+        if (convertView == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.activity_ptop_item, parent, false);
             viewHolder = new ViewHolder();
 
@@ -54,7 +54,7 @@ public class PtoPListAdapter extends ArrayAdapter<PtoPMessage> {
         }
 
         if (null != item) {
-            viewHolder.mMessage.setText(item.getContent());
+            viewHolder.mMessage.setText(item);
 
             return view;
         }
@@ -72,9 +72,11 @@ public class PtoPListAdapter extends ArrayAdapter<PtoPMessage> {
         return mItemList.isEmpty() ? 0 : mItemList.size();
     }
 
-    @Nullable
-    @Override
-    public PtoPMessage getItem(int position) {
-        return mItemList.isEmpty() ? null : mItemList.get(position);
-    }
 }
+//
+//    @Nullable
+//    @Override
+//    public String getItem(int position) {
+//        return mItemList.isEmpty() ? null : mItemList.get(position);
+//    }
+//}

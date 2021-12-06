@@ -2,6 +2,7 @@ package com.example.myapplication.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.myapplication.Activity.GCMainActivity;
 import com.example.myapplication.Activity.GChatActivity;
 
 import com.example.myapplication.Activity.LoginActivity;
@@ -46,7 +48,7 @@ public class AliChatFragment extends Fragment {
 
     private PtoPListAdapter ptoPListAdapter;
 
-    private List<PtoPMessage> mPtoPList = new ArrayList<>();
+    private List<String> mPtoPList = new ArrayList<>();
 
 
     @Nullable
@@ -57,13 +59,13 @@ public class AliChatFragment extends Fragment {
         mBtnGC = view.findViewById(R.id.btn_group_chat);
         mBtnSend = view.findViewById(R.id.btn_send);
         mEtFriendName = view.findViewById(R.id.et_friend_name);
-        mEtMessage = view.findViewById(R.id.message);
+        mEtMessage = view.findViewById(R.id.et_message);
         mEtMyName = view.findViewById(R.id.et_my_name);
         mLvPtoP = view.findViewById(R.id.lv_ptop);
 
         // Go to group chat page
         mBtnGC.setOnClickListener(view1 -> {
-            Intent intent = new Intent(view1.getContext(), GChatActivity.class);
+            Intent intent = new Intent(view1.getContext(), GCMainActivity.class);
             view.getContext().startActivity(intent);
         });
 
@@ -101,10 +103,7 @@ public class AliChatFragment extends Fragment {
                 String chatHistory = ptoPMessageHistoryPresenter.present();
                 String[] chatArray = chatHistory.split("\n");
                 for (String chat: chatArray){
-                    PtoPMessage ptoPMessage = new PtoPMessage(ptoPMessageController.getUser(myUserName),
-                            ptoPMessageController.getUser(friendUsername), message);
-                    mPtoPList.add(ptoPMessage);
-
+                    mPtoPList.add(chat);
                 }
 
                 // Haven't been implemented yet:
