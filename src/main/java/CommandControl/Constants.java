@@ -30,6 +30,10 @@ public class Constants {
         validCommands.put("like post", new LikePostUI());
         validCommands.put("delete post", new DeletePostUI());
         validCommands.put("view posts", new RetrieveUsersPostsUI());
+        validCommands.put("remove friend", new RemoveFriendUI());
+        validCommands.put("edit password", new EditPasswordUI());
+        validCommands.put("group kick", new KickGroupMemberUI());
+
 }
 
 
@@ -55,4 +59,5 @@ public class Constants {
     public void setCurrentUser(String currentUser) {
         Constants.currentUser = currentUser;
     }
+
 }
