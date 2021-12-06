@@ -33,7 +33,7 @@ public class CommentPostUI extends ParentUI {
             System.out.println("Your comment: ");
             params[2] = scanner.nextLine();
 
-            controller.runCommentPost(params[0], params[1], params[3], presenter);
+            controller.runCommentPost(params[0], params[1], params[2], presenter);
             System.out.println(presenter.presentOutput());
         }
 
