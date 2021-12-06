@@ -133,6 +133,7 @@ public class UserManager implements UserInputBoundary {
      */
 
     public void addFriend (String userName, String friendUserName){
+
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
@@ -208,8 +209,14 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
-        addFriend(userInput[0], userInput[1]);
-        outputBoundary.setAddFriendName(userInput[1]);
+        if(userInput[0].equals(userInput[1])){
+            outputBoundary.setStatus("add themselves");
+        } else if (this.checkFriend(userInput[0], userInput[1])) {
+            outputBoundary.setStatus("existing friend");
+        } else {
+            addFriend(userInput[0], userInput[1]);
+            outputBoundary.setAddFriendName(userInput[1]);
+        }
     }
 
     @Override
