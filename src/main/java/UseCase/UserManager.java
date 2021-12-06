@@ -199,13 +199,7 @@ public class UserManager implements UserInputBoundary {
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
-        if (checkFriend(me, friend)){
-            outputBoundary.setCheckFriendStatus(true);
-            System.out.println("Valid Friend");
-        }else{
-            outputBoundary.setCheckFriendStatus(false);
-            System.out.println("Invalid friend");
-        }
+        outputBoundary.setCheckFriendStatus(checkFriend(me, friend));
 
     }
 
