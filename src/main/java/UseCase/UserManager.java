@@ -2,8 +2,11 @@ package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import DataAccessInterface.DataAccess;
+import Entity.ParagraphPost;
 import Entity.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
@@ -27,17 +30,28 @@ public class UserManager implements UserInputBoundary {
             }
         }
         if (readable) {
-
             UserList store = new UserList();
-            ArrayList<User> lst = this.gateway.readFromFile("User_State.csv");
-            store.addUsers(lst);
+            HashMap<String, ArrayList<User>> saved = this.gateway.readFromFile("User_State.csv");
+            ArrayList<User> storage = saved.get("storage");
+            for (User u: storage) {
+                String name = u.getUserName();
+                ArrayList<User> f = saved.get(name);
+                u.addFriends(f);
+            }
+            store.addUsers(storage);
         }
     }
 
     public void writeData (DataAccess dataAccess) throws IOException {
         //Write data to file
         UserList store = new UserList();
-        dataAccess.saveToFile("User_State.csv", store.getAllUsers());
+        ArrayList<User> lst = store.getAllUsers();
+        HashMap<String, ArrayList<User>> save = new HashMap<String, ArrayList<User>>();
+        save.put("storage", lst);
+        for (User u: lst) {
+            save.put(u.getUserName(), u.getFriends());
+        }
+        dataAccess.saveToFile("User_State.csv", save);
     }
 
     public boolean checkID (String id){
@@ -80,7 +94,7 @@ public class UserManager implements UserInputBoundary {
     public boolean checkFriend (String username, String friendUsername){
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(username);
-        ArrayList<User> friends = user.getFriends();
+        List<User> friends = user.getFriends();
         for (User i: friends){
             if (i.getUserName().equals(friendUsername)){
                 return true;
@@ -131,13 +145,27 @@ public class UserManager implements UserInputBoundary {
     }
      */
 
-    public void addFriend (String userName, String friendUserName){
+
+    public void addFriend (String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
         User friend = this.getUser(friendUserName);
         friend.addFriend(this.getUser(userName));
 
+        // update the sharing centre of both users
+        user.getSharingCentre().getAllPosts().addAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().addAll(user.getMyPosts());
+
+        this.writeData(this.gateway);
+
+    }
+
+    public void editPassword(String new_password, String userName){
+        //Edit password or username
+        User user = this.getUser(userName);
+        user.setPassword(new_password);
+      
     }
 
     public void addBlockedUser (String id, String friendID){
@@ -147,16 +175,24 @@ public class UserManager implements UserInputBoundary {
         user.addBlockedUser(friend);
     }
 
-    /* will be implemented in later phase.
-    public void removeFriend (User user, User friend) {
-        //Remove friend from the list friends
-        user.removeFriend(friend);
+    public void removeFriend (String userName, String friendUserName){
+        //remove friend to the list friends
+        User user = this.getUser(userName);
+        user.removeFriend(this.getUser(friendUserName));
+        User friend = this.getUser(friendUserName);
+        friend.removeFriend(this.getUser(userName));
+
+        // remove the posts from each other's sharing centre
+        user.getSharingCentre().getAllPosts().removeAll(friend.getMyPosts());
+        friend.getSharingCentre().getAllPosts().removeAll(user.getMyPosts());
+
     }
+
     public ArrayList<String> getAddFriendRequests(User user) {
         //Return user’s request list.
         return user.getAddFriendRequests();
     }
-     */
+
 
     @Override
     public void runLogIn(String[] parameters, LogInOutputBoundary outputBoundary) {
@@ -187,9 +223,15 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) {
-        addFriend(userInput[0], userInput[1]);
-        outputBoundary.setAddFriendStatus(userInput[1]);
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException{
+        if(userInput[0].equals(userInput[1])){
+            outputBoundary.setStatus("add themselves");
+        } else if (this.checkFriend(userInput[0], userInput[1])) {
+            outputBoundary.setStatus("existing friend");
+        } else {
+            addFriend(userInput[0], userInput[1]);
+            outputBoundary.setAddFriendName(userInput[1]);
+        }
     }
 
     @Override
@@ -199,14 +241,13 @@ public class UserManager implements UserInputBoundary {
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {
-        if (checkFriend(me, friend)){
-            outputBoundary.setCheckFriendStatus(true);
-            System.out.println("Valid Friend");
-        }else{
-            outputBoundary.setCheckFriendStatus(false);
-            System.out.println("Invalid friend");
-        }
+        outputBoundary.setCheckFriendStatus(checkFriend(me, friend));
 
+    }
+
+    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary){
+        editPassword(parameters[0], parameters[1]);
+        outputBoundary.setEdited(true);
     }
 
     @Override
@@ -224,4 +265,11 @@ public class UserManager implements UserInputBoundary {
             }
         }
     }
+
+    @Override
+    public void runRemoveFriend(String[] parameters, RemoveFriendOutputBoundary outputBoundary) {
+        this.removeFriend(parameters[0], parameters[1]);
+        outputBoundary.setRemoveFriendName(parameters[1]);
+    }
+
 }

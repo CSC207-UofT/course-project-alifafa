@@ -24,9 +24,16 @@ public class Constants {
         validCommands.put("create a group", new CreateGroupUI());
         validCommands.put("join group", new JoinGroupUI());
         validCommands.put("group chat", new PtoGChatUI());
-        validCommands.put("view share center", new ViewSharingCentreUI());
+        validCommands.put("sharing center", new ViewSharingCentreUI());
         validCommands.put("comment post", new CommentPostUI());
         validCommands.put("post a post", new PostAPostUI());
+        validCommands.put("like post", new LikePostUI());
+        validCommands.put("delete post", new DeletePostUI());
+        validCommands.put("view posts", new RetrieveUsersPostsUI());
+        validCommands.put("remove friend", new RemoveFriendUI());
+        validCommands.put("edit password", new EditPasswordUI());
+        validCommands.put("group kick", new KickGroupMemberUI());
+
 }
 
 
@@ -52,4 +59,5 @@ public class Constants {
     public void setCurrentUser(String currentUser) {
         Constants.currentUser = currentUser;
     }
+
 }

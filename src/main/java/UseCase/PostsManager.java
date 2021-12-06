@@ -6,6 +6,7 @@ import OutputBoundary.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -60,7 +61,13 @@ public class PostsManager implements SharingCentreInputBoundary {
         user.getSharingCentre().getAllPosts().remove(post);
         user.getMyPosts().remove(post);
         for (User friend : user.getFriends()) {
-            friend.getSharingCentre().getAllPosts().remove(post);
+            for (Iterator<ParagraphPost> i = friend.getMyPosts().iterator(); i.hasNext();) {
+                ParagraphPost temp = i.next();
+                if (temp == post){
+                    i.remove();
+                }
+            }
+
         }
     }
 
@@ -175,6 +182,7 @@ public class PostsManager implements SharingCentreInputBoundary {
                 deletePost(user, post);
             }
         }
+        outputBoundary.setDeleteStatus(false);
     }
 
     /**
@@ -207,7 +215,7 @@ public class PostsManager implements SharingCentreInputBoundary {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userid);
         for (ParagraphPost post: getSharingCentre(user)) {
-            if (post.getPostID() == Integer.parseInt(postID)) {
+            if (post.getPostID() == Integer.parseInt(postID) && !post.getUsersWhoLiked().contains(user)) {
                 likePost(user, post);
             }
         }
