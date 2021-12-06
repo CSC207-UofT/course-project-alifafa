@@ -27,4 +27,6 @@ public interface UserInputBoundary {
     void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
 
     void runAddBlocked(String[] parameters, BlockedListOutputBoundary outputBoundary);
+
+    void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary);
 }

@@ -140,9 +140,10 @@ public class UserManager implements UserInputBoundary {
 
     }
 
-    public void editInfo(String choice, String new_info){
+    public void editPassword(String new_password, String userName){
         //Edit password or username
-        User user = this.get
+        User user = this.getUser(userName);
+        user.setPassword(new_password);
     }
 
     public void addBlockedUser (String id, String friendID){
@@ -212,6 +213,11 @@ public class UserManager implements UserInputBoundary {
             System.out.println("Invalid friend");
         }
 
+    }
+
+    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary){
+        editPassword(parameters[0], parameters[1]);
+        outputBoundary.setEdited(true);
     }
 
     @Override
