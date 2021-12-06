@@ -8,7 +8,7 @@ public class DataAccessGateway implements DataAccess {
 
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {
-        FileOutputStream file = new FileOutputStream("User_State.csv");
+        FileOutputStream file = new FileOutputStream(filepath);
         ObjectOutputStream output = new ObjectOutputStream(file);
         output.writeObject(o);
         output.flush();

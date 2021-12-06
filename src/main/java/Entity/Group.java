@@ -1,7 +1,8 @@
 package Entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Group {
+public class Group implements Serializable {
 //    private final String GroupID;
     private final String GroupName;
     private final ArrayList<User> members;
@@ -28,9 +29,9 @@ public class Group {
         this.members.add(member);
     }
 
-    public void addGroupMessage(PtoGMessage message) {
-        PtoGMessageHistory.add(message);
-    }
+//    public void addGroupMessage(PtoGMessage message) {
+//        PtoGMessageHistory.add(message);
+//    }
 
     public ArrayList<PtoGMessage> getMessage() {
         return this.PtoGMessageHistory;

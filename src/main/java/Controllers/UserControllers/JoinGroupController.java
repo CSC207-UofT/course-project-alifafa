@@ -4,6 +4,8 @@ import InputBoundary.GroupInputBoundary;
 import Presenters.JoinGroupPresenter;
 import UseCase.GroupManager;
 
+import java.io.IOException;
+
 
 public class JoinGroupController{
 
@@ -15,7 +17,7 @@ public class JoinGroupController{
     /**
      * A new JoinGroupController for the use case defined by the InputBoundary.
      */
-    public void joinGroup(String[] parameters, JoinGroupPresenter presenter){
+    public void joinGroup(String[] parameters, JoinGroupPresenter presenter) throws IOException {
         JoinGroupInputBoundary.runJoinGroup(parameters, presenter);
     }
 

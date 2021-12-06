@@ -2,7 +2,6 @@ package Controllers.UserControllers;
 
 
 import InputBoundary.UserInputBoundary;
-import Presenters.FindLoggedInUserPresenter;
 import UseCase.UserManager;
 
 public class FindLoggedInUserController {
@@ -15,7 +14,5 @@ public class FindLoggedInUserController {
     //        AddFriendInputBoundary = addFriendInputBoundary;
     //    }
     */
-    public void findLoggedInUser(FindLoggedInUserPresenter presenter){
-        findLoggedUserInputBoundary.findLoggedInUser(presenter);
-    }
+
 }

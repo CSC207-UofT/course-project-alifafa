@@ -12,6 +12,7 @@ public class MainProgram {
 
         ReadAndWriteController readAndWriteController = new ReadAndWriteController();
         readAndWriteController.readData();
+        readAndWriteController.readGroupData();
 
         CommandHelper commandUI = new CommandHelper();
         Constants commands = new Constants();

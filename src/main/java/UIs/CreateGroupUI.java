@@ -5,6 +5,7 @@ import Controllers.UserControllers.CreateGroupController;
 import Presenters.CreateGroupPresenter;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CreateGroupUI extends ParentUI{
@@ -14,7 +15,7 @@ public class CreateGroupUI extends ParentUI{
 
 
 
-    public void run() {
+    public void run() throws IOException {
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();
