@@ -198,11 +198,18 @@ public class UserManager implements UserInputBoundary {
       
     }
 
-    public void addBlockedUser (String id, String friendID){
+    public void addBlockedUser (String id, String friendID) throws IOException {
         //Add user to blocked list
         User user = this.getUser(id);
         User friend = this.getUser(friendID);
         user.addBlockedUser(friend);
+        this.writeData(this.gateway);
+    }
+
+    public boolean isBlocked (String id, String friendID){
+        User user = this.getUser(id);
+        User friend = this.getUser(friendID);
+        return friend.getBlockedUser().contains(user);
     }
 
     public void removeFriend (String userName, String friendUserName){
@@ -265,9 +272,14 @@ public class UserManager implements UserInputBoundary {
     }
 
     @Override
-    public void runAddBlocked(String[] userInput, BlockedListOutputBoundary outputBoundary){
+    public void runAddBlocked(String[] userInput, BlockedListOutputBoundary outputBoundary) throws IOException {
         addBlockedUser(userInput[0], userInput[1]);
         outputBoundary.setAddBlockedStatus(userInput[1]);
+    }
+
+    @Override
+    public boolean runCheckBlocked(String[] userInput) {
+        return isBlocked(userInput[0], userInput[1]);
     }
 
     public void runCheckFriend(String me, String friend, CheckFriendOutputBoundary outputBoundary) {

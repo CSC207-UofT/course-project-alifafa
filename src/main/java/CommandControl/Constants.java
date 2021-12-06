@@ -20,6 +20,7 @@ public class Constants {
         validCommands.put("create an account", new AccountRegistrationUI());
         validCommands.put("message", new PtoPChatUI());
         validCommands.put("add friend", new AddFriendUI());
+        validCommands.put("add blocked user", new BlockedListUI());
         validCommands.put("chat", new PtoPChatUI());
         validCommands.put("create a group", new CreateGroupUI());
         validCommands.put("join group", new JoinGroupUI());
