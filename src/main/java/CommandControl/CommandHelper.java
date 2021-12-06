@@ -25,7 +25,8 @@ public class CommandHelper {
                     "'create an account', 'add friend', 'remove friend', " +
                     "'chat', 'create a group', 'join group', 'group chat', 'group kick', " +
                     "'sharing center', 'comment post', 'post a post', 'like post'," +
-                    "'delete post', 'view posts', 'edit password', 'log out')");
+                    "'view posts', 'edit password')");
+
 
           Scanner scanner = new Scanner(System.in);
             command = scanner.nextLine();

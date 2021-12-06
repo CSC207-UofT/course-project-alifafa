@@ -27,7 +27,7 @@ public class DeletePostUI extends ParentUI {
         } else {
             params[0] = currentUser;
             Scanner scanner = new Scanner(System.in);
-            System.out.println("The post id: (Integer)");
+            System.out.println("The post id: ");
             params[1] = scanner.nextLine();
 
             controller.runDeletePost(params[0], params[1], presenter);

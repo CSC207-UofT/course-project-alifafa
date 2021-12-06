@@ -26,8 +26,8 @@ public class ViewSharingCentreUI extends ParentUI{
             System.out.println("You need to log in first!");
         } else {
             params[0] = currentUser;
+            sharingController.runRetrieveSharingCentre(params[0], sharingPresenter);
+            System.out.println(sharingPresenter.presentOutput());
         }
-        sharingController.runRetrieveSharingCentre(params[0], sharingPresenter);
-        System.out.println(sharingPresenter.presentOutput());
     }
 }
