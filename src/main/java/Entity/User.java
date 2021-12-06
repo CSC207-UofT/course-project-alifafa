@@ -1,8 +1,9 @@
 package Entity;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class User implements Serializable {
@@ -112,6 +113,11 @@ public class User implements Serializable {
     public void addFriend (User friend){
         //Add friend to the list friends
         this.friends.add(friend);
+    }
+
+    public void addFriends (ArrayList<User> friend){
+        //Add friends to the list friends
+        this.friends.addAll(friend);
     }
 
     public void addBlockedUser (User blocked){
