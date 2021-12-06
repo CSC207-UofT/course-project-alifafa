@@ -1,11 +1,9 @@
 package UIs;
 
 import Controllers.ChatControllers.PtoGMessageController;
-import Controllers.UserControllers.CheckFriendController;
 import Controllers.UserControllers.CheckGroupController;
 import Controllers.UserControllers.FindLoggedInUserController;
 import Entity.Group;
-import Presenters.CheckFriendPresenter;
 import Presenters.CheckGroupPresenter;
 import Presenters.FindLoggedInUserPresenter;
 import Presenters.PtoGMessageHistoryPresenter;
