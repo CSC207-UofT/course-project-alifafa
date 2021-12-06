@@ -38,7 +38,7 @@ public class PtoPChatUI extends ParentUI{
         Scanner scanner = new Scanner(System.in);
         parameters[0] = scanner.nextLine();
 
-        checkFriendController.runCheckFriend(userName, parameters[0], checkFriendPresenter);
+        checkFriendController.checkFriend(userName, parameters[0], checkFriendPresenter);
         boolean isFriend = checkFriendPresenter.isFriend();
 
         if (isFriend){
