@@ -1,12 +1,13 @@
-package UIs;
+package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.GetSharingCenterController;
 import Presenters.SharingCentrePresenter;
+import UIs.ParentUI;
 
 import java.util.Scanner;
 
-public class ViewSharingCentreUI extends ParentUI{
+public class ViewSharingCentreUI extends ParentUI {
     /**
      * A user interface to view the posts inside its sharing centre.
      */

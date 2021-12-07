@@ -1,6 +1,19 @@
 package CommandControl;
 
 import UIs.*;
+import UIs.Friends.AddFriendUI;
+import UIs.Friends.BlockedListUI;
+import UIs.Friends.RemoveFriendUI;
+import UIs.GroupChat.CreateGroupUI;
+import UIs.GroupChat.JoinGroupUI;
+import UIs.GroupChat.KickGroupMemberUI;
+import UIs.GroupChat.PtoGChatUI;
+import UIs.Posts.*;
+import UIs.PtoPChat.PtoPChatUI;
+import UIs.RegistrationLogin.AccountRegistrationUI;
+import UIs.RegistrationLogin.EditPasswordUI;
+import UIs.RegistrationLogin.LoginUI;
+import UIs.RegistrationLogin.LogoutUI;
 
 import java.util.HashMap;
 

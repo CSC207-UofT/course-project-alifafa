@@ -1,14 +1,15 @@
-package UIs;
+package UIs.GroupChat;
 
 import CommandControl.Constants;
 import Controllers.GroupChatControllers.CreateGroupController;
 import Presenters.CreateGroupPresenter;
+import UIs.ParentUI;
 
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CreateGroupUI extends ParentUI{
+public class CreateGroupUI extends ParentUI {
     /**
      * A user interface for creating a group, will receive feedback from CreateGroupPresenter.
      */

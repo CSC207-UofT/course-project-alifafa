@@ -1,13 +1,14 @@
-package UIs;
+package UIs.Friends;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.BlockedListController;
 import Presenters.BlockedListPresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class BlockedListUI extends ParentUI{
+public class BlockedListUI extends ParentUI {
     /**
      * A user interface for adding blocked users, will receive feedback from BlockedListPresenter.
      */

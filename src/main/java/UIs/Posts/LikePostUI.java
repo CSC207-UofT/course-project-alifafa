@@ -1,7 +1,8 @@
-package UIs;
+package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.LikePostController;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;

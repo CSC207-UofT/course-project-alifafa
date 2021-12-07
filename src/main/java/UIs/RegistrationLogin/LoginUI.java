@@ -1,12 +1,13 @@
-package UIs;
+package UIs.RegistrationLogin;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RegistrationAndLogIn.LogInController;
 import Presenters.LogInPresenter;
+import UIs.ParentUI;
 
 import java.util.Scanner;
 
-public class LoginUI extends ParentUI{
+public class LoginUI extends ParentUI {
 
     /**
      * A user interface for logging in, will receive feedback from LogInPresenter..

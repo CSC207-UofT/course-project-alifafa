@@ -1,13 +1,14 @@
-package UIs;
+package UIs.RegistrationLogin;
 
 import Controllers.UserControllers.RegistrationAndLogIn.AccountRegistrationController;
 import Presenters.AccountRegistrationPresenter;
+import UIs.ParentUI;
 
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class AccountRegistrationUI extends ParentUI{
+public class AccountRegistrationUI extends ParentUI {
     /**
      * A user interface for account registration, will receive feedback from AccountRegistrationPresenter.
      */

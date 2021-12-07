@@ -1,9 +1,10 @@
-package UIs;
+package UIs.GroupChat;
 
 
 import CommandControl.Constants;
 import Controllers.GroupChatControllers.JoinGroupController;
 import Presenters.JoinGroupPresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;

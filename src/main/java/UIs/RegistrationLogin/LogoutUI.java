@@ -1,8 +1,9 @@
-package UIs;
+package UIs.RegistrationLogin;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RegistrationAndLogIn.LogOutController;
 import Presenters.LogOutPresenter;
+import UIs.ParentUI;
 
 public class LogoutUI extends ParentUI {
 

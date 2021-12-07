@@ -1,15 +1,16 @@
-package UIs;
+package UIs.PtoPChat;
 
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoPMessageControllerFacade;
 import Controllers.UserControllers.RemoveAndAddFriend.CheckFriendController;
 import Presenters.CheckFriendPresenter;
 import Presenters.PtoPMessageHistoryPresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class PtoPChatUI extends ParentUI{
+public class PtoPChatUI extends ParentUI {
 
     /**
      * an user interface for sending and receiving ptop message.

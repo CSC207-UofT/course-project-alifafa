@@ -1,13 +1,14 @@
-package UIs;
+package UIs.RegistrationLogin;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RegistrationAndLogIn.EditPasswordController;
 import Presenters.EditPasswordPresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class EditPasswordUI extends ParentUI{
+public class EditPasswordUI extends ParentUI {
 
     @Override
     public void run() throws IOException {
