@@ -1,4 +1,4 @@
-package Controllers.UserControllers;
+package Controllers.UserControllers.RemoveAndAddFriend;
 
 import InputBoundary.UserInputBoundary;
 import Presenters.AddFriendPresenter;

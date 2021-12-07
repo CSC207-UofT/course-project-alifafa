@@ -1,4 +1,4 @@
-package Controllers.UserControllers;
+package Controllers.UserControllers.RegistrationAndLogIn;
 
 
 import InputBoundary.UserInputBoundary;

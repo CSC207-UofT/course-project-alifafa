@@ -1,12 +1,8 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.AddFriendController;
-import Controllers.UserControllers.KickGroupMemberController;
-import Controllers.UserControllers.RemoveFriendController;
-import Presenters.AddFriendPresenter;
+import Controllers.GroupChatControllers.KickGroupMemberController;
 import Presenters.KickGroupMemberPresenter;
-import Presenters.RemoveFriendPresenter;
 
 
 import java.util.Scanner;

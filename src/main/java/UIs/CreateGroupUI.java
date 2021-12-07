@@ -1,7 +1,7 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.CreateGroupController;
+import Controllers.GroupChatControllers.CreateGroupController;
 import Presenters.CreateGroupPresenter;
 
 
