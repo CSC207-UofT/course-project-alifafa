@@ -29,9 +29,9 @@ public class Group implements Serializable {
         this.members.add(member);
     }
 
-//    public void addGroupMessage(PtoGMessage message) {
-//        PtoGMessageHistory.add(message);
-//    }
+    public void addGroupMessage(PtoGMessage message) {
+        PtoGMessageHistory.add(message);
+    }
 
     public ArrayList<PtoGMessage> getMessage() {
         return this.PtoGMessageHistory;
