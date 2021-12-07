@@ -1,4 +1,4 @@
-package Entity;
+package Entity.User;
 
 import Entity.Users.User;
 import Entity.Users.UserList;

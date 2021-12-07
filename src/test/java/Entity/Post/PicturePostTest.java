@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Post;
 
 import Entity.Post.PicturePost;
 import org.junit.Assert;
