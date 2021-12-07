@@ -1,7 +1,7 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.EditPasswordController;
+import Controllers.UserControllers.RegistrationAndLogIn.EditPasswordController;
 import Presenters.EditPasswordPresenter;
 
 import java.io.IOException;

@@ -1,8 +1,8 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.AddFriendController;
-import Controllers.UserControllers.BlockedListController;
+import Controllers.UserControllers.RemoveAndAddFriend.AddFriendController;
+import Controllers.UserControllers.RemoveAndAddFriend.BlockedListController;
 import Presenters.AddFriendPresenter;
 
 

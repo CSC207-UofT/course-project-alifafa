@@ -2,7 +2,7 @@ package UIs;
 
 
 import CommandControl.Constants;
-import Controllers.UserControllers.JoinGroupController;
+import Controllers.GroupChatControllers.JoinGroupController;
 import Presenters.JoinGroupPresenter;
 
 import java.io.IOException;

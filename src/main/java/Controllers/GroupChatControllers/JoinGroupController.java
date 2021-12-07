@@ -1,4 +1,4 @@
-package Controllers.UserControllers;
+package Controllers.GroupChatControllers;
 
 import InputBoundary.GroupInputBoundary;
 import Presenters.JoinGroupPresenter;

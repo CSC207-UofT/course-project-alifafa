@@ -2,7 +2,7 @@ package UIs;
 
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoGMessageControllerFacade;
-import Controllers.UserControllers.CheckGroupController;
+import Controllers.GroupChatControllers.CheckGroupController;
 import Entity.Group;
 import Presenters.CheckGroupPresenter;
 import Presenters.PtoGMessageHistoryPresenter;

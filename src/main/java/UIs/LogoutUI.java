@@ -1,10 +1,8 @@
 package UIs;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.LogOutController;
+import Controllers.UserControllers.RegistrationAndLogIn.LogOutController;
 import Presenters.LogOutPresenter;
-
-import java.util.Scanner;
 
 public class LogoutUI extends ParentUI {
 

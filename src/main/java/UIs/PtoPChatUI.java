@@ -2,7 +2,7 @@ package UIs;
 
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoPMessageControllerFacade;
-import Controllers.UserControllers.CheckFriendController;
+import Controllers.UserControllers.RemoveAndAddFriend.CheckFriendController;
 import Presenters.CheckFriendPresenter;
 import Presenters.PtoPMessageHistoryPresenter;
 

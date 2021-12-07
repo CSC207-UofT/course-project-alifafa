@@ -1,6 +1,6 @@
 package UIs;
 
-import Controllers.UserControllers.AccountRegistrationController;
+import Controllers.UserControllers.RegistrationAndLogIn.AccountRegistrationController;
 import Presenters.AccountRegistrationPresenter;
 
 
