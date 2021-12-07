@@ -21,24 +21,24 @@ public class PtoPMessageTest {
 
     @Test
     public void getContent() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User("a", "123");
+        User b = new User("b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
         Assert.assertEquals("hi", message.getContent());
     }
 
     @Test
     public void getSender() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User("a", "123");
+        User b = new User("b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
         Assert.assertEquals(a, message.getSender());
     }
 
     @Test
     public void getReceiver() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User("a", "123");
+        User b = new User("b", "321");
         PtoPMessage message = new PtoPMessage(a, b, "hi");
         Assert.assertEquals(b, message.getReceiver());
     }

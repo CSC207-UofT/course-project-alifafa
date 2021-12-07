@@ -19,8 +19,8 @@ import java.time.LocalDateTime;
 */ 
 public class SharingCentreTest {
 
-    User a = new User("1", "a", "123");
-    User b = new User("2", "b", "321");
+    User a = new User("a", "123");
+    User b = new User("b", "321");
     ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
     ParagraphPost post1 = new ParagraphPost(LocalDateTime.now(), "", "dd");
     Notifications notifications = new Notifications(a, LocalDateTime.now(), post, true);
