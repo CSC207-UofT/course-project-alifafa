@@ -1,7 +1,7 @@
 package Controllers.UserControllers.RegistrationAndLogIn;
 
 import InputBoundary.UserInputBoundary;
-import Presenters.AccountRegistrationPresenter;
+import Presenters.User.AccountRegistrationPresenter;
 import UseCase.UserManager;
 
 import java.io.IOException;

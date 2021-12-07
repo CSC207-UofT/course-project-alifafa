@@ -2,7 +2,7 @@ package Controllers.ChatControllers;
 
 import InputBoundary.PtoPMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
-import Presenters.PtoPMessageHistoryPresenter;
+import Presenters.Message.PtoPMessageHistoryPresenter;
 import UseCase.PtoPMessageManager;
 import UseCase.UserManager;
 

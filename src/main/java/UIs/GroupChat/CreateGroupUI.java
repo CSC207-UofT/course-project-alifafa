@@ -2,7 +2,7 @@ package UIs.GroupChat;
 
 import CommandControl.Constants;
 import Controllers.GroupChatControllers.CreateGroupController;
-import Presenters.CreateGroupPresenter;
+import Presenters.Message.CreateGroupPresenter;
 import UIs.ParentUI;
 
 

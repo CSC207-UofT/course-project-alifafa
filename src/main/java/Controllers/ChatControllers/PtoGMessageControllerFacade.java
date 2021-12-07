@@ -1,6 +1,6 @@
 package Controllers.ChatControllers;
 
-import Presenters.PtoGMessageHistoryPresenter;
+import Presenters.Message.PtoGMessageHistoryPresenter;
 
 import java.io.IOException;
 

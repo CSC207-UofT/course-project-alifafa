@@ -4,8 +4,8 @@ import CommandControl.Constants;
 import Controllers.ChatControllers.PtoGMessageControllerFacade;
 import Controllers.GroupChatControllers.CheckGroupController;
 import Entity.GroupChat.Group;
-import Presenters.CheckGroupPresenter;
-import Presenters.PtoGMessageHistoryPresenter;
+import Presenters.User.CheckGroupPresenter;
+import Presenters.Message.PtoGMessageHistoryPresenter;
 import UIs.ParentUI;
 import UseCase.GroupManager;
 

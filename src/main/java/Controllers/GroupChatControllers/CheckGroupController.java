@@ -2,15 +2,14 @@ package Controllers.GroupChatControllers;
 
 
 import InputBoundary.GroupInputBoundary;
-import InputBoundary.UserInputBoundary;
+import Presenters.User.CheckGroupPresenter;
 import UseCase.GroupManager;
-import UseCase.UserManager;
 
 public class CheckGroupController {
 
     private final GroupInputBoundary checkGroupInputBoundary = new GroupManager();
 
-    public void checkGroup(String user, String group, Presenters.CheckGroupPresenter presenter){
+    public void checkGroup(String user, String group, CheckGroupPresenter presenter){
         checkGroupInputBoundary.runCheckGroup(user, group, presenter);
     }
 }

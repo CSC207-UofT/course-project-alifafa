@@ -4,7 +4,7 @@ package Controllers.ChatControllers;
 import InputBoundary.GroupInputBoundary;
 import InputBoundary.PtoGMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
-import Presenters.PtoGMessageHistoryPresenter;
+import Presenters.Message.PtoGMessageHistoryPresenter;
 import UseCase.GroupManager;
 import UseCase.PtoGMessageManager;
 import UseCase.UserManager;

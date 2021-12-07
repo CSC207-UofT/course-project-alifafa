@@ -1,7 +1,7 @@
 package Controllers.PostsSharingController;
 
 import InputBoundary.SharingCentreInputBoundary;
-import Presenters.DeletePostPresenter;
+import Presenters.Post.DeletePostPresenter;
 import UseCase.PostsManager;
 
 public class DeletePostController {

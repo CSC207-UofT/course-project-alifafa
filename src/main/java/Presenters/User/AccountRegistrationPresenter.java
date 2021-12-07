@@ -1,4 +1,4 @@
-package Presenters;
+package Presenters.User;
 
 import OutputBoundary.AccountRegistrationOutputBoundary;
 

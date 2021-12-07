@@ -1,4 +1,4 @@
-package Presenters;
+package Presenters.Post;
 
 import Entity.Post.Notifications;
 import OutputBoundary.NotificationOutputBoundary;

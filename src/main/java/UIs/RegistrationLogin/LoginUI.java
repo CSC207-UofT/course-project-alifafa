@@ -2,7 +2,7 @@ package UIs.RegistrationLogin;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RegistrationAndLogIn.LogInController;
-import Presenters.LogInPresenter;
+import Presenters.User.LogInPresenter;
 import UIs.ParentUI;
 
 import java.util.Scanner;
