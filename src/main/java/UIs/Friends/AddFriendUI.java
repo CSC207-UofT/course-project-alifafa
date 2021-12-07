@@ -1,9 +1,10 @@
-package UIs;
+package UIs.Friends;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.AddFriendController;
 import Controllers.UserControllers.RemoveAndAddFriend.BlockedListController;
 import Presenters.AddFriendPresenter;
+import UIs.ParentUI;
 
 
 import java.io.IOException;

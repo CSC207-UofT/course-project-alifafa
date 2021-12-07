@@ -1,8 +1,9 @@
-package UIs;
+package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.UserAllPostController;
 import Presenters.SharingCentrePresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.Scanner;

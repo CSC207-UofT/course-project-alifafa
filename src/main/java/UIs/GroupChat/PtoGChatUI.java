@@ -1,4 +1,4 @@
-package UIs;
+package UIs.GroupChat;
 
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoGMessageControllerFacade;
@@ -6,12 +6,13 @@ import Controllers.GroupChatControllers.CheckGroupController;
 import Entity.Group;
 import Presenters.CheckGroupPresenter;
 import Presenters.PtoGMessageHistoryPresenter;
+import UIs.ParentUI;
 import UseCase.GroupManager;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class PtoGChatUI extends ParentUI{
+public class PtoGChatUI extends ParentUI {
 
     /**
      * a Group interface for sending and receiving PtoG message.

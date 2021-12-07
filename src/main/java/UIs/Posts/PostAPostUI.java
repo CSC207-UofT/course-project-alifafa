@@ -1,15 +1,16 @@
-package UIs;
+package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.PostAPostController;
 import Presenters.PostAPostPresenter;
+import UIs.ParentUI;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PostAPostUI extends ParentUI{
+public class PostAPostUI extends ParentUI {
     /**
      * User interface for the user to post a post
      */

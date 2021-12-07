@@ -1,8 +1,9 @@
-package UIs;
+package UIs.Friends;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.RemoveFriendController;
 import Presenters.RemoveFriendPresenter;
+import UIs.ParentUI;
 
 
 import java.util.Scanner;

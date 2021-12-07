@@ -1,8 +1,9 @@
-package UIs;
+package UIs.GroupChat;
 
 import CommandControl.Constants;
 import Controllers.GroupChatControllers.KickGroupMemberController;
 import Presenters.KickGroupMemberPresenter;
+import UIs.ParentUI;
 
 
 import java.util.Scanner;
