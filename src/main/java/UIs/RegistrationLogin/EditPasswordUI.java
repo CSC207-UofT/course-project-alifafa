@@ -2,7 +2,7 @@ package UIs.RegistrationLogin;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RegistrationAndLogIn.EditPasswordController;
-import Presenters.EditPasswordPresenter;
+import Presenters.User.EditPasswordPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;

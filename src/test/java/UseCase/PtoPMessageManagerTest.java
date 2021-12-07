@@ -2,7 +2,7 @@ package UseCase;
 
 import Entity.Message.PtoPMessage;
 import Entity.Users.User;
-import Presenters.PtoPMessageHistoryPresenter;
+import Presenters.Message.PtoPMessageHistoryPresenter;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

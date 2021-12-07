@@ -2,7 +2,7 @@ package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.CommentPostController;
-import Presenters.CommentPostPresenter;
+import Presenters.Post.CommentPostPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;

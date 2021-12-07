@@ -1,4 +1,4 @@
-package Presenters;
+package Presenters.Post;
 
 import OutputBoundary.DeletePostOutputBoundary;
 

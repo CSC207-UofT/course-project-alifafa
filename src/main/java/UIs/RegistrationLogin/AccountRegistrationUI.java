@@ -1,7 +1,7 @@
 package UIs.RegistrationLogin;
 
 import Controllers.UserControllers.RegistrationAndLogIn.AccountRegistrationController;
-import Presenters.AccountRegistrationPresenter;
+import Presenters.User.AccountRegistrationPresenter;
 import UIs.ParentUI;
 
 

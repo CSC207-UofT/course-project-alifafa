@@ -1,7 +1,7 @@
 package Controllers.GroupChatControllers;
 
 import InputBoundary.GroupInputBoundary;
-import Presenters.KickGroupMemberPresenter;
+import Presenters.Message.KickGroupMemberPresenter;
 import UseCase.GroupManager;
 
 public class KickGroupMemberController{

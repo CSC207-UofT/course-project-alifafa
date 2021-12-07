@@ -1,7 +1,7 @@
 package Controllers.GroupChatControllers;
 
 import InputBoundary.GroupInputBoundary;
-import Presenters.CreateGroupPresenter;
+import Presenters.Message.CreateGroupPresenter;
 import UseCase.GroupManager;
 
 import java.io.IOException;

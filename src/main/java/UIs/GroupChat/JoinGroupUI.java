@@ -3,7 +3,7 @@ package UIs.GroupChat;
 
 import CommandControl.Constants;
 import Controllers.GroupChatControllers.JoinGroupController;
-import Presenters.JoinGroupPresenter;
+import Presenters.Message.JoinGroupPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;

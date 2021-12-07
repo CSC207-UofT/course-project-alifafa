@@ -1,4 +1,4 @@
-package Presenters;
+package Presenters.Message;
 
 import OutputBoundary.PtoGMessageOutputBoundary;
 

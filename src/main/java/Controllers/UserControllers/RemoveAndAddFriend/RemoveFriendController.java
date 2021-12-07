@@ -1,7 +1,7 @@
 package Controllers.UserControllers.RemoveAndAddFriend;
 
 import InputBoundary.UserInputBoundary;
-import Presenters.RemoveFriendPresenter;
+import Presenters.User.RemoveFriendPresenter;
 import UseCase.UserManager;
 
 public class RemoveFriendController{

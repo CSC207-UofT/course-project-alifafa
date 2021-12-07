@@ -3,8 +3,8 @@ package UIs.PtoPChat;
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoPMessageControllerFacade;
 import Controllers.UserControllers.RemoveAndAddFriend.CheckFriendController;
-import Presenters.CheckFriendPresenter;
-import Presenters.PtoPMessageHistoryPresenter;
+import Presenters.User.CheckFriendPresenter;
+import Presenters.Message.PtoPMessageHistoryPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;
