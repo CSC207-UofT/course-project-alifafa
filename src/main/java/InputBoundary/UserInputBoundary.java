@@ -1,6 +1,6 @@
 package InputBoundary;
 
-import Entity.User;
+import Entity.Users.User;
 import OutputBoundary.*;
 
 import java.io.IOException;

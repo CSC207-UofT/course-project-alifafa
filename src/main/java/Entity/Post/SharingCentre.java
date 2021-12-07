@@ -1,4 +1,7 @@
-package Entity;
+package Entity.Post;
+
+import Entity.Post.Notifications;
+import Entity.Post.ParagraphPost;
 
 import java.io.Serializable;
 import java.util.ArrayList;

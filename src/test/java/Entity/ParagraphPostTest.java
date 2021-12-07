@@ -1,9 +1,10 @@
 package Entity;
 
+import Entity.Post.ParagraphPost;
+import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

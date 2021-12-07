@@ -1,8 +1,8 @@
 package InputBoundary;
 
-import Entity.PtoGMessage;
-import Entity.User;
-import Entity.Group;
+import Entity.GroupChat.PtoGMessage;
+import Entity.Users.User;
+import Entity.GroupChat.Group;
 import OutputBoundary.PtoGMessageOutputBoundary;
 
 import java.io.IOException;

@@ -1,8 +1,8 @@
 package UseCase;
 
 import DataAccessInterface.PtoPMessageDataAccessInterface;
-import Entity.PtoPMessage;
-import Entity.User;
+import Entity.Message.PtoPMessage;
+import Entity.Users.User;
 import Gateway.PtoPMessageDataAccess;
 import InputBoundary.PtoPMessageInputBoundary;
 import OutputBoundary.PtoPMessageOutputBoundary;
