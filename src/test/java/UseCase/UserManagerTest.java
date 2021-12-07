@@ -34,13 +34,13 @@ public class UserManagerTest {
     *
     */
     @Test
-    public void testCheckID() {
+    public void testCheckID() throws IOException {
         UserList store = new UserList();
         store.getAllUsers().clear();
         UserManager manager = new UserManager();
         boolean check = manager.checkID("1");
         Assert.assertTrue(check);
-        manager.createUser("1", "a", "123");
+        manager.createUser("a", "123");
         boolean check2 = manager.checkID("1");
         Assert.assertFalse(check2);
     }
@@ -61,7 +61,7 @@ public class UserManagerTest {
     *
     */
     @Test
-    public void testCreateUser() {
+    public void testCreateUser() throws IOException {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
@@ -89,7 +89,7 @@ public class UserManagerTest {
     *
     */
     @Test
-    public void testFindPassword() {
+    public void testFindPassword() throws IOException {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
@@ -103,7 +103,7 @@ public class UserManagerTest {
     *
     */
     @Test
-    public void testChangeLogInStatus() {
+    public void testChangeLogInStatus() throws IOException {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
@@ -121,7 +121,7 @@ public class UserManagerTest {
     * Method: getUser(String id)
     */
     @Test
-    public void testGetUser() {
+    public void testGetUser() throws IOException {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
