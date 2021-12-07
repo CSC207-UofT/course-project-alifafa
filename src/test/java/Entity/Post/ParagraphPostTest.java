@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Post;
 
 import Entity.Post.ParagraphPost;
 import Entity.Users.User;

@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Post;
 
 import Entity.Post.Notifications;
 import Entity.Post.ParagraphPost;

@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Chat.PtoP;
 
 import Entity.Message.PtoPMessage;
 import Entity.Users.User;
