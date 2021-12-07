@@ -1,4 +1,4 @@
-package Controllers.ChatControllers;
+package Controllers.ChatControllers.PtoG;
 
 
 import InputBoundary.GroupInputBoundary;
