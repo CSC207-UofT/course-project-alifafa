@@ -1,64 +1,40 @@
 package UseCase;
 
-import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After;
+import Entity.Message.PtoPMessage;
+import Entity.Users.User;
+import Presenters.Message.PtoPMessageHistoryPresenter;
+import org.junit.jupiter.api.Test;
 
-/** 
-* PtoPMessageManager Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Nov 9, 2021</pre> 
-* @version 1.0 
-*/ 
-public class PtoPMessageManagerTest { 
+import java.io.IOException;
 
-@Before
-public void before() throws Exception { 
-} 
+import static org.junit.jupiter.api.Assertions.*;
 
-@After
-public void after() throws Exception { 
-} 
+class PtoPMessageManagerTest {
 
-/** 
-* 
-* Method: sendMessage(User sender, User receiver, PtoPMessage message) 
-* 
-*/ 
-@Test
-public void testSendMessage() throws Exception { 
-//TODO: Test goes here... 
-} 
+    User userA = new User("TesterA","123");
+    User userB = new User("TesterB","123");
+    String text = "hi";
+    PtoPMessageManager ptoPMessageManager = new PtoPMessageManager();
+    PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
 
-/** 
-* 
-* Method: receiveMessageHistory(User receiver, User sender) 
-* 
-*/ 
-@Test
-public void testReceiveMessageHistory() throws Exception { 
-//TODO: Test goes here... 
-} 
 
-/** 
-* 
-* Method: deleteMessage(User sender, User receiver, PtoPMessage message) 
-* 
-*/ 
-@Test
-public void testDeleteMessage() throws Exception { 
-//TODO: Test goes here... 
-} 
+    @Test
+    void createMessage() {
+        PtoPMessage message = ptoPMessageManager.createMessage(userA, userB, text);
+        assertEquals("TesterA", userA.getUserName());
+        assertEquals("TesterB", userB.getUserName());
+        assertEquals("hi", message.getContent());
+    }
 
-/** 
-* 
-* Method: createMessage(User sender, User receiver, String text) 
-* 
-*/ 
-@Test
-public void testCreateMessage() throws Exception { 
-//TODO: Test goes here... 
-}
+    // Test whether the test history files will be generated successfully.
+    @Test
+    void sendMessage() throws IOException {
+        PtoPMessage message = new PtoPMessage(userA,userB,text);
+        ptoPMessageManager.sendMessage(userA, userB, message);
+    }
 
+    @Test
+    void receiveMessageHistory() {
+        ptoPMessageManager.receiveMessageHistory(userA, userB, ptoPMessageHistoryPresenter);
+    }
 }

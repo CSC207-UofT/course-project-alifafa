@@ -1,7 +1,7 @@
 package Controllers.PostsSharingController;
 
 import InputBoundary.SharingCentreInputBoundary;
-import Presenters.SharingCentrePresenter;
+import Presenters.Post.SharingCentrePresenter;
 import UseCase.PostsManager;
 
 public class GetSharingCenterController {

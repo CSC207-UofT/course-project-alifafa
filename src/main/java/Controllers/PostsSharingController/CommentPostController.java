@@ -1,7 +1,7 @@
 package Controllers.PostsSharingController;
 
 import InputBoundary.SharingCentreInputBoundary;
-import Presenters.CommentPostPresenter;
+import Presenters.Post.CommentPostPresenter;
 import UseCase.PostsManager;
 
 import java.io.IOException;

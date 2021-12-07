@@ -1,12 +1,10 @@
 package Controllers.PostsSharingController;
 
 import InputBoundary.SharingCentreInputBoundary;
-import Presenters.*;
+import Presenters.Post.PostAPostPresenter;
 import UseCase.PostsManager;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostAPostController {

@@ -3,7 +3,7 @@ package UIs.Friends;
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.AddFriendController;
 import Controllers.UserControllers.RemoveAndAddFriend.BlockedListController;
-import Presenters.AddFriendPresenter;
+import Presenters.User.AddFriendPresenter;
 import UIs.ParentUI;
 
 

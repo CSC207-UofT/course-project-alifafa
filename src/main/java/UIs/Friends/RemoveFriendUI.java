@@ -2,7 +2,7 @@ package UIs.Friends;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.RemoveFriendController;
-import Presenters.RemoveFriendPresenter;
+import Presenters.User.RemoveFriendPresenter;
 import UIs.ParentUI;
 
 

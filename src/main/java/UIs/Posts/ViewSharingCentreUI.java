@@ -2,10 +2,8 @@ package UIs.Posts;
 
 import CommandControl.Constants;
 import Controllers.PostsSharingController.GetSharingCenterController;
-import Presenters.SharingCentrePresenter;
+import Presenters.Post.SharingCentrePresenter;
 import UIs.ParentUI;
-
-import java.util.Scanner;
 
 public class ViewSharingCentreUI extends ParentUI {
     /**

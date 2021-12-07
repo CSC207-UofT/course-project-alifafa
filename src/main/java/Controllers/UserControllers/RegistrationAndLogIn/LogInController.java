@@ -1,7 +1,7 @@
 package Controllers.UserControllers.RegistrationAndLogIn;
 
 import InputBoundary.UserInputBoundary;
-import Presenters.LogInPresenter;
+import Presenters.User.LogInPresenter;
 import UseCase.UserManager;
 
 

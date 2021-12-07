@@ -2,7 +2,7 @@ package UIs.Friends;
 
 import CommandControl.Constants;
 import Controllers.UserControllers.RemoveAndAddFriend.BlockedListController;
-import Presenters.BlockedListPresenter;
+import Presenters.User.BlockedListPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;

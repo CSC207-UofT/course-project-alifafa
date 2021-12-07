@@ -1,7 +1,7 @@
 package Controllers.UserControllers.RemoveAndAddFriend;
 
 import InputBoundary.UserInputBoundary;
-import Presenters.AddFriendPresenter;
+import Presenters.User.AddFriendPresenter;
 import UseCase.UserManager;
 
 import java.io.IOException;
