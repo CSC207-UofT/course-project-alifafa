@@ -1,5 +1,8 @@
 package Entity;
 
+import Entity.Post.ParagraphPost;
+import Entity.Post.SharingCentre;
+import Entity.Users.User;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,7 +1,8 @@
 package UseCase;
 import DataAccessInterface.DataAccess;
-import Entity.*;
-import Entity.Group;
+import Entity.GroupChat.Group;
+import Entity.GroupChat.GroupList;
+import Entity.Users.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.GroupInputBoundary;
 import OutputBoundary.*;

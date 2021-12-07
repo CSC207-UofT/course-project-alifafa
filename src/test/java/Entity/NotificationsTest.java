@@ -1,5 +1,8 @@
 package Entity;
 
+import Entity.Post.Notifications;
+import Entity.Post.ParagraphPost;
+import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before; 

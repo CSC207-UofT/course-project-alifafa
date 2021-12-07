@@ -1,12 +1,11 @@
 package UseCase;
 
-import Entity.User;
+import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

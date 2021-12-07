@@ -1,4 +1,7 @@
-package Entity;
+package Entity.GroupChat;
+
+import Entity.GroupChat.Group;
+import Entity.Users.User;
 
 import java.time.LocalDateTime;
 

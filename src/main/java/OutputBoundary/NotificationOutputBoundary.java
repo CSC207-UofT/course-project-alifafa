@@ -1,6 +1,6 @@
 package OutputBoundary;
 
-import Entity.Notifications;
+import Entity.Post.Notifications;
 
 import java.util.List;
 

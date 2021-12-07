@@ -1,5 +1,7 @@
 package Entity;
 
+import Entity.Message.PtoPMessage;
+import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

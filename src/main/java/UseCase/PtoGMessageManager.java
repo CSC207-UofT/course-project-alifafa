@@ -1,14 +1,12 @@
 package UseCase;
 
 import DataAccessInterface.PtoGMessageDataAccessInterface;
-import Entity.Group;
-import Entity.PtoGMessage;
-import Entity.User;
+import Entity.GroupChat.Group;
+import Entity.GroupChat.PtoGMessage;
+import Entity.Users.User;
 import Gateway.PtoGMessageDataAccess;
 import InputBoundary.PtoGMessageInputBoundary;
 import OutputBoundary.PtoGMessageOutputBoundary;
-
-import java.util.ArrayList;
 
 import java.io.IOException;
 import java.util.HashMap;

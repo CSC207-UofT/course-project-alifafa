@@ -1,9 +1,10 @@
-package Entity;
+package Entity.Users;
+
+import Entity.Post.ParagraphPost;
+import Entity.Post.SharingCentre;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class User implements Serializable {

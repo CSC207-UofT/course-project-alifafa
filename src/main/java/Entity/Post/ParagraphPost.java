@@ -1,4 +1,6 @@
-package Entity;
+package Entity.Post;
+
+import Entity.Users.User;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

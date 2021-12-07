@@ -1,7 +1,7 @@
 package UseCase;
 
-import Entity.User;
-import Entity.UserList;
+import Entity.Users.User;
+import Entity.Users.UserList;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
