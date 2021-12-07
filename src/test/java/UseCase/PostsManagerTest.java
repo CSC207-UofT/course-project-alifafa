@@ -58,8 +58,8 @@ public class PostsManagerTest {
      */
     @Test
     public void testDeletePost() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User("a", "123");
+        User b = new User("b", "321");
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
@@ -81,8 +81,8 @@ public class PostsManagerTest {
      */
     @Test
     public void testLikePost() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User( "a", "123");
+        User b = new User("b", "321");
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
@@ -103,8 +103,8 @@ public class PostsManagerTest {
      */
     @Test
     public void testCommentPost() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+        User a = new User("a", "123");
+        User b = new User( "b", "321");
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();

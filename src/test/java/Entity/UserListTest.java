@@ -35,7 +35,7 @@ public class UserListTest {
     public void testAddUser() {
         UserList store = new UserList();
         store.getAllUsers().clear();
-        User user = new User("1", "a", "123");
+        User user = new User("a", "123");
         store.addUser(user);
         Assert.assertEquals(user, store.getAllUsers().get(0));
     }
@@ -49,8 +49,8 @@ public class UserListTest {
     public void testAddUsers() {
         UserList store = new UserList();
         store.getAllUsers().clear();
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "123");
+        User a = new User("a", "123");
+        User b = new User("b", "123");
         ArrayList<User> users = new ArrayList<>();
         users.add(a);
         users.add(b);

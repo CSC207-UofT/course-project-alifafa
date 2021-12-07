@@ -35,7 +35,7 @@ public class UserTest {
     */
     @Test
     public void testGetID() {
-        User user = new User("1", "a", "123");
+        User user = new User("a", "123");
         Assert.assertEquals("1", user.getID());
     }
 
@@ -46,7 +46,7 @@ public class UserTest {
     */
     @Test
     public void testGetUserName() {
-        User user = new User("1", "a", "123");
+        User user = new User("a", "123");
         Assert.assertEquals("a", user.getUserName());
     }
 
@@ -57,7 +57,7 @@ public class UserTest {
     */
     @Test
     public void testGetPassword() {
-        User user = new User("1", "a", "123");
+        User user = new User("a", "123");
         Assert.assertEquals("123", user.getPassword());
     }
 
@@ -68,8 +68,8 @@ public class UserTest {
     */
     @Test
     public void testGetFriends() {
-        User user1 = new User("1", "a", "123");
-        User user2 = new User("2", "b", "123");
+        User user1 = new User("a", "123");
+        User user2 = new User("b", "123");
         user1.addFriend(user2);
         ArrayList<User> friends = new ArrayList<>();
         friends.add(user2);
@@ -83,7 +83,7 @@ public class UserTest {
     */
     @Test
     public void testGetMyPosts() {
-        User user1 = new User("1", "a", "123");
+        User user1 = new User("a", "123");
         ArrayList<ParagraphPost> lst = new ArrayList<>();
         Assert.assertEquals(lst, user1.getMyPosts());
 
@@ -116,7 +116,7 @@ public class UserTest {
     */
     @Test
     public void testGetLoggedIn() {
-        User user1 = new User("1", "a", "123");
+        User user1 = new User("a", "123");
         Assert.assertFalse(user1.getLoggedIn());
     }
 
@@ -127,7 +127,7 @@ public class UserTest {
     */
     @Test
     public void testGetSharingCentre() {
-        User user1 = new User("1", "a", "123");
+        User user1 = new User("a", "123");
         SharingCentre s = new SharingCentre();
         Assert.assertEquals(s.getAllPosts(), user1.getSharingCentre().getAllPosts());
         Assert.assertEquals(s.getNotificationList(), user1.getSharingCentre().getNotificationList());
@@ -140,7 +140,7 @@ public class UserTest {
     */
     @Test
     public void testChangeLoggedInStatus() {
-        User user = new User("1", "a", "123");
+        User user = new User( "a", "123");
         boolean begin = user.getLoggedIn();
         user.changeLoggedInStatus();
         boolean end = user.getLoggedIn();
@@ -171,8 +171,8 @@ public class UserTest {
     */
     @Test
     public void testAddFriend() {
-        User user1 = new User("1", "a", "123");
-        User user2 = new User("2", "b", "123");
+        User user1 = new User( "a", "123");
+        User user2 = new User("b", "123");
 
         user1.addFriend(user2);
         ArrayList<User> friends = new ArrayList<>();

@@ -18,7 +18,7 @@ import java.util.List;
 */ 
 public class ParagraphPostTest {
 
-    User a = new User("1", "a", "123");
+    User a = new User( "a", "123");
     ParagraphPost post = new ParagraphPost(a.getUserName(), LocalDateTime.now(), "LOL", "hello");
     List<String[]> comments = new ArrayList<>();
 

@@ -65,7 +65,7 @@ public class UserManagerTest {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
-        manager.createUser("1", "a", "123");
+        manager.createUser("a", "123");
         ArrayList<User> stored = store.getAllUsers();
         User a = stored.get(0);
         Assert.assertEquals("1", a.getID());
@@ -93,7 +93,7 @@ public class UserManagerTest {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
-        manager.createUser("1", "a", "123");
+        manager.createUser( "a", "123");
         Assert.assertEquals("123", manager.findPassword("1"));
     }
 
@@ -107,7 +107,7 @@ public class UserManagerTest {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
-        manager.createUser("1", "a", "123");
+        manager.createUser( "a", "123");
         ArrayList<User> stored = store.getAllUsers();
         User a = stored.get(0);
         manager.changeLogInStatus("1");
@@ -125,7 +125,7 @@ public class UserManagerTest {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
-        manager.createUser("1", "a", "123");
+        manager.createUser("a", "123");
         ArrayList<User> stored = store.getAllUsers();
         User a = stored.get(0);
         Assert.assertEquals(a, manager.getUser("1"));
@@ -160,8 +160,8 @@ public class UserManagerTest {
         UserManager manager = new UserManager();
         UserList store = new UserList();
         store.getAllUsers().clear();
-        manager.createUser("1", "a", "123");
-        manager.createUser("2", "b", "123");
+        manager.createUser("a", "123");
+        manager.createUser("b", "123");
         ArrayList<User> stored = store.getAllUsers();
         User a = stored.get(0);
         User b = stored.get(1);
