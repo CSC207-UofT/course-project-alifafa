@@ -1,4 +1,4 @@
-package Controllers.ChatControllers;
+package Controllers.ChatControllers.PtoP;
 
 import InputBoundary.PtoPMessageInputBoundary;
 import InputBoundary.UserInputBoundary;
