@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,9 @@ public class PostsManagerTest {
      *
      */
     @Test
-    public void testPostAPost() {
-        User a = new User("1", "a", "123");
-        User b = new User("2", "b", "321");
+    public void testPostAPost() throws IOException {
+        User a = new User( "a", "123");
+        User b = new User( "b", "321");
         a.addFriend(b);
         b.addFriend(a);
         PostsManager postsManager = new PostsManager();
@@ -57,7 +58,7 @@ public class PostsManagerTest {
      *
      */
     @Test
-    public void testDeletePost() {
+    public void testDeletePost() throws IOException {
         User a = new User("a", "123");
         User b = new User("b", "321");
         a.addFriend(b);
@@ -80,7 +81,7 @@ public class PostsManagerTest {
      *
      */
     @Test
-    public void testLikePost() {
+    public void testLikePost() throws IOException {
         User a = new User( "a", "123");
         User b = new User("b", "321");
         a.addFriend(b);
@@ -102,7 +103,7 @@ public class PostsManagerTest {
      *
      */
     @Test
-    public void testCommentPost() {
+    public void testCommentPost() throws IOException {
         User a = new User("a", "123");
         User b = new User( "b", "321");
         a.addFriend(b);

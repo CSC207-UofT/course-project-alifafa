@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 */ 
 public class NotificationsTest {
     User a = new User("A", "123");
-    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
+    ParagraphPost post = new ParagraphPost("A", LocalDateTime.now(), "LOL", "hello");
     Notifications notification = new Notifications(a, LocalDateTime.now(), post, true);
 
 @Before

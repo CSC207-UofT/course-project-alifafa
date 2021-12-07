@@ -21,8 +21,8 @@ public class SharingCentreTest {
 
     User a = new User("a", "123");
     User b = new User("b", "321");
-    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
-    ParagraphPost post1 = new ParagraphPost(LocalDateTime.now(), "", "dd");
+    ParagraphPost post = new ParagraphPost("b", LocalDateTime.now(), "LOL", "hello");
+    ParagraphPost post1 = new ParagraphPost("b", LocalDateTime.now(), "", "dd");
     Notifications notifications = new Notifications(a, LocalDateTime.now(), post, true);
     Notifications notifications1 = new Notifications(a, LocalDateTime.now(), post1, false);
 
@@ -42,8 +42,8 @@ public void after() {
 */ 
 @Test
 public void testGetAllPosts() {
-    ParagraphPost post = new ParagraphPost(LocalDateTime.now(), "LOL", "hello");
-    ParagraphPost post1 = new ParagraphPost(LocalDateTime.now(), "", "dd");
+    ParagraphPost post = new ParagraphPost("a", LocalDateTime.now(), "LOL", "hello");
+    ParagraphPost post1 = new ParagraphPost("a", LocalDateTime.now(), "", "dd");
     a.getSharingCentre().getAllPosts().add(post);
     a.getSharingCentre().getAllPosts().add(post1);
     int size = a.getSharingCentre().getAllPosts().size();
