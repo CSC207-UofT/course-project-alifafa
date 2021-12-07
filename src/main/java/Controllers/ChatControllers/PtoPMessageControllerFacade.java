@@ -1,6 +1,5 @@
 package Controllers.ChatControllers;
 
-import Controllers.ChatControllers.PtoPReceiveMessageController;
 
 import Presenters.PtoPMessageHistoryPresenter;
 
