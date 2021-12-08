@@ -5,14 +5,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-public class PicturePost extends ParagraphPost implements Serializable {
+public class PicturePost implements Serializable, PostReader {
 
     /**
      * A child class of ParagraphPost. Has everything ParagraphPost has.
      * Included pictures attribute which is a list of picture files.
      */
 
-    private final List<String> pictures;
+
+    private final ParagraphPost paragraphPost;
 
     /**
      * Creates PicturePost that contains pictures
@@ -24,16 +25,16 @@ public class PicturePost extends ParagraphPost implements Serializable {
      */
 
     public PicturePost(String username, LocalDateTime POSTTIME, String location, String description, List<String> pictures) {
-        super(username, POSTTIME, location, description);
-        this.pictures = pictures;
-    }
-
-    public List<String> getPictures() {
-        return pictures;
+        this.paragraphPost = new ParagraphPost(username, POSTTIME, location, description, pictures);
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\n" + "Pictures: " + pictures;
+        return paragraphPost.toString();
+    }
+
+    @Override
+    public ParagraphPost getPost() {
+        return paragraphPost;
     }
 }

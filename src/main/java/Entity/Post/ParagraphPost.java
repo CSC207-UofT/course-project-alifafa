@@ -22,6 +22,7 @@ public class ParagraphPost implements Serializable {
     private final String LOCATION;
     private int likes;
     private final String postID;
+    private final List<String> pictures;
 
     /**
      * Creates a post.
@@ -38,6 +39,19 @@ public class ParagraphPost implements Serializable {
         this.usersWhoLiked = new ArrayList<>();
         this.postID = UUID.randomUUID().toString();
         likes = 0;
+        this.pictures = new ArrayList<>();
+    }
+
+    public ParagraphPost(String userName, LocalDateTime POSTTIME, String LOCATION, String content, List<String> pictures) {
+        this.POSTTIME = POSTTIME;
+        this.LOCATION = LOCATION;
+        this.userName = userName;
+        this.content = content;
+        this.comments = new ArrayList<>();
+        this.usersWhoLiked = new ArrayList<>();
+        this.postID = UUID.randomUUID().toString();
+        likes = 0;
+        this.pictures = pictures;
     }
 
     public  void setLikes(int likes) {
