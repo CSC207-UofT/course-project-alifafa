@@ -1,6 +1,6 @@
 package InputBoundary;
 
-import Entity.Group;
+import Entity.GroupChat.Group;
 import OutputBoundary.*;
 
 import java.io.IOException;

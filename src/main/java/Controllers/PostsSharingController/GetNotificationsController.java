@@ -1,7 +1,7 @@
 package Controllers.PostsSharingController;
 
 import InputBoundary.SharingCentreInputBoundary;
-import Presenters.NotificationPresenter;
+import Presenters.Post.NotificationPresenter;
 import UseCase.PostsManager;
 
 public class GetNotificationsController {

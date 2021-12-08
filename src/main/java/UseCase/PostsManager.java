@@ -1,6 +1,9 @@
 package UseCase;
 
-import Entity.*;
+import Entity.Post.Notifications;
+import Entity.Post.ParagraphPost;
+import Entity.Post.PicturePost;
+import Entity.Users.User;
 import InputBoundary.SharingCentreInputBoundary;
 import OutputBoundary.*;
 

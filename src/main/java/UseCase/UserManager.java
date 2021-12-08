@@ -2,16 +2,15 @@ package UseCase;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import DataAccessInterface.DataAccess;
-import Entity.ParagraphPost;
-import Entity.User;
+import Entity.Post.ParagraphPost;
+import Entity.Users.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
-import Entity.UserList;
+import Entity.Users.UserList;
 import OutputBoundary.*;
 
 public class UserManager implements UserInputBoundary {
@@ -84,17 +83,17 @@ public class UserManager implements UserInputBoundary {
         dataAccess.saveToFile("User_State.csv", save);
     }
 
-    public boolean checkID (String id){
-        //Check whether the id existed in StoreUser or not
-        UserList store = new UserList();
-        ArrayList<User> stored = store.getAllUsers();
-        for (User user: stored) {
-            if (user.getID().equals(id)) {
-                return false;
-            }
-        }
-        return true;
-    }
+//    public boolean checkID (String id){
+//        //Check whether the id existed in StoreUser or not
+//        UserList store = new UserList();
+//        ArrayList<User> stored = store.getAllUsers();
+//        for (User user: stored) {
+//            if (user.getID().equals(id)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 
     public boolean checkUserName (String userName) {
@@ -162,18 +161,6 @@ public class UserManager implements UserInputBoundary {
         return null;
     }
 
-    /* will be implemented in later phase.
-    public void changeUserName (User user, String userName){
-        //Change the userName to new userName
-        user.changeUserName(userName);
-    }
-    public void changePassword (User user, String password){
-        //Change the userName to new password
-        user.changePassword(password);
-    }
-     */
-
-
     public void addFriend (String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
@@ -204,9 +191,9 @@ public class UserManager implements UserInputBoundary {
         this.writeData(this.gateway);
     }
 
-    public boolean isBlocked (String id, String friendID){
-        User user = this.getUser(id);
-        User friend = this.getUser(friendID);
+    public boolean isBlocked (String username, String friendUsername){
+        User user = this.getUser(username);
+        User friend = this.getUser(friendUsername);
         return friend.getBlockedUser().contains(user);
     }
 

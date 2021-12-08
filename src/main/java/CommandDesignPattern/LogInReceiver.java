@@ -1,8 +1,8 @@
 package CommandDesignPattern;
 
 import CommandControl.Constants;
-import Controllers.UserControllers.LogInController;
-import Presenters.LogInPresenter;
+import Controllers.UserControllers.RegistrationAndLogIn.LogInController;
+import Presenters.User.LogInPresenter;
 
 import java.util.Scanner;
 
