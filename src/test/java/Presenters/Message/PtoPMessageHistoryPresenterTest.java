@@ -10,5 +10,6 @@ class PtoPMessageHistoryPresenterTest {
         public void store() {
             PtoPMessageHistoryPresenter ptoPMessageHistoryPresenter = new PtoPMessageHistoryPresenter();
             ptoPMessageHistoryPresenter.store("hi");
+
     }
 }
