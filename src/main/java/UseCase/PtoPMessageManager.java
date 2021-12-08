@@ -5,7 +5,7 @@ import Entity.Message.PtoPMessage;
 import Entity.Users.User;
 import Gateway.PtoPMessageDataAccess;
 import InputBoundary.PtoPMessageInputBoundary;
-import OutputBoundary.PtoPMessageOutputBoundary;
+import OutputBoundary.Message.PtoP.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
 import java.util.HashMap;

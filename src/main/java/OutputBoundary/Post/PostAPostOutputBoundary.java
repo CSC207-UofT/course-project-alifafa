@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.Post;
 
 public interface PostAPostOutputBoundary {
     /**

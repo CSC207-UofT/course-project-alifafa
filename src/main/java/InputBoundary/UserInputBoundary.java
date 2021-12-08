@@ -1,7 +1,14 @@
 package InputBoundary;
 
 import Entity.Users.User;
-import OutputBoundary.*;
+import OutputBoundary.User.Add_Remove_Block_User.AddFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.BlockedListOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.CheckFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.RemoveFriendOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.AccountRegistrationOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
 import java.io.IOException;
 

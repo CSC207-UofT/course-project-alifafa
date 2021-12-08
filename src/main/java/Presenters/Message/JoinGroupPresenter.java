@@ -1,6 +1,6 @@
 package Presenters.Message;
 
-import OutputBoundary.JoinGroupOutputBoundary;
+import OutputBoundary.Message.PtoG.JoinGroupOutputBoundary;
 
 public class JoinGroupPresenter implements JoinGroupOutputBoundary {
     private String groupName;

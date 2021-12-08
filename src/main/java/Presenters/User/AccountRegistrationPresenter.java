@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.AccountRegistrationOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.AccountRegistrationOutputBoundary;
 
 /**
  * This class is storing the output from UserManager and presenting it to the UI.

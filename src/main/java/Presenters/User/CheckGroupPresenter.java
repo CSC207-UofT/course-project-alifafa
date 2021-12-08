@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.CheckGroupOutputBoundary;
+import OutputBoundary.Message.PtoG.CheckGroupOutputBoundary;
 
 public class CheckGroupPresenter implements CheckGroupOutputBoundary {
     boolean inGroup;

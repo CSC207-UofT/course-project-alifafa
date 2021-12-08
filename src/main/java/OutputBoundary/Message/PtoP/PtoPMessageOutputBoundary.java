@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.Message.PtoP;
 
 public interface PtoPMessageOutputBoundary {
 

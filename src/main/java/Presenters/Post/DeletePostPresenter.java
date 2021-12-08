@@ -1,6 +1,6 @@
 package Presenters.Post;
 
-import OutputBoundary.DeletePostOutputBoundary;
+import OutputBoundary.Post.DeletePostOutputBoundary;
 
 public class DeletePostPresenter implements DeletePostOutputBoundary {
     boolean deleted = false;

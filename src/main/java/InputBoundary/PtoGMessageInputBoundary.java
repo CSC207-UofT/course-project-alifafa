@@ -3,7 +3,7 @@ package InputBoundary;
 import Entity.GroupChat.PtoGMessage;
 import Entity.Users.User;
 import Entity.GroupChat.Group;
-import OutputBoundary.PtoGMessageOutputBoundary;
+import OutputBoundary.Message.PtoG.PtoGMessageOutputBoundary;
 
 import java.io.IOException;
 
