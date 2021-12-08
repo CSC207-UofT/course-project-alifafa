@@ -97,14 +97,20 @@ public class ParagraphPost implements Serializable {
     public String toString() {
         StringBuilder allComments = new StringBuilder("\n");
         StringBuilder userLiked = new StringBuilder();
+        String picture;
+        if (pictures.isEmpty()) {
+            picture = "";
+        } else {
+            picture = "\nPictures: " + pictures;
+        }
         for (User user: usersWhoLiked) {
             userLiked.append(user.getUserName()).append("\t");
         }
         for (String[] comment : comments) {
             allComments.append("\t").append(comment[0]).append(": ").append(comment[1]).append("\n");
         }
-        return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + "\n" + "Location: " + LOCATION +
-                "\t\t" + "Likes:"+ likes + "\n" + "Time posted: " + POSTTIME + "\n" + "WhoLiked: " +
-                userLiked + "\n" + "Comments: " + allComments;
+        return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + picture + "\n" +
+                "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" + "Time posted: " + POSTTIME + "\n" +
+                "WhoLiked: " + userLiked + "\n" + "Comments: " + allComments;
     }
 }

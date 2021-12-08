@@ -30,7 +30,7 @@ public class PostsManager implements SharingCentreInputBoundary {
      */
     private ParagraphPost createPost(String username, String content, String location, List<String> pictures) {
         if (!pictures.isEmpty()) {
-            PicturePost post = new PicturePost(username, LocalDateTime.now(), location, content, pictures);
+            PostReader post = new PicturePost(username, LocalDateTime.now(), location, content, pictures);
             return post.getPost();
         }
         return new ParagraphPost(username, LocalDateTime.now(), location, content);
