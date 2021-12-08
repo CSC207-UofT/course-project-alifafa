@@ -19,7 +19,7 @@ public class MainProgram {
 
         Scanner in = new Scanner(System.in);
         String quit = "no";
-        while (quit.equals("no")){
+        while (!quit.equals("exit")){
             // keep reading the command and executing it until user exits the program
             String task = commandUI.readCommand(commands);
 
@@ -33,17 +33,13 @@ public class MainProgram {
 
             } else {
                 commands.getUI(task).run();
-                System.out.println("");
-                System.out.println("Do you want to exit (Type 'yes' or 'no')");
+                System.out.println();
+                System.out.println("Type 'exit' if you want to close the app. Otherwise, press 'Enter'. ");
                 quit = in.nextLine();
-                while (!(quit.equals("no") || quit.equals("yes"))) {
-                    System.out.println("Please type a valid command (yes or no)");
-                    quit = in.nextLine();
-                }
-                System.out.println("");
+
             }
         }
-        System.out.println("");
+        System.out.println();
 
         in.close();
     }

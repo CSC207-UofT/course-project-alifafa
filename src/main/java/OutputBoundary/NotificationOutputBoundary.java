@@ -8,10 +8,10 @@ public interface NotificationOutputBoundary {
     /**
      * @param notifications list of notifications.
      */
-    void setContent(List<Notifications> notifications);
+    void setContent(List<String> notifications);
 
     /**
      * @return null.
      */
-    String presentOutput();
+    List<String> presentOutput();
 }

@@ -286,6 +286,10 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void retrieveNotifications(String userID, NotificationOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userID);
-        outputBoundary.setContent(getNotifications(user));
+        List<String> notification_list = new ArrayList<>();
+        for (Notifications notification : getNotifications(user)) {
+            notification_list.add(notification.toString() + "\n");
+        }
+        outputBoundary.setContent(notification_list);
     }
 }

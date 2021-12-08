@@ -6,15 +6,15 @@ import OutputBoundary.NotificationOutputBoundary;
 import java.util.List;
 
 public class NotificationPresenter implements NotificationOutputBoundary {
-    List<Notifications> content;
+    List<String> content;
 
     @Override
-    public void setContent(List<Notifications> content) {
+    public void setContent(List<String> content) {
         this.content = content;
     }
 
     @Override
-    public String presentOutput() {
-        return null;
+    public List<String> presentOutput() {
+        return content;
     }
 }
