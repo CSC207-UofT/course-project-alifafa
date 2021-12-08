@@ -1,6 +1,5 @@
 package Entity.Post;
 
-import Entity.Post.ParagraphPost;
 import Entity.Users.User;
 
 import java.io.Serializable;
@@ -53,4 +52,14 @@ public class Notifications implements Serializable {
         this.likeNotification = likeNotification;
     }
 
+    public String toString() {
+        String postID = POST.getPostID();
+        String statement;
+        if (likeNotification) {
+            statement = "liked your post: ";
+        } else {
+            statement = "commented your post: ";
+        }
+        return "'" + USER.getUserName() + "' " + statement + postID + "\n\tWhen: " + TIME;
+    }
 }

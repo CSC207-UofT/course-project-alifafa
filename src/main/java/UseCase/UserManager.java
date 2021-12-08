@@ -11,7 +11,14 @@ import Entity.Users.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
 import Entity.Users.UserList;
-import OutputBoundary.*;
+import OutputBoundary.User.Add_Remove_Block_User.AddFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.BlockedListOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.CheckFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.RemoveFriendOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.AccountRegistrationOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
 public class UserManager implements UserInputBoundary {
 
@@ -96,11 +103,15 @@ public class UserManager implements UserInputBoundary {
 //    }
 
 
+    /**
+     *
+     * @param userName the name the user want to find.
+     * @return return true if the name does not exist and can be used, return false if the name exists.
+     */
     public boolean checkUserName (String userName) {
-        //Check whether the username existed in StoreUser or not
+        //Check whether the username existed in StoreUser or not.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
-        System.out.println(stored.size());
         for (User user : stored) {
             if (user.getUserName().equals(userName)) {
                 return false;
@@ -143,9 +154,9 @@ public class UserManager implements UserInputBoundary {
         return null;
     }
 
-    public void changeLogInStatus(String id){
-        //Change LogIn status of the user with given id.
-        User user = this.getUser(id);
+    public void changeLogInStatus(String username){
+        //Change LogIn status of the user with given username.
+        User user = this.getUser(username);
         user.changeLoggedInStatus();
     }
 

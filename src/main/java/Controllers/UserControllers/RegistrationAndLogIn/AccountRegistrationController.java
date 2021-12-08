@@ -11,18 +11,17 @@ import java.io.IOException;
  * wants to create an account.
  */
 public class AccountRegistrationController{
+
     /**
      * The input boundary for the AccountRegistration use case.
      */
     private final UserInputBoundary accountRegistrationInputBoundary = new UserManager();
 
-/*    public void setAccountRegistrationInputBoundary(UserInputBoundary accountRegistrationInputBoundary){
-//        this.accountRegistrationInputBoundary = accountRegistrationInputBoundary;
-//    }
-*/
     /**
      *
-     * @param parameters The input from the user, which is an array that contains userID and input password.
+     * @param parameters The input from the user, which is an array that contains userName and input passwords.
+     * @param presenter An AccountRegistration Presenter that will store the output from the usecase
+     * @throws IOException The exception
      */
     public void createAnAccount(String[] parameters, AccountRegistrationPresenter presenter) throws IOException {
 

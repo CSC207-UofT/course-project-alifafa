@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.BlockedListOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.BlockedListOutputBoundary;
 
 public class BlockedListPresenter implements BlockedListOutputBoundary {
 

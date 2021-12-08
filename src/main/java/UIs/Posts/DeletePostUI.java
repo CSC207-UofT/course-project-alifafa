@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.DeletePostController;
+import Controllers.PostsSharingController.PostCommentAndLike.DeletePostController;
 import Presenters.Post.DeletePostPresenter;
 import UIs.ParentUI;
 
@@ -31,14 +31,12 @@ public class DeletePostUI extends ParentUI {
             System.out.println("The post id: ");
             params[1] = scanner.nextLine();
 
-            controller.runDeletePost(params[0], params[1], presenter);
-            System.out.println(presenter.presentOutput());
-//            try {
-//                controller.runDeletePost(params[0], params[1], presenter);
-//                System.out.println(presenter.presentOutput());
-//            } catch (Exception e) {
-//                System.out.println("ConcurrentModificationException");
-//            }
+            try {
+                controller.runDeletePost(params[0], params[1], presenter);
+                System.out.println(presenter.presentOutput());
+            } catch (Exception e) {
+                System.out.println("ConcurrentModificationException. Sorry... This feature is in maintenance.");
+            }
 
 
         }

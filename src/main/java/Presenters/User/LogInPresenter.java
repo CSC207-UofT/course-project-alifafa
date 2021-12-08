@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.LogInOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
 
 
 public class LogInPresenter implements LogInOutputBoundary {

@@ -8,13 +8,15 @@ import UIs.ParentUI;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * The user interface for account registration, will receive feedback from AccountRegistrationPresenter.
+ */
 public class AccountRegistrationUI extends ParentUI {
+
     /**
-     * A user interface for account registration, will receive feedback from AccountRegistrationPresenter.
+     * This method can be used when you want to prompt the user and allow for registering an account.
+     * @throws IOException the exception.
      */
-
-
-
     public void run() throws IOException {
         AccountRegistrationController controller = new AccountRegistrationController();
         AccountRegistrationPresenter presenter = new AccountRegistrationPresenter();

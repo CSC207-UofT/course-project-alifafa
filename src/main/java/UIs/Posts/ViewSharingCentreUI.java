@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.GetSharingCenterController;
+import Controllers.PostsSharingController.ViewAndNotification.GetSharingCenterController;
 import Presenters.Post.SharingCentrePresenter;
 import UIs.ParentUI;
 

@@ -1,6 +1,6 @@
 package InputBoundary;
 
-import OutputBoundary.*;
+import OutputBoundary.Post.*;
 
 import java.io.IOException;
 import java.util.List;

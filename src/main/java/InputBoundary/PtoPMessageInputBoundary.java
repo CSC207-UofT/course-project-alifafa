@@ -2,7 +2,7 @@ package InputBoundary;
 
 import Entity.Message.PtoPMessage;
 import Entity.Users.User;
-import OutputBoundary.PtoPMessageOutputBoundary;
+import OutputBoundary.Message.PtoP.PtoPMessageOutputBoundary;
 
 import java.io.IOException;
 

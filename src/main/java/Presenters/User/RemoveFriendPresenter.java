@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.RemoveFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.RemoveFriendOutputBoundary;
 
 public class RemoveFriendPresenter implements RemoveFriendOutputBoundary {
     String status;

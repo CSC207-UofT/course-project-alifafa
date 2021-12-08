@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.EditPasswordOutputBoundary;
+import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
 
 public class EditPasswordPresenter implements EditPasswordOutputBoundary {
     boolean edited;
