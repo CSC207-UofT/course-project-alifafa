@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.Post;
 
 import Entity.Post.Notifications;
 

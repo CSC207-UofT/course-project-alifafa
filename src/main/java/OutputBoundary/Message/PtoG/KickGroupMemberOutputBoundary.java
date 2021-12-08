@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.Message.PtoG;
 
 public interface KickGroupMemberOutputBoundary {
     /**

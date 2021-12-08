@@ -1,6 +1,6 @@
 package Presenters.Message;
 
-import OutputBoundary.KickGroupMemberOutputBoundary;
+import OutputBoundary.Message.PtoG.KickGroupMemberOutputBoundary;
 
 public class KickGroupMemberPresenter implements KickGroupMemberOutputBoundary {
     String status;

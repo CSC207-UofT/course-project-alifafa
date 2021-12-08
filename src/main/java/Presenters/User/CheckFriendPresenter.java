@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.CheckFriendOutputBoundary;
+import OutputBoundary.User.Add_Remove_Block_User.CheckFriendOutputBoundary;
 
 public class CheckFriendPresenter implements CheckFriendOutputBoundary {
     boolean isFriend;

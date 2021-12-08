@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.User.Create_Edit_Account;
 
 public interface AccountRegistrationOutputBoundary {
     /**

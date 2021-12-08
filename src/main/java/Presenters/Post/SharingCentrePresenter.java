@@ -1,6 +1,6 @@
 package Presenters.Post;
 
-import OutputBoundary.SharingCentreOutputBoundary;
+import OutputBoundary.Post.SharingCentreOutputBoundary;
 
 import java.util.List;
 

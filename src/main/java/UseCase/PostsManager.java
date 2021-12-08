@@ -5,7 +5,7 @@ import Entity.Post.ParagraphPost;
 import Entity.Post.PicturePost;
 import Entity.Users.User;
 import InputBoundary.SharingCentreInputBoundary;
-import OutputBoundary.*;
+import OutputBoundary.Post.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

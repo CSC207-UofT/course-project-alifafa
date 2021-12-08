@@ -1,6 +1,6 @@
 package Presenters.Post;
 
-import OutputBoundary.PostAPostOutputBoundary;
+import OutputBoundary.Post.PostAPostOutputBoundary;
 
 public class PostAPostPresenter implements PostAPostOutputBoundary {
     boolean posted;

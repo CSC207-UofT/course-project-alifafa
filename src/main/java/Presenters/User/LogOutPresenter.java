@@ -1,6 +1,6 @@
 package Presenters.User;
 
-import OutputBoundary.LogOutOutputBoundary;
+import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
 public class LogOutPresenter implements LogOutOutputBoundary {
     boolean loggedIn;

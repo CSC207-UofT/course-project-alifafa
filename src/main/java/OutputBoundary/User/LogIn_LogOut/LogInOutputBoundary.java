@@ -1,4 +1,4 @@
-package OutputBoundary;
+package OutputBoundary.User.LogIn_LogOut;
 
 
 public interface LogInOutputBoundary {

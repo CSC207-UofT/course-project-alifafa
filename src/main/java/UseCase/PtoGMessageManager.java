@@ -6,7 +6,7 @@ import Entity.GroupChat.PtoGMessage;
 import Entity.Users.User;
 import Gateway.PtoGMessageDataAccess;
 import InputBoundary.PtoGMessageInputBoundary;
-import OutputBoundary.PtoGMessageOutputBoundary;
+import OutputBoundary.Message.PtoG.PtoGMessageOutputBoundary;
 
 import java.io.IOException;
 import java.util.HashMap;

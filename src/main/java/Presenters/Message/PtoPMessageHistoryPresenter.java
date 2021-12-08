@@ -1,6 +1,6 @@
 package Presenters.Message;
 
-import OutputBoundary.PtoPMessageOutputBoundary;
+import OutputBoundary.Message.PtoP.PtoPMessageOutputBoundary;
 
 import java.util.Objects;
 

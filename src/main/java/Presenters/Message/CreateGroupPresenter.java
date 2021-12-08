@@ -1,6 +1,6 @@
 package Presenters.Message;
 
-import OutputBoundary.CreateGroupOutputBoundary;
+import OutputBoundary.Message.PtoG.CreateGroupOutputBoundary;
 
 
 public class CreateGroupPresenter implements CreateGroupOutputBoundary {

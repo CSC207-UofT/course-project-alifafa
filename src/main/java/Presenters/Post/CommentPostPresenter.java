@@ -1,6 +1,6 @@
 package Presenters.Post;
 
-import OutputBoundary.CommentPostOutputBoundary;
+import OutputBoundary.Post.CommentPostOutputBoundary;
 
 public class CommentPostPresenter implements CommentPostOutputBoundary {
     boolean commented = false;  // This signifies whether a user commented or
