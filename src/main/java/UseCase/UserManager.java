@@ -96,11 +96,15 @@ public class UserManager implements UserInputBoundary {
 //    }
 
 
+    /**
+     *
+     * @param userName the name the user want to find.
+     * @return return true if the name does not exist and can be used, return false if the name exists.
+     */
     public boolean checkUserName (String userName) {
-        //Check whether the username existed in StoreUser or not
+        //Check whether the username existed in StoreUser or not.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
-        System.out.println(stored.size());
         for (User user : stored) {
             if (user.getUserName().equals(userName)) {
                 return false;
