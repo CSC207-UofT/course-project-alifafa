@@ -3,6 +3,7 @@ package UseCase;
 import Entity.Post.Notifications;
 import Entity.Post.ParagraphPost;
 import Entity.Post.PicturePost;
+import Entity.Post.PostReader;
 import Entity.Users.User;
 import InputBoundary.SharingCentreInputBoundary;
 import OutputBoundary.Post.*;
@@ -29,7 +30,8 @@ public class PostsManager implements SharingCentreInputBoundary {
      */
     private ParagraphPost createPost(String username, String content, String location, List<String> pictures) {
         if (!pictures.isEmpty()) {
-            return new PicturePost(username, LocalDateTime.now(), location, content, pictures);
+            PostReader post = new PicturePost(username, LocalDateTime.now(), location, content, pictures);
+            return post.getPost();
         }
         return new ParagraphPost(username, LocalDateTime.now(), location, content);
     }
@@ -286,6 +288,10 @@ public class PostsManager implements SharingCentreInputBoundary {
     public void retrieveNotifications(String userID, NotificationOutputBoundary outputBoundary) {
         UserManager userManager = new UserManager();
         User user = userManager.getUser(userID);
-        outputBoundary.setContent(getNotifications(user));
+        List<String> notification_list = new ArrayList<>();
+        for (Notifications notification : getNotifications(user)) {
+            notification_list.add(notification.toString() + "\n");
+        }
+        outputBoundary.setContent(notification_list);
     }
 }
