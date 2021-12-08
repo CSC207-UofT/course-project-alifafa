@@ -35,8 +35,9 @@ public class UserTest {
     */
     @Test
     public void testGetID() {
-        User user = new User("a", "123");
-        Assert.assertEquals("1", user.getID());
+        User user1 = new User("a", "123");
+        User user2 = new User("b", "123");
+        Assert.assertEquals(String.valueOf(Integer.parseInt(user2.getID())-1), user1.getID());
     }
 
     /**
@@ -89,25 +90,25 @@ public class UserTest {
 
     }
 
-    /*
+    /**
     *
     * Method: getBlockedUser()
     *
+    */
 
     @Test
-    public void testGetBlockedUser() throws Exception {
-    }
-     */
+    public void testGetBlockedUser() {
+        User user1 = new User("a", "123");
+        User user2 = new User("b", "123");
+        user1.addBlockedUser(user2);
+        ArrayList<User> blocked = new ArrayList<>();
+        blocked.add(user2);
+        Assert.assertEquals(blocked, user1.getBlockedUser());
 
-    /*
-    *
-    * Method: getAddFriendRequests()
-    *
-
-    @Test
-    public void testGetAddFriendRequests() throws Exception {
     }
-     */
+
+
+
 
     /**
     *
@@ -181,14 +182,81 @@ public class UserTest {
         Assert.assertEquals(friends, user1.getFriends());
     }
 
-    /*
+    /**
+     *
+     * Method: addFriends(User friend)
+     *
+     */
+    @Test
+    public void testAddFriends() {
+        User user1 = new User( "a", "123");
+        User user2 = new User("b", "123");
+        ArrayList<User> friends = new ArrayList<>();
+
+        friends.add(user2);
+        user1.addFriends(friends);
+
+        Assert.assertEquals(friends, user1.getFriends());
+    }
+
+    /**
+     *
+     * Method: getAddBlockedUser()
+     *
+     */
+
+    @Test
+    public void testAddBlockedUser() {
+        User user1 = new User("a", "123");
+        User user2 = new User("b", "123");
+        user1.addBlockedUser(user2);
+        ArrayList<User> blocked = new ArrayList<>();
+        blocked.add(user2);
+        Assert.assertEquals(blocked, user1.getBlockedUser());
+
+    }
+
+    /**
+     *
+     * Method: setPassword()
+     *
+     */
+
+    @Test
+    public void testSetPassword() {
+        User user1 = new User("a", "123");
+        user1.setPassword("12345");
+        Assert.assertEquals("12345", user1.getPassword());
+
+    }
+
+    /**
     *
     * Method: removeFriend(User friend)
     *
+    */
     @Test
-    public void testRemoveFriend() throws Exception {
+    public void testRemoveFriend(){
+        User user1 = new User( "a", "123");
+        User user2 = new User("b", "123");
+
+        user1.addFriend(user2);
+        ArrayList<User> friends = new ArrayList<>();
+        user1.removeFriend(user2);
+        Assert.assertEquals(friends, user1.getFriends());
     }
-     */
+
+
+    /*
+    *
+    * Method: getAddFriendRequests()
+    *
+
+    @Test
+    public void testGetAddFriendRequests() {
+
+    }
+    */
 
     /*
     *
