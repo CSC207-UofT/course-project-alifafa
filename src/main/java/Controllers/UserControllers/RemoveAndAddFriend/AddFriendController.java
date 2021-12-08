@@ -17,6 +17,13 @@ public class AddFriendController{
 //        AddFriendInputBoundary = addFriendInputBoundary;
 //    }
 */
+
+    /**
+     *
+     * @param parameters  containing the name of current user, and the username of the friend
+     * @param presenter AddFriendPresenter
+     * @throws IOException the exception it throws
+     */
     public void addFriend(String[] parameters, AddFriendPresenter presenter) throws IOException {
         AddFriendInputBoundary.runAddFriend(parameters, presenter);
     }

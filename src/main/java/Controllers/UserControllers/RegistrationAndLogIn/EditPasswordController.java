@@ -11,6 +11,11 @@ public class EditPasswordController {
 
     private final UserInputBoundary EditInfoInputBoundary = new UserManager();
 
+    /**
+     * Change the password of an existing and logged in user
+     * @param parameters the new password and user's username
+     * @param presenter the presenter will return the output from usecase.
+     */
     public void editPassword(String[] parameters, EditPasswordPresenter presenter){
         EditInfoInputBoundary.runEditPassword(parameters, presenter);
     }
