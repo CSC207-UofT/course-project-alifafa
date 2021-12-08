@@ -1,5 +1,8 @@
-package Entity;
+package Entity.Chat.PtoG;
 
+import Entity.GroupChat.Group;
+import Entity.GroupChat.PtoGMessage;
+import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,7 +65,7 @@ public class GroupTest {
     @Test
     public void testGetGroupName() {
         Group rng = new Group( "rng");
-        Assert.assertEquals("1", rng.getGroupName());
+        Assert.assertEquals("rng", rng.getGroupName());
     }
 
 

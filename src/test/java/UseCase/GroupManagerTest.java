@@ -1,8 +1,10 @@
 package UseCase;
 
-import Entity.Group;
-import Entity.GroupList;
-import Entity.User;
+
+import Entity.GroupChat.Group;
+import Entity.GroupChat.GroupList;
+import Entity.Users.User;
+import Entity.Users.UserList;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
@@ -69,11 +71,14 @@ public class GroupManagerTest {
      * Method: getGroupName(String name)
      */
     @Test
-    public void testGetGroup() {
+    public void testGetGroup() throws IOException {
         GroupManager manager = new GroupManager();
-        Group group = new Group("fpx");
-        Group g = manager.getGroup("fpx");
-        Assert.assertEquals(group, g);
+        GroupList g = new GroupList();
+        g.getAllGroups().clear();
+        manager.createGroup("rng");
+        ArrayList<Group> stored = g.getAllGroups();
+        Group g1 = stored.get(0);
+        Assert.assertEquals(g1, manager.getGroup("rng"));
     }
 
 
@@ -101,14 +106,17 @@ public class GroupManagerTest {
     *
     */
     @Test
-    public void testKick() {
+    public void testKick() throws IOException {
         GroupManager manager = new GroupManager();
-        Group rng = new Group( "rng");
+        manager.createGroup("rng");
         User edg = new User("edg", "123");
-        rng.addMember(edg);
+        manager.joinGroup("edg", "rng");
         manager.kickGroupMember("rng", "edg");
-        ArrayList<User> lst = new ArrayList<>();
-        Assert.assertEquals(lst, rng.getMembers());
+
+        Group group = manager.getGroup("rng");
+        ArrayList<User> lst = group.getMembers();
+        ArrayList<User> lst2 = new ArrayList<>();
+        Assert.assertEquals(lst2, lst);
     }
 
     /**
@@ -117,11 +125,12 @@ public class GroupManagerTest {
      *
      */
     @Test
-    public void testCheckGroup()  {
+    public void testCheckGroup() throws IOException {
         GroupManager manager = new GroupManager();
-        Group rng = new Group( "rng");
-        User edg = new User("edg", "123");
-        rng.addMember(edg);
+        UserManager u = new UserManager();
+        manager.createGroup("rng");
+        u.createUser("edg", "123");
+        manager.joinGroup("edg", "rng");
         boolean checker = manager.checkGroup("edg", "rng");
         Assert.assertTrue(checker);
     }
@@ -134,12 +143,15 @@ public class GroupManagerTest {
     @Test
     public void testJoinGroup() throws Exception {
         GroupManager manager = new GroupManager();
-        Group rng = new Group( "rng");
-        User edg = new User("edg", "123");
-        manager.joinGroup("edg", "rng");
-        ArrayList<User> lst = new ArrayList<>();
-        lst.add(edg);
-        Assert.assertEquals(lst, rng.getMembers());
+        UserManager mu = new UserManager();
+        GroupList g = new GroupList();
+        g.getAllGroups().clear();
+        UserList u = new UserList();
+        u.getAllUsers().clear();
+        manager.createGroup("rng");
+        mu.createUser("fpx", "123");
+        manager.joinGroup("fpx", "rng");
+        Assert.assertEquals(g.getAllGroups().get(0).getMembers().get(0), u.getAllUsers().get(0));
     }
 
 
