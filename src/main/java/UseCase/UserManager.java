@@ -147,9 +147,9 @@ public class UserManager implements UserInputBoundary {
         return null;
     }
 
-    public void changeLogInStatus(String id){
-        //Change LogIn status of the user with given id.
-        User user = this.getUser(id);
+    public void changeLogInStatus(String username){
+        //Change LogIn status of the user with given username.
+        User user = this.getUser(username);
         user.changeLoggedInStatus();
     }
 
