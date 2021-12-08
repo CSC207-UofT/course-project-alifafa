@@ -20,7 +20,6 @@ public class ParagraphPostTest {
 
     User a = new User( "a", "123");
     ParagraphPost post = new ParagraphPost(a.getUserName(), LocalDateTime.now(), "LOL", "hello");
-    List<String[]> comments = new ArrayList<>();
 
     /**
     *
@@ -82,9 +81,9 @@ public class ParagraphPostTest {
     */
     @Test
     public void testGetComments() {
-        comments.add(new String[]{"lucas", "haha"});
+        post.getComments().add(new String[]{"lucas", "haha"});
         Assert.assertEquals(1, post.getComments().size());
-        Assert.assertEquals("Haha", post.getComments().get(0)[1]);
+        Assert.assertEquals("haha", post.getComments().get(0)[1]);
     }
 
     /**

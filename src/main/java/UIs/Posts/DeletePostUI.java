@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.DeletePostController;
+import Controllers.PostsSharingController.PostCommentAndLike.DeletePostController;
 import Presenters.Post.DeletePostPresenter;
 import UIs.ParentUI;
 

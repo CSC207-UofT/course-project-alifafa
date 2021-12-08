@@ -21,7 +21,6 @@ public class ParagraphPost implements Serializable {
     private String content;
     private final String LOCATION;
     private int likes;
-//    protected static int id = 0;
     private final String postID;
 
     /**
@@ -39,7 +38,6 @@ public class ParagraphPost implements Serializable {
         this.usersWhoLiked = new ArrayList<>();
         this.postID = UUID.randomUUID().toString();
         likes = 0;
-//        id += 1;
     }
 
     public  void setLikes(int likes) {
@@ -69,10 +67,6 @@ public class ParagraphPost implements Serializable {
     public String getContent() {
         return content;
     }
-
-//    public static int getId() {
-//        return id;
-//    }
 
     public String getPostID() {
         return postID;

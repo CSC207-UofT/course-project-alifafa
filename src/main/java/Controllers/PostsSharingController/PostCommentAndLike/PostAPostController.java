@@ -1,4 +1,4 @@
-package Controllers.PostsSharingController;
+package Controllers.PostsSharingController.PostCommentAndLike;
 
 import InputBoundary.SharingCentreInputBoundary;
 import Presenters.Post.PostAPostPresenter;

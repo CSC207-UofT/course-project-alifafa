@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.LikePostController;
+import Controllers.PostsSharingController.PostCommentAndLike.LikePostController;
 import UIs.ParentUI;
 
 import java.io.IOException;
@@ -11,7 +11,6 @@ public class LikePostUI extends ParentUI {
     /**
      * User interface for the user to like a post.
      *
-     * @throws IOException
      */
 
     @Override

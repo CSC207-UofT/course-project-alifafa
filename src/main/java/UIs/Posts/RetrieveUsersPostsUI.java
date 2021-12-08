@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.UserAllPostController;
+import Controllers.PostsSharingController.ViewAndNotification.UserAllPostController;
 import Presenters.Post.SharingCentrePresenter;
 import UIs.ParentUI;
 
@@ -12,7 +12,6 @@ public class RetrieveUsersPostsUI extends ParentUI {
     /**
      * User Interface to retrieve a user's posts
      *
-     * @throws IOException
      */
 
     @Override

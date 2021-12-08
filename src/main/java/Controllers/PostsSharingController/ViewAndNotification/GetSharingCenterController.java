@@ -1,4 +1,4 @@
-package Controllers.PostsSharingController;
+package Controllers.PostsSharingController.ViewAndNotification;
 
 import InputBoundary.SharingCentreInputBoundary;
 import Presenters.Post.SharingCentrePresenter;

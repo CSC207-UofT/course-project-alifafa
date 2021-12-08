@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.PostAPostController;
+import Controllers.PostsSharingController.PostCommentAndLike.PostAPostController;
 import Presenters.Post.PostAPostPresenter;
 import UIs.ParentUI;
 

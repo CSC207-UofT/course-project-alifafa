@@ -1,7 +1,7 @@
 package UIs.Posts;
 
 import CommandControl.Constants;
-import Controllers.PostsSharingController.CommentPostController;
+import Controllers.PostsSharingController.PostCommentAndLike.CommentPostController;
 import Presenters.Post.CommentPostPresenter;
 import UIs.ParentUI;
 
@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CommentPostUI extends ParentUI {
-    /**
-     * @throws IOException
+    /** User interface for the user to write comments to a post.
      */
 
     @Override
