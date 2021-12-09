@@ -3,7 +3,6 @@ package Controllers.GroupControllers;
 import Controllers.GroupChatControllers.CreateGroupController;
 import Presenters.Message.CreateGroupPresenter;
 import UseCase.GroupManager;
-import UseCase.UserManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
