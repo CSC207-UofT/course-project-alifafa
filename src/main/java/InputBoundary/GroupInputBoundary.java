@@ -1,6 +1,6 @@
 package InputBoundary;
 
-import Entity.GroupChat.Group;
+import Entity.Message.Group;
 import OutputBoundary.Message.PtoG.CheckGroupOutputBoundary;
 import OutputBoundary.Message.PtoG.CreateGroupOutputBoundary;
 import OutputBoundary.Message.PtoG.JoinGroupOutputBoundary;

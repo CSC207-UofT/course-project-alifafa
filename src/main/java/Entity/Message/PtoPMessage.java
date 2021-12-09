@@ -3,23 +3,15 @@ package Entity.Message;
 import Entity.Users.User;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-public class PtoPMessage implements Serializable {
+public class PtoPMessage extends Message implements Serializable {
     /**
      * A person-to-person message.
      */
 
     // === Instance Variables ===
-    //The time this message created.
-    private final LocalDateTime TIME;
-    //The content of this message.
-    private final String CONTENT;
-    //The sender of this message.
-    private final User SENDER;
     //The receiver of this message.
-    private final User  RECEIVER;
-
+    private final User RECEIVER;
 
     /**
      * Creates a message.
@@ -28,11 +20,10 @@ public class PtoPMessage implements Serializable {
      * @param content the content of this message.
      *
      */
-    public PtoPMessage(User  sender, User  receiver, String content){
-        this.SENDER = sender;
+
+    public PtoPMessage(User  sender, User  receiver, String content) {
+        super(sender, content);
         this.RECEIVER = receiver;
-        this.CONTENT = content;
-        this.TIME = LocalDateTime.now();
     }
 
 
@@ -41,6 +32,7 @@ public class PtoPMessage implements Serializable {
      *
      * @return return the string of message
      */
+    @Override
     public String toString (){
         return SENDER.getUserName() + " -> " + RECEIVER.getUserName() +": " + CONTENT + "   (" + TIME + ")";
     }
@@ -56,13 +48,13 @@ public class PtoPMessage implements Serializable {
      * @return Return the sender of the message.
      */
     public User getSender() {
-        return this.SENDER;
+        return super.getSender();
     }
 
     /**
      * @return Return the content of the message.
      */
     public String getContent() {
-        return this.CONTENT;
+        return super.getContent();
     }
 }

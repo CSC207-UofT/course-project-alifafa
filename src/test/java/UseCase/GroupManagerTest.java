@@ -1,8 +1,8 @@
 package UseCase;
 
 
-import Entity.GroupChat.Group;
-import Entity.GroupChat.GroupList;
+import Entity.Message.Group;
+import Entity.Message.GroupList;
 import Entity.Users.User;
 import Entity.Users.UserList;
 import org.junit.Assert;
