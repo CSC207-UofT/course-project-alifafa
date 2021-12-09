@@ -1,22 +1,15 @@
-package Entity.GroupChat;
+package Entity.Message;
 
-import Entity.GroupChat.Group;
 import Entity.Users.User;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
-public class PtoGMessage {
+public class PtoGMessage extends Message implements Serializable {
     /**
      * A person-to-group message.
      */
 
     // === Instance Variables ===
-    //The time this message created.
-    private final LocalDateTime TIME;
-    //The content of this message.
-    private final String CONTENT;
-    //The sender of this message.
-    private final User SENDER;
     //The group of receiver of this message.
     private final Group GROUP;
 
@@ -29,9 +22,7 @@ public class PtoGMessage {
      *
      */
     public PtoGMessage(User  sender, Group group, String content){
-        this.SENDER = sender;
-        this.CONTENT = content;
-        this.TIME = LocalDateTime.now();
+        super(sender, content);
         this.GROUP = group;
     }
 
@@ -52,7 +43,7 @@ public class PtoGMessage {
      * @return the content of this message.
      */
     public String getContent(){
-        return CONTENT;
+        return super.getContent();
     }
 
 
@@ -62,7 +53,7 @@ public class PtoGMessage {
      * @return the sender of this message.
      */
     public User getSender(){
-        return SENDER;
+        return super.getSender();
     }
 
 
@@ -75,6 +66,7 @@ public class PtoGMessage {
         return GROUP;
     }
 
+    @Override
     public String toString (){
         return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
     }
