@@ -3,7 +3,7 @@ package Presenters.Message;
 import org.junit.jupiter.api.Test;
 
 
-class PtoGMessageHistoryPresenterTest {
+class PtoGMessagePresenterTest {
 
     @Test
     // Check whether this presenter can store a text successfully
