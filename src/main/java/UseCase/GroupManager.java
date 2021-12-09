@@ -3,6 +3,7 @@ package UseCase;
 import DataAccessInterface.DataAccess;
 import Entity.Message.Group;
 import Entity.Message.GroupList;
+import Entity.Message.NullGroup;
 import Entity.Users.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.GroupInputBoundary;
@@ -36,12 +37,6 @@ public class GroupManager implements GroupInputBoundary {
             GroupList store = new GroupList();
             HashMap<String, ArrayList<Group>> saved = this.gateway.readFromFile("Group_Info.csv");
             ArrayList<Group> storage = saved.get("storage");
-//            for (Group g: storage) {
-//                ArrayList<User> m = g.getMembers();
-//                for (User u: m){
-//                    g.addMember(u);
-//                }
-//            }
             store.addGroups(storage);
         }
     }
@@ -52,9 +47,6 @@ public class GroupManager implements GroupInputBoundary {
         ArrayList<Group> lst = store.getAllGroups();
         HashMap<String, ArrayList<Group>> s = new HashMap<>();
         s.put("storage", lst);
-//        for (Group g: lst) {
-//            s.put(g.getGroupName(), g.getMembers());
-//        }
         dataAccess.saveToFile("Group_Info.csv", s);
     }
 
@@ -127,7 +119,7 @@ public class GroupManager implements GroupInputBoundary {
                 return group;
             }
         }
-        return null;
+        return new NullGroup();
     }
 
     @Override
