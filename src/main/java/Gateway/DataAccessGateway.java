@@ -3,7 +3,7 @@ package Gateway;
 import DataAccessInterface.DataAccess;
 
 import java.io.*;
-
+// a Gateway for User, docstrings of methods below are in its corresponding interface
 public class DataAccessGateway implements DataAccess {
 
     @Override

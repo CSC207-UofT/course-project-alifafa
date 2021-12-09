@@ -17,24 +17,24 @@ public class Group implements Serializable {
         this.PtoGMessageHistory = new ArrayList<>();
     }
 
-
+    // get group's name
     public String getGroupName() {
         return this.GroupName;
     }
-
+    // get members from the group
     public ArrayList<User> getMembers() {
         return this.members;
     }
-
+    // add a member to group
     public void addMember(User member) {
         //Add users to the list of users in this group
         this.members.add(member);
     }
-
+    // add group message to group
     public void addGroupMessage(PtoGMessage message) {
         PtoGMessageHistory.add(message);
     }
-
+    // get message from the group
     public ArrayList<PtoGMessage> getMessage() {
         return this.PtoGMessageHistory;
     }

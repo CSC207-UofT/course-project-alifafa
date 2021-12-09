@@ -54,7 +54,7 @@ public class Constants {
 }
 
 
-
+    // get ui by its name
     public ParentUI getUI(String taskName){
         return this.validCommands.get(taskName);
     }
@@ -69,10 +69,12 @@ public class Constants {
         return validCommands.containsKey(taskName);
     }
 
+    // get current user
     public String getCurrentUser() {
         return currentUser;
     }
 
+    // set the current user by taking a string
     public void setCurrentUser(String currentUser) {
         Constants.currentUser = currentUser;
     }
