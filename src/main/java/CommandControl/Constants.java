@@ -56,7 +56,6 @@ public class Constants {
 
     // get ui by its name
     public ParentUI getUI(String taskName){
-    public ParentUI getUI(String taskName) {
         return this.validCommands.get(taskName);
     }
 
