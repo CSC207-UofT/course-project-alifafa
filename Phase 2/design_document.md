@@ -48,7 +48,7 @@ We decided to develop two major functions of our application, which are chatting
  -  We used the null pattern in our User class to avoid the possibility of having null objects calling on methods. We have many methods in UserManager class that use getter methods to get an object then use the returned object to call on something else. We created a NullUser class so that whenever we return null when we want to return an user, we will return a null user.
 
 
-## Use of GitHub Features (Vincent)
+## Use of GitHub Features
 1. Issues
     - We mainly use GitHub Issues to assign tasks to people and keep our to-do lists. When we finish tasks, we will resolve the issue.
 2. Actions
@@ -56,7 +56,7 @@ We decided to develop two major functions of our application, which are chatting
 3. Pull Requests
     - We use pull requests most often. Whenever we finish working on our own branch and wish to merge the new commits, we created pull requests and ask our group members to review them or resolve any conflicts. We use it to make sure everyone can work individual parts while incorporating with others.
 
-## Code Style and Documentation (TODO)
+## Code Style and Documentation
 ### Warnings
 We have addressed all warnings.
 ### Javadoc
@@ -67,7 +67,7 @@ Our code is organized in a way so that it is clear what each file is used for an
 ## Testing
 We have tested the entities, use cases, controllers, and presenters.
 
-## Refactoring (Everyone)
+## Refactoring
 
 During refraction,
 - Code Smell: We refactored problematic code that had code smell.
