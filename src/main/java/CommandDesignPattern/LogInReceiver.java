@@ -5,7 +5,7 @@ import Controllers.UserControllers.RegistrationAndLogIn.LogInController;
 import Presenters.User.LogInPresenter;
 
 import java.util.Scanner;
-
+// a LogInReceiver helps to turn switch on
 public class LogInReceiver implements Receiver{
     @Override
     public void switchOn() {

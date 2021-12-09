@@ -15,7 +15,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * A manager that can manage groups
+ */
 public class GroupManager implements GroupInputBoundary {
 
     private final DataAccess gateway = new DataAccessGateway();

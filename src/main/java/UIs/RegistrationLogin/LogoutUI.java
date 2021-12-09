@@ -6,7 +6,7 @@ import Presenters.User.LogOutPresenter;
 import UIs.ParentUI;
 
 public class LogoutUI extends ParentUI {
-
+    // the user of can log out by running this LogoutUI
     public void run() {
 
         Constants constants = new Constants();

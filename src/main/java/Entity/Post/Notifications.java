@@ -31,23 +31,23 @@ public class Notifications implements Serializable {
         this.POST = post;
         this.likeNotification = like;
     }
-
+    // get the user of notifications
     public User getUSER() {
         return USER;
     }
-
+    // get the time of notifications
     public LocalDateTime getTIME() {
         return TIME;
     }
-
+    // get the post of notifications
     public ParagraphPost getPOST() {
         return POST;
     }
-
+    // get if the notification is liked
     public boolean isLikeNotification() {
         return likeNotification;
     }
-
+    // set the likes of the notification
     public void setLikeNotification(boolean likeNotification) {
         this.likeNotification = likeNotification;
     }

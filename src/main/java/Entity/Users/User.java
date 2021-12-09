@@ -69,28 +69,28 @@ public class User implements Serializable {
         this.loggedIn = false;
         this.sharingCentre = new SharingCentre();
     }
-
+    // a getter for user id
     public String getID (){
         return userID;
     }
-
+    // a getter for user name
     public String getUserName() {
         return this.userName;
     }
-
+    // a getter for user password
     public String getPassword() {
         return this.password;
     }
-
+    // a getter for user friends
     public ArrayList<User> getFriends() {
         return this.friends;
     }
-
+    // a getter for user posts
     public ArrayList<ParagraphPost> getMyPosts() {
         return this.myPosts;
     }
 
-
+    // a getter for user blockedUser
     public ArrayList<User> getBlockedUser() {
         return this.blockedUser;
     }
@@ -98,15 +98,15 @@ public class User implements Serializable {
     /* public ArrayList<String> getAddFriendRequests() {
         return this.addFriendRequests;
     */
-
+    // a getter for user login status
     public boolean getLoggedIn() {
         return this.loggedIn;
     }
-
+    // a getter for user SharingCentre
     public SharingCentre getSharingCentre() {
         return sharingCentre;
     }
-
+    // a setter for user login status
     public void changeLoggedInStatus() {
         //Change LogIn status of the user with given id.
         boolean status = this.loggedIn;
@@ -125,28 +125,28 @@ public class User implements Serializable {
         this.password = password;
     }
 
-
+    // a setter for friend
     public void addFriend (User friend){
         //Add friend to the list friends
         this.friends.add(friend);
     }
-
+    // a setter for friends
     public void addFriends (ArrayList<User> friend){
         //Add friends to the list friends
         this.friends.addAll(friend);
     }
-
+    // a setter for blocked user
     public void addBlockedUser (User blocked){
         //Add user to blocked list
         this.blockedUser.add(blocked);
     }
-
+    // a setter for password
     public void setPassword (String password){
         //Set password for user.
         this.password = password;
     }
 
-
+    // a setter for removing friend
     public void removeFriend (User friend){
         //Remove friend from the list friends
         int k = this.friends.size() + 1;
@@ -160,7 +160,7 @@ public class User implements Serializable {
         }
     }
 
-
+    // a setter for FriendRequests
     public ArrayList<String> getAddFriendRequests() {
         return addFriendRequests;
     }
