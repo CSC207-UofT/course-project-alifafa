@@ -31,7 +31,9 @@ public class Message  {
     }
 
     public String toString (){
-        return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
+
+        return CONTENT;
+
     }
 
     /**
