@@ -83,22 +83,25 @@ public class GroupManagerTest {
 
 
 
-//    /**
-//     *
-//     * Method: addGroupMember(String id, String friendID)
-//     *
-//     */
-//    @Test
-//    public void testAddMember() throws IOException {
-//        GroupManager manager = new GroupManager();
-//        Group group = new Group("clear");
-//        User user = new User("rng", "777");
-//        manager.joinGroup("rng", "clear");
-//        ArrayList<User> lst = new ArrayList<>();
-//        lst.add(user);
-//        ArrayList<User> lst2 = group.getMembers();
-//        Assert.assertEquals(lst, lst2);
-//    }
+/*
+
+    /**
+     *
+     * Method: addGroupMember(String id, String friendID)
+     *
+     * /
+    @Test
+    public void testAddMember() throws IOException {
+        GroupManager manager = new GroupManager();
+        Group g = new Group("clear");
+        User user = new User("rng", "777");
+        manager.joinGroup("rng", "clear");
+        ArrayList<User> lst = new ArrayList<>();
+        lst.add(user);
+        ArrayList<User> lst2 = group.getMembers();
+        Assert.assertEquals(lst, lst2);
+    }
+*/
 
     /**
     *
@@ -109,7 +112,9 @@ public class GroupManagerTest {
     public void testKick() throws IOException {
         GroupManager manager = new GroupManager();
         manager.createGroup("rng");
-        User edg = new User("edg", "123");
+        User u = new User("edg", "123");
+        User u1 = new User("g", "123");
+        u.addFriend(u1);
         manager.joinGroup("edg", "rng");
         manager.kickGroupMember("rng", "edg");
 
