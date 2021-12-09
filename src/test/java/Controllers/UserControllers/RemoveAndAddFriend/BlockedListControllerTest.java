@@ -17,7 +17,6 @@ public class BlockedListControllerTest {
     BlockedListPresenter presenter;
     User user;
     User blocked;
-    User blockedTwo;
     UserList list;
 
 
@@ -25,11 +24,9 @@ public class BlockedListControllerTest {
     public void setUp() throws Exception {
         user = new User("AAB", "123");
         blocked = new User("BBB","123");
-        blockedTwo = new User("CCC", "123");
         list = new UserList();
         list.addUser(user);
         list.addUser(blocked);
-        list.addUser(blockedTwo);
         controller = new BlockedListController();
         presenter = new BlockedListPresenter();
     }
@@ -40,9 +37,13 @@ public class BlockedListControllerTest {
 
     @Test
     public void addBlocked() throws IOException {
-        String[] input = {"AAB", "CCC"};
+        User blockedTwo = new User("CCC", "123");
+        User newUser = new User("PPP", "123");
+        list.addUser(newUser);
+        list.addUser(blockedTwo);
+        String[] input = {"PPP", "CCC"};
         controller.addBlocked(input, presenter);
-        assert user.getBlockedUser().contains(blockedTwo);
+        assert newUser.getBlockedUser().contains(blockedTwo);
     }
 
     @Test
