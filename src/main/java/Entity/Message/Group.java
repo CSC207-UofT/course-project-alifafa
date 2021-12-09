@@ -1,5 +1,6 @@
 package Entity.Message;
 
+import Entity.Post.SharingCentre;
 import Entity.Users.User;
 
 import java.io.Serializable;
@@ -12,11 +13,18 @@ public class Group implements Serializable {
     private final ArrayList<PtoGMessage> PtoGMessageHistory;
 
     public Group(String name) {
-//        this.GroupID = id;
+
         this.GroupName = name;
         this.members = new ArrayList<>();
         this.PtoGMessageHistory = new ArrayList<>();
     }
+
+    public Group() {
+        this.GroupName = "";
+        this.members = new ArrayList<>();
+        this.PtoGMessageHistory = new ArrayList<>();
+    }
+
 
     // get group's name
     public String getGroupName() {
