@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class PtoPMessageHistoryPresenter implements PtoPMessageOutputBoundary {
 
-    //The ptop message history.
+    //The p-to-p message history.
     private String ptoPMessageHistory;
 
     public PtoPMessageHistoryPresenter() {

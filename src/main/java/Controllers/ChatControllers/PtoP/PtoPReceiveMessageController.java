@@ -13,8 +13,8 @@ public class PtoPReceiveMessageController {
 
     //The input boundary of this class, which is implemented by PtoPMessageManager. It should be
     // constructed outside this class, then injected into this class's constructor.
-    //  private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
     private final PtoPMessageInputBoundary ptoPMessageInputBoundary = new PtoPMessageManager();
+
     private final UserInputBoundary userInputBoundary = new UserManager();
 
     /**

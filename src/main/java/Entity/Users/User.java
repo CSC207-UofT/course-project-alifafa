@@ -27,9 +27,6 @@ public class User implements Serializable {
     private final SharingCentre sharingCentre;
     //The password of the User.
     private String password;
-    /*
-    private ArrayList<String> addFriendRequests;
-     */
     //The log in status of the User.
     private boolean loggedIn;
 
@@ -114,22 +111,6 @@ public class User implements Serializable {
         this.loggedIn = !status;
     }
 
-    /* will be implemented in later phase.
-    public void changeUserName (String userName){
-        //Change the userName to new userName
-        this.userName = userName;
-    }
-
-     */
-
-    /*
-    public void changePassword(String password)
-        //Change the password to new password
-        this.password = password;
-
-
-     */
-
     public void addFriend(User friend) {
         //Add friend to the list friends
         this.friends.add(friend);
@@ -158,10 +139,4 @@ public class User implements Serializable {
         }
     }
 
-/*
-    public ArrayList<String> getAddFriendRequests()
-        return addFriendRequests;
-    }
-
- */
 }

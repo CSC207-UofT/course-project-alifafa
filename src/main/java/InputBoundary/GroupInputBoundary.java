@@ -11,7 +11,7 @@ import java.io.IOException;
 public interface GroupInputBoundary {
 
     // This InputBoundary interface must be implemented by the GroupManager.
-    // Controller knows nothing about the GroupManager but it can use InputBoundary instead.
+    // Controller knows nothing about the GroupManager, but it can use InputBoundary instead.
 
 
     /**

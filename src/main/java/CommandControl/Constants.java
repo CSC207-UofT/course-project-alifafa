@@ -12,7 +12,6 @@ import UIs.Posts.*;
 import UIs.PtoPChat.PtoPChatUI;
 import UIs.RegistrationLogin.AccountRegistrationUI;
 import UIs.RegistrationLogin.EditPasswordUI;
-import UIs.RegistrationLogin.LoginUI;
 import UIs.RegistrationLogin.LogoutUI;
 
 import java.util.HashMap;
@@ -29,7 +28,6 @@ public class Constants {
     public Constants() {
         validCommands = new HashMap<>();
 
-        validCommands.put("log in", new LoginUI());
         validCommands.put("create an account", new AccountRegistrationUI());
         validCommands.put("message", new PtoPChatUI());
         validCommands.put("add friend", new AddFriendUI());

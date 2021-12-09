@@ -14,7 +14,6 @@ import OutputBoundary.User.Add_Remove_Block_User.RemoveFriendOutputBoundary;
 import OutputBoundary.User.Create_Edit_Account.AccountRegistrationOutputBoundary;
 import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
 import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
-import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -92,19 +91,6 @@ public class UserManager implements UserInputBoundary {
 
         dataAccess.saveToFile("User_State.csv", save);
     }
-
-//    public boolean checkID (String id){
-//        //Check whether the id existed in StoreUser or not
-//        UserList store = new UserList();
-//        ArrayList<User> stored = store.getAllUsers();
-//        for (User user: stored) {
-//            if (user.getID().equals(id)) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-
 
     /**
      * @param userName the name the user want to find.
@@ -223,11 +209,6 @@ public class UserManager implements UserInputBoundary {
 
     }
 
-    public ArrayList<String> getAddFriendRequests(User user) {
-        //Return user’s request list.
-        return user.getAddFriendRequests();
-    }
-
 
     @Override
     public void runLogIn(String[] parameters, LogInOutputBoundary outputBoundary) {
@@ -291,18 +272,6 @@ public class UserManager implements UserInputBoundary {
     @Override
     public void runLogOut(String username) {
         this.getUser(username).changeLoggedInStatus();
-    }
-
-    @Override
-    public void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary) {
-        UserList store = new UserList();
-        ArrayList<User> stored = store.getAllUsers();
-        for (User user : stored) {
-            if (user.getLoggedIn()) {
-                String name = user.getUserName();
-                user.changeLoggedInStatus();
-            }
-        }
     }
 
     @Override

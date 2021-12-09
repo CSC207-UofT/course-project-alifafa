@@ -33,7 +33,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
     /**
      * Getter method for String.
      *
-     * @return the status whether succefully added the friend.
+     * @return the status whether successfully added the friend.
      */
     public String getStatus() {
         return status;

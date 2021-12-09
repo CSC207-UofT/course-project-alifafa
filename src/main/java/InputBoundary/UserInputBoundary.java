@@ -8,7 +8,6 @@ import OutputBoundary.User.Add_Remove_Block_User.RemoveFriendOutputBoundary;
 import OutputBoundary.User.Create_Edit_Account.AccountRegistrationOutputBoundary;
 import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
 import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
-import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
 import java.io.IOException;
 
@@ -55,8 +54,6 @@ public interface UserInputBoundary {
      * @param username the user's UserName
      */
     void runLogOut(String username);
-
-    void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary);
 
     /**
      * @param parameters     the inputs of runRemoveFriend
