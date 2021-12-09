@@ -1,3 +1,5 @@
+# AccessibilityReport
+
 Equitable use
 We provide the same means of use for all users as we did not differentiate between users based on their activity, background.
 We protect the privacy and security for the data (password, username, friendlist, grouplist) for all users.
@@ -7,7 +9,7 @@ We accommodated individual preferences and abilities.
 Accommodate right- and left- handed access and use because we accept the input from keyboard
 We provided adaptability to the user's pace because our command does not execute until the user tells it to do so.
 We provided different choices for passwords as we accepted numbers, letters, special characters or any combinations.
-SImple and Intuitive Use
+Simple and Intuitive Use
 What adheres to the principle
 Our design provide effective prompting such as “log in”, “create an account”
 Our design accommodates a wide range of literacy because most of the prompts are easy to understand
@@ -18,7 +20,7 @@ Perceptible information
 Our app uses simple languages and commands that are clear and succinct to the users. We have not used any complicated designs in our command line interface.
 However, we could improve our app in the future(if possible) by having different modes to present essential information. For example, having pictorial or verbal presentation of information. Separating the most important messages from other information. 
 Tolerance for Error
-Our program provide fail safe features and provide warnings
+Our program provide fail-safe features and provide warnings
 Add friend: prevent the user from adding themselves or adding an existing friend, also provide error message
 Chat or group chat: prevent the user from chatting if the user is not in the group yet, also provide error message
 Minimize errors: the program save all the user information even if the user accidentally stop the program
@@ -32,7 +34,4 @@ Possible implementation
 Implement a feature where the user can zoom in or zoom out the interface whenever needed
 Implement a feature that changes the composition or organization of the components in the user interface to accommodate different hand sizes.
  
-Write a paragraph about who you would market your program towards, if you were to sell or license your program to customers. This could be a specific category such as "students" or more vague, such as "people who like games". Try to give a bit more detail along with the category.
-Our main targeted customers will be students who need simple and instant chatting apps that give little to no distractions. Many communication apps like Wechat, Instagram, and Facebook have implemented too many features and as students we might get distracted by these fancy designs. Therefore, our app provides the most basic chatting function with a simple post sharing feature that reduces as many distractions as possible. It is a great app for students with procrastination issues or difficulties focusing on school work. 
-Write a paragraph about whether or not your program is less likely to be used by certain demographics. For example, a program that converts txt files to files that can be printed by a braille printer are less likely to be used by people who do not read braille.
-Our application is in English only, thus people who do not speak English are unlikely to choose AliChat. However, I think this app is great for people who want to learn and practice English because it has the simplest features and design. It is great for beginner learners.
+
