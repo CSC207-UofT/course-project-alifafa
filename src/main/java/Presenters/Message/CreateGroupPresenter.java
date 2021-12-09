@@ -14,7 +14,7 @@ public class CreateGroupPresenter implements CreateGroupOutputBoundary {
 
     @Override
     public String presentOutput() {
-        if(! CreateStatus){
+        if (!CreateStatus) {
             return ("This Group already exists. Please try another one.");
         } else {
             return ("Your group is successfully created!");

@@ -9,7 +9,9 @@ public class PtoPMessageHistoryPresenter implements PtoPMessageOutputBoundary {
     //The ptop message history.
     private String ptoPMessageHistory;
 
-    public PtoPMessageHistoryPresenter(){this.ptoPMessageHistory = "";}
+    public PtoPMessageHistoryPresenter() {
+        this.ptoPMessageHistory = "";
+    }
 
     @Override
     public void store(String s) {
@@ -18,9 +20,9 @@ public class PtoPMessageHistoryPresenter implements PtoPMessageOutputBoundary {
 
     @Override
     public void present() {
-        if (Objects.equals(ptoPMessageHistory, "")){
+        if (Objects.equals(ptoPMessageHistory, "")) {
             System.out.println("No previous chat history");
-        }else{
+        } else {
             System.out.println(ptoPMessageHistory);
         }
     }

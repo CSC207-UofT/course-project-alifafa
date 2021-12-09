@@ -18,19 +18,16 @@ public class User implements Serializable {
     //The username of the User.
     private final String userID;
     private final String userName;
-    //The password of the User.
-    private String password;
     //All friends of the User.
     private final ArrayList<User> friends;
     //All posts of the User.
     private final ArrayList<ParagraphPost> myPosts;
-
     private final ArrayList<User> blockedUser;
-
-    private ArrayList<String> addFriendRequests;
-
     //The sharing centre of the User.
     private final SharingCentre sharingCentre;
+    //The password of the User.
+    private String password;
+    private ArrayList<String> addFriendRequests;
     //The log in status of the User.
     private boolean loggedIn;
 
@@ -39,9 +36,8 @@ public class User implements Serializable {
      *
      * @param username the username of the user.
      * @param password the password of the user.
-     *
      */
-    public User(String username, String password){
+    public User(String username, String password) {
         this.userID = String.valueOf(iD);
         this.userName = username;
         this.password = password;
@@ -57,9 +53,8 @@ public class User implements Serializable {
     }
 
 
-
-    public User(){
-        this.iD = -1;
+    public User() {
+        iD = -1;
         this.userID = "-1";
         this.userName = "Guest user";
         this.password = "";
@@ -70,7 +65,7 @@ public class User implements Serializable {
         this.sharingCentre = new SharingCentre();
     }
 
-    public String getID (){
+    public String getID() {
         return userID;
     }
 
@@ -82,6 +77,11 @@ public class User implements Serializable {
         return this.password;
     }
 
+    public void setPassword(String password) {
+        //Set password for user.
+        this.password = password;
+    }
+
     public ArrayList<User> getFriends() {
         return this.friends;
     }
@@ -90,14 +90,13 @@ public class User implements Serializable {
         return this.myPosts;
     }
 
+    /* public ArrayList<String> getAddFriendRequests() {
+        return this.addFriendRequests;
+    */
 
     public ArrayList<User> getBlockedUser() {
         return this.blockedUser;
     }
-
-    /* public ArrayList<String> getAddFriendRequests() {
-        return this.addFriendRequests;
-    */
 
     public boolean getLoggedIn() {
         return this.loggedIn;
@@ -120,38 +119,31 @@ public class User implements Serializable {
     }
 
      */
-    public void changePassword (String password){
+    public void changePassword(String password) {
         //Change the password to new password
         this.password = password;
     }
 
-
-    public void addFriend (User friend){
+    public void addFriend(User friend) {
         //Add friend to the list friends
         this.friends.add(friend);
     }
 
-    public void addFriends (ArrayList<User> friend){
+    public void addFriends(ArrayList<User> friend) {
         //Add friends to the list friends
         this.friends.addAll(friend);
     }
 
-    public void addBlockedUser (User blocked){
+    public void addBlockedUser(User blocked) {
         //Add user to blocked list
         this.blockedUser.add(blocked);
     }
 
-    public void setPassword (String password){
-        //Set password for user.
-        this.password = password;
-    }
-
-
-    public void removeFriend (User friend){
+    public void removeFriend(User friend) {
         //Remove friend from the list friends
         int k = this.friends.size() + 1;
-        for (int i = 0; this.friends.size() > i; i++){
-            if (this.friends.get(i).equals(friend)){
+        for (int i = 0; this.friends.size() > i; i++) {
+            if (this.friends.get(i).equals(friend)) {
                 k = i;
             }
         }

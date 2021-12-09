@@ -1,14 +1,13 @@
 package CommandDesignPattern;
 
-import java.io.IOException;
-
 public class Invoker {
-    private Command command;
+    private final Command command;
 
-    public Invoker(Command command){
+    public Invoker(Command command) {
         this.command = command;
     }
-    public void execute() throws IOException {
+
+    public void execute() {
         this.command.execute();
     }
 }

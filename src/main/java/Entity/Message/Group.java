@@ -1,11 +1,12 @@
 package Entity.Message;
+
 import Entity.Users.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Group implements Serializable {
-//    private final String GroupID;
+    //    private final String GroupID;
     private final String GroupName;
     private final ArrayList<User> members;
     private final ArrayList<PtoGMessage> PtoGMessageHistory;
@@ -39,11 +40,7 @@ public class Group implements Serializable {
         return this.PtoGMessageHistory;
     }
 
-//    public String getGroupID() {
-//        return this.GroupID;
-//    }
-
-    public void kickGroupMember (User user){
+    public void kickGroupMember(User user) {
         this.members.remove(user);
     }
 }

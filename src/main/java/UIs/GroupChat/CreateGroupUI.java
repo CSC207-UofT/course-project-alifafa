@@ -5,7 +5,6 @@ import Controllers.GroupChatControllers.CreateGroupController;
 import Presenters.Message.CreateGroupPresenter;
 import UIs.ParentUI;
 
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -15,13 +14,12 @@ public class CreateGroupUI extends ParentUI {
      */
 
 
-
     public void run() throws IOException {
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
+        if (currentUser == null) {
             System.out.println("You need to log in first!");
         } else {
             CreateGroupController controller = new CreateGroupController();

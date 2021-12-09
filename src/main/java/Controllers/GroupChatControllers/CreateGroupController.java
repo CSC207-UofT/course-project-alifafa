@@ -10,7 +10,7 @@ import java.io.IOException;
  * This class is responsible for managing the user input and calling associated GroupManager when the user
  * wants to create a group.
  */
-public class CreateGroupController{
+public class CreateGroupController {
     /**
      * The input boundary for the CreateGroup use case.
      */
@@ -23,7 +23,6 @@ public class CreateGroupController{
      */
 
     /**
-     *
      * @param parameters The input from the user, which is an array that contains groupID and groupName.
      */
     public void createAGroup(String[] parameters, CreateGroupPresenter presenter) throws IOException {

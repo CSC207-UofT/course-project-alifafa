@@ -1,4 +1,3 @@
-
 import CommandControl.CommandHelper;
 import CommandControl.Constants;
 import CommandDesignPattern.*;
@@ -19,11 +18,11 @@ public class MainProgram {
 
         Scanner in = new Scanner(System.in);
         String quit = "no";
-        while (!quit.equals("exit")){
+        while (!quit.equals("exit")) {
             // keep reading the command and executing it until user exits the program
             String task = commandUI.readCommand(commands);
 
-            if(task.equals("log in")){
+            if (task.equals("log in")) {
                 // This is a demonstration of CommandDesignPattern
                 Receiver receiver = new LogInReceiver();
                 Command logInCommand = new LogInCommand(receiver);

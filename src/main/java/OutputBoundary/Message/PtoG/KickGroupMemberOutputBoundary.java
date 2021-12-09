@@ -4,7 +4,7 @@ public interface KickGroupMemberOutputBoundary {
     /**
      * @param name group chat name.
      */
-    void setGroupName (String name);
+    void setGroupName(String name);
 
     /**
      * @param status remove status.

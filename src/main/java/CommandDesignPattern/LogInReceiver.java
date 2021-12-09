@@ -6,7 +6,7 @@ import Presenters.User.LogInPresenter;
 
 import java.util.Scanner;
 
-public class LogInReceiver implements Receiver{
+public class LogInReceiver implements Receiver {
     @Override
     public void switchOn() {
         Constants constants = new Constants();
@@ -21,9 +21,9 @@ public class LogInReceiver implements Receiver{
         parameters[1] = scanner.nextLine();
 
         controller.runLogIn(parameters, presenter);
-        if (presenter.isLoggedIn()){
+        if (presenter.isLoggedIn()) {
             constants.setCurrentUser(parameters[0]);
-            System.out.println("Username "+ parameters[0]+" is logged in.");
+            System.out.println("Username " + parameters[0] + " is logged in.");
         }
         System.out.println(presenter.presentOutput());
     }

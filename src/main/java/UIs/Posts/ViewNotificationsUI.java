@@ -5,19 +5,17 @@ import Controllers.PostsSharingController.ViewAndNotification.GetNotificationsCo
 import Presenters.Post.NotificationPresenter;
 import UIs.ParentUI;
 
-import java.io.IOException;
-
 public class ViewNotificationsUI extends ParentUI {
     /**
      * A user interface that displays the notifications to the user
      * of whether someone liked or commented his/her posts
      */
 
-    GetNotificationsController controller = new GetNotificationsController();
-    NotificationPresenter presenter = new NotificationPresenter();
+    final GetNotificationsController controller = new GetNotificationsController();
+    final NotificationPresenter presenter = new NotificationPresenter();
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();

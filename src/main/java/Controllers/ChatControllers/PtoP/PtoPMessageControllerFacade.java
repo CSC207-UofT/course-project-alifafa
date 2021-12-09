@@ -17,12 +17,12 @@ public class PtoPMessageControllerFacade {
     /**
      * Stores all messages between receiver and sender.
      *
-     * @param senderUsername sender's name
+     * @param senderUsername   sender's name
      * @param receiverUsername receiver's name
-     * @param presenter PtoPMessageHistoryPresenter
+     * @param presenter        PtoPMessageHistoryPresenter
      */
     public void receiveMessageHistory(String senderUsername, String receiverUsername,
-                                      PtoPMessageHistoryPresenter presenter){
+                                      PtoPMessageHistoryPresenter presenter) {
         ptoPReceiveMessageController.receiveMessageHistory(senderUsername, receiverUsername, presenter);
     }
 

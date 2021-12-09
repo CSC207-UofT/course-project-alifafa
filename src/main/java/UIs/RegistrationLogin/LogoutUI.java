@@ -16,13 +16,13 @@ public class LogoutUI extends ParentUI {
         LogOutPresenter presenter = new LogOutPresenter();
 
 
-        if(currentUser != null){
+        if (currentUser != null) {
             controller.runLogOut(currentUser);
-            if (!presenter.isLoggedIn()){
+            if (!presenter.isLoggedIn()) {
                 System.out.println(presenter.presentOutput());
                 constants.setCurrentUser(null);
             }
-        }else{
+        } else {
             System.out.println("Please log in first!");
         }
     }

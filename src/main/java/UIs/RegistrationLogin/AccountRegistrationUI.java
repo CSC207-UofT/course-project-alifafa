@@ -4,7 +4,6 @@ import Controllers.UserControllers.RegistrationAndLogIn.AccountRegistrationContr
 import Presenters.User.AccountRegistrationPresenter;
 import UIs.ParentUI;
 
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -15,6 +14,7 @@ public class AccountRegistrationUI extends ParentUI {
 
     /**
      * This method can be used when you want to prompt the user and allow for registering an account.
+     *
      * @throws IOException the exception.
      */
     public void run() throws IOException {

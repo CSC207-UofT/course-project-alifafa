@@ -6,7 +6,7 @@ import UseCase.UserManager;
 
 import java.io.IOException;
 
-public class AddFriendController{
+public class AddFriendController {
 
     /**
      * The input boundary for the AccountRegistration use case.
@@ -19,9 +19,8 @@ public class AddFriendController{
 */
 
     /**
-     *
-     * @param parameters  containing the name of current user, and the username of the friend
-     * @param presenter AddFriendPresenter
+     * @param parameters containing the name of current user, and the username of the friend
+     * @param presenter  AddFriendPresenter
      * @throws IOException the exception it throws
      */
     public void addFriend(String[] parameters, AddFriendPresenter presenter) throws IOException {

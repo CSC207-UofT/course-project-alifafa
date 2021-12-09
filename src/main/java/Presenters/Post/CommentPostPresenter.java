@@ -4,7 +4,7 @@ import OutputBoundary.Post.CommentPostOutputBoundary;
 
 public class CommentPostPresenter implements CommentPostOutputBoundary {
     boolean commented = false;  // This signifies whether a user commented or
-                                // not
+    // not
 
     @Override
     public void setCommented(boolean commented) {

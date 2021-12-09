@@ -10,6 +10,7 @@ public class CheckFriendPresenter implements CheckFriendOutputBoundary {
 
     /**
      * set the result of checking friend
+     *
      * @param isFriend friend status.
      */
     @Override
@@ -19,6 +20,7 @@ public class CheckFriendPresenter implements CheckFriendOutputBoundary {
 
     /**
      * return the result of checking friend.
+     *
      * @return result
      */
     @Override
@@ -32,6 +34,7 @@ public class CheckFriendPresenter implements CheckFriendOutputBoundary {
 
     /**
      * getter method of the whether the user have the friend
+     *
      * @return a boolean
      */
     public boolean isFriend() {

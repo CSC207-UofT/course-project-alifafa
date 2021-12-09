@@ -11,7 +11,8 @@ public class GetNotificationsController {
     /**
      * Pass user's id to the use case and have the presenter to return all
      * notifications from user's sharing centre.
-     * @param userid The id of the user
+     *
+     * @param userid    The id of the user
      * @param presenter The NotificationPresenter
      */
     public void runRetrieveNotifications(String userid, NotificationPresenter presenter) {

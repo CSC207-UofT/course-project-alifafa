@@ -11,7 +11,8 @@ public class UserAllPostController {
     /**
      * Pass the user's id to the use case and asks the presenter to return all
      * remaining posts this user posted.
-     * @param userid The user's specific id
+     *
+     * @param userid    The user's specific id
      * @param presenter The SharingCentrePresenter
      */
     public void runRetrieveUserAllPost(String userid, SharingCentrePresenter presenter) {

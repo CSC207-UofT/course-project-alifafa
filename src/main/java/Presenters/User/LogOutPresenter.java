@@ -11,6 +11,7 @@ public class LogOutPresenter implements LogOutOutputBoundary {
 
     /**
      * Return whether the user is logged in.
+     *
      * @return log in status.
      */
     public boolean isLoggedIn() {
@@ -20,6 +21,7 @@ public class LogOutPresenter implements LogOutOutputBoundary {
 
     /**
      * set the log in status of the user.
+     *
      * @param loggedIn log in status.
      */
     @Override
@@ -29,6 +31,7 @@ public class LogOutPresenter implements LogOutOutputBoundary {
 
     /**
      * return a readable message to the user
+     *
      * @return a readable message
      */
     @Override

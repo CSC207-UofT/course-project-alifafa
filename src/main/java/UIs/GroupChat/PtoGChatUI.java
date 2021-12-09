@@ -4,8 +4,8 @@ import CommandControl.Constants;
 import Controllers.ChatControllers.PtoG.PtoGMessageControllerFacade;
 import Controllers.GroupChatControllers.CheckGroupController;
 import Entity.Message.Group;
-import Presenters.User.CheckGroupPresenter;
 import Presenters.Message.PtoGMessageHistoryPresenter;
+import Presenters.User.CheckGroupPresenter;
 import UIs.ParentUI;
 import UseCase.GroupManager;
 
@@ -19,14 +19,13 @@ public class PtoGChatUI extends ParentUI {
      */
 
     private final GroupManager groupManager = new GroupManager();
-    public void run () throws IOException {
+
+    public void run() throws IOException {
         Constants constants = new Constants();
         String currentUser = constants.getCurrentUser();
-        if (currentUser==null){
+        if (currentUser == null) {
             System.out.println("You need to log in first!");
-        }
-
-        else {
+        } else {
             PtoGMessageControllerFacade controller = new PtoGMessageControllerFacade();
             PtoGMessageHistoryPresenter presenter = new PtoGMessageHistoryPresenter();
             CheckGroupController checkGroupController = new CheckGroupController();
@@ -45,7 +44,7 @@ public class PtoGChatUI extends ParentUI {
             boolean inGroup = checkGroupPresenter.inGroup();
 
 
-            if (inGroup){
+            if (inGroup) {
                 //print the GroupName
                 Group group = groupManager.getGroup(parameters[1]);
                 String g = "Current Group:" + group.getGroupName();
@@ -64,10 +63,11 @@ public class PtoGChatUI extends ParentUI {
                 //print latest chat history from this group.
                 System.out.println("Current group chat history: ");
                 controller.GroupMessageHistory(parameters[0], parameters[1], presenter);
-                presenter.present();}
-            else {
+                presenter.present();
+            } else {
                 System.out.println("You are not in this group, please join this group first");
-            }}
+            }
+        }
 
 
     }

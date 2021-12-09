@@ -26,9 +26,9 @@ public class PtoGSendMessageController {
      *
      * @param senderUserName sender's username
      * @param GroupName      group's Name
-     * @param content      the content of a message
+     * @param content        the content of a message
      */
-    public void sendGroupMessage(String senderUserName, String GroupName, String content) throws IOException{
+    public void sendGroupMessage(String senderUserName, String GroupName, String content) throws IOException {
 
         ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserName),
                 groupInputBoundary.getGroup(GroupName),

@@ -10,16 +10,8 @@ public class AccountRegistrationPresenter implements AccountRegistrationOutputBo
     String message;
 
     /**
-     * Setter for registration status.
-     * @param success registration status.
-     */
-    @Override
-    public void setRegistrationStatus(boolean success) {
-        this.registrationStatus = success;
-    }
-
-    /**
      * Setter for the message we want to present.
+     *
      * @param message the message we want to show to the user.
      */
     public void setMessage(String message) {
@@ -28,6 +20,7 @@ public class AccountRegistrationPresenter implements AccountRegistrationOutputBo
 
     /**
      * Getter for registration status.
+     *
      * @return return a boolean for registration status.
      */
     public boolean getRegistrationStatus() {
@@ -35,16 +28,27 @@ public class AccountRegistrationPresenter implements AccountRegistrationOutputBo
     }
 
     /**
+     * Setter for registration status.
+     *
+     * @param success registration status.
+     */
+    @Override
+    public void setRegistrationStatus(boolean success) {
+        this.registrationStatus = success;
+    }
+
+    /**
      * Present the message to the UI.
+     *
      * @return the message we want to show to the user.
      */
     @Override
     public String presentOutput() {
         // TODO: I can implement a observer design pattern here (related to user manager).
-        if (message!=null){
+        if (message != null) {
             return message;
         }
-        if(! registrationStatus){
+        if (!registrationStatus) {
             message = "This username already exists. Please use another one.";
         } else {
             message = ("Your account is successfully created!");

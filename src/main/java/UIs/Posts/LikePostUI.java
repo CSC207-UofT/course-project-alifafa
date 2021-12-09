@@ -4,17 +4,15 @@ import CommandControl.Constants;
 import Controllers.PostsSharingController.PostCommentAndLike.LikePostController;
 import UIs.ParentUI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class LikePostUI extends ParentUI {
     /**
      * User interface for the user to like a post.
-     *
      */
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         LikePostController controller = new LikePostController();
 
         Constants constants = new Constants();

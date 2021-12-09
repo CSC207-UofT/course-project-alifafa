@@ -10,7 +10,7 @@ import java.io.IOException;
  * This class is responsible for managing the user input and calling associated UserManager when the user
  * wants to create an account.
  */
-public class AccountRegistrationController{
+public class AccountRegistrationController {
 
     /**
      * The input boundary for the AccountRegistration use case.
@@ -18,15 +18,14 @@ public class AccountRegistrationController{
     private final UserInputBoundary accountRegistrationInputBoundary = new UserManager();
 
     /**
-     *
      * @param parameters The input from the user, which is an array that contains userName and input passwords.
-     * @param presenter An AccountRegistration Presenter that will store the output from the usecase
+     * @param presenter  An AccountRegistration Presenter that will store the output from the usecase
      * @throws IOException The exception
      */
     public void createAnAccount(String[] parameters, AccountRegistrationPresenter presenter) throws IOException {
 
         // check if the two passwords match each other
-        if (! parameters[1].equals(parameters[2])){
+        if (!parameters[1].equals(parameters[2])) {
             presenter.setMessage("The passwords must match!");
         } else {
             String[] validInput = {parameters[0], parameters[1]};

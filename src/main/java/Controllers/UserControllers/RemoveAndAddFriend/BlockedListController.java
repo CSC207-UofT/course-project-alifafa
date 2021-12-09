@@ -15,7 +15,8 @@ public class BlockedListController {
     public void addBlocked(String[] parameters, BlockedListPresenter presenter) throws IOException {
         BlockedListBoundary.runAddBlocked(parameters, presenter);
     }
-    public boolean checkBlocked(String[] parameters){
+
+    public boolean checkBlocked(String[] parameters) {
         return BlockedListBoundary.runCheckBlocked(parameters);
     }
 }

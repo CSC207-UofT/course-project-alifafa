@@ -3,8 +3,8 @@ package UIs.PtoPChat;
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoP.PtoPMessageControllerFacade;
 import Controllers.UserControllers.RemoveAndAddFriend.CheckFriendController;
-import Presenters.User.CheckFriendPresenter;
 import Presenters.Message.PtoPMessageHistoryPresenter;
+import Presenters.User.CheckFriendPresenter;
 import UIs.ParentUI;
 
 import java.io.IOException;
@@ -17,12 +17,12 @@ public class PtoPChatUI extends ParentUI {
      */
 
     // Use this method to realize person to person chat function.
-    public void run () throws IOException {
+    public void run() throws IOException {
         Constants constants = new Constants();
 
         String userName = constants.getCurrentUser();
 
-        if (userName==null){
+        if (userName == null) {
             System.out.println("You need to log in first!");
         } else {
 
@@ -31,7 +31,6 @@ public class PtoPChatUI extends ParentUI {
 
             CheckFriendController checkFriendController = new CheckFriendController();
             CheckFriendPresenter checkFriendPresenter = new CheckFriendPresenter();
-
 
 
             String[] parameters = new String[2];

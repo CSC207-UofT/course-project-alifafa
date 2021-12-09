@@ -9,7 +9,9 @@ public class PtoGMessageHistoryPresenter implements PtoGMessageOutputBoundary {
     //The PtoG message history.
     private String PtoGMessageHistory;
 
-    public PtoGMessageHistoryPresenter(){this.PtoGMessageHistory = "";}
+    public PtoGMessageHistoryPresenter() {
+        this.PtoGMessageHistory = "";
+    }
 
     @Override
     public void store(String s) {
@@ -18,9 +20,9 @@ public class PtoGMessageHistoryPresenter implements PtoGMessageOutputBoundary {
 
     @Override
     public void present() {
-        if (Objects.equals(PtoGMessageHistory, "")){
+        if (Objects.equals(PtoGMessageHistory, "")) {
             System.out.println("No previous group chat history");
-        }else{
+        } else {
             System.out.println(PtoGMessageHistory);
         }
     }

@@ -10,6 +10,7 @@ public class CheckGroupPresenter implements CheckGroupOutputBoundary {
 
     /**
      * setter for inGroup.
+     *
      * @param inGroup in group status.
      */
     @Override
@@ -19,6 +20,7 @@ public class CheckGroupPresenter implements CheckGroupOutputBoundary {
 
     /**
      * presenst the output after checking
+     *
      * @return whether the user is in the group
      */
     @Override

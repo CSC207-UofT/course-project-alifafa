@@ -7,7 +7,7 @@ import UseCase.GroupManager;
 import java.io.IOException;
 
 
-public class JoinGroupController{
+public class JoinGroupController {
 
     /**
      * The input boundary for the JoinGroup use case.

@@ -17,11 +17,11 @@ public class PtoGMessageControllerFacade {
      * Stores all messages between receiver and sender.
      *
      * @param senderUsername sender's username
-     * @param GroupName group's name
-     * @param presenter PtoGMessageHistoryPresenter
+     * @param GroupName      group's name
+     * @param presenter      PtoGMessageHistoryPresenter
      */
     public void GroupMessageHistory(String senderUsername, String GroupName,
-                                      PtoGMessageHistoryPresenter presenter){
+                                    PtoGMessageHistoryPresenter presenter) {
         ptoGReceiveMessageController.receiveMessageHistory(senderUsername, GroupName, presenter);
     }
 

@@ -4,7 +4,7 @@ import Entity.Users.User;
 
 import java.time.LocalDateTime;
 
-public class Message  {
+public class Message {
     /**
      * A person-to-person message.
      */
@@ -19,18 +19,18 @@ public class Message  {
 
     /**
      * Creates a message.
-     * @param sender the sender of this message.
-     * @param content the content of this message.
      *
+     * @param sender  the sender of this message.
+     * @param content the content of this message.
      */
 
-    public Message(User  sender, String content) {
+    public Message(User sender, String content) {
         this.SENDER = sender;
         this.CONTENT = content;
         this.TIME = LocalDateTime.now();
     }
 
-    public String toString (){
+    public String toString() {
         return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
     }
 

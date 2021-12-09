@@ -10,6 +10,7 @@ public class RemoveFriendPresenter implements RemoveFriendOutputBoundary {
 
     /**
      * record the friend name the user want to remove
+     *
      * @param friendName the name of the friend
      */
     @Override
@@ -19,10 +20,11 @@ public class RemoveFriendPresenter implements RemoveFriendOutputBoundary {
 
     /**
      * return a readable message telling the user that the friend is removed
+     *
      * @return a readable message
      */
     @Override
     public String presentOutput() {
-        return "You have removed "+ this.status + " from your friend!";
+        return "You have removed " + this.status + " from your friend!";
     }
 }

@@ -16,15 +16,15 @@ public class BlockedListUI extends ParentUI {
     /*
      * This method is responsible for adding a friend task.
      */
-    public void run () throws IOException {
+    public void run() throws IOException {
 
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
+        if (currentUser == null) {
             System.out.println("You need to log in first!");
-        } else{
+        } else {
             BlockedListController controller = new BlockedListController();
             BlockedListPresenter presenter = new BlockedListPresenter();
 
@@ -33,7 +33,7 @@ public class BlockedListUI extends ParentUI {
 
     }
 
-    public void addBlocked (String currentUser, BlockedListController controller, BlockedListPresenter presenter) throws IOException {
+    public void addBlocked(String currentUser, BlockedListController controller, BlockedListPresenter presenter) throws IOException {
         String[] parameters = new String[2];
 
         parameters[0] = currentUser;

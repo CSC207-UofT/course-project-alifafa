@@ -5,31 +5,9 @@ import Controllers.GroupChatControllers.KickGroupMemberController;
 import Presenters.Message.KickGroupMemberPresenter;
 import UIs.ParentUI;
 
-
 import java.util.Scanner;
 
 public class KickGroupMemberUI extends ParentUI {
-    /**
-     * A user interface for adding friend, will receive feedback from AddFriendPresenter.
-     */
-
-    /*
-     * This method is responsible for adding a friend task.
-     */
-    public void run() {
-        Constants constants = new Constants();
-        String currentUser = constants.getCurrentUser();
-        if (currentUser==null){
-            System.out.println("You need to log in first!");
-        } else{
-            KickGroupMemberController controller = new KickGroupMemberController();
-            KickGroupMemberPresenter presenter = new KickGroupMemberPresenter();
-
-            kickGroupMember(currentUser, controller, presenter);
-        }
-
-    }
-
     static void kickGroupMember(String currentUser, KickGroupMemberController controller, KickGroupMemberPresenter presenter) {
         String[] parameters = new String[3];
 
@@ -45,5 +23,26 @@ public class KickGroupMemberUI extends ParentUI {
 
         controller.kickGroupMember(parameters, presenter);
         System.out.println(presenter.presentOutput());
+    }
+
+    /**
+     * A user interface for adding friend, will receive feedback from AddFriendPresenter.
+     */
+
+    /*
+     * This method is responsible for adding a friend task.
+     */
+    public void run() {
+        Constants constants = new Constants();
+        String currentUser = constants.getCurrentUser();
+        if (currentUser == null) {
+            System.out.println("You need to log in first!");
+        } else {
+            KickGroupMemberController controller = new KickGroupMemberController();
+            KickGroupMemberPresenter presenter = new KickGroupMemberPresenter();
+
+            kickGroupMember(currentUser, controller, presenter);
+        }
+
     }
 }

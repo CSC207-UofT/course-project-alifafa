@@ -5,7 +5,6 @@ import Controllers.PostsSharingController.PostCommentAndLike.DeletePostControlle
 import Presenters.Post.DeletePostPresenter;
 import UIs.ParentUI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class DeletePostUI extends ParentUI {
@@ -13,11 +12,11 @@ public class DeletePostUI extends ParentUI {
      * User interface to delete post.
      */
 
-    DeletePostController controller = new DeletePostController();
-    DeletePostPresenter presenter = new DeletePostPresenter();
+    final DeletePostController controller = new DeletePostController();
+    final DeletePostPresenter presenter = new DeletePostPresenter();
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();

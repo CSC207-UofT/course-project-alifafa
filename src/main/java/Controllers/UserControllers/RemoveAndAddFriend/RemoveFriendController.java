@@ -4,7 +4,7 @@ import InputBoundary.UserInputBoundary;
 import Presenters.User.RemoveFriendPresenter;
 import UseCase.UserManager;
 
-public class RemoveFriendController{
+public class RemoveFriendController {
 
     /**
      * The input boundary for the AccountRegistration use case.
@@ -15,7 +15,7 @@ public class RemoveFriendController{
     //        AddFriendInputBoundary = addFriendInputBoundary;
     //    }
     */
-    public void removeFriend(String[] parameters, RemoveFriendPresenter presenter){
+    public void removeFriend(String[] parameters, RemoveFriendPresenter presenter) {
         RemoveFriendInputBoundary.runRemoveFriend(parameters, presenter);
     }
 

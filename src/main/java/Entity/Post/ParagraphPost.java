@@ -23,6 +23,7 @@ public class ParagraphPost implements Serializable {
     private final List<String> pictures;
     private String content;
     private int likes;
+
     /**
      * Creates a post.
      *

@@ -18,6 +18,6 @@ public class KickGroupMemberPresenter implements KickGroupMemberOutputBoundary {
 
     @Override
     public String presentOutput() {
-        return "You have kicked "+ this.status + " from " + this.group + "!";
+        return "You have kicked " + this.status + " from " + this.group + "!";
     }
 }

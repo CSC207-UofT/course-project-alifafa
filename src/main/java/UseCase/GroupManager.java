@@ -1,4 +1,5 @@
 package UseCase;
+
 import DataAccessInterface.DataAccess;
 import Entity.Message.Group;
 import Entity.Message.GroupList;
@@ -43,7 +44,7 @@ public class GroupManager implements GroupInputBoundary {
         }
     }
 
-    public void writeGroupData (DataAccess dataAccess) throws IOException {
+    public void writeGroupData(DataAccess dataAccess) throws IOException {
         //Write data to file
         GroupList store = new GroupList();
         ArrayList<Group> lst = store.getAllGroups();
@@ -54,7 +55,6 @@ public class GroupManager implements GroupInputBoundary {
 //        }
         dataAccess.saveToFile("Group_Info.csv", s);
     }
-
 
 
     public boolean checkGroupName(String name) {
@@ -142,8 +142,7 @@ public class GroupManager implements GroupInputBoundary {
     public void runJoinGroup(String[] userInput, JoinGroupOutputBoundary outputBoundary) throws IOException {
         if (this.checkGroup(userInput[0], userInput[1])) {
             outputBoundary.setJoinGroupStatus("already in group");
-        }
-        else {
+        } else {
             joinGroup(userInput[0], userInput[1]);
             outputBoundary.setJoinGroupName(userInput[1]);
         }
@@ -161,8 +160,6 @@ public class GroupManager implements GroupInputBoundary {
     }
 
 
-
-
     public void runCheckGroup(String user, String group, CheckGroupOutputBoundary outputBoundary) {
         if (checkGroup(user, group)) {
             outputBoundary.setCheckGroupStatus(true);
@@ -175,7 +172,7 @@ public class GroupManager implements GroupInputBoundary {
 
     }
 
-    public void kickGroupMember (String groupName, String userName){
+    public void kickGroupMember(String groupName, String userName) {
         Group group = this.getGroup(groupName);
         User user = new UserManager().getUser(userName);
         group.kickGroupMember(user);

@@ -21,7 +21,7 @@ public class PtoGMessageDataAccess implements PtoGMessageDataAccessInterface {
     public HashMap<String, String> ReadFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
-        HashMap<String, String> read = (HashMap<String, String>)input.readObject();
+        HashMap<String, String> read = (HashMap<String, String>) input.readObject();
         input.close();
         return read;
     }

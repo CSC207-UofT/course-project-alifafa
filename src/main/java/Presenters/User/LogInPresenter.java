@@ -10,6 +10,7 @@ public class LogInPresenter implements LogInOutputBoundary {
 
     /**
      * set the log in status
+     *
      * @param loggedIn log in status
      */
     @Override
@@ -19,6 +20,7 @@ public class LogInPresenter implements LogInOutputBoundary {
 
     /**
      * get the log in status.
+     *
      * @return return true if the user is logged in.
      */
     public boolean isLoggedIn() {
@@ -27,11 +29,12 @@ public class LogInPresenter implements LogInOutputBoundary {
 
     /**
      * Return the readable message to user.
+     *
      * @return the message.
      */
     @Override
     public String presentOutput() {
-        if(! loggedIn){
+        if (!loggedIn) {
             return ("It does not seem correct. Please re-enter your information");
         } else {
             return ("Your are logged in!");

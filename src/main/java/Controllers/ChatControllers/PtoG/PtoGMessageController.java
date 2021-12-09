@@ -24,19 +24,19 @@ public class PtoGMessageController {
     private final UserInputBoundary userInputBoundary = new UserManager();
 
 
-
     /**
      * Sends message from one user to a group.
+     *
      * @param senderUserID sender's userID
-     * @param GroupName group's ID
-     * @param content the content of a message
+     * @param GroupName    group's ID
+     * @param content      the content of a message
      */
     public void sendGroupMessage(String senderUserID, String GroupName, String content) throws IOException {
 
         ptoGMessageInputBoundary.sendGroupMessage(userInputBoundary.getUser(senderUserID),
-                groupInputBoundary.getGroup(GroupName) ,
+                groupInputBoundary.getGroup(GroupName),
                 ptoGMessageInputBoundary.createMessage(userInputBoundary.getUser(senderUserID),
-                        groupInputBoundary.getGroup(GroupName) , content));
+                        groupInputBoundary.getGroup(GroupName), content));
     }
 
 
@@ -44,11 +44,11 @@ public class PtoGMessageController {
      * Stores all messages in a given group.
      *
      * @param senderUserName sender's name
-     * @param GroupName group's id
-     * @param presenter PtoGMessageHistoryPresenter
+     * @param GroupName      group's id
+     * @param presenter      PtoGMessageHistoryPresenter
      */
     public void GroupMessageHistory(String senderUserName, String GroupName,
-                                    PtoGMessageHistoryPresenter presenter){
+                                    PtoGMessageHistoryPresenter presenter) {
         ptoGMessageInputBoundary.GroupMessageHistory(userInputBoundary.getUser(senderUserName),
                 groupInputBoundary.getGroup(GroupName), presenter);
     }

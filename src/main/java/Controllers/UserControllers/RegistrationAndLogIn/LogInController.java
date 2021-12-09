@@ -9,7 +9,7 @@ import UseCase.UserManager;
  * This class is responsible for managing the user input and calling associated UserManager when the user
  * wants to log in.
  */
-public class LogInController{
+public class LogInController {
 
     /**
      * The input boundary for the login use case.
@@ -26,9 +26,8 @@ public class LogInController{
 */
 
     /**
-     *
      * @param parameters The input from the user, which is an array that contains userID and input password.
-     * @param presenter logInPresenter that will return the output indicating log in result
+     * @param presenter  logInPresenter that will return the output indicating log in result
      */
     public void runLogIn(String[] parameters, LogInPresenter presenter) {
         loginInputBoundary.runLogIn(parameters, presenter);

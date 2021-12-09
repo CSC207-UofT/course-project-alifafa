@@ -1,6 +1,5 @@
 package CommandControl;
 
-import UIs.*;
 import UIs.Friends.AddFriendUI;
 import UIs.Friends.BlockedListUI;
 import UIs.Friends.RemoveFriendUI;
@@ -8,6 +7,7 @@ import UIs.GroupChat.CreateGroupUI;
 import UIs.GroupChat.JoinGroupUI;
 import UIs.GroupChat.KickGroupMemberUI;
 import UIs.GroupChat.PtoGChatUI;
+import UIs.ParentUI;
 import UIs.Posts.*;
 import UIs.PtoPChat.PtoPChatUI;
 import UIs.RegistrationLogin.AccountRegistrationUI;
@@ -17,16 +17,17 @@ import UIs.RegistrationLogin.LogoutUI;
 
 import java.util.HashMap;
 
-/** This class contain all the valid commands.
- *
+/**
+ * This class contain all the valid commands.
+ * <p>
  * This is an Entity class.
  */
 
 public class Constants {
-    private final HashMap<String, ParentUI> validCommands;
     private static String currentUser;
+    private final HashMap<String, ParentUI> validCommands;
 
-    public Constants(){
+    public Constants() {
         validCommands = new HashMap<>();
 
         validCommands.put("log in", new LoginUI());
@@ -51,21 +52,21 @@ public class Constants {
         validCommands.put("log out", new LogoutUI());
 
 
-}
+    }
 
 
-
-    public ParentUI getUI(String taskName){
+    public ParentUI getUI(String taskName) {
         return this.validCommands.get(taskName);
     }
 
 
     /**
      * Check if the task is a valid command in our command list.
+     *
      * @param taskName The task the user wants to complete.
      * @return a boolean indicating whether the task is valid.
      */
-    public boolean isValid(String taskName){
+    public boolean isValid(String taskName) {
         return validCommands.containsKey(taskName);
     }
 

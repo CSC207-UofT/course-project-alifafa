@@ -1,17 +1,12 @@
 package UseCase;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import DataAccessInterface.DataAccess;
 import Entity.Post.ParagraphPost;
 import Entity.Users.NullUser;
 import Entity.Users.User;
+import Entity.Users.UserList;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
-import Entity.Users.UserList;
 import OutputBoundary.User.Add_Remove_Block_User.AddFriendOutputBoundary;
 import OutputBoundary.User.Add_Remove_Block_User.BlockedListOutputBoundary;
 import OutputBoundary.User.Add_Remove_Block_User.CheckFriendOutputBoundary;
@@ -21,6 +16,13 @@ import OutputBoundary.User.Create_Edit_Account.EditPasswordOutputBoundary;
 import OutputBoundary.User.LogIn_LogOut.LogInOutputBoundary;
 import OutputBoundary.User.LogIn_LogOut.LogOutOutputBoundary;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class UserManager implements UserInputBoundary {
 
     /**
@@ -28,7 +30,7 @@ public class UserManager implements UserInputBoundary {
      */
     private final DataAccess gateway = new DataAccessGateway();
 
-    public DataAccess getGateway(){
+    public DataAccess getGateway() {
         return gateway;
     }
 
@@ -46,7 +48,7 @@ public class UserManager implements UserInputBoundary {
             UserList store = new UserList();
             HashMap<String, T> saved = this.gateway.readFromFile("User_State.csv");
             ArrayList<User> storage = (ArrayList<User>) saved.get("storage");
-            for (User u: storage) {
+            for (User u : storage) {
                 String name = u.getUserName();
                 ArrayList<User> f = (ArrayList<User>) saved.get(name + "f");
                 u.addFriends(f);
@@ -70,18 +72,18 @@ public class UserManager implements UserInputBoundary {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> void writeData (DataAccess dataAccess) throws IOException {
+    public <T> void writeData(DataAccess dataAccess) throws IOException {
         //Write data to file
         UserList store = new UserList();
         ArrayList<User> lst = store.getAllUsers();
         HashMap<String, T> save = new HashMap<String, T>();
         save.put("storage", (T) lst);
-        for (User u: lst) {
+        for (User u : lst) {
             save.put(u.getUserName() + "f", (T) u.getFriends());
             save.put(u.getUserName() + "p", (T) u.getMyPosts());
             save.put(u.getUserName() + "b", (T) u.getBlockedUser());
             ArrayList<ParagraphPost> posts = u.getMyPosts();
-            for (ParagraphPost post: posts){
+            for (ParagraphPost post : posts) {
                 save.put(u.getUserName() + "p_comments", (T) post.getComments());
                 save.put(u.getUserName() + "p_usersWhoLiked", (T) post.getUsersWhoLiked());
             }
@@ -91,25 +93,12 @@ public class UserManager implements UserInputBoundary {
         dataAccess.saveToFile("User_State.csv", save);
     }
 
-//    public boolean checkID (String id){
-//        //Check whether the id existed in StoreUser or not
-//        UserList store = new UserList();
-//        ArrayList<User> stored = store.getAllUsers();
-//        for (User user: stored) {
-//            if (user.getID().equals(id)) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-
 
     /**
-     *
      * @param userName the name the user want to find.
      * @return return true if the name does not exist and can be used, return false if the name exists.
      */
-    public boolean checkUserName (String userName) {
+    public boolean checkUserName(String userName) {
         //Check whether the username existed in StoreUser or not.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
@@ -121,7 +110,7 @@ public class UserManager implements UserInputBoundary {
         return true;
     }
 
-    public void createUser (String userName, String password) throws IOException {
+    public void createUser(String userName, String password) throws IOException {
         //Create a user
         UserList store = new UserList();
         User user = new User(userName, password);
@@ -130,24 +119,24 @@ public class UserManager implements UserInputBoundary {
     }
 
 
-    public boolean checkFriend (String username, String friendUsername){
+    public boolean checkFriend(String username, String friendUsername) {
         //Find friend for a given user with given friend's userName.
         User user = this.getUser(username);
         List<User> friends = user.getFriends();
-        for (User i: friends){
-            if (i.getUserName().equals(friendUsername)){
+        for (User i : friends) {
+            if (i.getUserName().equals(friendUsername)) {
                 return true;
             }
         }
         return false;
     }
 
-    public String findPassword (String userName){
+    public String findPassword(String userName) {
         //Return a password with given ID after searching in StoreUser.
         //Return null if such user does not exist.
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
-        for (User user: stored) {
+        for (User user : stored) {
             if (user.getUserName().equals(userName)) {
                 return user.getPassword();
             }
@@ -155,17 +144,17 @@ public class UserManager implements UserInputBoundary {
         return null;
     }
 
-    public void changeLogInStatus(String username){
+    public void changeLogInStatus(String username) {
         //Change LogIn status of the user with given username.
         User user = this.getUser(username);
         user.changeLoggedInStatus();
     }
 
-    public User getUser (String username){
+    public User getUser(String username) {
         //Return user with given ID
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
-        for (User user: stored) {
+        for (User user : stored) {
             if (user.getUserName().equals(username)) {
                 return user;
             }
@@ -173,7 +162,7 @@ public class UserManager implements UserInputBoundary {
         return new NullUser();
     }
 
-    public void addFriend (String userName, String friendUserName) throws IOException {
+    public void addFriend(String userName, String friendUserName) throws IOException {
         //Add friend to the list friends
         User user = this.getUser(userName);
         user.addFriend(this.getUser(friendUserName));
@@ -188,14 +177,14 @@ public class UserManager implements UserInputBoundary {
 
     }
 
-    public void editPassword(String new_password, String userName){
+    public void editPassword(String new_password, String userName) {
         //Edit password or username
         User user = this.getUser(userName);
         user.setPassword(new_password);
-      
+
     }
 
-    public void addBlockedUser (String id, String friendID) throws IOException {
+    public void addBlockedUser(String id, String friendID) throws IOException {
         //Add user to blocked list
         User user = this.getUser(id);
         User friend = this.getUser(friendID);
@@ -203,13 +192,13 @@ public class UserManager implements UserInputBoundary {
         this.writeData(this.gateway);
     }
 
-    public boolean isBlocked (String username, String friendUsername){
+    public boolean isBlocked(String username, String friendUsername) {
         User user = this.getUser(username);
         User friend = this.getUser(friendUsername);
         return friend.getBlockedUser().contains(user);
     }
 
-    public void removeFriend (String userName, String friendUserName){
+    public void removeFriend(String userName, String friendUserName) {
         //remove friend to the list friends
         User user = this.getUser(userName);
         user.removeFriend(this.getUser(friendUserName));
@@ -246,17 +235,17 @@ public class UserManager implements UserInputBoundary {
 
     @Override
     public void runAccountRegistration(String[] parameters, AccountRegistrationOutputBoundary outputBoundary) throws IOException {
-        if (this.checkUserName(parameters[0])){
+        if (this.checkUserName(parameters[0])) {
             this.createUser(parameters[0], parameters[1]);
             outputBoundary.setRegistrationStatus(true);
-        } else{
+        } else {
             outputBoundary.setRegistrationStatus(false);
         }
     }
 
     @Override
-    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException{
-        if(userInput[0].equals(userInput[1])){
+    public void runAddFriend(String[] userInput, AddFriendOutputBoundary outputBoundary) throws IOException {
+        if (userInput[0].equals(userInput[1])) {
             outputBoundary.setStatus("add themselves");
         } else if (this.checkFriend(userInput[0], userInput[1])) {
             outputBoundary.setStatus("existing friend");
@@ -282,7 +271,7 @@ public class UserManager implements UserInputBoundary {
 
     }
 
-    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary){
+    public void runEditPassword(String[] parameters, EditPasswordOutputBoundary outputBoundary) {
         editPassword(parameters[0], parameters[1]);
         outputBoundary.setEdited(true);
     }
@@ -296,7 +285,7 @@ public class UserManager implements UserInputBoundary {
     public void findLoggedInUser(LogOutOutputBoundary logOutOutputBoundary) {
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
-        for (User user: stored) {
+        for (User user : stored) {
             if (user.getLoggedIn()) {
                 String name = user.getUserName();
                 user.changeLoggedInStatus();

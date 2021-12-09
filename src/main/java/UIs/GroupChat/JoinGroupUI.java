@@ -18,15 +18,13 @@ public class JoinGroupUI extends ParentUI {
     /*
      * This method is responsible for users to join a group.
      */
-    public void run () throws IOException {
+    public void run() throws IOException {
         Constants constants = new Constants();
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
+        if (currentUser == null) {
             System.out.println("You need to log in first!");
-        }
-
-        else {
+        } else {
             JoinGroupController controller = new JoinGroupController();
             JoinGroupPresenter presenter = new JoinGroupPresenter();
 

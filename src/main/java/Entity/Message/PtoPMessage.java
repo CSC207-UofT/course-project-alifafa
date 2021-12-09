@@ -15,13 +15,13 @@ public class PtoPMessage extends Message implements Serializable {
 
     /**
      * Creates a message.
-     * @param sender the sender of this message.
-     * @param receiver the receiver of this message.
-     * @param content the content of this message.
      *
+     * @param sender   the sender of this message.
+     * @param receiver the receiver of this message.
+     * @param content  the content of this message.
      */
 
-    public PtoPMessage(User  sender, User  receiver, String content) {
+    public PtoPMessage(User sender, User receiver, String content) {
         super(sender, content);
         this.RECEIVER = receiver;
     }
@@ -33,8 +33,8 @@ public class PtoPMessage extends Message implements Serializable {
      * @return return the string of message
      */
     @Override
-    public String toString (){
-        return SENDER.getUserName() + " -> " + RECEIVER.getUserName() +": " + CONTENT + "   (" + TIME + ")";
+    public String toString() {
+        return SENDER.getUserName() + " -> " + RECEIVER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
     }
 
     /**

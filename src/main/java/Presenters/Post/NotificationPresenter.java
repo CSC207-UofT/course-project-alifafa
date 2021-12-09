@@ -1,6 +1,5 @@
 package Presenters.Post;
 
-import Entity.Post.Notifications;
 import OutputBoundary.Post.NotificationOutputBoundary;
 
 import java.util.List;

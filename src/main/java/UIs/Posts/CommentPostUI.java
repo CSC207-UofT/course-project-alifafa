@@ -5,15 +5,15 @@ import Controllers.PostsSharingController.PostCommentAndLike.CommentPostControll
 import Presenters.Post.CommentPostPresenter;
 import UIs.ParentUI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class CommentPostUI extends ParentUI {
-    /** User interface for the user to write comments to a post.
+    /**
+     * User interface for the user to write comments to a post.
      */
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         CommentPostController controller = new CommentPostController();
         CommentPostPresenter presenter = new CommentPostPresenter();
 

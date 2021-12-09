@@ -16,6 +16,6 @@ public class BlockedListPresenter implements BlockedListOutputBoundary {
 
     @Override
     public String presentOutput() {
-        return "You have added "+ this.friend + " into your blocked list!";
+        return "You have added " + this.friend + " into your blocked list!";
     }
 }

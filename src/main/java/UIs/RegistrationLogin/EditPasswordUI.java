@@ -5,22 +5,21 @@ import Controllers.UserControllers.RegistrationAndLogIn.EditPasswordController;
 import Presenters.User.EditPasswordPresenter;
 import UIs.ParentUI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class EditPasswordUI extends ParentUI {
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         EditPasswordController controller = new EditPasswordController();
         EditPasswordPresenter presenter = new EditPasswordPresenter();
         Constants constants = new Constants();
 
         String currentUser = constants.getCurrentUser();
 
-        if (currentUser==null){
+        if (currentUser == null) {
             System.out.println("You need to log in first!");
-        } else{
+        } else {
             String[] parameters = new String[2];
 
             parameters[1] = currentUser;

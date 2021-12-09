@@ -1,13 +1,14 @@
 package CommandDesignPattern;
 
 public class LogInCommand implements Command {
-    private Receiver receiver;
+    private final Receiver receiver;
 
-    public LogInCommand(Receiver receiver){
+    public LogInCommand(Receiver receiver) {
         this.receiver = receiver;
     }
-    public void execute(){
+
+    public void execute() {
         receiver.switchOn();
     }
-    
+
 }

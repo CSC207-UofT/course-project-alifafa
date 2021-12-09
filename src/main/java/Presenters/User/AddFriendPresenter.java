@@ -12,6 +12,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
 
     /**
      * setter method
+     *
      * @param friendName name of friend that the user want to add
      */
     @Override
@@ -22,6 +23,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
 
     /**
      * getter method for friendName
+     *
      * @return the name of friend
      */
     public String getFriendName() {
@@ -29,7 +31,17 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
     }
 
     /**
+     * Getter method for String.
+     *
+     * @return the status whether succefully added the friend.
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
      * setter method for status
+     *
      * @param status indicate whether successful added the friend
      */
     @Override
@@ -38,23 +50,15 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
     }
 
     /**
-     * Getter method for String.
-     * @return the status whether succefully added the friend.
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
      * setter for the output to be sent to user
      */
     public void setOutput() {
-        switch(status) {
+        switch (status) {
             case "existing friend":
                 output = "You already have this friend! How can you forget about it...";
                 break;
             case "success":
-                output = "You have added "+ this.friendName + " as your friend!";
+                output = "You have added " + this.friendName + " as your friend!";
                 break;
             case "add themselves":
                 output = "It does not make sense to add yourself as a friend...";
@@ -63,6 +67,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
 
     /**
      * Get the output of the presenter.
+     *
      * @return the output
      */
     public String getOutput() {
@@ -71,6 +76,7 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
 
     /**
      * Return the output
+     *
      * @return return output to UI
      */
     @Override

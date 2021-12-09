@@ -5,7 +5,7 @@ import DataAccessInterface.PtoPMessageDataAccessInterface;
 import java.io.*;
 import java.util.HashMap;
 
-public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
+public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface {
 
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {
@@ -21,7 +21,7 @@ public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
     public HashMap<String, String> readFromFile(String filepath) throws IOException, ClassNotFoundException {
         FileInputStream file = new FileInputStream(filepath);
         ObjectInputStream input = new ObjectInputStream(file);
-        HashMap<String, String> read = (HashMap<String, String>)input.readObject();
+        HashMap<String, String> read = (HashMap<String, String>) input.readObject();
         input.close();
         return read;
     }

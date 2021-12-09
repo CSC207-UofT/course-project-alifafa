@@ -57,7 +57,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     }
 
     @Override
-    public void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary){
+    public void receiveMessageHistory(User receiver, User sender, PtoPMessageOutputBoundary outputBoundary) {
 
         String receiverChatFile = receiver.getUserName() + "PtoPChatHistory.txt";
 
@@ -66,10 +66,10 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
             HashMap<String, String> receiverChatHistory
                     = ptoPMessageDataAccessInterface.readFromFile(receiverChatFile);
             //store the chat history between receiver and sender
-            if (receiverChatHistory.containsKey(sender.getUserName())){
-                String history= receiverChatHistory.get(sender.getUserName());
+            if (receiverChatHistory.containsKey(sender.getUserName())) {
+                String history = receiverChatHistory.get(sender.getUserName());
                 outputBoundary.store(history);
-            }else{
+            } else {
                 outputBoundary.store("");
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -86,7 +86,7 @@ public class PtoPMessageManager implements PtoPMessageInputBoundary {
     }
 
     @Override
-    public PtoPMessage createMessage(User sender, User receiver, String text){
+    public PtoPMessage createMessage(User sender, User receiver, String text) {
         return new PtoPMessage(sender, receiver, text);
     }
 

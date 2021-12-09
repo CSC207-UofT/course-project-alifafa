@@ -1,7 +1,5 @@
 package OutputBoundary.Post;
 
-import Entity.Post.Notifications;
-
 import java.util.List;
 
 public interface NotificationOutputBoundary {

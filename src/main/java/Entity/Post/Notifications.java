@@ -16,10 +16,11 @@ public class Notifications implements Serializable {
     private final LocalDateTime TIME;
     private final ParagraphPost POST;
     private boolean likeNotification;   // true if it's a notification that someone liked your post
-                                        // false if it's a notification that someone commented
+    // false if it's a notification that someone commented
 
     /**
      * Constructor of Notifications.
+     *
      * @param user Who liked or commented
      * @param time When the post is liked or commented
      * @param post Which is liked or commented

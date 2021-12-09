@@ -5,17 +5,15 @@ import Controllers.PostsSharingController.ViewAndNotification.UserAllPostControl
 import Presenters.Post.SharingCentrePresenter;
 import UIs.ParentUI;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class RetrieveUsersPostsUI extends ParentUI {
     /**
      * User Interface to retrieve a user's posts
-     *
      */
 
     @Override
-    public void run() throws IOException {
+    public void run() {
         UserAllPostController controller = new UserAllPostController();
         SharingCentrePresenter presenter = new SharingCentrePresenter();
 

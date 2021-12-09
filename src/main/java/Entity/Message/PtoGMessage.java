@@ -16,12 +16,12 @@ public class PtoGMessage extends Message implements Serializable {
 
     /**
      * Creates a message.
-     * @param sender the sender of this message.
-     * @param group the group that receives the message.
-     * @param content the content of this message.
      *
+     * @param sender  the sender of this message.
+     * @param group   the group that receives the message.
+     * @param content the content of this message.
      */
-    public PtoGMessage(User  sender, Group group, String content){
+    public PtoGMessage(User sender, Group group, String content) {
         super(sender, content);
         this.GROUP = group;
     }
@@ -42,7 +42,7 @@ public class PtoGMessage extends Message implements Serializable {
      *
      * @return the content of this message.
      */
-    public String getContent(){
+    public String getContent() {
         return super.getContent();
     }
 
@@ -52,7 +52,7 @@ public class PtoGMessage extends Message implements Serializable {
      *
      * @return the sender of this message.
      */
-    public User getSender(){
+    public User getSender() {
         return super.getSender();
     }
 
@@ -62,12 +62,12 @@ public class PtoGMessage extends Message implements Serializable {
      *
      * @return the group that receives this message.
      */
-    public Group getGroup(){
+    public Group getGroup() {
         return GROUP;
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
     }
 }

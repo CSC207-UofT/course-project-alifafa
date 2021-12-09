@@ -17,7 +17,7 @@ public class LoginUI extends ParentUI {
      * This method is responsible for log in task. It will use LogInController and the user's input.
      * @param userInput This is the user's input we get from the keyboard.
      */
-    public void run () {
+    public void run() {
         Constants constants = new Constants();
         LogInController controller = new LogInController();
         LogInPresenter presenter = new LogInPresenter();
@@ -30,7 +30,7 @@ public class LoginUI extends ParentUI {
         parameters[1] = scanner.nextLine();
 
         controller.runLogIn(parameters, presenter);
-        if (presenter.isLoggedIn()){
+        if (presenter.isLoggedIn()) {
             constants.setCurrentUser(parameters[0]);
         }
         System.out.println(presenter.presentOutput());

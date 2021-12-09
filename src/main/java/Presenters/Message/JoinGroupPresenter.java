@@ -19,7 +19,7 @@ public class JoinGroupPresenter implements JoinGroupOutputBoundary {
     }
 
     public void setOutput() {
-        switch(status) {
+        switch (status) {
             case "already in group":
                 output = "You have already joined in this group.";
                 break;

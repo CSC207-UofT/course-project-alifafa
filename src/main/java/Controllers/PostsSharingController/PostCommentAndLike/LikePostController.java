@@ -11,6 +11,7 @@ public class LikePostController {
 
     /**
      * Asks the use case to perform a user likes a post
+     *
      * @param userid The id of user who likes the post
      * @param postID The post to be liked
      */
