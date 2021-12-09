@@ -19,18 +19,18 @@ Possible implementation
 We can arrange information consistent with its importance, for example listing “log in” and “create an account” at the beginning of the user interface.
 We can also eliminate unnecessary complexity by reorganizing our main prompts which now contain all the features by dividing it into separate interfaces. 
 
-Perceptible information
+## Perceptible information
 Our app uses simple languages and commands that are clear and succinct to the users. We have not used any complicated designs in our command line interface.
 However, we could improve our app in the future(if possible) by having different modes to present essential information. For example, having pictorial or verbal presentation of information. Separating the most important messages from other information. 
 
-Tolerance for Error
+## Tolerance for Error
 Our program provide fail safe features and provide warnings
 Add friend: prevent the user from adding themselves or adding an existing friend, also provide error message
 Chat or group chat: prevent the user from chatting if the user is not in the group yet, also provide error message
 Minimize errors: the program save all the user information even if the user accidentally stop the program
 Future implementation: discourage unconscious actions by preventing the user to use the app when the user is driving or walking
 
-Low physical effort
+## Low physical effort
 Our app uses the simplest UI and commands meaning that users will not need to have specialized technology or be in a specific location or position. 
 Future implementation: minimize the repetitive prompts that ask the user to stay or exit to reduce user’s physical effort
 
