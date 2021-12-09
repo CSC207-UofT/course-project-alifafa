@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class CommandHelper {
 
     /**
-     * This reads from the keyborad.
+     * This reads from the keyboard.
      * Then decides which controller to user.
      * For example, the user needs to type "chat" to begin chatting task. In this case, the MessageFriend
      * Controller will be used.
@@ -19,7 +19,6 @@ public class CommandHelper {
      */
     public String readCommand(Constants validCommands) {
         String command = null;
-        Constants constants = new Constants();
 
         while (!validCommands.isValid(command)) {
 

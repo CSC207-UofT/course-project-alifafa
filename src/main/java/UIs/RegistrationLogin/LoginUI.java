@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class LoginUI extends ParentUI {
 
     /**
-     * A user interface for logging in, will receive feedback from LogInPresenter..
+     * A user interface for logging in, will receive feedback from LogInPresenter.
      */
 
     /*

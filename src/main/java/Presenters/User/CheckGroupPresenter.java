@@ -19,7 +19,7 @@ public class CheckGroupPresenter implements CheckGroupOutputBoundary {
     }
 
     /**
-     * presenst the output after checking
+     * present the output after checking
      *
      * @return whether the user is in the group
      */

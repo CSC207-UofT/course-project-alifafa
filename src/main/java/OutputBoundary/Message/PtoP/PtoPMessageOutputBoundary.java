@@ -3,14 +3,14 @@ package OutputBoundary.Message.PtoP;
 public interface PtoPMessageOutputBoundary {
 
     /**
-     * Store the ptop message history to presenter's attribute.
+     * Store the P-to-p message history to presenter's attribute.
      *
-     * @param s the ptop message history.
+     * @param s the P-to-p message history.
      */
     void store(String s);
 
     /**
-     * Present the  ptop message.
+     * Present the P-to-P message.
      */
     void present();
 
