@@ -56,6 +56,20 @@ public class User implements Serializable {
         iD = iD + 1;
     }
 
+
+
+    public User(){
+        this.iD = -1;
+        this.userID = "-1";
+        this.userName = "Guest user";
+        this.password = "";
+        this.friends = new ArrayList<>();
+        this.myPosts = new ArrayList<>();
+        this.blockedUser = new ArrayList<>();
+        this.loggedIn = false;
+        this.sharingCentre = new SharingCentre();
+    }
+
     public String getID (){
         return userID;
     }
