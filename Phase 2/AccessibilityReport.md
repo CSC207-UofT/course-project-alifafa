@@ -1,17 +1,17 @@
 # AccessibilityReport
 
-Equitable use
-We provide the same means of use for all users as we did not differentiate between users based on their activity, background.
-We protect the privacy and security for the data (password, username, friendlist, grouplist) for all users.
-Future implementation: we can develop different motifs for user interface to make it appealing to all users. 
+## Equitable use
+### We provide the same means of use for all users as we did not differentiate between users based on their activity, background.
+### We protect the privacy and security for the data (password, username, friendlist, grouplist) for all users.
+### Future implementation: we can develop different motifs for user interface to make it appealing to all users. 
 
-Flexibility in use
-We accommodated individual preferences and abilities.
-Accommodate right- and left- handed access and use because we accept the input from keyboard
-We provided adaptability to the user's pace because our command does not execute until the user tells it to do so.
-We provided different choices for passwords as we accepted numbers, letters, special characters or any combinations.
+## Flexibility in use
+### We accommodated individual preferences and abilities.
+### Accommodate right- and left- handed access and use because we accept the input from keyboard
+### We provided adaptability to the user's pace because our command does not execute until the user tells it to do so.
+### We provided different choices for passwords as we accepted numbers, letters, special characters or any combinations.
 
-SImple and Intuitive Use
+## SImple and Intuitive Use
 What adheres to the principle
 Our design provide effective prompting such as “log in”, “create an account”
 Our design accommodates a wide range of literacy because most of the prompts are easy to understand
