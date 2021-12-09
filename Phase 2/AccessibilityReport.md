@@ -1,3 +1,5 @@
+# AccessibilityReport
+
 Equitable use
 We provide the same means of use for all users as we did not differentiate between users based on their activity, background.
 We protect the privacy and security for the data (password, username, friendlist, grouplist) for all users.
