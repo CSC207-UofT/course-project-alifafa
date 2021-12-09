@@ -48,7 +48,7 @@ public class AccountRegistrationUITest {
 
     @Test
     public void run() throws IOException {
-        String[] input = {"A", "A", "A"};
+        String[] input = {"Lisa", "A", "A"};
         controller.createAnAccount(input, presenter);
         System.out.print(presenter.presentOutput());
         assertEquals("Your account is successfully created!", outContent.toString());

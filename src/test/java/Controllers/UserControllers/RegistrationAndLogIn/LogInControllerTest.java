@@ -27,20 +27,20 @@ public class LogInControllerTest {
 
     @Test
     public void runLogIn() {
-        User user = new User("A", "123");
+        User user = new User("Aww", "123");
         UserList list = new UserList();
         list.addUser(user);
-        String[] input = {"A", "123"};
+        String[] input = {"Aww", "123"};
         controller.runLogIn(input, presenter);
         assert user.getLoggedIn();
     }
 
     @Test
     public void runLogInFail(){
-        User user = new User("A", "123");
+        User user = new User("Aww", "123");
         UserList list = new UserList();
         list.addUser(user);
-        String[] input = {"A", "12"};
+        String[] input = {"Aww", "12"};
         controller.runLogIn(input, presenter);
         assertFalse(user.getLoggedIn());
     }
