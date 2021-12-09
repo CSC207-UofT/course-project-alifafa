@@ -1,7 +1,7 @@
 package Entity.Chat.PtoG;
 
-import Entity.GroupChat.Group;
-import Entity.GroupChat.PtoGMessage;
+import Entity.Message.Group;
+import Entity.Message.PtoGMessage;
 import Entity.Users.User;
 import org.junit.Assert;
 import org.junit.Before;

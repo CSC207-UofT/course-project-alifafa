@@ -18,17 +18,17 @@ public class ParagraphPost implements Serializable {
     private final List<String[]> comments;
     private final List<User> usersWhoLiked;
     private final String userName;
-    private String content;
     private final String LOCATION;
-    private int likes;
     private final String postID;
     private final List<String> pictures;
-
+    private String content;
+    private int likes;
     /**
      * Creates a post.
+     *
      * @param POSTTIME When the post is posted
      * @param LOCATION The location
-     * @param content The user's post description
+     * @param content  The user's post description
      */
     public ParagraphPost(String userName, LocalDateTime POSTTIME, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
@@ -41,7 +41,7 @@ public class ParagraphPost implements Serializable {
         likes = 0;
         this.pictures = new ArrayList<>();
     }
-    // constructor of ParagraphPost
+
     public ParagraphPost(String userName, LocalDateTime POSTTIME, String LOCATION, String content, List<String> pictures) {
         this.POSTTIME = POSTTIME;
         this.LOCATION = LOCATION;
@@ -53,43 +53,47 @@ public class ParagraphPost implements Serializable {
         likes = 0;
         this.pictures = pictures;
     }
-    // set likes of the post
-    public  void setLikes(int likes) {
-        this.likes = likes;
+
+    public List<String> getPictures() {
+        return pictures;
     }
-    // set contents of the post
-    public void setContent(String content) {
-        this.content = content;
-    }
-    // set time of the post
+
     public LocalDateTime getPOSTTIME() {
         return POSTTIME;
     }
-    // get the location of the post
+
     public String getLOCATION() {
         return LOCATION;
     }
-    // a getter for likes
-    public  int getLikes() {
+
+    public int getLikes() {
         return likes;
     }
-    // a getter for comments
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
     public List<String[]> getComments() {
         return comments;
     }
-    // a getter for post content
+
     public String getContent() {
         return content;
     }
-    // a getter for post id
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getPostID() {
         return postID;
     }
-    // a getter for who liked post
+
     public List<User> getUsersWhoLiked() {
         return usersWhoLiked;
     }
-    // a getter for username
+
     public String getUserName() {
         return userName;
     }
@@ -103,14 +107,14 @@ public class ParagraphPost implements Serializable {
         } else {
             picture = "\nPictures: " + pictures;
         }
-        for (User user: usersWhoLiked) {
+        for (User user : usersWhoLiked) {
             userLiked.append(user.getUserName()).append("\t");
         }
         for (String[] comment : comments) {
             allComments.append("\t").append(comment[0]).append(": ").append(comment[1]).append("\n");
         }
         return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + picture + "\n" +
-                "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" + "Time posted: " + POSTTIME + "\n" +
+                "Location: " + LOCATION + "\t\t" + "Likes:" + likes + "\n" + "Time posted: " + POSTTIME + "\n" +
                 "WhoLiked: " + userLiked + "\n" + "Comments: " + allComments;
     }
 }

@@ -1,4 +1,4 @@
-package Entity.GroupChat;
+package Entity.Message;
 
 import java.io.Serializable;
 import java.util.ArrayList;

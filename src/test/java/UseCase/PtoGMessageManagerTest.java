@@ -1,7 +1,7 @@
 package UseCase;
 
-import Entity.GroupChat.Group;
-import Entity.GroupChat.PtoGMessage;
+import Entity.Message.Group;
+import Entity.Message.PtoGMessage;
 import Entity.Users.User;
 import Presenters.Message.PtoGMessageHistoryPresenter;
 import org.junit.jupiter.api.Test;
