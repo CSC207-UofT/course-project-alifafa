@@ -29,7 +29,7 @@ We decided to develop two major functions of our application, which are chatting
 
 ## Design Patterns
 1. Dependency Injection:
-   We use dependency injection design pattern in our Entity classes. For example, in the class UserList, we avoided the “hard dependency” from User to UserList. Instead of creating the new users in the a method of UserList, we create it outside and pass each users into UserList using the method addUser and addUsers. This way we can test the two classes independently.
+- We use dependency injection design pattern in our Entity classes. For example, in the class UserList, we avoided the “hard dependency” from User to UserList. Instead of creating the new users in the a method of UserList, we create it outside and pass each users into UserList using the method addUser and addUsers. This way we can test the two classes independently.
 
 
 2. Factory Method
