@@ -7,6 +7,7 @@ import java.util.List;
 
 import DataAccessInterface.DataAccess;
 import Entity.Post.ParagraphPost;
+import Entity.Users.NullUser;
 import Entity.Users.User;
 import Gateway.DataAccessGateway;
 import InputBoundary.UserInputBoundary;
@@ -169,7 +170,7 @@ public class UserManager implements UserInputBoundary {
                 return user;
             }
         }
-        return null;
+        return new NullUser();
     }
 
     public void addFriend (String userName, String friendUserName) throws IOException {
