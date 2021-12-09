@@ -2,23 +2,52 @@ package Presenters.User;
 
 import OutputBoundary.AddFriendOutputBoundary;
 
+/**
+ * This class return the result of adding friend.
+ */
 public class AddFriendPresenter implements AddFriendOutputBoundary {
     private String friendName;
     private String output;
     private String status;
 
-
+    /**
+     * setter method
+     * @param friendName name of friend that the user want to add
+     */
     @Override
     public void setAddFriendName(String friendName) {
         this.friendName = friendName;
         status = "success";
     }
 
+    /**
+     * getter method for friendName
+     * @return the name of friend
+     */
+    public String getFriendName() {
+        return friendName;
+    }
+
+    /**
+     * setter method for status
+     * @param status indicate whether successful added the friend
+     */
     @Override
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * Getter method for String.
+     * @return the status whether succefully added the friend.
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * setter for the output to be sent to user
+     */
     public void setOutput() {
         switch(status) {
             case "existing friend":
@@ -32,6 +61,18 @@ public class AddFriendPresenter implements AddFriendOutputBoundary {
         }
     }
 
+    /**
+     * Get the output of the presenter.
+     * @return the output
+     */
+    public String getOutput() {
+        return output;
+    }
+
+    /**
+     * Return the output
+     * @return return output to UI
+     */
     @Override
     public String presentOutput() {
         setOutput();
