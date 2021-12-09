@@ -5,7 +5,7 @@ import DataAccessInterface.PtoPMessageDataAccessInterface;
 import java.io.*;
 import java.util.HashMap;
 
-// a Gateway for PTOP message, docstrings of methods below are in its corresponding interface
+// a Gateway for P-TO-P message, docstrings of methods below are in its corresponding interface
 public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
 
     @Override

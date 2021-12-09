@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class PtoPMessageControllerFacade {
     /**
-     * This class's is a Facade for ptop message, which contains methods in PtoPSendMessageController and
+     * This class's is a Facade for p-to-p message, which contains methods in PtoPSendMessageController and
      * PtoPReceiveMessageController.
      */
 

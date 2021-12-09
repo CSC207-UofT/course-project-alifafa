@@ -19,7 +19,7 @@ public class AccountRegistrationController {
 
     /**
      * @param parameters The input from the user, which is an array that contains userName and input passwords.
-     * @param presenter  An AccountRegistration Presenter that will store the output from the usecase
+     * @param presenter  An AccountRegistration Presenter that will store the output from the use case
      * @throws IOException The exception
      */
     public void createAnAccount(String[] parameters, AccountRegistrationPresenter presenter) throws IOException {

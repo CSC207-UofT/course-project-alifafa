@@ -29,7 +29,7 @@ public interface SharingCentreInputBoundary {
     /**
      * @param userid         the userid of comment
      * @param postID         the postId of comment
-     * @param content        the cotent of comment
+     * @param content        the content of comment
      * @param outputBoundary the outputBoundary of post
      * @throws IOException exception
      */
@@ -37,7 +37,7 @@ public interface SharingCentreInputBoundary {
 
     /**
      * @param userid the userid
-     * @param postID the postid
+     * @param postID the post id
      * @throws IOException exception
      */
     void likeAPost(String userid, String postID) throws IOException;

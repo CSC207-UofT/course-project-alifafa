@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class PtoPChatUI extends ParentUI {
 
     /**
-     * A user interface for sending and receiving ptop message.
+     * A user interface for sending and receiving p-to-p message.
      */
 
     // Use this method to realize person to person chat function.

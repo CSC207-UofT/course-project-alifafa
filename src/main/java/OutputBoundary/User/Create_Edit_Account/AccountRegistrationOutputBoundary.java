@@ -7,7 +7,7 @@ public interface AccountRegistrationOutputBoundary {
     void setRegistrationStatus(boolean success);
 
     /**
-     * @return registratio
+     * @return registration
      */
     String presentOutput();
 }

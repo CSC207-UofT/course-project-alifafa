@@ -18,9 +18,9 @@ public class CommandHelper {
      * @return return the corresponding Controller. Will return null if such controller does not exist.
      */
     public String readCommand(Constants validCommands) {
-        String command = null;
+        String command = "";
 
-        while (!validCommands.isValid(command)) {
+        while (!validCommands.isValid(command) && !(command.equals("log in"))) {
 
             System.out.println("Hello! Please type a valid command to begin (eg. type 'log in', " +
                     "'create an account', 'add friend', 'remove friend', " +
