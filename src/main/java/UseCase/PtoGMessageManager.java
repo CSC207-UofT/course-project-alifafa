@@ -1,8 +1,8 @@
 package UseCase;
 
 import DataAccessInterface.PtoGMessageDataAccessInterface;
-import Entity.GroupChat.Group;
-import Entity.GroupChat.PtoGMessage;
+import Entity.Message.Group;
+import Entity.Message.PtoGMessage;
 import Entity.Users.User;
 import Gateway.PtoGMessageDataAccess;
 import InputBoundary.PtoGMessageInputBoundary;

@@ -3,7 +3,7 @@ package UIs.GroupChat;
 import CommandControl.Constants;
 import Controllers.ChatControllers.PtoG.PtoGMessageControllerFacade;
 import Controllers.GroupChatControllers.CheckGroupController;
-import Entity.GroupChat.Group;
+import Entity.Message.Group;
 import Presenters.User.CheckGroupPresenter;
 import Presenters.Message.PtoGMessageHistoryPresenter;
 import UIs.ParentUI;
