@@ -32,15 +32,23 @@ public void after() {
 
 /** 
 * 
-* Method: getPictures() 
+* Method: getPost()
 * 
 */ 
 @Test
 public void testGetPictures() {
     String url = "https://";
     urls.add(url);
-    Assert.assertEquals(1, post.getPictures().size());
-} 
 
+    Assert.assertEquals(1, post.getPost().getPictures().size());
+}
 
+/**
+ * Method toString
+ */
+@Test
+public void testToString() {
+    String text = post.toString();
+    Assert.assertTrue(text.contains("Hello"));
+}
 } 

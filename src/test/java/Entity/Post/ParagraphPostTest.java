@@ -50,7 +50,7 @@ public class ParagraphPostTest {
     */
     @Test
     public void testGetPOSTTIME() {
-        Assert.assertEquals(LocalDateTime.now(), post.getPOSTTIME());
+        Assert.assertEquals(LocalDateTime.now().toLocalDate(), post.getPOSTTIME().toLocalDate());
     }
 
     /**
@@ -107,5 +107,23 @@ public class ParagraphPostTest {
         Assert.assertEquals(0, post.getUsersWhoLiked().size());
     }
 
+    /**
+     *
+     * Method: getPictures()
+     *
+     */
+    @Test
+    public void testGetPictures() {
+        Assert.assertEquals(0, post.getPictures().size());
+    }
 
-} 
+    /**
+     *
+     * Method: toString()
+     *
+     */
+    @Test
+    public void testToString() {
+        Assert.assertTrue(post.toString().contains(post.getUserName()));
+    }
+}

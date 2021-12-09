@@ -18,17 +18,17 @@ public class ParagraphPost implements Serializable {
     private final List<String[]> comments;
     private final List<User> usersWhoLiked;
     private final String userName;
-    private String content;
     private final String LOCATION;
-    private int likes;
     private final String postID;
     private final List<String> pictures;
-
+    private String content;
+    private int likes;
     /**
      * Creates a post.
+     *
      * @param POSTTIME When the post is posted
      * @param LOCATION The location
-     * @param content The user's post description
+     * @param content  The user's post description
      */
     public ParagraphPost(String userName, LocalDateTime POSTTIME, String LOCATION, String content) {
         this.POSTTIME = POSTTIME;
@@ -54,12 +54,8 @@ public class ParagraphPost implements Serializable {
         this.pictures = pictures;
     }
 
-    public  void setLikes(int likes) {
-        this.likes = likes;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public List<String> getPictures() {
+        return pictures;
     }
 
     public LocalDateTime getPOSTTIME() {
@@ -70,8 +66,12 @@ public class ParagraphPost implements Serializable {
         return LOCATION;
     }
 
-    public  int getLikes() {
+    public int getLikes() {
         return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public List<String[]> getComments() {
@@ -80,6 +80,10 @@ public class ParagraphPost implements Serializable {
 
     public String getContent() {
         return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getPostID() {
@@ -103,14 +107,14 @@ public class ParagraphPost implements Serializable {
         } else {
             picture = "\nPictures: " + pictures;
         }
-        for (User user: usersWhoLiked) {
+        for (User user : usersWhoLiked) {
             userLiked.append(user.getUserName()).append("\t");
         }
         for (String[] comment : comments) {
             allComments.append("\t").append(comment[0]).append(": ").append(comment[1]).append("\n");
         }
         return userName + "\t\t" + "PostID: " + postID + "\n" + "Content: " + content + picture + "\n" +
-                "Location: " + LOCATION + "\t\t" + "Likes:"+ likes + "\n" + "Time posted: " + POSTTIME + "\n" +
+                "Location: " + LOCATION + "\t\t" + "Likes:" + likes + "\n" + "Time posted: " + POSTTIME + "\n" +
                 "WhoLiked: " + userLiked + "\n" + "Comments: " + allComments;
     }
 }
