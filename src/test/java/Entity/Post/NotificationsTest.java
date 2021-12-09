@@ -47,7 +47,7 @@ public void testGetUSER() {
 */ 
 @Test
 public void testGetTIME() {
-    Assert.assertEquals(LocalDateTime.now(), notification.getTIME());
+    Assert.assertEquals(LocalDateTime.now().toLocalDate(), notification.getTIME().toLocalDate());
 } 
 
 /** 
