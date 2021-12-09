@@ -76,7 +76,7 @@ public class UserManager implements UserInputBoundary {
         //Write data to file
         UserList store = new UserList();
         ArrayList<User> lst = store.getAllUsers();
-        HashMap<String, T> save = new HashMap<String, T>();
+        HashMap<String, T> save = new HashMap<>();
         save.put("storage", (T) lst);
         for (User u : lst) {
             save.put(u.getUserName() + "f", (T) u.getFriends());
@@ -92,6 +92,18 @@ public class UserManager implements UserInputBoundary {
 
         dataAccess.saveToFile("User_State.csv", save);
     }
+
+//    public boolean checkID (String id){
+//        //Check whether the id existed in StoreUser or not
+//        UserList store = new UserList();
+//        ArrayList<User> stored = store.getAllUsers();
+//        for (User user: stored) {
+//            if (user.getID().equals(id)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 
     /**
@@ -150,8 +162,8 @@ public class UserManager implements UserInputBoundary {
         user.changeLoggedInStatus();
     }
 
-    public User getUser(String username) {
-        //Return user with given ID
+    public User getUser (String username) {
+        //Return user with given username
         UserList store = new UserList();
         ArrayList<User> stored = store.getAllUsers();
         for (User user : stored) {
@@ -184,10 +196,10 @@ public class UserManager implements UserInputBoundary {
 
     }
 
-    public void addBlockedUser(String id, String friendID) throws IOException {
+    public void addBlockedUser (String userName, String friendName) throws IOException {
         //Add user to blocked list
-        User user = this.getUser(id);
-        User friend = this.getUser(friendID);
+        User user = this.getUser(userName);
+        User friend = this.getUser(friendName);
         user.addBlockedUser(friend);
         this.writeData(this.gateway);
     }

@@ -4,7 +4,7 @@ import DataAccessInterface.PtoGMessageDataAccessInterface;
 
 import java.io.*;
 import java.util.HashMap;
-
+// a Gateway for PTOG message, docstrings of methods below are in its corresponding interface
 public class PtoGMessageDataAccess implements PtoGMessageDataAccessInterface {
 
     @Override

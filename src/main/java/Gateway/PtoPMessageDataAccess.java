@@ -5,7 +5,8 @@ import DataAccessInterface.PtoPMessageDataAccessInterface;
 import java.io.*;
 import java.util.HashMap;
 
-public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface {
+// a Gateway for PTOP message, docstrings of methods below are in its corresponding interface
+public class PtoPMessageDataAccess implements PtoPMessageDataAccessInterface{
 
     @Override
     public void saveToFile(String filepath, Object o) throws IOException {

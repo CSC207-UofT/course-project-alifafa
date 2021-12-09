@@ -2,7 +2,7 @@ package Entity.Users;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+// a use list stores all users
 public class UserList implements Serializable {
     private static final ArrayList<User> allUsers = new ArrayList<>();
 

@@ -30,8 +30,8 @@ public class Message {
         this.TIME = LocalDateTime.now();
     }
 
-    public String toString() {
-        return SENDER.getUserName() + ": " + CONTENT + "   (" + TIME + ")";
+    public String toString (){
+        return CONTENT;
     }
 
     /**

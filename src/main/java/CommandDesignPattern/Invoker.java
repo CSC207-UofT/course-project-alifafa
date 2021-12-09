@@ -1,5 +1,6 @@
 package CommandDesignPattern;
 
+// An invoker fo command
 public class Invoker {
     private final Command command;
 

@@ -1,5 +1,7 @@
 package CommandDesignPattern;
 
+
+// LogInCommand that helps to log in
 public class LogInCommand implements Command {
     private final Receiver receiver;
 

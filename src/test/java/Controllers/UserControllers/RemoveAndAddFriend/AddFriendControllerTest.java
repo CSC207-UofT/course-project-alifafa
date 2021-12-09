@@ -25,7 +25,7 @@ public class AddFriendControllerTest {
     public void setUp() throws Exception {
         controller = new AddFriendController();
         presenter = new AddFriendPresenter();
-        user = new User("A", "123");
+        user = new User("Aaa", "123");
         list = new UserList();
         list.addUser(user);
     }
@@ -36,13 +36,13 @@ public class AddFriendControllerTest {
 
     @Test
     public void addFriend() throws IOException {
-        User friend = new User("friend", "000");
+        User friend = new User("Gracee", "000");
         list.addUser(friend);
-        String[] input = {"A", "friend"};
-        assert user.getFriends().size() == 0;
+        String[] input = {"Aaa", "Gracee"};
+        assertFalse(user.getFriends().contains(friend));
 
         controller.addFriend(input, presenter);
-        assert user.getFriends().size() == 1;
+        assert user.getFriends().contains(friend);
 
     }
 }

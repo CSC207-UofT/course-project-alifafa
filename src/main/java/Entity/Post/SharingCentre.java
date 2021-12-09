@@ -23,18 +23,19 @@ public class SharingCentre implements Serializable {
         this.newPostNotification = false;
     }
 
+    // a getter for all posts
     public List<ParagraphPost> getAllPosts() {
         return allPosts;
     }
-
+    // a getter for NotificationList
     public List<Notifications> getNotificationList() {
         return notificationList;
     }
-
+    // a getter for isNewPostNotification
     public boolean isNewPostNotification() {
         return newPostNotification;
     }
-
+    // a setter for NewPostNotification
     public void setNewPostNotification(boolean newPostNotification) {
         this.newPostNotification = newPostNotification;
     }
