@@ -1,4 +1,4 @@
-## a summary of what each group member has been working on and plans to work on next
+## A summary of what each group member has been working on and plans to work on next
 
 **Grace**: During phase 2, I extended and implemented the add friend, remove friend, log in, create an account feature, check friend features such that they can catch the potential errors from the user and have fail-safe measures. I also refactored the existing codes by using the dependency injection pattern and command design pattern. I also refactored the previous user controllers and presenters to follow clean architectures. In addition, Lastly, I added testings for all user controllers and presenters, and removed the code smell such as the long method.
 Pull requests:
