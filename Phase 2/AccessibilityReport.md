@@ -13,11 +13,11 @@
 
 ## Simple and Intuitive Use
 * What adheres to the principle
-- Our design provide effective prompting such as “log in”, “create an account”
-- Our design accommodates a wide range of literacy because most of the prompts are easy to understand
+1) Our design provide effective prompting such as “log in”, “create an account”
+2) Our design accommodates a wide range of literacy because most of the prompts are easy to understand
 * Possible implementation
-** We can arrange information consistent with its importance, for example listing “log in” and “create an account” at the beginning of the user interface.
-** We can also eliminate unnecessary complexity by reorganizing our main prompts which now contain all the features by dividing it into separate interfaces. 
+1) We can arrange information consistent with its importance, for example listing “log in” and “create an account” at the beginning of the user interface.
+2) We can also eliminate unnecessary complexity by reorganizing our main prompts which now contain all the features by dividing it into separate interfaces. 
 
 ## Perceptible information
 * Our app uses simple languages and commands that are clear and succinct to the users. We have not used any complicated designs in our command line interface.
@@ -25,8 +25,8 @@
 
 ## Tolerance for Error
 * Our program provide fail safe features and provide warnings
-** Add friend: prevent the user from adding themselves or adding an existing friend, also provide error message
-** Chat or group chat: prevent the user from chatting if the user is not in the group yet, also provide error message
+1) Add friend: prevent the user from adding themselves or adding an existing friend, also provide error message
+2) Chat or group chat: prevent the user from chatting if the user is not in the group yet, also provide error message
 * Minimize errors: the program save all the user information even if the user accidentally stop the program
 * Future implementation: discourage unconscious actions by preventing the user to use the app when the user is driving or walking
 
