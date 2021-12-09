@@ -13,8 +13,8 @@
 
 ## Simple and Intuitive Use
 * What adheres to the principle
-** Our design provide effective prompting such as “log in”, “create an account”
-** Our design accommodates a wide range of literacy because most of the prompts are easy to understand
+- Our design provide effective prompting such as “log in”, “create an account”
+- Our design accommodates a wide range of literacy because most of the prompts are easy to understand
 * Possible implementation
 ** We can arrange information consistent with its importance, for example listing “log in” and “create an account” at the beginning of the user interface.
 ** We can also eliminate unnecessary complexity by reorganizing our main prompts which now contain all the features by dividing it into separate interfaces. 
